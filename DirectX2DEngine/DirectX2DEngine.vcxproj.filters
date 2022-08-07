@@ -13,36 +13,48 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\WindowEngine">
+      <UniqueIdentifier>{7f0e1b0d-c772-46c1-a104-c4ae1d7b135e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\WindowEngine">
+      <UniqueIdentifier>{b1531915-367b-4364-8641-b91e2c5239e1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\DebugEngine">
+      <UniqueIdentifier>{e2e8781d-f0f9-4395-957b-54fdd5316223}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Fichiers sources</Filter>
+    <ClCompile Include="Keyboard.cpp">
+      <Filter>Fichiers sources\WindowEngine</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\WindowEngine</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\WindowEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Window.cpp">
+      <Filter>Fichiers sources\WindowEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Window.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+    <ClInclude Include="Keyboard.h">
+      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>Fichiers d%27en-tête</Filter>
-    </ClInclude>
-    <ClInclude Include="Keyboard.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Window.h">
+      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="EngineException.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
