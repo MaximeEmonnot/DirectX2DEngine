@@ -3,6 +3,11 @@
 #include <string>
 #include <Windows.h>
 
+#include "Mouse.h"
+#include "Keyboard.h"
+
+#define WND Window::GetInstance()
+
 class Window
 {
 public:
