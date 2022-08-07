@@ -22,6 +22,18 @@
     <Filter Include="Fichiers d%27en-tête\DebugEngine">
       <UniqueIdentifier>{e2e8781d-f0f9-4395-957b-54fdd5316223}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GraphicsEngine">
+      <UniqueIdentifier>{bbfdd133-0f05-4596-a8fe-66e379f6afd9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GraphicsEngine">
+      <UniqueIdentifier>{d164228e-2f5d-4475-a9db-1a5bbb9f71dd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\MainEngine">
+      <UniqueIdentifier>{01878d1c-1cf2-4961-83b8-32aeb8dd4452}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\MainEngine">
+      <UniqueIdentifier>{0855e440-ff79-4247-8e8c-596067bf09e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -39,6 +51,18 @@
     <ClCompile Include="Window.cpp">
       <Filter>Fichiers sources\WindowEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Graphics.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseShader.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseModel.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -55,6 +79,21 @@
     </ClInclude>
     <ClInclude Include="EngineException.h">
       <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Graphics.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseShader.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectX.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseModel.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

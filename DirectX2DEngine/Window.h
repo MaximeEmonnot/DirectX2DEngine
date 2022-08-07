@@ -10,6 +10,8 @@
 
 class Window
 {
+private:
+	friend class Graphics;
 public:
 	Window() noexcept;
 	~Window();
