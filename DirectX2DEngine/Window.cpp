@@ -70,6 +70,8 @@ Window& Window::GetInstance()
 bool Window::ProcessMessages()
 {
 	MSG msg;
+	MOUSE.PopLastEvent();
+	KBD.PopLastEvents();
 	ZeroMemory(&msg, sizeof(MSG));
 	while(PeekMessage(&msg, nullptr, 0, 0, PM_REMOVE))
 	{
@@ -78,6 +80,21 @@ bool Window::ProcessMessages()
 		if (msg.message == WM_QUIT) return false;
 	}
 	return true;
+}
+
+int Window::GetWidth() const
+{
+	return width;
+}
+
+int Window::GetHeight() const
+{
+	return height;
+}
+
+float Window::GetRatio() const
+{
+	return static_cast<float>(width) / static_cast<float>(height);
 }
 
 LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
@@ -100,18 +117,18 @@ LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	case WM_KEYDOWN: 
 	{
 		KBD.OnKeyPressed(static_cast<unsigned char>(wParam));
-		break;
 	}
+		break;
 	case WM_KEYUP:
 	{
 		KBD.OnKeyReleased(static_cast<unsigned char>(wParam));
-		break;
 	}
+		break;
 	case WM_CHAR:
 	{
 		KBD.OnChar(static_cast<char>(wParam));
-		break;
 	}
+		break;
 		//*** END KEYBOARD EVENTS ***//
 
 
@@ -121,44 +138,44 @@ LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		const int x = LOWORD(lParam);
 		const int y = HIWORD(lParam);
 		MOUSE.OnMouseMove(x - width / 2, -y + height / 2);
-		break;
 	}
+		break;
 	case WM_LBUTTONDOWN:
 	{
 		MOUSE.OnLeftPressed();
-		break;
 	}
+		break;
 	case WM_LBUTTONUP:
 	{
 		MOUSE.OnLeftReleased();
-		break;
 	}
+		break;
 	case WM_MBUTTONDOWN:
 	{
 		MOUSE.OnMiddlePressed();
-		break;
 	}
+		break;
 	case WM_MBUTTONUP:
 	{
 		MOUSE.OnMiddleReleased();
-		break;
 	}
+		break;
 	case WM_RBUTTONDOWN:
 	{
 		MOUSE.OnRightPressed();
-		break;
 	}
+		break;
 	case WM_RBUTTONUP:
 	{
 		MOUSE.OnRightReleased();
-		break;
 	}
-	case WM_MOUSEHWHEEL:
+		break;
+	case WM_MOUSEWHEEL:
 	{
 		if (GET_WHEEL_DELTA_WPARAM(wParam) >= 0) MOUSE.OnWheelUp();
 		else MOUSE.OnWheelDown();
-		break;
 	}
+		break;
 		//*** END MOUSE EVENTS ***//
 
 	default:

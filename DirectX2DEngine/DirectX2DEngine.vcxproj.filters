@@ -63,6 +63,12 @@
     <ClCompile Include="Game.cpp">
       <Filter>Fichiers sources\MainEngine</Filter>
     </ClCompile>
+    <ClCompile Include="ColorModel.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ColorShader.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -95,5 +101,19 @@
     <ClInclude Include="Game.h">
       <Filter>Fichiers d%27en-tête\MainEngine</Filter>
     </ClInclude>
+    <ClInclude Include="ColorShader.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ColorModel.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <FxCompile Include="ColorVertexShader.hlsl">
+      <Filter>Fichiers de ressources</Filter>
+    </FxCompile>
+    <FxCompile Include="ColorPixelShader.hlsl">
+      <Filter>Fichiers de ressources</Filter>
+    </FxCompile>
   </ItemGroup>
 </Project>

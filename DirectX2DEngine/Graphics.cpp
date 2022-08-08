@@ -153,7 +153,7 @@ Graphics& Graphics::GetInstance()
 void Graphics::BeginDraw() const
 {
 	// Clear Render Target
-	constexpr float color[4] = { 0.f, 0.f, 0.f, 0.f };
+	constexpr float color[4] = { 0.f, 0.f, 0.f, 1.f };
 	pDeviceContext->ClearRenderTargetView(pRenderTarget.Get(), color);
 	pDeviceContext->ClearDepthStencilView(pDepthStencilView.Get(), D3D11_CLEAR_DEPTH, 1.f, 0);
 }

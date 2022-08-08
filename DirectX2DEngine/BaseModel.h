@@ -19,6 +19,7 @@ protected:
 	virtual void SettingBufferConstants() = 0;
 	virtual void SettingRenderingConstants() = 0;
 	virtual void SettingVertices() = 0;
+
 	void SettingIndices();
 private:
 	HRESULT SettingVertexBuffer();

@@ -22,6 +22,11 @@ public:
 
 	bool ProcessMessages();
 
+	int GetWidth() const;
+	int GetHeight() const;
+
+	float GetRatio() const;
+
 private:
 	static LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -37,6 +42,6 @@ private:
 
 	// Window Constants
 	static constexpr int width = 800;
-	static constexpr int height = 600;
+	static constexpr int height = 640;
 };
 
