@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseModel.h"
+
 class Game
 {
 public:
@@ -14,5 +15,6 @@ private:
 
 private:
 	std::shared_ptr<BaseModel> test_model;
+	std::shared_ptr<BaseModel> texture_model;
 };
 
