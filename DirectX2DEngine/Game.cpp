@@ -4,6 +4,7 @@
 #include "ColorModel.h"
 #include "Graphics.h"
 #include "Keyboard.h"
+#include "LoggerManager.h"
 #include "TextureModel.h"
 #include "Timer.h"
 
@@ -44,6 +45,10 @@ void Game::Go()
 void Game::UpdateFrame()
 {
 	TICKCLOCK
+
+	LOG("Test Console", LOG_CONSOLE);
+	LOG("Test Debug", LOG_DEBUG);
+	LOG("Test Error", LOG_ERROR);
 
 	//test_model->Update();
 	texture_model->Update();

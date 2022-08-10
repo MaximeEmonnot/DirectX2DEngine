@@ -40,6 +40,9 @@
     <Filter Include="Fichiers sources\SoundEngine">
       <UniqueIdentifier>{99ed513b-537c-499e-9ab4-2af31d6e6b62}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\DebugEngine">
+      <UniqueIdentifier>{8f2ad688-2d0d-4751-8e74-1f04c1897fc7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -95,6 +98,21 @@
     </ClCompile>
     <ClCompile Include="SoundSystem.cpp">
       <Filter>Fichiers sources\SoundEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ConsoleLogger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="DebugLogger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ErrorLogger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Logger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="LoggerManager.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -154,6 +172,21 @@
     </ClInclude>
     <ClInclude Include="Sound.h">
       <Filter>Fichiers d%27en-tête\SoundEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ConsoleLogger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="DebugLogger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ErrorLogger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Logger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="LoggerManager.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
