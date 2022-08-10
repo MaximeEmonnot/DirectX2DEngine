@@ -46,7 +46,7 @@ void Game::UpdateFrame()
 {
 	TICKCLOCK
 
-	LOG("Test Console", LOG_CONSOLE);
+	LOG(std::to_string(1 / DELTATIME), LOG_CONSOLE);
 	LOG("Test Debug", LOG_DEBUG);
 	LOG("Test Error", LOG_ERROR);
 

@@ -35,8 +35,8 @@ Window::Window() noexcept
 	// Window Creation
 
 	RECT wr;
-	wr.left = 100;
-	wr.top = 100;
+	wr.left = 0;
+	wr.top = 0;
 	wr.right = width + wr.left;
 	wr.bottom = height + wr.top;
 	AdjustWindowRect(&wr, WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU, FALSE);

@@ -114,6 +114,12 @@
     <ClCompile Include="LoggerManager.cpp">
       <Filter>Fichiers sources\DebugEngine</Filter>
     </ClCompile>
+    <ClCompile Include="JSONParser.cpp">
+      <Filter>Fichiers sources\WindowEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ThreadPool.cpp">
+      <Filter>Fichiers sources\WindowEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -187,6 +193,12 @@
     </ClInclude>
     <ClInclude Include="LoggerManager.h">
       <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONParser.h">
+      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ThreadPool.h">
+      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
