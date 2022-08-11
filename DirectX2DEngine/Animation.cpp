@@ -19,7 +19,7 @@ void Animation::Update()
 
 Texture Animation::GetTexture() const
 {
-	return TEXTURE(frames.at(iCurFrame));
+	return TEXTURE(frames.at(iCurFrame), true);
 }
 
 void Animation::Reset()

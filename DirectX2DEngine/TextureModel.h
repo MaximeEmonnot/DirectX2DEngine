@@ -12,8 +12,6 @@ public:
     TextureModel(const std::string& texture_path);
     TextureModel(Texture& texture);
 
-    virtual void Update() override;
-
     DirectX::XMMATRIX GetTranslationMatrix() const;
     DirectX::XMMATRIX GetRotationMatrix() const;
     DirectX::XMMATRIX GetScaleMatrix() const;

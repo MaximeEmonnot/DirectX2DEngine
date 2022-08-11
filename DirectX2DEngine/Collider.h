@@ -4,6 +4,7 @@
 #include <memory>
 #include "Rect.h"
 #include "Actor.h"
+#include "ColorModel.h"
 class Collider
 {
 private:
@@ -70,6 +71,8 @@ private:
 
 	CollisionMode mode = CollisionMode::None;
 	CollisionChannel channel = CollisionChannel::None;
+
+	ColorModel model;
 
 	Actor& owner;
 	FVec2D& origin;

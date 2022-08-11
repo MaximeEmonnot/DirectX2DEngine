@@ -10,7 +10,6 @@ public:
 	virtual ~BaseModel() = default;
 	void Initialize();
 
-	virtual void Update() = 0;
 	void Render();
 	int GetVertices() const;
 

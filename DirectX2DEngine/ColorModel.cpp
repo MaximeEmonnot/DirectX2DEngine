@@ -13,12 +13,14 @@ ColorModel::ColorModel(int x, int y, int width, int height, DirectX::XMFLOAT4 co
 {
 }
 
-void ColorModel::Update()
+ColorModel::ColorModel(FRect rect, DirectX::XMFLOAT4 color)
+	:
+	x(rect.pos.x),
+	y(rect.pos.y),
+	width(rect.width),
+	height(rect.height),
+	color(color)
 {
-	if (MOUSE.Read() == Mouse::EventType::WheelUp) 
-		angle += 0.01f;
-	if (MOUSE.Read() == Mouse::EventType::WheelDown) 
-		angle -= 0.01f;
 }
 
 DirectX::XMMATRIX ColorModel::GetTranslationMatrix() const
@@ -54,6 +56,25 @@ DirectX::XMMATRIX ColorModel::GetScaleMatrix() const
 DirectX::XMFLOAT4 ColorModel::GetColor() const
 {
 	return color;
+}
+
+void ColorModel::SetColor(const DirectX::XMFLOAT4& new_color)
+{
+	color = new_color;
+}
+
+void ColorModel::SetPosition(const FVec2D& new_pos)
+{
+	x = new_pos.x;
+	y = new_pos.y;
+}
+
+void ColorModel::SetRectangle(const FRect& new_rect)
+{
+	x = new_rect.pos.x;
+	x = new_rect.pos.y;
+	width = new_rect.width;
+	height = new_rect.height;
 }
 
 void ColorModel::SettingShader()

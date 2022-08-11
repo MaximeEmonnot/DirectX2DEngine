@@ -9,7 +9,8 @@ Collider::Collider(Actor& owner)
 	:
 	owner(owner),
 	origin(owner.pos),
-	rect(FRect(0, 0, 0, 0))
+	rect(FRect(0, 0, 0, 0)),
+	model()
 {
 }
 
@@ -17,7 +18,8 @@ Collider::Collider(Actor& owner, const FRect& rect)
 	:
 	owner(owner),
 	origin(owner.pos),
-	rect(rect)
+	rect(rect),
+	model()
 {
 }
 
@@ -48,32 +50,13 @@ void Collider::Update()
 	owner.pos += velocity * DELTATIME;
 
 	forces.clear();
+
+	model.SetRectangle(rect + origin);
 }
 
 void Collider::Render()
 {
-	/*Color render_color;
-	switch (channel)
-	{
-	case CollisionChannel::Stun:
-		render_color = Colors::Cyan;
-		break;
-	case CollisionChannel::Defense:
-		render_color = Colors::Blue;
-		break;
-	case CollisionChannel::Attack:
-		render_color = Colors::Red;
-		break;
-	case CollisionChannel::Gravity:
-		render_color = Colors::Green;
-		break;
-	case CollisionChannel::None:
-		render_color = Colors::Gray;
-		break;
-	default:
-		break;
-	}
-	if (bIsVisible) GFX.DrawRect(rect + origin, render_color, Mat2<float>::MakeRotationMatrix(0.0f), 32);*/
+	if (bIsVisible) model.Render();
 }
 
 void Collider::SetCollisionMode(CollisionMode cMode)
@@ -89,6 +72,27 @@ void Collider::SetVisible(bool bValue)
 void Collider::SetCollisionChannel(CollisionChannel cChannel)
 {
 	channel = cChannel;
+
+	switch (channel)
+	{
+	case CollisionChannel::Stun:
+		model.SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
+		break;
+	case CollisionChannel::Defense:
+		model.SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
+		break;
+	case CollisionChannel::Attack:
+		model.SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
+		break;
+	case CollisionChannel::Gravity:
+		model.SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
+		break;
+	case CollisionChannel::None:
+		model.SetColor(DirectX::XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f)); //Gray
+		break;
+	default:
+		break;
+	}
 }
 
 void Collider::SetGravity(bool bValue)

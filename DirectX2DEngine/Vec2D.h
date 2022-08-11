@@ -16,7 +16,7 @@ public:
 
 public:
 	Vec2D() = default;
-	constexpr Vec2D(T x, T y)
+	constexpr Vec2D(T x, T	y)
 		:
 		x(x),
 		y(y)

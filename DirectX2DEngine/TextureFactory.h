@@ -15,7 +15,7 @@ public:
 
 	static TextureFactory& GetInstance();
 
-	Texture& GetTexture(const std::string& path);
+	Texture& GetTexture(const std::string& path, bool bIsForAnimation = false);
 
 private:
 	static std::unique_ptr<TextureFactory> pInstance;

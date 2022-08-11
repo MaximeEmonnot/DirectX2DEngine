@@ -24,7 +24,7 @@ public:
 	int GetWidth() const;
 	int GetHeight() const;
 
-private:
+protected:
 	unsigned char* LoadTGA(const std::string& filepath);
 
 private:

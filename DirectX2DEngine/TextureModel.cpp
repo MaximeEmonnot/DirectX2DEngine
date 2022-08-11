@@ -14,10 +14,6 @@ TextureModel::TextureModel(Texture& texture)
 {
 }
 
-void TextureModel::Update()
-{
-}
-
 DirectX::XMMATRIX TextureModel::GetTranslationMatrix() const
 {
     return DirectX::XMMATRIX(
