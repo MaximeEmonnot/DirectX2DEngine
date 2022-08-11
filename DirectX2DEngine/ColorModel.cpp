@@ -19,18 +19,14 @@ ColorModel::ColorModel(FRect rect, DirectX::XMFLOAT4 color)
 	y(rect.pos.y),
 	width(rect.width),
 	height(rect.height),
-	color(color)
+	color(color),
+	angle(0.f)
 {
 }
 
-DirectX::XMMATRIX ColorModel::GetTranslationMatrix() const
+DirectX::XMFLOAT2 ColorModel::GetOffset() const
 {
-	return DirectX::XMMATRIX(
-		1.f, 0.f, 0.f, static_cast<float>(x) / WND.GetWidth(),
-		0.f, 1.f, 0.f, static_cast<float>(y) / WND.GetHeight(),
-		0.f, 0.f, 1.f, 0.f,
-		0.f, 0.f, 0.f, 1.f
-	);
+	return DirectX::XMFLOAT2(static_cast<float>(x) / WND.GetWidth(), static_cast<float>(y) / WND.GetHeight());
 }
 
 DirectX::XMMATRIX ColorModel::GetRotationMatrix() const

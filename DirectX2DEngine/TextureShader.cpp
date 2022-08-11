@@ -37,7 +37,7 @@ void TextureShader::RenderModel(BaseModel& model)
 		throw GFX_EXCEPTION("An exception has been caught during Shader Object Subresource Mapping.", hr);
 
 	VariableBuffer* data = static_cast<VariableBuffer*>(mapped_subresource.pData);
-	data->translation = dynamic_cast<TextureModel*>(&model)->GetTranslationMatrix();
+	data->offset = dynamic_cast<TextureModel*>(&model)->GetOffset();
 	data->rotation = dynamic_cast<TextureModel*>(&model)->GetRotationMatrix();
 	data->scale = dynamic_cast<TextureModel*>(&model)->GetScaleMatrix();
 

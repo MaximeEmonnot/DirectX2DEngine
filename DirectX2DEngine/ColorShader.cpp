@@ -23,7 +23,7 @@ void ColorShader::RenderModel(BaseModel& model)
 		throw GFX_EXCEPTION("An exception has been caught during Shader Object Subresource Mapping.", hr);
 
 	VariableBuffer* data = static_cast<VariableBuffer*>(mapped_subresource.pData);
-	data->translation = dynamic_cast<ColorModel*>(&model)->GetTranslationMatrix();
+	data->offset = dynamic_cast<ColorModel*>(&model)->GetOffset();
 	data->rotation = dynamic_cast<ColorModel*>(&model)->GetRotationMatrix();
 	data->scale = dynamic_cast<ColorModel*>(&model)->GetScaleMatrix();
 	data->color = dynamic_cast<ColorModel*>(&model)->GetColor();

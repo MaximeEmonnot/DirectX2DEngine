@@ -4,7 +4,7 @@
 #include <memory>
 #include "Texture.h"
 
-#define TEXTURE(path) TextureFactory::GetInstance().GetTexture(path)
+#define TEXTURE(path, bForAnim) TextureFactory::GetInstance().GetTexture(path, bForAnim)
 
 class TextureFactory
 {

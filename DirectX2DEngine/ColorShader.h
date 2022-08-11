@@ -11,7 +11,7 @@ public:
 
     struct VariableBuffer
     {
-        DirectX::XMMATRIX translation;
+        DirectX::XMFLOAT2 offset;
         DirectX::XMMATRIX rotation;
         DirectX::XMMATRIX scale;
         DirectX::XMFLOAT4 color;

@@ -1,6 +1,6 @@
 cbuffer VariableBuffer : register(b0)
 {
-	matrix translation;
+	float2 offset;
 	matrix rotation;
 	matrix scale;
 	float4 color;
@@ -25,7 +25,9 @@ PixelInputType main(VertexInputType input)
 
 	output.position = mul(output.position, scale);
 	output.position = mul(output.position, rotation);
-	//output.position = mul(translation, output.position);
+
+	output.position.x += offset.x;
+	output.position.y += offset.y;
 
 	output.color = color;
 

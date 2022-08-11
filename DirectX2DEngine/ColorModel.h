@@ -12,7 +12,7 @@ public:
     ColorModel(FRect rect, DirectX::XMFLOAT4 color);
     ~ColorModel() override = default;
 
-    DirectX::XMMATRIX GetTranslationMatrix() const;
+    DirectX::XMFLOAT2 GetOffset() const;
     DirectX::XMMATRIX GetRotationMatrix() const;
     DirectX::XMMATRIX GetScaleMatrix() const;
     DirectX::XMFLOAT4 GetColor() const;

@@ -46,6 +46,12 @@
     <Filter Include="Fichiers d%27en-tête\MathEngine">
       <UniqueIdentifier>{4355f74d-6923-4cdb-9efd-0821ea355040}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameEngine">
+      <UniqueIdentifier>{ae3dc194-dae1-4d2e-9d1e-4e63c20f938a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameEngine">
+      <UniqueIdentifier>{02f9b69a-4bc2-4796-b1c5-6fa1fb8b19a1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">

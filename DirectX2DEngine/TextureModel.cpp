@@ -14,14 +14,9 @@ TextureModel::TextureModel(Texture& texture)
 {
 }
 
-DirectX::XMMATRIX TextureModel::GetTranslationMatrix() const
+DirectX::XMFLOAT2 TextureModel::GetOffset() const
 {
-    return DirectX::XMMATRIX(
-		1.f, 0.f, 0.f, static_cast<float>(x) / WND.GetWidth(),
-		0.f, 1.f, 0.f, static_cast<float>(y) / WND.GetHeight(),
-		0.f, 0.f, 1.f, 0.f,
-		0.f, 0.f, 0.f, 1.f
-	);
+	return DirectX::XMFLOAT2(static_cast<float>(x) / WND.GetWidth(), static_cast<float>(y) / WND.GetHeight());
 }
 
 DirectX::XMMATRIX TextureModel::GetRotationMatrix() const

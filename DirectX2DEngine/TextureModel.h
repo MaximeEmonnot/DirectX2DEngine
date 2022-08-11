@@ -12,7 +12,7 @@ public:
     TextureModel(const std::string& texture_path);
     TextureModel(Texture& texture);
 
-    DirectX::XMMATRIX GetTranslationMatrix() const;
+    DirectX::XMFLOAT2 GetOffset() const;
     DirectX::XMMATRIX GetRotationMatrix() const;
     DirectX::XMMATRIX GetScaleMatrix() const;
     void SetTexture(const Texture& tex);
