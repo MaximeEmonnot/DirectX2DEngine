@@ -120,6 +120,18 @@
     <ClCompile Include="ThreadPool.cpp">
       <Filter>Fichiers sources\WindowEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Actor.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Level.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="World.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -199,6 +211,18 @@
     </ClInclude>
     <ClInclude Include="ThreadPool.h">
       <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Actor.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Engine.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Level.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="World.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

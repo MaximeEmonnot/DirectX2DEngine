@@ -55,9 +55,9 @@ void JSONParser::Reader::ReadFile(const std::string& filePath)
 	file.close();
 }
 
-rapidjson::Value& JSONParser::Reader::GetValueOf(const std::string& valName)
+rapidjson::Value& JSONParser::Reader::GetValueOf(const std::string& valueName)
 {
-	if (!document.HasMember(valName.c_str()))
+	if (!document.HasMember(valueName.c_str()))
 		throw JSON_EXCEPTION("An exception has been caught during JSON Array Access.\nPlease check value name.");
-	return document[valName.c_str()];
+	return document[valueName.c_str()];
 }
