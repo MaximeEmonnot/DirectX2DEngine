@@ -43,6 +43,9 @@
     <Filter Include="Fichiers sources\DebugEngine">
       <UniqueIdentifier>{8f2ad688-2d0d-4751-8e74-1f04c1897fc7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\MathEngine">
+      <UniqueIdentifier>{4355f74d-6923-4cdb-9efd-0821ea355040}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -130,6 +133,18 @@
       <Filter>Fichiers sources\MainEngine</Filter>
     </ClCompile>
     <ClCompile Include="World.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Pawn.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Collider.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Character.cpp">
       <Filter>Fichiers sources\MainEngine</Filter>
     </ClCompile>
   </ItemGroup>
@@ -222,6 +237,24 @@
       <Filter>Fichiers d%27en-tête\MainEngine</Filter>
     </ClInclude>
     <ClInclude Include="World.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Rect.h">
+      <Filter>Fichiers d%27en-tête\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Vec2D.h">
+      <Filter>Fichiers d%27en-tête\MathEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Character.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Collider.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Pawn.h">
       <Filter>Fichiers d%27en-tête\MainEngine</Filter>
     </ClInclude>
   </ItemGroup>

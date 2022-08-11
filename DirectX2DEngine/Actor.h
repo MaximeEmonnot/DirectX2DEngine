@@ -1,14 +1,33 @@
 #pragma once
 #include <memory>
 #include <vector>
-#include <DirectXMath.h>
 #include <string>
+#include "Vec2D.h"
 
 class Actor
 {
 public:
+	class Hash
+	{
+	public:
+		size_t operator()(const Actor& a) const {
+			constexpr std::hash<std::string> hasher;
+			return hasher(a.name);
+		}
+		size_t operator()(const std::shared_ptr<Actor>& a) const
+		{
+			constexpr std::hash<std::string> hasher;
+			return hasher(a->name);
+		}
+	};
+
+private:
+	friend class Controller;
+	friend class Collider;
+	friend class World;
+public:
 	Actor() = delete;
-	Actor(const DirectX::XMFLOAT2& pos, const std::string& name);
+	Actor(const FVec2D& pos, const std::string& name);
 	Actor(const Actor&) = default;
 	virtual ~Actor() = default;
 
@@ -17,12 +36,12 @@ public:
 	virtual void Update();
 	virtual void Render();
 
-	DirectX::XMFLOAT2 GetPosition() const;
+	FVec2D GetPosition() const;
 	std::string GetName() const;
-	//virtual std::vector<std::shared_ptr<class Collider>> GetColliders() const;
+	virtual std::vector<std::shared_ptr<class Collider>> GetColliders() const;
 
 protected:
-	DirectX::XMFLOAT2 pos;
+	FVec2D pos;
 	std::string name;
  };
 
