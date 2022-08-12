@@ -12,6 +12,7 @@ Collider::Collider(Actor& owner)
 	rect(FRect(0, 0, 0, 0)),
 	model()
 {
+	model.Initialize();
 }
 
 Collider::Collider(Actor& owner, const FRect& rect)
@@ -21,6 +22,7 @@ Collider::Collider(Actor& owner, const FRect& rect)
 	rect(rect),
 	model()
 {
+	model.Initialize();
 }
 
 Collider& Collider::operator=(const Collider& collider)

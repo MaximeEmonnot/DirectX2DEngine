@@ -1,0 +1,18 @@
+{
+ "character" : "Textures/SolBadguy/",
+ "animations" : {
+   "Idle" : [5, 0.125, 2],
+   "RandomIdle" : [6, 0.075, 2],
+   "WalkingForward" : [10, 0.1, 1],
+   "WalkingBackward" : [8, 0.1, 1],
+   "CrouchTransition" : [1, 0.1, 0],
+   "CrouchIdle" : [3, 0.175, 2],
+   "Punch" : [3, 0.04, 2],
+   "Kick" : [3, 0.06, 2],
+   "Slash" : [12, 0.03, 0],
+   "HardSlash" : [15, 0.03, 0],
+   "Jump" : [1, 0.15, 0],
+   "MaxJump" : [6, 0.05, 2],
+   "Fall" : [2, 0.1, 1]
+  }
+}

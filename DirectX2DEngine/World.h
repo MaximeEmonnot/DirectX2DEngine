@@ -7,7 +7,7 @@ class World
 {
 public:
 	World() = default;
-
+	 
 	void Update();
 	void Render() const;
 
@@ -16,10 +16,11 @@ public:
 	{
 		actors.emplace_back(std::make_shared<T>());
 	}
-	template<class T, typename Args>
-	void SpawnActor(Args args...)
+
+	template<class T, class... Args >
+	void SpawnActor(Args&&... args)
 	{
-		actors.emplace_back(std::make_shared<T>(args));
+		actors.emplace_back(std::make_shared<T>(args...));
 	}
 
 	std::vector<std::shared_ptr<Actor>> GetActors() const;

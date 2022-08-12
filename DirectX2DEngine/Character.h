@@ -11,6 +11,6 @@ public:
     virtual void Render() override;
 
 protected:
-   
+    std::shared_ptr<Collider> rootCollider;
 };
 

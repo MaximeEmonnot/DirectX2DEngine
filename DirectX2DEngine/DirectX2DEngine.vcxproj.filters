@@ -168,6 +168,27 @@
     <ClCompile Include="AnimationSystem.cpp">
       <Filter>Fichiers sources\GraphicsEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Background.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseFighter.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="CombatLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerCharacter.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerController.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SandBag.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SolBadguy.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -292,6 +313,30 @@
     </ClInclude>
     <ClInclude Include="AnimationSystem.h">
       <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Commands.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="Background.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseFighter.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="CombatLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerCharacter.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SandBag.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SolBadguy.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -144,6 +144,8 @@
     <ClCompile Include="Actor.cpp" />
     <ClCompile Include="Animation.cpp" />
     <ClCompile Include="AnimationSystem.cpp" />
+    <ClCompile Include="Background.cpp" />
+    <ClCompile Include="BaseFighter.cpp" />
     <ClCompile Include="BaseModel.cpp" />
     <ClCompile Include="BaseShader.cpp" />
     <ClCompile Include="Character.cpp" />
@@ -152,6 +154,7 @@
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="ColorModel.cpp" />
     <ClCompile Include="ColorShader.cpp" />
+    <ClCompile Include="CombatLevel.cpp" />
     <ClCompile Include="ConsoleLogger.cpp" />
     <ClCompile Include="Controller.cpp" />
     <ClCompile Include="DebugLogger.cpp" />
@@ -168,6 +171,10 @@
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MovingCollider.cpp" />
     <ClCompile Include="Pawn.cpp" />
+    <ClCompile Include="PlayerCharacter.cpp" />
+    <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="SandBag.cpp" />
+    <ClCompile Include="SolBadguy.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundSystem.cpp" />
     <ClCompile Include="Texture.cpp" />
@@ -184,6 +191,8 @@
     <ClInclude Include="Actor.h" />
     <ClInclude Include="Animation.h" />
     <ClInclude Include="AnimationSystem.h" />
+    <ClInclude Include="Background.h" />
+    <ClInclude Include="BaseFighter.h" />
     <ClInclude Include="BaseModel.h" />
     <ClInclude Include="BaseShader.h" />
     <ClInclude Include="Character.h" />
@@ -192,6 +201,8 @@
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="ColorModel.h" />
     <ClInclude Include="ColorShader.h" />
+    <ClInclude Include="CombatLevel.h" />
+    <ClInclude Include="Commands.h" />
     <ClInclude Include="ConsoleLogger.h" />
     <ClInclude Include="Controller.h" />
     <ClInclude Include="DebugLogger.h" />
@@ -209,7 +220,11 @@
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MovingCollider.h" />
     <ClInclude Include="Pawn.h" />
+    <ClInclude Include="PlayerCharacter.h" />
+    <ClInclude Include="PlayerController.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="SandBag.h" />
+    <ClInclude Include="SolBadguy.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="Texture.h" />
