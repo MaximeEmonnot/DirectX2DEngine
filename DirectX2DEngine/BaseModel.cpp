@@ -34,6 +34,16 @@ int BaseModel::GetVertices() const
 	return nVertices;
 }
 
+void BaseModel::SetDepth(float new_depth)
+{
+	depth = new_depth;
+}
+
+float BaseModel::GetDepth() const
+{
+	return (512.f - depth) / 512.f;
+}
+
 void BaseModel::SettingIndices()
 {
 	indices = new unsigned long[nVertices];

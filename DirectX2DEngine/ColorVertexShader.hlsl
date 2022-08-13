@@ -4,6 +4,7 @@ cbuffer VariableBuffer : register(b0)
 	matrix rotation;
 	matrix scale;
 	float4 color;
+	float depth;
 }
 
 struct VertexInputType
@@ -28,6 +29,7 @@ PixelInputType main(VertexInputType input)
 
 	output.position.x += offset.x;
 	output.position.y += offset.y;
+	output.position.z = depth;
 
 	output.color = color;
 

@@ -39,7 +39,8 @@ void TextureShader::RenderModel(BaseModel& model)
 	VariableBuffer* data = static_cast<VariableBuffer*>(mapped_subresource.pData);
 	data->offset = dynamic_cast<TextureModel*>(&model)->GetOffset();
 	data->rotation = dynamic_cast<TextureModel*>(&model)->GetRotationMatrix();
-	data->scale = dynamic_cast<TextureModel*>(&model)->GetScaleMatrix();
+	data->scale = dynamic_cast<TextureModel*>(&model)->GetScaleMatrix(); 
+	data->depth = model.GetDepth();
 
 	GFX.GetDeviceContext()->Unmap(pConstantBuffer.Get(), 0);
 	GFX.GetDeviceContext()->VSSetConstantBuffers(0, 1, pConstantBuffer.GetAddressOf());

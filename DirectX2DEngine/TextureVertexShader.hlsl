@@ -3,6 +3,7 @@ cbuffer VariableBuffer : register(b0)
 	float2 offset;
 	matrix rotation;
 	matrix scale;
+	float depth;
 }
 
 struct VertexInputType
@@ -28,6 +29,7 @@ PixelInputType main( VertexInputType input )
 
 	output.position.x += offset.x;
 	output.position.y += offset.y;
+	output.position.z = depth;
 
 	output.uv = input.uv;
 

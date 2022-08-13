@@ -15,6 +15,7 @@ public:
         DirectX::XMMATRIX rotation;
         DirectX::XMMATRIX scale;
         DirectX::XMFLOAT4 color;
+        float depth;
     };
 
 public:

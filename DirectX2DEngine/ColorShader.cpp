@@ -27,6 +27,7 @@ void ColorShader::RenderModel(BaseModel& model)
 	data->rotation = dynamic_cast<ColorModel*>(&model)->GetRotationMatrix();
 	data->scale = dynamic_cast<ColorModel*>(&model)->GetScaleMatrix();
 	data->color = dynamic_cast<ColorModel*>(&model)->GetColor();
+	data->depth = model.GetDepth();
 		
 	GFX.GetDeviceContext()->Unmap(pConstantBuffer.Get(), 0);
 	GFX.GetDeviceContext()->VSSetConstantBuffers(0, 1, pConstantBuffer.GetAddressOf());

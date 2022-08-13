@@ -15,6 +15,7 @@ public:
         DirectX::XMFLOAT2 offset;
         DirectX::XMMATRIX rotation;
         DirectX::XMMATRIX scale;
+        float depth;
     };
 
 public:

@@ -13,6 +13,9 @@ public:
 	void Render();
 	int GetVertices() const;
 
+	void SetDepth(float new_depth);
+	float GetDepth() const;
+
 protected:
 	virtual void SettingShader() = 0;
 	virtual void SettingBufferConstants() = 0;
@@ -37,5 +40,7 @@ protected:
 
 	void* vertices;
 	unsigned long* indices;
+
+	float depth;
 };
 
