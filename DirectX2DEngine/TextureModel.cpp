@@ -39,6 +39,12 @@ DirectX::XMMATRIX TextureModel::GetScaleMatrix() const
 	);
 }
 
+void TextureModel::SetPosition(const FVec2D& new_pos)
+{
+	x = new_pos.x;
+	y = new_pos.y;
+}
+
 void TextureModel::SetTexture(const Texture& tex)
 {
 	texture = tex;

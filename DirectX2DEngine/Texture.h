@@ -19,6 +19,8 @@ public:
 	Texture(const std::string& filepath);
 	Texture(const Texture& tex);
 
+	virtual ~Texture() = default;
+
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> GetShaderResourceView() const;
 
 	int GetWidth() const;

@@ -14,7 +14,6 @@ public:
     virtual ~Pawn() override = default;
 
     virtual void Update() override;
-    virtual void Render() override;
 
 protected:
     std::shared_ptr<Controller> pController;

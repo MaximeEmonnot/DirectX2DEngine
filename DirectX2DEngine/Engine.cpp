@@ -22,7 +22,8 @@ void Engine::Update() const
 
 void Engine::Render() const
 {
-	levels.at(levelIndex)->Render();
+	for (const std::pair<const int, std::shared_ptr<BaseModel>>& entry : models)
+		entry.second->Render();
 }
 
 void Engine::SetLevel(int newIndex)

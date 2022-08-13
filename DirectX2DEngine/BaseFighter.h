@@ -62,14 +62,13 @@ protected:
 
 public:
     virtual void Update();
-    virtual void Render();
 
     std::vector<std::shared_ptr<Collider>> GetColliders() const;
 
 protected:
     Actor& owner;
     AnimationSystem animSys;
-    TextureModel model;
+    std::shared_ptr<TextureModel> model;
     std::shared_ptr<ComboTree> pComboTree;
 };
 

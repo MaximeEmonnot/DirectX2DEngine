@@ -10,9 +10,8 @@ Collider::Collider(Actor& owner)
 	owner(owner),
 	origin(owner.pos),
 	rect(FRect(0, 0, 0, 0)),
-	model()
+	model(ENGINE.CreateModel<ColorModel>(32))
 {
-	model.Initialize();
 }
 
 Collider::Collider(Actor& owner, const FRect& rect)
@@ -20,9 +19,8 @@ Collider::Collider(Actor& owner, const FRect& rect)
 	owner(owner),
 	origin(owner.pos),
 	rect(rect),
-	model()
+	model(ENGINE.CreateModel<ColorModel>(32))
 {
-	model.Initialize();
 }
 
 Collider& Collider::operator=(const Collider& collider)
@@ -33,6 +31,7 @@ Collider& Collider::operator=(const Collider& collider)
 	channel = collider.channel;
 	bIsGravityEnabled = collider.bIsGravityEnabled;
 	bIsVisible = collider.bIsVisible;
+	model = collider.model;
 	return *this;
 }
 
@@ -53,12 +52,7 @@ void Collider::Update()
 
 	forces.clear();
 
-	model.SetRectangle(rect + origin);
-}
-
-void Collider::Render()
-{
-	if (bIsVisible) model.Render();
+	model->SetRectangle(rect + origin);
 }
 
 void Collider::SetCollisionMode(CollisionMode cMode)
@@ -75,26 +69,30 @@ void Collider::SetCollisionChannel(CollisionChannel cChannel)
 {
 	channel = cChannel;
 
-	switch (channel)
-	{
-	case CollisionChannel::Stun:
-		model.SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
-		break;
-	case CollisionChannel::Defense:
-		model.SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
-		break;
-	case CollisionChannel::Attack:
-		model.SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
-		break;
-	case CollisionChannel::Gravity:
-		model.SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
-		break;
-	case CollisionChannel::None:
-		model.SetColor(DirectX::XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f)); //Gray
-		break;
-	default:
-		break;
+	if (bIsVisible) {
+		switch (channel)
+		{
+		case CollisionChannel::Stun:
+			model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
+			break;
+		case CollisionChannel::Defense:
+			model->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
+			break;
+		case CollisionChannel::Attack:
+			model->SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
+			break;
+		case CollisionChannel::Gravity:
+			model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
+			break;
+		case CollisionChannel::None:
+			model->SetColor(DirectX::XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f)); //Gray
+			break;
+		default:
+			break;
+		}
 	}
+	else
+		model->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 0.f, 0.f));
 }
 
 void Collider::SetGravity(bool bValue)

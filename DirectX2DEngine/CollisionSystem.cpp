@@ -90,11 +90,6 @@ void CollisionSystem::Update()
 	for (auto& entry : transitions) if (entry.first == animState && entry.second.second()) SetCollisionGroup(entry.second.first);
 }
 
-void CollisionSystem::Render()
-{
-	collisionGroups.at(animState).Render();
-}
-
 void CollisionSystem::AddTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition)
 {
 	transitions.insert(std::pair(from, std::pair(to, condition)));

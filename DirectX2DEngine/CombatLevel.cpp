@@ -8,17 +8,12 @@
 
 CombatLevel::CombatLevel()
 {
-	GetWorld().SpawnActor<PlayerCharacter>(FVec2D(0, 0), "Player");
-	GetWorld().SpawnActor<Background>(FVec2D(0, 200), "Background CHINA");
-	GetWorld().SpawnActor<SandBag>(FRect(50, 75, 32, 128), "Sandbag");
+	//GetWorld().SpawnActor<SandBag>(FRect(50, 75, 32, 128), "Sandbag");
+	//GetWorld().SpawnActor<Background>(FVec2D(0, 200), "Background CHINA");
+	GetWorld().SpawnActor<PlayerCharacter>(FVec2D(250, -125), "Player");
 }
 
 void CombatLevel::Update()
 {
 	Level::Update();
-}
-
-void CombatLevel::Render()
-{
-	Level::Render();
 }

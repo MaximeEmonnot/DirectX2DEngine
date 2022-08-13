@@ -6,7 +6,6 @@ public:
 	CollisionGroup() = default;
 
 	void Update();
-	void Render();
 
 	void Reset();
 

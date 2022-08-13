@@ -7,6 +7,8 @@ class AnimationTexture : public Texture
 public:
 	AnimationTexture(const std::string& filepath);
 
+	virtual ~AnimationTexture() override = default;
+
 	Texture& operator()();
 
 	IVec2D GetCenter() const;

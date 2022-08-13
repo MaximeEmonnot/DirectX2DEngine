@@ -11,7 +11,6 @@ public:
     PlayerCharacter(const FVec2D& pos, const std::string& name);
 
     virtual void Update() override;
-    virtual void Render() override;
 
     virtual std::vector<std::shared_ptr<Collider>> GetColliders() const override;
 

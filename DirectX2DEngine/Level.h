@@ -16,7 +16,6 @@ public:
 	virtual ~Level() = default;
 
 	virtual void Update();
-	virtual void Render();
 
 	World& GetWorld() const;
 

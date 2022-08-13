@@ -1,4 +1,6 @@
 #include "SandBag.h"
+
+#include "Engine.h"
 #include "Graphics.h"
 
 SandBag::SandBag(const FRect& pos, const std::string& name)
@@ -6,7 +8,7 @@ SandBag::SandBag(const FRect& pos, const std::string& name)
 	Actor(pos.pos, name),
 	rootCollider(std::make_shared<Collider>(*this)),
 	defCollider(std::make_shared<Collider>(*this, pos - pos.pos)),
-	model(pos, DirectX::XMFLOAT4(1.f, 1.f, 0.f, 1.f))
+	model(ENGINE.CreateModel<ColorModel>(15, pos, DirectX::XMFLOAT4(1.f, 1.f, 0.f, 1.f)))
 {
 	rootCollider->SetGravity(true);
 	rootCollider->SetCollisionMode(Collider::CollisionMode::Blocking);
@@ -17,8 +19,6 @@ SandBag::SandBag(const FRect& pos, const std::string& name)
 	defCollider->SetCollisionChannel(Collider::CollisionChannel::Defense);
 	defCollider->SetCollisionMode(Collider::CollisionMode::Overlapping);
 	defCollider->SetVisible(true);
-
-	model.Initialize();
 }
 
 void SandBag::Update()
@@ -26,15 +26,7 @@ void SandBag::Update()
 	rootCollider->Update();
 	defCollider->Update();
 
-	model.SetPosition(pos);
-}
-
-void SandBag::Render()
-{
-	model.Render();
-
-	rootCollider->Render();
-	defCollider->Render();
+	model->SetPosition(pos);
 }
 
 std::vector<std::shared_ptr<Collider>> SandBag::GetColliders() const

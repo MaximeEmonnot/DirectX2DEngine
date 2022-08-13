@@ -8,13 +8,12 @@ public:
     SandBag(const FRect& pos, const std::string& name);
 
     void Update() override;
-    void Render() override;
 
     std::vector<std::shared_ptr<Collider>> GetColliders() const override;
 
 private:
     std::shared_ptr<Collider> rootCollider;
     std::shared_ptr<Collider> defCollider;
-    ColorModel model;
+    std::shared_ptr<ColorModel> model;
 };
 

@@ -34,7 +34,6 @@ public:
 	Actor& operator=(const Actor& toCopy);
 
 	virtual void Update();
-	virtual void Render();
 
 	FVec2D GetPosition() const;
 	std::string GetName() const;

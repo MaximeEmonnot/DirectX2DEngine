@@ -14,9 +14,3 @@ void Character::Update()
 	Pawn::Update();
 	rootCollider->Update();
 }
-
-void Character::Render()
-{
-	Pawn::Render();
-	rootCollider->Render();
-}

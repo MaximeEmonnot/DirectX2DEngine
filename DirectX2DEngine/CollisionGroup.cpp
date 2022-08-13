@@ -5,11 +5,6 @@ void CollisionGroup::Update()
 	for (auto& collider : colliders) collider.Update();
 }
 
-void CollisionGroup::Render()
-{
-	for (auto& collider : colliders) collider.Render();
-}
-
 void CollisionGroup::Reset()
 {
 	for (auto& collider : colliders) collider.Reset();

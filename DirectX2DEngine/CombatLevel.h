@@ -7,6 +7,5 @@ public:
     CombatLevel();
 
     virtual void Update() override;
-    virtual void Render() override;
 };
 

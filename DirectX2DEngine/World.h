@@ -9,7 +9,6 @@ public:
 	World() = default;
 	 
 	void Update();
-	void Render() const;
 
 	template<class T>
 	void SpawnActor()

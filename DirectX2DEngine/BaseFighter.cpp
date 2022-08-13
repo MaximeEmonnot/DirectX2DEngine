@@ -1,5 +1,8 @@
 #include "BaseFighter.h"
+
+#include "AnimationTexture.h"
 #include "Commands.h"
+#include "Engine.h"
 #include "Keyboard.h"
 #include "Timer.h"
 
@@ -115,11 +118,9 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
     owner(owner),
     pComboTree(pComboTree),
     animSys(jsonPath),
-	model()
-    //collisionSys(owner, jsonPath, animSys.GetAnimationList())
+	model(ENGINE.CreateModel<TextureModel>(15))
+    //collisionSys(owner, jsonPath, animSys.GetAnimationList())_
 {
-    model.Initialize();
-    model.SetTexture(animSys.GetTexture());
 }
 
 void BaseFighter::Update()
@@ -131,14 +132,10 @@ void BaseFighter::Update()
     }
     animSys.Update();
 
-    model.SetTexture(animSys.GetTexture());
+    model->SetPosition(owner.GetPosition());
+    model->SetTexture(animSys.GetTexture());
+    
     //collisionSys.Update();
-}
-
-void BaseFighter::Render()
-{
-    model.Render();
-    //collisionSys.Render();
 }
 
 std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const

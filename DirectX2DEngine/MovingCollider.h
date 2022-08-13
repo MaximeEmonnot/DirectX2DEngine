@@ -7,7 +7,6 @@ public:
 	MovingCollider(Actor& owner);
 
 	void Update();
-	void Render();
 
 	void SetLoop(bool bValue);
 	void SetHoldTime(float _holdTime);

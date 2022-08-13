@@ -33,7 +33,6 @@ public:
 	Collider& operator=(const Collider& collider);
 
 	void Update();
-	void Render();
 
 	void SetCollisionMode(CollisionMode cMode);
 	void SetVisible(bool bValue);
@@ -72,7 +71,7 @@ private:
 	CollisionMode mode = CollisionMode::None;
 	CollisionChannel channel = CollisionChannel::None;
 
-	ColorModel model;
+	std::shared_ptr<ColorModel> model;
 
 	Actor& owner;
 	FVec2D& origin;

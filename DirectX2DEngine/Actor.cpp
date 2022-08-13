@@ -18,10 +18,6 @@ void Actor::Update()
 {
 }
 
-void Actor::Render()
-{
-}
-
 FVec2D Actor::GetPosition() const
 {
 	return pos;

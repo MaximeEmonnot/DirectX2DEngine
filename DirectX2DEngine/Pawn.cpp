@@ -21,7 +21,3 @@ void Pawn::Update()
 
 	pController->Update();
 }
-
-void Pawn::Render()
-{
-}

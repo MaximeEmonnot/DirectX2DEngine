@@ -1,5 +1,6 @@
 #pragma once
 #include "BaseModel.h"
+#include "Rect.h"
 #include "TextureShader.h"
 #include "Texture.h"
 
@@ -15,6 +16,8 @@ public:
     DirectX::XMFLOAT2 GetOffset() const;
     DirectX::XMMATRIX GetRotationMatrix() const;
     DirectX::XMMATRIX GetScaleMatrix() const;
+
+    void SetPosition(const FVec2D& new_pos);
     void SetTexture(const Texture& tex);
     Texture GetTexture() const;
 

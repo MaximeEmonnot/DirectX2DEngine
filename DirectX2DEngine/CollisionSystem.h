@@ -6,7 +6,6 @@ public:
 	CollisionSystem(Actor& owner, const std::string& file_path, const std::vector<std::string>& animations);
 
 	void Update();
-	void Render();
 
 	void AddTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition);
 

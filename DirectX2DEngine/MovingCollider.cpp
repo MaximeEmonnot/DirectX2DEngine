@@ -16,11 +16,6 @@ void MovingCollider::Update()
 	while (curFrameTime > holdTime) Advance();
 }
 
-void MovingCollider::Render()
-{
-	collider->Render();
-}
-
 void MovingCollider::SetLoop(bool bValue)
 {
 	bIsLooping = bValue;
