@@ -3,6 +3,8 @@
 #include "CombatLevel.h"
 #include "Engine.h"
 #include "Graphics.h"
+#include "LoggerManager.h"
+#include "Timer.h"
 
 Game::Game()
 {

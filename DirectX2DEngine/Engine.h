@@ -39,7 +39,7 @@ public:
 	}
 
 	template<class T, class... Args>
-	std::shared_ptr<T> CreateModel(int priority, Args... args)
+	std::shared_ptr<T> CreateModel(int priority, Args&&... args)
 	{
 		std::shared_ptr<BaseModel> new_model = std::make_shared<T>(args...);
 		new_model->Initialize();

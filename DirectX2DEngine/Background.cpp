@@ -7,7 +7,7 @@ Background::Background(const FVec2D& pos, const std::string& name)
 	:
 	Actor(pos, name),
 	collider(std::make_shared<Collider>(*this)),
-	model(ENGINE.CreateModel<TextureModel>(1, "Textures/Backgrounds/China.tga"))
+	model(ENGINE.CreateModel<TextureModel>(32, "Textures/Backgrounds/China.tga"))
 {
 	collider->SetCollisionChannel(Collider::CollisionChannel::Gravity);
 	collider->SetCollisionMode(Collider::CollisionMode::Blocking);
