@@ -56,8 +56,8 @@ SolBadguy::SolBadguy(Actor& owner)
 		{
 			if (animSys.AnimationIsFinished()) {
 				std::mt19937 rng(std::random_device{}());
-				const std::uniform_int_distribution<int> dist(0, 50);
-				return dist(rng) == 42;
+				const std::uniform_int_distribution<int> dist(0, 500);
+				return dist(rng) == 400;
 			}
 			return false;
 		});

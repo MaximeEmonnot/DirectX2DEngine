@@ -14,6 +14,8 @@ Background::Background(const FVec2D& pos, const std::string& name)
 	collider->SetRectPos(FRect(0, -500, 2000, 100));
 	collider->SetVisible(true);
 	collider->SetGravity(false);
+
+	model->SetPosition(pos);
 }
 
 void Background::Update()

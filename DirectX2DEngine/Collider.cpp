@@ -10,7 +10,7 @@ Collider::Collider(Actor& owner)
 	owner(owner),
 	origin(owner.pos),
 	rect(FRect(0, 0, 0, 0)),
-	model(ENGINE.CreateModel<ColorModel>(32))
+	model(ENGINE.CreateModel<ColorModel>(256))
 {
 }
 
@@ -19,7 +19,7 @@ Collider::Collider(Actor& owner, const FRect& rect)
 	owner(owner),
 	origin(owner.pos),
 	rect(rect),
-	model(ENGINE.CreateModel<ColorModel>(32))
+	model(ENGINE.CreateModel<ColorModel>(256))
 {
 }
 
