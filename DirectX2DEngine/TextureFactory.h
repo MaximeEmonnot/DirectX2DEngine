@@ -2,9 +2,12 @@
 #include <map>
 #include <string>
 #include <memory>
+
+#include "AnimationTexture.h"
 #include "Texture.h"
 
-#define TEXTURE(path, bForAnim) TextureFactory::GetInstance().GetTexture(path, bForAnim)
+#define TEXTURE(path) TextureFactory::GetInstance().GetTexture(path)
+#define ANIMATION_TEXTURE(path) TextureFactory::GetInstance().GetAnimationTexture(path)
 
 class TextureFactory
 {
@@ -15,7 +18,8 @@ public:
 
 	static TextureFactory& GetInstance();
 
-	Texture& GetTexture(const std::string& path, bool bIsForAnimation = false);
+	Texture& GetTexture(const std::string& path);
+	AnimationTexture& GetAnimationTexture(const std::string& path);
 
 private:
 	static std::unique_ptr<TextureFactory> pInstance;

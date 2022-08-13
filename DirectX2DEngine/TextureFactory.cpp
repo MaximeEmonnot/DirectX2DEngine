@@ -12,11 +12,17 @@ TextureFactory& TextureFactory::GetInstance()
     return *pInstance;
 }
 
-Texture& TextureFactory::GetTexture(const std::string& path, bool bIsForAnimation)
+Texture& TextureFactory::GetTexture(const std::string& path)
 {
-    if (!textureMap.contains(path)) {
-        if (bIsForAnimation) textureMap.emplace(path, std::make_shared<AnimationTexture>(path));
-        else textureMap.emplace(path, std::make_shared<Texture>(path));
-    }
+    if (!textureMap.contains(path)) 
+        textureMap.emplace(path, std::make_shared<Texture>(path));
     return *textureMap.at(path);
+}
+
+AnimationTexture& TextureFactory::GetAnimationTexture(const std::string& path)
+{
+    if (!textureMap.contains(path))
+        textureMap.emplace(path, std::make_shared<AnimationTexture>(path));
+    const std::shared_ptr<AnimationTexture> out = std::dynamic_pointer_cast<AnimationTexture>(textureMap.at(path));
+    return *out;
 }

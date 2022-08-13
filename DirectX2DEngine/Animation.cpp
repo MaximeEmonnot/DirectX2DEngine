@@ -17,9 +17,9 @@ void Animation::Update()
 	while (curFrameTime > holdTime) Advance();
 }
 
-Texture Animation::GetTexture() const
+AnimationTexture& Animation::GetTexture() const
 {
-	return TEXTURE(frames.at(iCurFrame), true);
+	return ANIMATION_TEXTURE(frames.at(iCurFrame));
 }
 
 void Animation::Reset()

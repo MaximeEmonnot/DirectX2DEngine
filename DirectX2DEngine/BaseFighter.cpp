@@ -132,7 +132,7 @@ void BaseFighter::Update()
     }
     animSys.Update();
 
-    model->SetPosition(owner.GetPosition());
+    model->SetPosition(owner.GetPosition() - animSys.GetTexture().GetCenter());
     model->SetTexture(animSys.GetTexture());
     
     //collisionSys.Update();

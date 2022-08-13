@@ -29,11 +29,12 @@ public:
 protected:
 	unsigned char* LoadTGA(const std::string& filepath);
 
+protected:
+	int width = 0;
+	int height = 0;
+
 private:
 	Microsoft::WRL::ComPtr<ID3D11Texture2D> pTexture;
 	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> pTextureView;
-
-	int width = 0;
-	int height = 0;
 };
 

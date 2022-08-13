@@ -2,7 +2,7 @@
 #include <vector>
 #include <string>
 
-#include "Texture.h"
+#include "AnimationTexture.h"
 
 class Animation {
 public:
@@ -17,7 +17,7 @@ public:
 
 	void Update();
 
-	Texture GetTexture() const;
+	AnimationTexture& GetTexture() const;
 
 	void Reset();
 	bool IsFinished() const;

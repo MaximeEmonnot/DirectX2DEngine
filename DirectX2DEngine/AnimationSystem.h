@@ -15,11 +15,11 @@ public:
 	void SetAnimation(const std::string& animName);
 	void AddTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition);
 
-	Texture GetTexture() const;
+	AnimationTexture& GetTexture() const;
 
 	std::string GetCurrentAnimation() const;
 
-	std::vector<std::string> GetAnimationList();
+	std::vector<std::string> GetAnimationList() const;
 
 	bool AnimationIsFinished() const;
 private:

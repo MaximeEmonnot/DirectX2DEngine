@@ -40,10 +40,10 @@ void AnimationSystem::SetAnimation(const std::string& animName)
 
 void AnimationSystem::AddTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition)
 {
-	transitions.insert(std::pair<std::string, std::pair<std::string, std::function<bool()>>>(from, std::pair<std::string, std::function<bool()>>(to, condition)));
+	transitions.insert(std::pair(from, std::pair(to, condition)));
 }
 
-Texture AnimationSystem::GetTexture() const
+AnimationTexture& AnimationSystem::GetTexture() const
 {
 	return animations.at(animState).GetTexture();
 }
@@ -53,7 +53,7 @@ std::string AnimationSystem::GetCurrentAnimation() const
 	return animState;
 }
 
-std::vector<std::string> AnimationSystem::GetAnimationList()
+std::vector<std::string> AnimationSystem::GetAnimationList() const
 {
 	std::vector<std::string> out;
 	for (auto& entry : animations) out.emplace_back(entry.first);
