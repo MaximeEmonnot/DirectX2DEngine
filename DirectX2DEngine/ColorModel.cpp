@@ -26,7 +26,7 @@ ColorModel::ColorModel(FRect rect, DirectX::XMFLOAT4 color)
 
 DirectX::XMFLOAT2 ColorModel::GetOffset() const
 {
-	return DirectX::XMFLOAT2(static_cast<float>(x) / WND.GetWidth(), static_cast<float>(y) / WND.GetHeight());
+	return DirectX::XMFLOAT2(2 * static_cast<float>(x) / WND.GetWidth(), 2 * static_cast<float>(y) / WND.GetHeight());
 }
 
 DirectX::XMMATRIX ColorModel::GetRotationMatrix() const

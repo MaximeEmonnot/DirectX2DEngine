@@ -2,7 +2,10 @@
 #include <memory>
 #include <queue>
 
+#include "Vec2D.h"
+
 #define MOUSE Mouse::GetInstance()
+#define MOUSE_POSITION Mouse::GetInstance().GetPosition()
 
 class Mouse
 {
@@ -32,6 +35,8 @@ public:
 
 	Mouse::EventType Read() const;
 
+	FVec2D GetPosition() const;
+
 	bool LeftIsPressed() const;
 	bool MiddleIsPressed() const;
 	bool RightIsPressed() const;
@@ -54,6 +59,8 @@ private:
 
 private:
 	static std::unique_ptr<Mouse> pInstance;
+
+	FVec2D position = FVec2D(0.f, 0.f);
 
 	bool bLeftPressed = false;
 	bool bMiddlePressed = false;

@@ -4,6 +4,7 @@
 #include "Engine.h"
 #include "Graphics.h"
 #include "LoggerManager.h"
+#include "Mouse.h"
 #include "Timer.h"
 
 Game::Game()

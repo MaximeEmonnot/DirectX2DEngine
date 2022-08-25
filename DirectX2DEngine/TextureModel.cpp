@@ -16,7 +16,7 @@ TextureModel::TextureModel(Texture& texture)
 
 DirectX::XMFLOAT2 TextureModel::GetOffset() const
 {
-	return DirectX::XMFLOAT2(static_cast<float>(x) / WND.GetWidth(), static_cast<float>(y) / WND.GetHeight());
+	return DirectX::XMFLOAT2(2 * static_cast<float>(x) / WND.GetWidth(), 2 * static_cast<float>(y) / WND.GetHeight());
 }
 
 DirectX::XMMATRIX TextureModel::GetRotationMatrix() const

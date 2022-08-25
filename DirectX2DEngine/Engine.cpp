@@ -17,13 +17,12 @@ void Engine::Update() const
 {
 	TICKCLOCK
 
-	levels.at(levelIndex)->Update();
+	if (!levels.empty()) levels.at(levelIndex)->Update();
 }
 
 void Engine::Render() const
 {
-	for (const std::pair<const int, std::shared_ptr<BaseModel>>& entry : models)
-		entry.second->Render();
+	for (const std::pair<const int, std::shared_ptr<BaseModel>>& entry : models) entry.second->Render();
 }
 
 void Engine::SetLevel(int newIndex)

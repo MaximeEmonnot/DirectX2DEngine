@@ -20,6 +20,11 @@ Mouse::EventType Mouse::Read() const
 	return buffer.empty() ? EventType::None : buffer.front();
 }
 
+FVec2D Mouse::GetPosition() const
+{
+	return position;
+}
+
 bool Mouse::LeftIsPressed() const
 {
 	return bLeftPressed;
@@ -38,6 +43,7 @@ bool Mouse::RightIsPressed() const
 void Mouse::OnMouseMove(int x, int y)
 {
 	buffer.push(EventType::Move);
+	position = IVec2D(x, y);
 	TrimBuffer();
 }
 

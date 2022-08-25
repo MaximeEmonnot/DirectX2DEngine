@@ -12,7 +12,7 @@ PlayerCharacter::PlayerCharacter(const FVec2D& pos, const std::string& name)
 {
 	rootCollider->SetRectPos(FRect(0, 5, 10, 10));
 	rootCollider->SetCollisionMode(Collider::CollisionMode::Blocking);
-	rootCollider->SetGravity(false);
+	rootCollider->SetGravity(true);
 	rootCollider->SetVisible(true);
 	rootCollider->SetCollisionChannel(Collider::CollisionChannel::Gravity);
 }

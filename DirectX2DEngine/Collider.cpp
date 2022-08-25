@@ -48,8 +48,6 @@ void Collider::Update()
 	ApplyFriction();
 	TryMovingInThisDirection(velocity);
 
-	if (bIsBlocking)
-		int test = 0;
 	owner.pos += velocity * DELTATIME;
 
 	forces.clear();
@@ -158,7 +156,7 @@ void Collider::ApplyForces()
 
 void Collider::ApplyFriction()
 {
-	const FVec2D friction = velocity * 0.1f;
+	const FVec2D friction = velocity * 0.05f;
 	velocity -= friction;
 }
 
