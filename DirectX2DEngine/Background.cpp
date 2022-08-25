@@ -7,13 +7,13 @@ Background::Background(const FVec2D& pos, const std::string& name)
 	:
 	Actor(pos, name),
 	collider(std::make_shared<Collider>(*this)),
-	model(ENGINE.CreateModel<TextureModel>(1, "Textures/Backgrounds/China.tga"))
+	model(ENGINE.CreateModel<TextureModel>(1, "Textures/Backgrounds/London.tga"))
 {
+	collider->SetVisible(false);
+	collider->SetGravity(false);
 	collider->SetCollisionChannel(Collider::CollisionChannel::Gravity);
 	collider->SetCollisionMode(Collider::CollisionMode::Blocking);
-	collider->SetRectPos(FRect(0, -500, 2000, 100));
-	collider->SetVisible(true);
-	collider->SetGravity(false);
+	collider->SetRectPos(FRect(0, -800, 2000, 200));
 
 	model->SetPosition(pos);
 }

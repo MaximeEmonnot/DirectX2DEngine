@@ -48,6 +48,8 @@ void Collider::Update()
 	ApplyFriction();
 	TryMovingInThisDirection(velocity);
 
+	if (bIsBlocking)
+		int test = 0;
 	owner.pos += velocity * DELTATIME;
 
 	forces.clear();
@@ -85,7 +87,7 @@ void Collider::SetCollisionChannel(CollisionChannel cChannel)
 			model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
 			break;
 		case CollisionChannel::None:
-			model->SetColor(DirectX::XMFLOAT4(0.25f, 0.25f, 0.25f, 0.25f)); //Gray
+			model->SetColor(DirectX::XMFLOAT4(1.f, 1.f, 1.f, 0.25f)); //Gray
 			break;
 		default:
 			break;
@@ -156,7 +158,7 @@ void Collider::ApplyForces()
 
 void Collider::ApplyFriction()
 {
-	const FVec2D friction = velocity * 0.01f;
+	const FVec2D friction = velocity * 0.1f;
 	velocity -= friction;
 }
 
@@ -216,7 +218,8 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 			}
 		}
 	}
-	if (bIsBlocking) ApplyReaction(test_rect, direction);
+	if (bIsBlocking) 
+		ApplyReaction(test_rect, direction);
 }
 
 void Collider::SetRectPos(const FRect& pos)

@@ -24,7 +24,7 @@ void PlayerCharacter::Update()
 	pFighter->Update();
 }
 
-std::vector<std::shared_ptr<Collider>> PlayerCharacter::GetColliders() const
+std::vector<std::shared_ptr<Collider>> PlayerCharacter::GetColliders() const 
 {
 	std::vector<std::shared_ptr<Collider>> out;
 	out.emplace_back(rootCollider);

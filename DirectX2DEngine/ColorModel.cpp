@@ -68,7 +68,7 @@ void ColorModel::SetPosition(const FVec2D& new_pos)
 void ColorModel::SetRectangle(const FRect& new_rect)
 {
 	x = new_rect.pos.x;
-	x = new_rect.pos.y;
+	y = new_rect.pos.y;
 	width = new_rect.width;
 	height = new_rect.height;
 }

@@ -93,10 +93,13 @@ public:
 
 	Vec2D GetNormalized() const {
 		Vec2D v = *this;
-		float magnitude = 1 / GetLength();
-		v.x *= magnitude;
-		v.y *= magnitude;
-		return v;
+		if (GetLength() > 0) {
+			float magnitude = 1 / GetLength();
+			v.x *= magnitude;
+			v.y *= magnitude;
+			return v;
+		}
+		return Vec2D();
 	}
 
 	void Normalize() {
