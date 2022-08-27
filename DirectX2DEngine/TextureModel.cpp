@@ -8,7 +8,7 @@ TextureModel::TextureModel(const std::string& texture_path)
 {
 }
 
-TextureModel::TextureModel(Texture& texture)
+TextureModel::TextureModel(const Texture& texture)
 	:
 	texture(texture)
 {

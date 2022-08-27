@@ -11,7 +11,7 @@ public:
     TextureModel() = default;
     ~TextureModel() override = default;
     TextureModel(const std::string& texture_path);
-    TextureModel(Texture& texture);
+    TextureModel(const Texture& texture);
 
     DirectX::XMFLOAT2 GetOffset() const;
     DirectX::XMMATRIX GetRotationMatrix() const;

@@ -98,8 +98,6 @@ void TextRenderer::Render(const std::wstring& text, const std::wstring& fontFami
 
 	pRenderTarget->SetTransform(D2D1::IdentityMatrix());
 
-	float test = fonts.at(std::pair(fontFamily, fontSize))->GetFontSize();
-
 	pRenderTarget->DrawText(
 		text.c_str(),
 		text.size(),

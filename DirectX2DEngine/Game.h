@@ -9,7 +9,7 @@ public:
 	void Go();
 
 private:
-	void UpdateFrame();
-	void RenderFrame();
+	void UpdateFrame() const;
+	void RenderFrame() const;
 };
 

@@ -6,8 +6,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 {
 	try {
 		Game theGame;
-		while (WND.ProcessMessages())
-			theGame.Go();
+		while (WND.ProcessMessages()) theGame.Go();
 	}
 	catch(EngineException& e)
 	{
