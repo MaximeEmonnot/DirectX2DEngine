@@ -27,6 +27,8 @@ public:
 
 	float GetRatio() const;
 
+	HWND GetHWND() const;
+
 private:
 	static LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 

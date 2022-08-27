@@ -189,6 +189,9 @@
     <ClCompile Include="SolBadguy.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="TextRenderer.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -337,6 +340,9 @@
     </ClInclude>
     <ClInclude Include="SolBadguy.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="TextRenderer.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

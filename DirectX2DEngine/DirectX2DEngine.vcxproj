@@ -177,6 +177,7 @@
     <ClCompile Include="SolBadguy.cpp" />
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundSystem.cpp" />
+    <ClCompile Include="TextRenderer.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TextureFactory.cpp" />
     <ClCompile Include="TextureModel.cpp" />
@@ -227,6 +228,7 @@
     <ClInclude Include="SolBadguy.h" />
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundSystem.h" />
+    <ClInclude Include="TextRenderer.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TextureFactory.h" />
     <ClInclude Include="TextureModel.h" />

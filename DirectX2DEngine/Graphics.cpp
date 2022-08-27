@@ -25,7 +25,7 @@ Graphics::Graphics()
 	scd.SampleDesc.Quality = 0;
 	scd.Windowed = TRUE;
 
-	UINT flags = 0u;
+	UINT flags = D3D11_CREATE_DEVICE_BGRA_SUPPORT;
 #if _DEBUG
 	flags |= D3D11_CREATE_DEVICE_DEBUG;
 #endif
@@ -171,4 +171,9 @@ ID3D11Device* Graphics::GetDevice() const
 ID3D11DeviceContext* Graphics::GetDeviceContext() const
 {
 	return pDeviceContext.Get();
+}
+
+IDXGISwapChain* Graphics::GetSwapChain() const
+{
+	return pSwapChain.Get();
 }

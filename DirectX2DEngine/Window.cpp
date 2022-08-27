@@ -97,6 +97,11 @@ float Window::GetRatio() const
 	return static_cast<float>(width) / static_cast<float>(height);
 }
 
+HWND Window::GetHWND() const
+{
+	return hWnd;
+}
+
 LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch(uMsg)

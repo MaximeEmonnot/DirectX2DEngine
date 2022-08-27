@@ -44,6 +44,7 @@ public:
 
 	ID3D11Device* GetDevice() const;
 	ID3D11DeviceContext* GetDeviceContext() const;
+	IDXGISwapChain* GetSwapChain() const;
 
 private:
 	static std::unique_ptr<Graphics> pInstance;
