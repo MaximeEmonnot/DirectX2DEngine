@@ -3,6 +3,7 @@
 #include <vector>
 #include <string>
 #include "Vec2D.h"
+#include "World.h"
 
 class Actor
 {
@@ -27,7 +28,7 @@ private:
 	friend class World;
 public:
 	Actor() = delete;
-	Actor(const FVec2D& pos, const std::string& name);
+	Actor(World& world, const FVec2D& pos, const std::string& name);
 	Actor(const Actor&) = default;
 	virtual ~Actor() = default;
 
@@ -39,7 +40,10 @@ public:
 	std::string GetName() const;
 	virtual std::vector<std::shared_ptr<class Collider>> GetColliders() const;
 
+	World& GetWorld() const;
+
 protected:
+	World& world;
 	FVec2D pos;
 	std::string name;
  };

@@ -1,8 +1,8 @@
 #include "Pawn.h"
 
-Pawn::Pawn(const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController)
+Pawn::Pawn(World& world, const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController)
 	:
-	Actor(pos, name),
+	Actor(world, pos, name),
 	pController(pController)
 {
 }

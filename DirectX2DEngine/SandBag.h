@@ -5,7 +5,7 @@ class SandBag :
     public Actor
 {
 public:
-    SandBag(const FRect& pos, const std::string& name);
+    SandBag(World& world, const FRect& pos, const std::string& name);
 
     void Update() override;
 

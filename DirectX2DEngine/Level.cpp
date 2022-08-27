@@ -34,6 +34,12 @@ void Level::Update()
 	pWorld->Update();
 }
 
+void Level::Render() const
+{
+	pWorld->Render();
+	// Render Texts
+}
+
 World& Level::GetWorld() const
 {
 	return *pWorld;

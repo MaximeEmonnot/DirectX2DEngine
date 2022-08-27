@@ -44,6 +44,16 @@ float BaseModel::GetDepth() const
 	return (512.f - depth) / 512.f;
 }
 
+void BaseModel::SetVisibility(bool bValue)
+{
+	bIsVisible = bValue;
+}
+
+bool BaseModel::IsVisible() const
+{
+	return bIsVisible;
+}
+
 void BaseModel::SettingIndices()
 {
 	indices = new unsigned long[nVertices];

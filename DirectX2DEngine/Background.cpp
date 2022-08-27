@@ -3,11 +3,11 @@
 #include "Engine.h"
 #include "Graphics.h"
 
-Background::Background(const FVec2D& pos, const std::string& name)
+Background::Background(World& world, const FVec2D& pos, const std::string& name)
 	:
-	Actor(pos, name),
+	Actor(world, pos, name),
 	collider(std::make_shared<Collider>(*this)),
-	model(ENGINE.CreateModel<TextureModel>(1, "Textures/Backgrounds/London.tga"))
+	model(GetWorld().CreateModel<TextureModel>(1, "Textures/Backgrounds/London.tga"))
 {
 	collider->SetVisible(true);
 	collider->SetGravity(false);

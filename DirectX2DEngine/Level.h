@@ -1,6 +1,8 @@
 #pragma once
+#include <map>
 #include <memory>
 
+#include "BaseModel.h"
 #include "World.h"
 
 class Level
@@ -16,6 +18,8 @@ public:
 	virtual ~Level() = default;
 
 	virtual void Update();
+
+	void Render() const;
 
 	World& GetWorld() const;
 

@@ -10,7 +10,7 @@ Collider::Collider(Actor& owner)
 	owner(owner),
 	origin(owner.pos),
 	rect(FRect(0, 0, 0, 0)),
-	model(ENGINE.CreateModel<ColorModel>(256))
+	model(owner.GetWorld().CreateModel<ColorModel>(256))
 {
 }
 
@@ -19,7 +19,7 @@ Collider::Collider(Actor& owner, const FRect& rect)
 	owner(owner),
 	origin(owner.pos),
 	rect(rect),
-	model(ENGINE.CreateModel<ColorModel>(256))
+	model(owner.GetWorld().CreateModel<ColorModel>(256))
 {
 }
 
@@ -62,37 +62,33 @@ void Collider::SetCollisionMode(CollisionMode cMode)
 
 void Collider::SetVisible(bool bValue)
 {
-	bIsVisible = bValue;
+	model->SetVisibility(bValue);
 }
 
 void Collider::SetCollisionChannel(CollisionChannel cChannel)
 {
 	channel = cChannel;
 
-	if (bIsVisible) {
-		switch (channel)
-		{
-		case CollisionChannel::Stun:
-			model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
-			break;
-		case CollisionChannel::Defense:
-			model->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
-			break;
-		case CollisionChannel::Attack:
-			model->SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
-			break;
-		case CollisionChannel::Gravity:
-			model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
-			break;
-		case CollisionChannel::None:
-			model->SetColor(DirectX::XMFLOAT4(1.f, 1.f, 1.f, 0.25f)); //Gray
-			break;
-		default:
-			break;
-		}
+	switch (channel)
+	{
+	case CollisionChannel::Stun:
+		model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
+		break;
+	case CollisionChannel::Defense:
+		model->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
+		break;
+	case CollisionChannel::Attack:
+		model->SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
+		break;
+	case CollisionChannel::Gravity:
+		model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
+		break;
+	case CollisionChannel::None:
+		model->SetColor(DirectX::XMFLOAT4(1.f, 1.f, 1.f, 0.25f)); //Gray
+		break;
+	default:
+		break;
 	}
-	else
-		model->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 0.f, 0.f));
 }
 
 void Collider::SetGravity(bool bValue)
@@ -183,7 +179,7 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 	overlappingActors.clear();
 	const FRect test_rect = rect + origin + direction * DELTATIME;
 
-	for (auto& a : WORLD.GetActors())
+	for (auto& a : owner.GetWorld().GetActors())
 	{
 		if (&owner != a.get())
 		{

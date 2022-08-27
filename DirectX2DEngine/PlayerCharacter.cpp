@@ -5,9 +5,9 @@
 #include "Rect.h"
 #include "SolBadguy.h"
 
-PlayerCharacter::PlayerCharacter(const FVec2D& pos, const std::string& name)
+PlayerCharacter::PlayerCharacter(World& world, const FVec2D& pos, const std::string& name)
 	:
-	Character(pos, name, std::make_shared<PlayerController>(*this)),
+	Character(world, pos, name, std::make_shared<PlayerController>(*this)),
 	pFighter(std::make_unique<SolBadguy>(*this))
 {
 	rootCollider->SetRectPos(FRect(0, 5, 10, 10));

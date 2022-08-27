@@ -16,6 +16,9 @@ public:
 	void SetDepth(float new_depth);
 	float GetDepth() const;
 
+	void SetVisibility(bool bValue);
+	bool IsVisible() const;
+
 protected:
 	virtual void SettingShader() = 0;
 	virtual void SettingBufferConstants() = 0;
@@ -32,6 +35,8 @@ protected:
 
 	Microsoft::WRL::ComPtr<ID3D11Buffer> pVertexBuffer;
 	Microsoft::WRL::ComPtr<ID3D11Buffer> pIndexBuffer;
+
+	bool bIsVisible = true;
 
 	unsigned int vertexBufferByteWidth;
 	int nVertices;

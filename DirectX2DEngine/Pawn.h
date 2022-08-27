@@ -8,7 +8,7 @@ class Pawn :
 public:
     Pawn() = delete;
 
-    Pawn(const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController);
+    Pawn(World& world, const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController);
     Pawn(const Pawn&) = default;
     Pawn& operator= (const Pawn& toCopy);
     virtual ~Pawn() override = default;

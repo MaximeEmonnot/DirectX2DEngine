@@ -2,9 +2,9 @@
 
 #include "Collider.h"
 
-Character::Character(const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController)
+Character::Character(World& world, const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController)
 	:
-	Pawn(pos, name, pController),
+	Pawn(world, pos, name, pController),
 	rootCollider(std::make_shared<Collider>(*this))
 {
 }

@@ -118,7 +118,7 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
     owner(owner),
     pComboTree(pComboTree),
     animSys(jsonPath),
-	model(ENGINE.CreateModel<TextureModel>(15))
+	model(owner.GetWorld().CreateModel<TextureModel>(15))
     //collisionSys(owner, jsonPath, animSys.GetAnimationList())_
 {
 }

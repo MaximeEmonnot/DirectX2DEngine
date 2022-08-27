@@ -5,7 +5,7 @@
 class Background : public Actor
 {
 public:
-	Background(const FVec2D& pos, const std::string& name);
+	Background(World& world, const FVec2D& pos, const std::string& name);
 
 	virtual void Update() override;
 

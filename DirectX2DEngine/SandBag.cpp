@@ -3,12 +3,12 @@
 #include "Engine.h"
 #include "Graphics.h"
 
-SandBag::SandBag(const FRect& pos, const std::string& name)
+SandBag::SandBag(World& world, const FRect& pos, const std::string& name)
 	:
-	Actor(pos.pos, name),
+	Actor(world, pos.pos, name),
 	rootCollider(std::make_shared<Collider>(*this)),
 	defCollider(std::make_shared<Collider>(*this, pos - pos.pos)),
-	model(ENGINE.CreateModel<ColorModel>(15, pos, DirectX::XMFLOAT4(1.f, 1.f, 0.f, 1.f)))
+	model(GetWorld().CreateModel<ColorModel>(15, pos, DirectX::XMFLOAT4(1.f, 1.f, 0.f, 1.f)))
 {
 	rootCollider->SetGravity(true);
 	rootCollider->SetVisible(true);

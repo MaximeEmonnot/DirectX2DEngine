@@ -8,7 +8,7 @@ private:
     friend class PlayerController;
 public:
     PlayerCharacter() = delete;
-    PlayerCharacter(const FVec2D& pos, const std::string& name);
+    PlayerCharacter(World& world, const FVec2D& pos, const std::string& name);
 
     virtual void Update() override;
 

@@ -1,7 +1,10 @@
 #pragma once
-#include "Actor.h"
+#include <map>
+
 #include <memory>
 #include <vector>
+
+#include "BaseModel.h"
 
 class World
 {
@@ -9,22 +12,45 @@ public:
 	World() = default;
 	 
 	void Update();
+	void Render() const;
 
 	template<class T>
 	void SpawnActor()
 	{
-		actors.emplace_back(std::make_shared<T>());
+		actors.emplace_back(std::make_shared<T>(*this));
 	}
 
 	template<class T, class... Args >
 	void SpawnActor(Args&&... args)
 	{
-		actors.emplace_back(std::make_shared<T>(args...));
+		actors.emplace_back(std::make_shared<T>(*this, args...));
 	}
 
-	std::vector<std::shared_ptr<Actor>> GetActors() const;
+	template<class T>
+	std::shared_ptr<T> CreateModel(int priority)
+	{
+		std::shared_ptr<BaseModel> new_model = std::make_shared<T>();
+		new_model->Initialize();
+		new_model->SetDepth(priority);
+		models.emplace(std::pair(priority, new_model));
+		return std::dynamic_pointer_cast<T>(new_model);
+	}
+
+	template<class T, class... Args>
+	std::shared_ptr<T> CreateModel(int priority, Args&&... args)
+	{
+		std::shared_ptr<BaseModel> new_model = std::make_shared<T>(args...);
+		new_model->Initialize();
+		new_model->SetDepth(priority);
+		models.emplace(std::pair(priority, new_model));
+		return std::dynamic_pointer_cast<T>(new_model);
+	}
+
+	std::vector<std::shared_ptr<class Actor>> GetActors() const;
 
 private:
-	std::vector<std::shared_ptr<Actor>> actors;
+	std::vector<std::shared_ptr<class Actor>> actors;
+
+	std::multimap<int, std::shared_ptr<BaseModel>> models;
 };
 

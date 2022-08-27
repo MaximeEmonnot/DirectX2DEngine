@@ -1,7 +1,9 @@
 #include "Actor.h"
+#include "World.h"
 
-Actor::Actor(const FVec2D& pos, const std::string& name)
+Actor::Actor(World& world, const FVec2D& pos, const std::string& name)
 	:
+	world(world),
 	pos(pos),
 	name(name)
 {
@@ -31,4 +33,10 @@ std::string Actor::GetName() const
 std::vector<std::shared_ptr<class Collider>> Actor::GetColliders() const
 {
 	return std::vector<std::shared_ptr<class Collider>>();
+}
+
+
+World& Actor::GetWorld() const
+{
+	return world;
 }

@@ -5,7 +5,7 @@ class Character :
 {
 public:
     Character() = delete;
-    Character(const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController);
+    Character(World& world, const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController);
 
     virtual void Update() override;
 
