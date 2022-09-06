@@ -207,7 +207,7 @@
     <ClCompile Include="UIButton.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
-    <ClCompile Include="UICanvas_Test.cpp">
+    <ClCompile Include="UICanvas_Combat.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
     <ClCompile Include="UIImage.cpp">
@@ -380,7 +380,7 @@
     <ClInclude Include="UIButton.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
-    <ClInclude Include="UICanvas_Test.h">
+    <ClInclude Include="UICanvas_Combat.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
     <ClInclude Include="UIImage.h">

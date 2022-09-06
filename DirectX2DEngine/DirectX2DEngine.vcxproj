@@ -182,7 +182,7 @@
     <ClCompile Include="Sound.cpp" />
     <ClCompile Include="SoundSystem.cpp" />
     <ClCompile Include="UIButton.cpp" />
-    <ClCompile Include="UICanvas_Test.cpp" />
+    <ClCompile Include="UICanvas_Combat.cpp" />
     <ClCompile Include="UIImage.cpp" />
     <ClCompile Include="UIProgressBar.cpp" />
     <ClCompile Include="UIText.cpp" />
@@ -240,7 +240,7 @@
     <ClInclude Include="Sound.h" />
     <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="UIButton.h" />
-    <ClInclude Include="UICanvas_Test.h" />
+    <ClInclude Include="UICanvas_Combat.h" />
     <ClInclude Include="UIImage.h" />
     <ClInclude Include="UIProgressBar.h" />
     <ClInclude Include="UIText.h" />

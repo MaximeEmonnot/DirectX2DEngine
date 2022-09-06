@@ -5,11 +5,11 @@
 #include "UIText.h"
 #include "UIProgressBar.h"
 
-class UICanvas_Test :
+class UICanvas_Combat :
     public AUICanvas
 {
 public:
-    UICanvas_Test();
+    UICanvas_Combat();
 
     void Update() override;
 
