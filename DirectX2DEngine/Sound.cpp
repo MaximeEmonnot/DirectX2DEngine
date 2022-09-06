@@ -53,9 +53,9 @@ Sound::Sound(const std::string& path, Type soundType)
 
 Sound::~Sound()
 {
-	pSourceVoice->DestroyVoice();
-	delete pSourceVoice;
-	pSourceVoice = nullptr;
+	//pSourceVoice->DestroyVoice();
+	//delete pSourceVoice;
+	//pSourceVoice = nullptr;
 }
 
 void Sound::SetVoice(IXAudio2* pAudio)

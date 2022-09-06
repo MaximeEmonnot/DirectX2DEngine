@@ -17,8 +17,6 @@ SoundSystem::SoundSystem()
 SoundSystem::~SoundSystem()
 {
 	pMasterVoice->DestroyVoice();
-	delete pMasterVoice;
-	pMasterVoice = nullptr;
 }
 
 SoundSystem& SoundSystem::GetInstance()
@@ -48,8 +46,8 @@ void SoundSystem::Play(const std::string& path, int posX) const
 		throw SFX_EXCEPTION("This song has not been added!\nPlease, add the song first before playing it.", S_FALSE);
 
 	const float pVoiceChannelVolumes[2] = {
-		2.0f - (static_cast<float>(posX) / (static_cast<float>(WND.GetWidth()) / 2)),
-		static_cast<float>(posX) / (static_cast<float>(WND.GetWidth()) / 2)
+		1.0f - (static_cast<float>(posX) / (static_cast<float>(WND.GetWidth()) / 2)),
+		1.0f + static_cast<float>(posX) / (static_cast<float>(WND.GetWidth()) / 2)
 	};
 	Sound toPlay = soundMap.at(path);
 	HRESULT hr = S_OK;

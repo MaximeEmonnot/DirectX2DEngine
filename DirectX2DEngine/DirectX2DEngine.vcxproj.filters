@@ -52,6 +52,12 @@
     <Filter Include="Fichiers sources\GameEngine">
       <UniqueIdentifier>{02f9b69a-4bc2-4796-b1c5-6fa1fb8b19a1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\UIEngine">
+      <UniqueIdentifier>{fb911d39-4cff-42c8-8488-3f5016193937}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\UIEngine">
+      <UniqueIdentifier>{d1990d1d-8401-4229-bbbf-33f3c08e4954}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -191,6 +197,27 @@
     </ClCompile>
     <ClCompile Include="TextRenderer.cpp">
       <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AUICanvas.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="AUIElement.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UIButton.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UICanvas_Test.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UIImage.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UIProgressBar.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UIText.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -343,6 +370,27 @@
     </ClInclude>
     <ClInclude Include="TextRenderer.h">
       <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AUICanvas.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="AUIElement.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UIButton.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UICanvas_Test.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UIImage.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UIProgressBar.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UIText.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

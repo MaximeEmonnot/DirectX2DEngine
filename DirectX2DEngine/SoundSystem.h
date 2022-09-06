@@ -6,7 +6,7 @@
 #include <wrl.h>
 #include <map>
 
-#define SFX
+#define SFX SoundSystem::GetInstance()
 
 #define SFX_EXCEPTION(note, hr) SoundSystem::SoundEffectsException("DirectX 2D Engine - Sound Engine Exception", note, __FILE__, __LINE__, hr)
 

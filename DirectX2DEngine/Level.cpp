@@ -32,12 +32,14 @@ Level& Level::operator=(Level&& toMove) noexcept
 void Level::Update()
 {
 	pWorld->Update();
+	for (const std::shared_ptr<AUICanvas>& canvas : canvasList) canvas->Update();
 }
 
 void Level::Render() const
 {
 	pWorld->Render();
-	// Render Texts
+
+	for (const std::shared_ptr<AUICanvas>& canvas : canvasList) canvas->Render();
 }
 
 World& Level::GetWorld() const

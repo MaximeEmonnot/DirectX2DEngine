@@ -49,7 +49,7 @@ public:
 		out.height *= scale;
 		return out;
 	}
-	void operator*= (T scale) const
+	void operator*= (T scale)
 	{
 		*this = *this * scale;
 	}

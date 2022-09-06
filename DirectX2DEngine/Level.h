@@ -1,8 +1,7 @@
 #pragma once
-#include <map>
 #include <memory>
 
-#include "BaseModel.h"
+#include "AUICanvas.h"
 #include "World.h"
 
 class Level
@@ -23,6 +22,19 @@ public:
 
 	World& GetWorld() const;
 
+	template<class T>
+	void CreateCanvas()
+	{
+		canvasList.emplace_back(std::make_shared<T>());
+	}
+
+	template<class T, class... Args>
+	void CreateCanvas(Args&&... args)
+	{
+		canvasList.emplace_back(std::make_shared<T>(args...));
+	}
+
 protected:
 	std::shared_ptr<World> pWorld;
+	std::vector<std::shared_ptr<AUICanvas>> canvasList;
 };
