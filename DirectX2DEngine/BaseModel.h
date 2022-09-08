@@ -19,6 +19,8 @@ public:
 	void SetVisibility(bool bValue);
 	bool IsVisible() const;
 
+	void SetInverted(bool bValue);
+
 protected:
 	virtual void SettingShader() = 0;
 	virtual void SettingBufferConstants() = 0;
@@ -27,16 +29,18 @@ protected:
 
 	void SettingIndices();
 private:
-	HRESULT SettingVertexBuffer();
+	HRESULT SettingVertexBuffers();
 	HRESULT SettingIndexBuffer();
 
 protected:
 	std::shared_ptr<BaseShader> pShader;
 
 	Microsoft::WRL::ComPtr<ID3D11Buffer> pVertexBuffer;
+	Microsoft::WRL::ComPtr<ID3D11Buffer> pInvertedVertexBuffer;
 	Microsoft::WRL::ComPtr<ID3D11Buffer> pIndexBuffer;
 
 	bool bIsVisible = true;
+	bool bIsInverted = false;
 
 	unsigned int vertexBufferByteWidth;
 	int nVertices;
@@ -44,6 +48,7 @@ protected:
 	unsigned int offset;
 
 	void* vertices;
+	void* inverted_vertices;
 	unsigned long* indices;
 
 	float depth;

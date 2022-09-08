@@ -4,13 +4,17 @@
 
 TextureModel::TextureModel(const std::string& texture_path)
 	:
-	texture(texture_path)
+	texture(texture_path),
+	width(texture.GetWidth()),
+	height(texture.GetHeight())
 {
 }
 
 TextureModel::TextureModel(const Texture& texture)
 	:
-	texture(texture)
+	texture(texture),
+	width(texture.GetWidth()),
+	height(texture.GetHeight())
 {
 }
 
@@ -32,8 +36,8 @@ DirectX::XMMATRIX TextureModel::GetRotationMatrix() const
 DirectX::XMMATRIX TextureModel::GetScaleMatrix() const
 {
     return DirectX::XMMATRIX(
-		static_cast<float>(texture.GetWidth()) / WND.GetWidth(), 0.f, 0.f, 0.f,
-		0.f, static_cast<float>(texture.GetHeight()) / WND.GetHeight(), 0.f, 0.f,
+		static_cast<float>(width) / WND.GetWidth(), 0.f, 0.f, 0.f,
+		0.f, static_cast<float>(height) / WND.GetHeight(), 0.f, 0.f,
 		0.f, 0.f, 1.f, 0.f,
 		0.f, 0.f, 0.f, 1.f
 	);
@@ -45,9 +49,19 @@ void TextureModel::SetPosition(const FVec2D& new_pos)
 	y = new_pos.y;
 }
 
+void TextureModel::SetRectangle(const FRect& rectangle)
+{
+	x = rectangle.pos.x;
+	y = rectangle.pos.y;
+	width = rectangle.width;
+	height = rectangle.height;
+}
+
 void TextureModel::SetTexture(const Texture& tex)
 {
 	texture = tex;
+	width = texture.GetWidth();
+	height = texture.GetHeight();
 }
 
 Texture TextureModel::GetTexture() const
@@ -82,5 +96,13 @@ void TextureModel::SettingVertices()
 	texture_vertices[4] = { DirectX::XMFLOAT3(1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
 	texture_vertices[5] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
 
+	inverted_texture_vertices[0] = { DirectX::XMFLOAT3(-1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
+	inverted_texture_vertices[1] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
+	inverted_texture_vertices[2] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
+	inverted_texture_vertices[3] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
+	inverted_texture_vertices[4] = { DirectX::XMFLOAT3(1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
+	inverted_texture_vertices[5] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
+
 	vertices = texture_vertices;
+	inverted_vertices = inverted_texture_vertices;
 }

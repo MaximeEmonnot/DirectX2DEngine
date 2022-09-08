@@ -12,6 +12,10 @@ Game::Game()
 	// Graphics System Initialization
 	GFX;
 
+	//Audio Initialization
+	SFX;
+	SFX.AddSong("Sounds/BeJustOrBeDead.wav", true);
+
 	ENGINE.AddLevel<CombatLevel>();
 }
 
@@ -32,5 +36,5 @@ void Game::RenderFrame() const
 {
 	ENGINE.Render();
 
-	TEXT_ENGINE.Render(std::to_wstring(static_cast<int>(1 / DELTATIME)), L"Arial Black", 64.f, FRect(300.f, 250.f, 256.f, 64.f), D2D1::ColorF(D2D1::ColorF::Red));
+	TEXT_ENGINE.Render(std::to_wstring(static_cast<int>(1 / DELTATIME)), L"Arial Black", 32.f, FRect(350.f, 300.f, 256.f, 64.f), D2D1::ColorF(D2D1::ColorF::Red));
 }

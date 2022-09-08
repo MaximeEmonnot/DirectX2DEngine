@@ -11,6 +11,8 @@ AnimationTexture::AnimationTexture(const std::string& filepath)
 					(tga_data[1] & 15) << 8 | tga_data[2]);
 	center.x -= width / 2;
 	center.y = -center.y + height / 2;
+
+	delete[] tga_data;
 }
 
 Texture& AnimationTexture::operator()()

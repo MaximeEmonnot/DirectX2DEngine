@@ -93,12 +93,13 @@ void ColorModel::SettingBufferConstants()
 
 void ColorModel::SettingVertices()
 {
-	color_vertices[0] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.5f}};
-	color_vertices[1] = { DirectX::XMFLOAT3{-1.f, 1.f, 0.5f}};
-	color_vertices[2] = { DirectX::XMFLOAT3{1.f, 1.f, 0.5f}};
-	color_vertices[3] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.5f} };
-	color_vertices[4] = { DirectX::XMFLOAT3{1.f, 1.f, 0.5f}};
-	color_vertices[5] = { DirectX::XMFLOAT3{1.f, -1.f, 0.5f}};
+	color_vertices[0] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.f}};
+	color_vertices[1] = { DirectX::XMFLOAT3{-1.f, 1.f, 0.f}};
+	color_vertices[2] = { DirectX::XMFLOAT3{1.f, 1.f, 0.f}};
+	color_vertices[3] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.f} };
+	color_vertices[4] = { DirectX::XMFLOAT3{1.f, 1.f, 0.f}};
+	color_vertices[5] = { DirectX::XMFLOAT3{1.f, -1.f, 0.f}};
 
 	vertices = color_vertices;
+	inverted_vertices = color_vertices;
 }

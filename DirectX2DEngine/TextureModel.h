@@ -17,6 +17,7 @@ public:
     DirectX::XMMATRIX GetScaleMatrix() const;
 
     void SetPosition(const FVec2D& new_pos);
+    void SetRectangle(const FRect& rectangle);
     void SetTexture(const Texture& tex);
     Texture GetTexture() const;
 
@@ -27,10 +28,12 @@ protected:
     virtual void SettingVertices() override;
 
 private:
-    int x = 0, y = 0;
     Texture texture;
+    int x = 0, y = 0;
+    int height = 0, width = 0;
     float angle = 0.f;
 
     TextureShader::VertexInput texture_vertices[6];
+    TextureShader::VertexInput inverted_texture_vertices[6];
 };
 

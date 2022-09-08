@@ -27,7 +27,8 @@ public:
     void Render() const override;
 
 private:
-    std::shared_ptr<ColorModel> model;
+    std::shared_ptr<ColorModel> backgroundModel;
+    std::shared_ptr<ColorModel> fillModel;
     float percentage = 1.f;
     ProgressDirection direction;
 };

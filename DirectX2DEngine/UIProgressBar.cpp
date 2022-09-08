@@ -3,14 +3,19 @@
 UIProgressBar::UIProgressBar(const FRect& position, const DirectX::XMFLOAT4& color, ProgressDirection direction)
 	:
 	AUIElement(position),
-	model(std::make_shared<ColorModel>()),
+	backgroundModel(std::make_shared<ColorModel>()),
+	fillModel(std::make_shared<ColorModel>()),
 	direction(direction)
 {
-	model->Initialize();
-	model->SetColor(color);
-	model->SetRectangle(position);
-	model->SetVisibility(true);
-	model->SetDepth(depth);
+	backgroundModel->Initialize();
+	backgroundModel->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 0.f, 1.f));
+	backgroundModel->SetRectangle(position);
+	backgroundModel->SetDepth(depth);
+
+	fillModel->Initialize();
+	fillModel->SetColor(color);
+	fillModel->SetRectangle(position);
+	fillModel->SetDepth(depth);
 }
 
 void UIProgressBar::SetPercentage(float new_percentage)
@@ -50,10 +55,11 @@ void UIProgressBar::SetPercentage(float new_percentage)
 		break;
 	default: ;
 	}
-	model->SetRectangle(new_rectangle);
+	fillModel->SetRectangle(new_rectangle);
 }
 
 void UIProgressBar::Render() const
 {
-	model->Render();
+	fillModel->Render();
+	backgroundModel->Render();
 }

@@ -12,7 +12,7 @@ void BaseModel::Initialize()
 
 	HRESULT hr = S_OK;
 
-	if (FAILED(hr = SettingVertexBuffer()))
+	if (FAILED(hr = SettingVertexBuffers()))
 		throw GFX_EXCEPTION("An exception has been caught during Model Vertex Buffer Initialization.", hr);
 
 	if (FAILED(hr = SettingIndexBuffer()))
@@ -22,7 +22,8 @@ void BaseModel::Initialize()
 void BaseModel::Render()
 {
 	// Render Model
-	GFX.GetDeviceContext()->IASetVertexBuffers(0, 1, pVertexBuffer.GetAddressOf(), &stride, &offset);
+	if (bIsInverted) GFX.GetDeviceContext()->IASetVertexBuffers(0, 1, pInvertedVertexBuffer.GetAddressOf(), &stride, &offset);
+	else GFX.GetDeviceContext()->IASetVertexBuffers(0, 1, pVertexBuffer.GetAddressOf(), &stride, &offset);
 	GFX.GetDeviceContext()->IASetIndexBuffer(pIndexBuffer.Get(), DXGI_FORMAT_R32_UINT, 0);
 	GFX.GetDeviceContext()->IASetPrimitiveTopology(D3D11_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
 	// Render Shader
@@ -54,6 +55,11 @@ bool BaseModel::IsVisible() const
 	return bIsVisible;
 }
 
+void BaseModel::SetInverted(bool bValue)
+{
+	bIsInverted = bValue;
+}
+
 void BaseModel::SettingIndices()
 {
 	indices = new unsigned long[nVertices];
@@ -61,8 +67,10 @@ void BaseModel::SettingIndices()
 		indices[i] = i;
 }
 
-HRESULT BaseModel::SettingVertexBuffer()
+HRESULT BaseModel::SettingVertexBuffers()
 {
+	HRESULT hr = S_OK;
+
 	D3D11_BUFFER_DESC vb_desc;
 	ZeroMemory(&vb_desc, sizeof(D3D11_BUFFER_DESC));
 	vb_desc.Usage = D3D11_USAGE_DEFAULT;
@@ -73,7 +81,21 @@ HRESULT BaseModel::SettingVertexBuffer()
 	ZeroMemory(&vb_data, sizeof(D3D11_SUBRESOURCE_DATA));
 	vb_data.pSysMem = vertices;
 
-	return GFX.GetDevice()->CreateBuffer(&vb_desc, &vb_data, &pVertexBuffer);
+	hr = GFX.GetDevice()->CreateBuffer(&vb_desc, &vb_data, &pVertexBuffer);
+
+	D3D11_BUFFER_DESC ivb_desc;
+	ZeroMemory(&ivb_desc, sizeof(D3D11_BUFFER_DESC));
+	ivb_desc.Usage = D3D11_USAGE_DEFAULT;
+	ivb_desc.ByteWidth = vertexBufferByteWidth;
+	ivb_desc.BindFlags = D3D11_BIND_VERTEX_BUFFER;
+
+	D3D11_SUBRESOURCE_DATA ivb_data;
+	ZeroMemory(&ivb_data, sizeof(D3D11_SUBRESOURCE_DATA));
+	ivb_data.pSysMem = inverted_vertices;
+
+	hr = GFX.GetDevice()->CreateBuffer(&ivb_desc, &ivb_data, &pInvertedVertexBuffer);
+
+	return hr;
 }
 
 HRESULT BaseModel::SettingIndexBuffer()

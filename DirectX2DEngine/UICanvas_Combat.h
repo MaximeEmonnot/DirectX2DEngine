@@ -14,7 +14,11 @@ public:
     void Update() override;
 
 private:
-    std::shared_ptr<UIButton> button;
-    std::shared_ptr<UIText> text;
+    std::shared_ptr<UIProgressBar> playerHealthBar;
+    std::shared_ptr<UIImage> playerIcon;
+    std::shared_ptr<UIText> playerName;
+    std::shared_ptr<UIProgressBar> enemyHealthBar;
+    std::shared_ptr<UIImage> enemyIcon;
+    std::shared_ptr<UIText> enemyName;
 };
 

@@ -14,6 +14,7 @@ public:
 
 	void SetPosition(const FRect& new_position) override;
 	void SetTexture(const Texture& texture) const;
+	void SetInverted(bool bValue) const;
 
 	void Render() const override;
 
