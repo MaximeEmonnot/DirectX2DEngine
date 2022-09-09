@@ -63,6 +63,8 @@ protected:
 public:
     virtual void Update();
 
+    std::string GetIcon() const;
+
     std::vector<std::shared_ptr<Collider>> GetColliders() const;
 
 protected:
@@ -70,5 +72,6 @@ protected:
     AnimationSystem animSys;
     std::shared_ptr<TextureModel> model;
     std::shared_ptr<ComboTree> pComboTree;
+    std::string icon;
 };
 

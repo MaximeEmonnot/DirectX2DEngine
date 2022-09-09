@@ -15,7 +15,10 @@ public:
     virtual std::vector<std::shared_ptr<Collider>> GetColliders() const override;
 
     bool IsGrounded() const;
+
+    std::shared_ptr<BaseFighter> GetFighter();
+
 private:
-    std::unique_ptr<BaseFighter> pFighter;
+    std::shared_ptr<BaseFighter> pFighter;
 };
 

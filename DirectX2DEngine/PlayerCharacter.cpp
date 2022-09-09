@@ -3,12 +3,13 @@
 #include "Collider.h"
 #include "PlayerController.h"
 #include "Rect.h"
+#include "RoboKy.h"
 #include "SolBadguy.h"
 
 PlayerCharacter::PlayerCharacter(World& world, const FVec2D& pos, const std::string& name)
 	:
 	Character(world, pos, name, std::make_shared<PlayerController>(*this)),
-	pFighter(std::make_unique<SolBadguy>(*this))
+	pFighter(std::make_shared<SolBadguy>(*this))
 {
 	rootCollider->SetRectPos(FRect(0, 5, 10, 10));
 	rootCollider->SetCollisionMode(Collider::CollisionMode::Blocking);
@@ -34,4 +35,9 @@ std::vector<std::shared_ptr<Collider>> PlayerCharacter::GetColliders() const
 bool PlayerCharacter::IsGrounded() const
 {
 	return !rootCollider->IsFalling();
+}
+
+std::shared_ptr<BaseFighter> PlayerCharacter::GetFighter()
+{
+	return pFighter;
 }

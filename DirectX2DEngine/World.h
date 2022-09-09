@@ -15,15 +15,19 @@ public:
 	void Render() const;
 
 	template<class T>
-	void SpawnActor()
+	std::shared_ptr<T> SpawnActor()
 	{
-		actors.emplace_back(std::make_shared<T>(*this));
+		std::shared_ptr<T> new_actor = std::make_shared<T>(*this);
+		actors.emplace_back(new_actor);
+		return new_actor;
 	}
 
 	template<class T, class... Args >
-	void SpawnActor(Args&&... args)
+	std::shared_ptr<T> SpawnActor(Args&&... args)
 	{
-		actors.emplace_back(std::make_shared<T>(*this, args...));
+		std::shared_ptr<T> new_actor = std::make_shared<T>(*this, args...);
+		actors.emplace_back(new_actor);
+		return new_actor;
 	}
 
 	template<class T>

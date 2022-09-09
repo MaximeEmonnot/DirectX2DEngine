@@ -3,6 +3,7 @@
 #include "AnimationTexture.h"
 #include "Commands.h"
 #include "Engine.h"
+#include "JSONParser.h"
 #include "Keyboard.h"
 #include "Timer.h"
 
@@ -121,6 +122,9 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
 	model(owner.GetWorld().CreateModel<TextureModel>(15))
     //collisionSys(owner, jsonPath, animSys.GetAnimationList())_
 {
+    JSONParser::Reader jsonParser;
+    jsonParser.ReadFile(jsonPath);
+    icon = jsonParser.GetValueOf("character").GetString() + std::string("icon.tga");
 }
 
 void BaseFighter::Update()
@@ -141,6 +145,11 @@ void BaseFighter::Update()
     model->SetTexture(animSys.GetTexture());
     
     //collisionSys.Update();
+}
+
+std::string BaseFighter::GetIcon() const
+{
+    return icon;
 }
 
 std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const

@@ -14,10 +14,10 @@ CombatLevel::CombatLevel()
 {
 	// Spawn Actors
 	GetWorld().SpawnActor<Background>(FVec2D(0, 180), "Background");
-	GetWorld().SpawnActor<PlayerCharacter>(FVec2D(250, -125), "Player");
+	std::shared_ptr<PlayerCharacter> player = GetWorld().SpawnActor<PlayerCharacter>(FVec2D(250, -125), "Player");
 
 	// Create UI Canvas
-	CreateCanvas<UICanvas_Combat>();
+	CreateCanvas<UICanvas_Combat>(player);
 
 	// Play background sounds
 	SFX.Play("Sounds/BeJustOrBeDead.wav");

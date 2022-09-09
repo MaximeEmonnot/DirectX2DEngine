@@ -1,5 +1,6 @@
 #pragma once
 #include "AUICanvas.h"
+#include "PlayerCharacter.h"
 #include "UIButton.h"
 #include "UIImage.h"
 #include "UIText.h"
@@ -9,7 +10,7 @@ class UICanvas_Combat :
     public AUICanvas
 {
 public:
-    UICanvas_Combat();
+    UICanvas_Combat(std::shared_ptr<PlayerCharacter> player);
 
     void Update() override;
 

@@ -219,6 +219,9 @@
     <ClCompile Include="UIText.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
+    <ClCompile Include="RoboKy.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -391,6 +394,9 @@
     </ClInclude>
     <ClInclude Include="UIText.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="RoboKy.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -177,6 +177,7 @@
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="PlayerCharacter.cpp" />
     <ClCompile Include="PlayerController.cpp" />
+    <ClCompile Include="RoboKy.cpp" />
     <ClCompile Include="SandBag.cpp" />
     <ClCompile Include="SolBadguy.cpp" />
     <ClCompile Include="Sound.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="PlayerCharacter.h" />
     <ClInclude Include="PlayerController.h" />
     <ClInclude Include="Rect.h" />
+    <ClInclude Include="RoboKy.h" />
     <ClInclude Include="SandBag.h" />
     <ClInclude Include="SolBadguy.h" />
     <ClInclude Include="Sound.h" />
