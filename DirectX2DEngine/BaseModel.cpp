@@ -60,6 +60,11 @@ void BaseModel::SetInverted(bool bValue)
 	bIsInverted = bValue;
 }
 
+bool BaseModel::IsInverted() const
+{
+	return bIsInverted;
+}
+
 void BaseModel::SettingIndices()
 {
 	indices = new unsigned long[nVertices];

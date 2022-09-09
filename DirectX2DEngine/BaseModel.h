@@ -20,6 +20,7 @@ public:
 	bool IsVisible() const;
 
 	void SetInverted(bool bValue);
+	bool IsInverted() const;
 
 protected:
 	virtual void SettingShader() = 0;

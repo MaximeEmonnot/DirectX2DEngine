@@ -85,9 +85,8 @@ private:
 
 	static constexpr FVec2D topNormal = FVec2D(0, 1);
 	static constexpr FVec2D rightNormal = FVec2D(1, 0);
-
 	static constexpr FVec2D gravity = FVec2D(0, -9.81);
-	float gravitySpeed = 1.0f;
+	static constexpr float pixelsPerMeter = 140.6593407f;
 
 	int nInvicibilityFrames = 0;
 };

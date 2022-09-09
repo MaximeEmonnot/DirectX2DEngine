@@ -13,7 +13,7 @@ Background::Background(World& world, const FVec2D& pos, const std::string& name)
 	collider->SetGravity(false);
 	collider->SetCollisionChannel(Collider::CollisionChannel::Gravity);
 	collider->SetCollisionMode(Collider::CollisionMode::Blocking);
-	collider->SetRectPos(FRect(0, -600, 2000, 200));
+	collider->SetRectPos(FRect(0, -500, 2000, 75));
 
 	model->SetPosition(pos);
 }

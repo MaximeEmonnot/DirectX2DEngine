@@ -125,6 +125,8 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
 
 void BaseFighter::Update()
 {
+    model->SetInverted(KBD.KeyIsPressed(VK_RETURN));
+
     pComboTree->UpdateTree();
     if (KBD.KeyIsPressed(Commands::PUNCH)) {
         const std::string test = pComboTree->GetCurrentCombo();
@@ -132,7 +134,10 @@ void BaseFighter::Update()
     }
     animSys.Update();
 
-    model->SetPosition(owner.GetPosition() - animSys.GetTexture().GetCenter());
+    FVec2D texture_center = animSys.GetTexture().GetCenter();
+    if (model->IsInverted()) texture_center.x *= -1;
+
+    model->SetPosition(owner.GetPosition() - texture_center);
     model->SetTexture(animSys.GetTexture());
     
     //collisionSys.Update();

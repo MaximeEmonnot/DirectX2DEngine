@@ -48,7 +48,7 @@ void Collider::Update()
 	ApplyFriction();
 	TryMovingInThisDirection(velocity);
 
-	owner.pos += velocity * DELTATIME;
+	owner.pos += velocity * pixelsPerMeter * DELTATIME;
 
 	forces.clear();
 
@@ -108,7 +108,7 @@ bool Collider::IsBlocking() const
 
 bool Collider::IsFalling() const
 {
-	return bIsGravityEnabled && abs(velocity.y) > 40.f;
+	return bIsGravityEnabled && !bIsBlocking;
 }
 
 std::unordered_set<std::shared_ptr<Actor>, Actor::Hash> Collider::GetOverlappingActors() const
@@ -123,7 +123,7 @@ void Collider::AddForce(const FVec2D& dir)
 
 void Collider::AddImpulse(const FVec2D& dir)
 {
-	for (std::shared_ptr<Collider> col : owner.GetColliders())
+	for (const std::shared_ptr<Collider>& col : owner.GetColliders())
 		if (col->channel == CollisionChannel::Gravity) col->velocity += dir;
 }
 
@@ -147,20 +147,20 @@ void Collider::ApplyGravity()
 
 void Collider::ApplyForces()
 {
-	for (auto& f : forces) velocity += f;
+	for (const FVec2D& force : forces) velocity += force * DELTATIME;
 }
 
 void Collider::ApplyFriction()
 {
-	const FVec2D friction = velocity * 0.05f;
+	const FVec2D friction = velocity * 0.02f;
 	velocity -= friction;
 }
 
 void Collider::ApplyReaction(const FRect& test_rect, FVec2D& direction)
 {
 	FVec2D final_normal;
-	for (auto& overlapped_act : overlappingActors)
-		for (auto& overlapped_act_collider : overlapped_act->GetColliders())
+	for (const std::shared_ptr<Actor>& overlapped_act : overlappingActors)
+		for (const std::shared_ptr<Collider>& overlapped_act_collider : overlapped_act->GetColliders())
 			final_normal += (overlapped_act_collider->rect + overlapped_act_collider->origin).GetNormalFromPoint(test_rect.pos);
 
 	final_normal.Normalize();
@@ -179,11 +179,11 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 	overlappingActors.clear();
 	const FRect test_rect = rect + origin + direction * DELTATIME;
 
-	for (auto& a : owner.GetWorld().GetActors())
+	for (std::shared_ptr<Actor>& actor : owner.GetWorld().GetActors())
 	{
-		if (&owner != a.get())
+		if (&owner != actor.get())
 		{
-			for (std::shared_ptr<Collider> c : a->GetColliders())
+			for (const std::shared_ptr<Collider>& c : actor->GetColliders())
 			{
 				const FRect actor_collider = c->rect + c->origin;
 				if (test_rect.IsCollidingRect(actor_collider))
