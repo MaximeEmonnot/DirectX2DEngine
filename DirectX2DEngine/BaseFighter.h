@@ -80,6 +80,6 @@ protected:
     std::string icon;
     std::wstring name;
 
-    BaseFighter enemy;
+    std::shared_ptr<BaseFighter> pEnemy;
 };
 

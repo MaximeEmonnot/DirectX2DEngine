@@ -133,7 +133,7 @@ BaseFighter::~BaseFighter()
 
 void BaseFighter::Update()
 {
-    model->SetInverted(owner.GetPosition().x < pEnemy.owner.GetPosition().x);
+    model->SetInverted(owner.GetPosition().x < pEnemy->owner.GetPosition().x);
 
     pComboTree->UpdateTree();
     if (KBD.KeyIsPressed(Commands::PUNCH)) {
@@ -153,7 +153,7 @@ void BaseFighter::Update()
 
 void BaseFighter::SetEnemy(std::shared_ptr<BaseFighter> enemy)
 {
-    pEnemy = *enemy;
+    pEnemy = enemy;
 }
 
 std::string BaseFighter::GetIcon() const
