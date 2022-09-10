@@ -21,8 +21,8 @@ CombatLevel::CombatLevel()
 	std::shared_ptr<FighterCharacter<PlayerController, RoboKy>> player = GetWorld().SpawnActor<FighterCharacter<PlayerController, RoboKy>>(FVec2D(-250, -125), "Player", 15);
 	std::shared_ptr<FighterCharacter<DummyController, RoboKy>> enemy = GetWorld().SpawnActor<FighterCharacter<DummyController, RoboKy>>(FVec2D(250, -125), "Enemy", 12);
 
-	//player->GetFighter()->SetEnemy(enemy->GetFighter());
-	//enemy->GetFighter()->SetEnemy(player->GetFighter());
+	player->GetFighter()->SetEnemy(enemy->GetFighter());
+	enemy->GetFighter()->SetEnemy(player->GetFighter());
 
 	// Create UI Canvas
 	CreateCanvas<UICanvas_Combat>(player->GetFighter(), enemy->GetFighter());
