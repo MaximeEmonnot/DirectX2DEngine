@@ -14,6 +14,8 @@ public:
 	void Update();
 	void Render() const;
 
+	void Clear();
+
 	template<class T>
 	std::shared_ptr<T> SpawnActor()
 	{

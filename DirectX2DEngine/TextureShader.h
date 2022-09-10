@@ -20,6 +20,7 @@ public:
 
 public:
     TextureShader() = default;
+    virtual ~TextureShader() override;
 
     virtual void Initialize() override;
 

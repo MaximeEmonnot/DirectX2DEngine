@@ -10,6 +10,10 @@ namespace Shaders
 #include "TexturePixelShader.shh"
 }
 
+TextureShader::~TextureShader()
+{
+}
+
 void TextureShader::Initialize()
 {
 	HRESULT hr = S_OK;

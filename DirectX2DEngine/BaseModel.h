@@ -7,7 +7,7 @@ class BaseModel
 {
 public:
 	BaseModel() = default;
-	virtual ~BaseModel() = default;
+	virtual ~BaseModel();
 	void Initialize();
 
 	void Render();

@@ -114,12 +114,12 @@ IVec2D BaseFighter::ComboTree::GetCommandInput() const
 
 /// BASE FIGHTER ///
 
-BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree)
+BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int priority)
     :
     owner(owner),
     pComboTree(pComboTree),
     animSys(jsonPath),
-	model(owner.GetWorld().CreateModel<TextureModel>(15))
+	model(owner.GetWorld().CreateModel<TextureModel>(priority))
     //collisionSys(owner, jsonPath, animSys.GetAnimationList())_
 {
     JSONParser::Reader jsonParser;
@@ -127,9 +127,13 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
     icon = jsonParser.GetValueOf("character").GetString() + std::string("icon.tga");
 }
 
+BaseFighter::~BaseFighter()
+{
+}
+
 void BaseFighter::Update()
 {
-    model->SetInverted(KBD.KeyIsPressed(VK_RETURN));
+    model->SetInverted(owner.GetPosition().x < pEnemy.owner.GetPosition().x);
 
     pComboTree->UpdateTree();
     if (KBD.KeyIsPressed(Commands::PUNCH)) {
@@ -145,6 +149,11 @@ void BaseFighter::Update()
     model->SetTexture(animSys.GetTexture());
     
     //collisionSys.Update();
+}
+
+void BaseFighter::SetEnemy(std::shared_ptr<BaseFighter> enemy)
+{
+    pEnemy = *enemy;
 }
 
 std::string BaseFighter::GetIcon() const

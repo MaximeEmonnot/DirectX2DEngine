@@ -1,16 +1,16 @@
 #include "RoboKy.h"
 
+#include "Character.h"
 #include "Commands.h"
 #include "Keyboard.h"
-#include "PlayerCharacter.h"
 
 RoboKy::RoboKyComboTree::RoboKyComboTree()
 {
 }
 
-RoboKy::RoboKy(Actor& owner)
+RoboKy::RoboKy(Actor& owner, int priority)
 	:
-	BaseFighter(owner, "json/roboky.json", std::make_shared<RoboKyComboTree>())
+	BaseFighter(owner, "json/roboky.json", std::make_shared<RoboKyComboTree>(), priority)
 {
 	// Name Initialization
 	name = L"Robo Ky";
@@ -65,19 +65,19 @@ RoboKy::RoboKy(Actor& owner)
 	// Fall
 	animSys.AddTransition("Idle", "Fall", [&]
 		{
-			PlayerCharacter* player = dynamic_cast<PlayerCharacter*>(&owner);
+			Character* player = dynamic_cast<Character*>(&owner);
 			if (player) return !player->IsGrounded();
 			return false;
 		});
 	animSys.AddTransition("RandomIdle", "Fall", [&]
 		{
-			PlayerCharacter* player = dynamic_cast<PlayerCharacter*>(&owner);
+			Character* player = dynamic_cast<Character*>(&owner);
 			if (player) return !player->IsGrounded();
 			return false;
 		});
 	animSys.AddTransition("Fall", "Idle", [&]
 		{
-			PlayerCharacter* player = dynamic_cast<PlayerCharacter*>(&owner);
+			Character* player = dynamic_cast<Character*>(&owner);
 			if (player) return player->IsGrounded();
 			return false;
 		});

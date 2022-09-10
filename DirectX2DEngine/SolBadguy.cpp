@@ -3,8 +3,8 @@
 
 #include <random>
 
+#include "Character.h"
 #include "Keyboard.h"
-#include "PlayerCharacter.h"
 
 SolBadguy::SolComboTree::SolComboTree()
 {
@@ -47,9 +47,9 @@ SolBadguy::SolComboTree::SolComboTree()
 	root->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Overdrive"));
 }
 
-SolBadguy::SolBadguy(Actor& owner)
+SolBadguy::SolBadguy(Actor& owner, int priority)
 	:
-	BaseFighter(owner, "json/sol.json", std::make_shared<SolComboTree>())
+	BaseFighter(owner, "json/sol.json", std::make_shared<SolComboTree>(), priority)
 {
 	// Name initialization
 	name = L"Sol Badguy";
@@ -116,19 +116,19 @@ SolBadguy::SolBadguy(Actor& owner)
 	// Fall
 	animSys.AddTransition("Idle", "Fall", [&]
 		{
-			PlayerCharacter* player = dynamic_cast<PlayerCharacter*>(&owner);
+			Character* player = dynamic_cast<Character*>(&owner);
 			if (player) return !player->IsGrounded();
 			return false;
 		});
 	animSys.AddTransition("RandomIdle", "Fall", [&]
 		{
-			PlayerCharacter* player = dynamic_cast<PlayerCharacter*>(&owner);
+			Character* player = dynamic_cast<Character*>(&owner);
 			if (player) return !player->IsGrounded();
 			return false;
 		});
 	animSys.AddTransition("Fall", "Idle", [&]
 		{
-			PlayerCharacter* player = dynamic_cast<PlayerCharacter*>(&owner);
+			Character* player = dynamic_cast<Character*>(&owner);
 			if (player) return player->IsGrounded();
 			return false;
 		});

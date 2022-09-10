@@ -2,6 +2,14 @@
 
 #include "Graphics.h"
 
+BaseShader::~BaseShader()
+{
+	//pVertexShader->Release();
+	//pInputLayout->Release();
+	//pPixelShader->Release();
+	//pConstantBuffer->Release();
+}
+
 void BaseShader::Initialize()
 {
 	HRESULT hr = S_OK;

@@ -183,9 +183,6 @@
     <ClCompile Include="CombatLevel.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerCharacter.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerController.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
@@ -227,6 +224,9 @@
     </ClCompile>
     <ClCompile Include="UICanvas_Title.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="DummyController.cpp">
+      <Filter>Fichiers sources</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -365,7 +365,7 @@
     <ClInclude Include="CombatLevel.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerCharacter.h">
+    <ClInclude Include="FighterCharacter.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="PlayerController.h">
@@ -409,6 +409,9 @@
     </ClInclude>
     <ClInclude Include="UICanvas_Title.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="DummyController.h">
+      <Filter>Fichiers d%27en-tête</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

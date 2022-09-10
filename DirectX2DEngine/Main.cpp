@@ -1,3 +1,4 @@
+#include "Engine.h"
 #include "Window.h"
 #include "EngineException.h"
 #include "Game.h"
@@ -7,6 +8,7 @@ int WINAPI WinMain(HINSTANCE, HINSTANCE, LPSTR, int)
 	try {
 		Game theGame;
 		while (WND.ProcessMessages()) theGame.Go();
+		ENGINE.Clear();
 	}
 	catch(EngineException& e)
 	{

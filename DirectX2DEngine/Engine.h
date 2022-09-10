@@ -21,6 +21,8 @@ public:
 	void Update() const;
 	void Render() const;
 
+	void Clear();
+
 	template<class T>
 	void AddLevel()
 	{

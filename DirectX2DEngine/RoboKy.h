@@ -9,6 +9,6 @@ private:
 		RoboKyComboTree();
 	};
 public:
-	RoboKy(Actor& owner);
+	RoboKy(Actor& owner, int priority);
 };
 

@@ -14,3 +14,13 @@ void Character::Update()
 	Pawn::Update();
 	rootCollider->Update();
 }
+
+std::shared_ptr<Collider> Character::GetRootCollider() const
+{
+	return rootCollider;
+}
+
+bool Character::IsGrounded() const
+{
+	return !rootCollider->IsFalling();
+}

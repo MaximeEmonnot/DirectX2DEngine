@@ -13,6 +13,12 @@ void World::Render() const
 		if (entry.second->IsVisible()) entry.second->Render();
 }
 
+void World::Clear()
+{
+	actors.clear();
+	models.clear();
+}
+
 std::vector<std::shared_ptr<Actor>> World::GetActors() const
 {
 	return actors;

@@ -22,6 +22,8 @@ public:
 
 	void Render() const;
 
+	void Clear();
+
 	World& GetWorld() const;
 
 protected:

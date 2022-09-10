@@ -1,7 +1,7 @@
 #include "PlayerController.h"
 
 #include "Collider.h"
-#include "PlayerCharacter.h"
+#include "FighterCharacter.h"
 #include "Keyboard.h"
 #include "Pawn.h"
 #include "Commands.h"
@@ -21,7 +21,7 @@ void PlayerController::Update()
 	if (KBD.KeyIsPressed(Commands::LEFT)) moveInput.x--;
 
 	if (KBD.KeyIsPressed(Commands::JUMP))
-		if (!dynamic_cast<PlayerCharacter*>(&owner)->rootCollider->IsFalling()) dynamic_cast<PlayerCharacter*>(&owner)->rootCollider->AddImpulse(FVec2D(0.f, 8.85889f));
+		if (!dynamic_cast<Character*>(&owner)->GetRootCollider()->IsFalling()) dynamic_cast<Character*>(&owner)->GetRootCollider()->AddImpulse(FVec2D(0.f, 60.f));
 
-	dynamic_cast<PlayerCharacter*>(&owner)->rootCollider->AddInputMovement(moveInput * speed);
+	dynamic_cast<Character*>(&owner)->GetRootCollider()->AddInputMovement(moveInput * speed);
 }

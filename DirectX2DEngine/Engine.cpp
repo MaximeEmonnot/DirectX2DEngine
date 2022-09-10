@@ -25,6 +25,12 @@ void Engine::Render() const
 	if (!levels.empty()) levels.at(levelIndex)->Render();
 }
 
+void Engine::Clear()
+{
+	for (std::shared_ptr<Level>& level : levels) level->Clear();
+	levels.clear();
+}
+
 void Engine::SetLevel(int newIndex)
 {
 	levelIndex = newIndex;

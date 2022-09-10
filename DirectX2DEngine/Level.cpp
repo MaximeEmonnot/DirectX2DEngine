@@ -42,6 +42,12 @@ void Level::Render() const
 	for (const std::shared_ptr<AUICanvas>& canvas : canvasList) canvas->Render();
 }
 
+void Level::Clear()
+{
+	pWorld->Clear();
+	canvasList.clear();
+}
+
 World& Level::GetWorld() const
 {
 	return *pWorld;

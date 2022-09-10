@@ -5,7 +5,7 @@ class BaseShader
 {
 public:
 	BaseShader() = default;
-	virtual ~BaseShader() = default;
+	virtual ~BaseShader();
 
 	virtual void Initialize();
 	virtual void RenderModel(class BaseModel& model) = 0;

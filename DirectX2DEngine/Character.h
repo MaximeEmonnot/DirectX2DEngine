@@ -9,6 +9,10 @@ public:
 
     virtual void Update() override;
 
+    std::shared_ptr<Collider> GetRootCollider() const;
+
+    bool IsGrounded() const;
+
 protected:
     std::shared_ptr<Collider> rootCollider;
 };

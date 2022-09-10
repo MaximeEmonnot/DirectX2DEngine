@@ -11,6 +11,6 @@ private:
 	};
 
 public:
-	SolBadguy(Actor& owner);
+	SolBadguy(Actor& owner, int priority);
 };
 

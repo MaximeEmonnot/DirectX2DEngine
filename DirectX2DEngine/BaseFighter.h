@@ -58,10 +58,14 @@ protected:
     };
 
 protected:
-    BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree);
+    BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int priority);
 
 public:
+    virtual ~BaseFighter();
+
     virtual void Update();
+
+    void SetEnemy(std::shared_ptr<BaseFighter> enemy);
 
     std::string GetIcon() const;
     std::wstring GetName() const;
@@ -75,5 +79,7 @@ protected:
     std::shared_ptr<ComboTree> pComboTree;
     std::string icon;
     std::wstring name;
+
+    BaseFighter enemy;
 };
 
