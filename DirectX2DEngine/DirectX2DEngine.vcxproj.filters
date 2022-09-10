@@ -226,7 +226,7 @@
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
     <ClCompile Include="DummyController.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -411,7 +411,7 @@
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
     <ClInclude Include="DummyController.h">
-      <Filter>Fichiers d%27en-tête</Filter>
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

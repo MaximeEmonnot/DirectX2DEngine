@@ -65,7 +65,7 @@ public:
 
     virtual void Update();
 
-    void SetEnemy(std::shared_ptr<BaseFighter> enemy);
+    void SetEnemy(std::weak_ptr<BaseFighter> enemy);
 
     std::string GetIcon() const;
     std::wstring GetName() const;
@@ -80,6 +80,6 @@ protected:
     std::string icon;
     std::wstring name;
 
-    std::shared_ptr<BaseFighter> pEnemy;
+    std::weak_ptr<BaseFighter> pEnemy;
 };
 

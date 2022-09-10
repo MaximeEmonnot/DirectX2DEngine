@@ -133,7 +133,8 @@ BaseFighter::~BaseFighter()
 
 void BaseFighter::Update()
 {
-    model->SetInverted(owner.GetPosition().x < pEnemy->owner.GetPosition().x);
+    if (const std::shared_ptr<BaseFighter> shared_enemy = pEnemy.lock()) 
+        model->SetInverted(owner.GetPosition().x < shared_enemy->owner.GetPosition().x);
 
     pComboTree->UpdateTree();
     if (KBD.KeyIsPressed(Commands::PUNCH)) {
@@ -151,7 +152,7 @@ void BaseFighter::Update()
     //collisionSys.Update();
 }
 
-void BaseFighter::SetEnemy(std::shared_ptr<BaseFighter> enemy)
+void BaseFighter::SetEnemy(std::weak_ptr<BaseFighter> enemy)
 {
     pEnemy = enemy;
 }

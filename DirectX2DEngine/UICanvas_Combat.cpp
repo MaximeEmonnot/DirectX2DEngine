@@ -14,6 +14,6 @@ UICanvas_Combat::UICanvas_Combat(std::shared_ptr<BaseFighter> player, std::share
 
 void UICanvas_Combat::Update()
 {
-	playerHealthBar->SetPercentage(0.25f);
-	enemyHealthBar->SetPercentage(0.86f);
+	playerHealthBar->SetPercentage(0.85f);
+	enemyHealthBar->SetPercentage(0.15f);
 }

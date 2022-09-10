@@ -19,7 +19,7 @@ protected:
 		return std::dynamic_pointer_cast<T>(new_ui);
 	}
 
-	template<class T, class... Args>
+	template<class T, typename... Args>
 	std::shared_ptr<T> CreateUIElement(Args&&... args)
 	{
 		std::shared_ptr<AUIElement> new_ui = std::make_shared<T>(args...);

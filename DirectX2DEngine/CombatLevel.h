@@ -1,5 +1,10 @@
 #pragma once
+#include "DummyController.h"
+#include "FighterCharacter.h"
 #include "Level.h"
+#include "PlayerController.h"
+#include "SolBadguy.h"
+
 class CombatLevel :
     public Level
 {
