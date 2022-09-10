@@ -18,10 +18,13 @@ public:
 
 	virtual void Update();
 
+	virtual void BeginLevel() = 0;
+
 	void Render() const;
 
 	World& GetWorld() const;
 
+protected:
 	template<class T>
 	void CreateCanvas()
 	{

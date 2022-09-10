@@ -64,6 +64,7 @@ public:
     virtual void Update();
 
     std::string GetIcon() const;
+    std::wstring GetName() const;
 
     std::vector<std::shared_ptr<Collider>> GetColliders() const;
 
@@ -73,5 +74,6 @@ protected:
     std::shared_ptr<TextureModel> model;
     std::shared_ptr<ComboTree> pComboTree;
     std::string icon;
+    std::wstring name;
 };
 

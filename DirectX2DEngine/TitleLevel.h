@@ -1,10 +1,10 @@
 #pragma once
 #include "Level.h"
-class CombatLevel :
+class TitleLevel :
     public Level
 {
 public:
-    CombatLevel();
+    TitleLevel();
 
     virtual void Update() override;
     virtual void BeginLevel() override;

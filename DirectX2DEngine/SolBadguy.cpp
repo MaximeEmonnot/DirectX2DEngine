@@ -51,6 +51,10 @@ SolBadguy::SolBadguy(Actor& owner)
 	:
 	BaseFighter(owner, "json/sol.json", std::make_shared<SolComboTree>())
 {
+	// Name initialization
+	name = L"Sol Badguy";
+
+	/// ANIMATIONS TRANSITIONS
 	// Idle - RandomIdle
 	animSys.AddTransition("Idle", "RandomIdle", [&]
 		{

@@ -6,16 +6,18 @@
 #include "SoundSystem.h"
 #include "TextRenderer.h"
 #include "Timer.h"
+#include "TitleLevel.h"
 
 Game::Game()
 {
 	// Graphics System Initialization
 	GFX;
 
-	//Audio Initialization
-	SFX;
+	// Audio Initialization
 	SFX.AddSong("Sounds/BeJustOrBeDead.wav", true);
 
+	// Levels Loading
+	ENGINE.AddLevel<TitleLevel>();
 	ENGINE.AddLevel<CombatLevel>();
 }
 

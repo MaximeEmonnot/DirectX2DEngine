@@ -222,6 +222,12 @@
     <ClCompile Include="RoboKy.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="TitleLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UICanvas_Title.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -397,6 +403,12 @@
     </ClInclude>
     <ClInclude Include="RoboKy.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UICanvas_Title.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

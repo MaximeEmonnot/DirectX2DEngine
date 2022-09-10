@@ -2,10 +2,10 @@
     "character": "Textures/RoboKy/",
     "animations": {
         "Idle": [9, 0.125, 1],
-        "WalkingForward": [6, 0.1, 2],
-        "WalkingBackward": [7, 0.1, 2],
+        "WalkingForward": [6, 0.08, 2],
+        "WalkingBackward": [7, 0.08, 2],
         "CrouchTransition": [1, 0.1, 0],
-        "CrouchIdle": [8, 0.175, 2],
+        "CrouchIdle": [8, 0.1, 2],
         "Punch": [4, 0.04, 0],
         "Kick": [6, 0.06, 0],
         "Slash": [8, 0.03, 0],

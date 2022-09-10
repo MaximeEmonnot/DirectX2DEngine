@@ -12,6 +12,10 @@ RoboKy::RoboKy(Actor& owner)
 	:
 	BaseFighter(owner, "json/roboky.json", std::make_shared<RoboKyComboTree>())
 {
+	// Name Initialization
+	name = L"Robo Ky";
+
+	// ANIMATIONS TRANSITIONS
 	// WalkingForward
 	animSys.AddTransition("Idle", "WalkingForward", [&] { return KBD.KeyIsPressed(Commands::LEFT); });
 	animSys.AddTransition("RandomIdle", "WalkingForward", [&] { return KBD.KeyIsPressed(Commands::LEFT); });

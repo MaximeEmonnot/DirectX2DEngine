@@ -14,7 +14,8 @@ CombatLevel::CombatLevel()
 {
 	// Spawn Actors
 	GetWorld().SpawnActor<Background>(FVec2D(0, 180), "Background");
-	std::shared_ptr<PlayerCharacter> player = GetWorld().SpawnActor<PlayerCharacter>(FVec2D(250, -125), "Player");
+	std::shared_ptr<PlayerCharacter> player = GetWorld().SpawnActor<PlayerCharacter>(FVec2D(-250, -125), "Player");
+	//std::shared_ptr<FighterCharacter> enemy = GetWorld().SpawnActor<FighterCharacter>(FVec2D(250, -125), "Enemy");
 
 	// Create UI Canvas
 	CreateCanvas<UICanvas_Combat>(player);
@@ -27,3 +28,9 @@ void CombatLevel::Update()
 {
 	Level::Update();
 }
+
+void CombatLevel::BeginLevel()
+{
+	
+}
+

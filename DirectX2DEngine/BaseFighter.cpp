@@ -152,6 +152,11 @@ std::string BaseFighter::GetIcon() const
     return icon;
 }
 
+std::wstring BaseFighter::GetName() const
+{
+    return name;
+}
+
 std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const
 {
     std::vector<std::shared_ptr<Collider>> out;
