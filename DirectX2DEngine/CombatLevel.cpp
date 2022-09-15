@@ -19,7 +19,7 @@ CombatLevel::CombatLevel()
 	// Spawn Actors
 	GetWorld().SpawnActor<Background>(FVec2D(0, 180), "Background");
 	std::shared_ptr<FighterCharacter<PlayerController, SolBadguy>> player = GetWorld().SpawnActor<FighterCharacter<PlayerController, SolBadguy>>(FVec2D(-250, -125), "Player", 15);
-	std::shared_ptr<FighterCharacter<DummyController, SolBadguy>> enemy = GetWorld().SpawnActor<FighterCharacter<DummyController, SolBadguy>>(FVec2D(250, -125), "Enemy", 12);
+	std::shared_ptr<FighterCharacter<DummyController, RoboKy>> enemy = GetWorld().SpawnActor<FighterCharacter<DummyController, RoboKy>>(FVec2D(250, -125), "Enemy", 12);
 
 	player->GetFighter()->SetEnemy(enemy->GetFighter());
 	enemy->GetFighter()->SetEnemy(player->GetFighter());
