@@ -1,9 +1,8 @@
-﻿#include <cstdio>
-
-#include <c++/11/iostream>
+﻿#include "Server.h"
 
 int main()
 {
-    std::cout << "Hello World" << std::endl;
+    Server server;
+    while (true) server.Update();
     return 0;
 }
