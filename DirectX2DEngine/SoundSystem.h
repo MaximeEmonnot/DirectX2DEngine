@@ -7,7 +7,6 @@
 #include <map>
 
 #define SFX SoundSystem::GetInstance()
-
 #define SFX_EXCEPTION(note, hr) SoundSystem::SoundEffectsException("DirectX 2D Engine - Sound Engine Exception", note, __FILE__, __LINE__, hr)
 
 class SoundSystem
@@ -18,20 +17,12 @@ public:
 	public:
 		SoundEffectsException(const std::string& type, const std::string& note, const std::string& file, unsigned int line, HRESULT hr) noexcept
 			:
-			EngineException(type, note, file, line),
-			hr(hr)
+			EngineException(type, note, file, line)
 		{
 			std::stringstream ss;
 			ss << std::hex << hr;
 			infos = GetNote() + "\nDetails:\n" + GetLocation() + "\nError code : " + ss.str();
 		}
-
-		const char* what() const override
-		{
-			return infos.c_str();
-		}
-	private:
-		HRESULT hr;
 	};
 public:
 	SoundSystem();

@@ -17,19 +17,12 @@ public:
 	public:
 		GraphicsException(const std::string& type, const std::string& note, const std::string& file, unsigned int line, HRESULT hr) noexcept
 			:
-			EngineException(type, note, file, line),
-			hr(hr)
+			EngineException(type, note, file, line)
 		{
 			std::stringstream ss;
 			ss << std::hex << hr;
 			infos += "\nError code : " + ss.str();
 		}
-		const char* what() const override
-		{
-			return infos.c_str();
-		}
-	private:
-		HRESULT hr;
 	};
 
 public:

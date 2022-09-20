@@ -58,6 +58,12 @@
     <Filter Include="Fichiers d%27en-tête\UIEngine">
       <UniqueIdentifier>{d1990d1d-8401-4229-bbbf-33f3c08e4954}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\NetworkEngine">
+      <UniqueIdentifier>{b66f8ba8-8f58-4369-8731-bec03fb79200}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\NetworkEngine">
+      <UniqueIdentifier>{c78e4c40-716d-4bf4-855f-7c65f221173f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
@@ -227,6 +233,9 @@
     </ClCompile>
     <ClCompile Include="DummyController.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="NetworkSystem.cpp">
+      <Filter>Fichiers sources\NetworkEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -412,6 +421,9 @@
     </ClInclude>
     <ClInclude Include="DummyController.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkSystem.h">
+      <Filter>Fichiers d%27en-tête\NetworkEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

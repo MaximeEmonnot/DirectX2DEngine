@@ -175,6 +175,7 @@
     <ClCompile Include="Main.cpp" />
     <ClCompile Include="Mouse.cpp" />
     <ClCompile Include="MovingCollider.cpp" />
+    <ClCompile Include="NetworkSystem.cpp" />
     <ClCompile Include="Pawn.cpp" />
     <ClCompile Include="PlayerController.cpp" />
     <ClCompile Include="RoboKy.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="LoggerManager.h" />
     <ClInclude Include="Mouse.h" />
     <ClInclude Include="MovingCollider.h" />
+    <ClInclude Include="NetworkSystem.h" />
     <ClInclude Include="Pawn.h" />
     <ClInclude Include="FighterCharacter.h" />
     <ClInclude Include="PlayerController.h" />
