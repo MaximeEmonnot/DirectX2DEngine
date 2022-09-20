@@ -9,18 +9,20 @@ ColorModel::ColorModel(int x, int y, int width, int height, DirectX::XMFLOAT4 co
 	width(width),
 	height(height),
 	color(color),
-	angle(0.f)
+	angle(0.f),
+	color_vertices{}
 {
 }
 
 ColorModel::ColorModel(FRect rect, DirectX::XMFLOAT4 color)
 	:
-	x(rect.pos.x),
-	y(rect.pos.y),
-	width(rect.width),
-	height(rect.height),
+	x(static_cast<int>(rect.pos.x)),
+	y(static_cast<int>(rect.pos.y)),
+	width(static_cast<int>(rect.width)),
+	height(static_cast<int>(rect.height)),
 	color(color),
-	angle(0.f)
+	angle(0.f),
+	color_vertices{}
 {
 }
 
@@ -61,16 +63,16 @@ void ColorModel::SetColor(const DirectX::XMFLOAT4& new_color)
 
 void ColorModel::SetPosition(const FVec2D& new_pos)
 {
-	x = new_pos.x;
-	y = new_pos.y;
+	x = static_cast<int>(new_pos.x);
+	y = static_cast<int>(new_pos.y);
 }
 
 void ColorModel::SetRectangle(const FRect& new_rect)
 {
-	x = new_rect.pos.x;
-	y = new_rect.pos.y;
-	width = new_rect.width;
-	height = new_rect.height;
+	x = static_cast<int>(new_rect.pos.x);
+	y = static_cast<int>(new_rect.pos.y);
+	width = static_cast<int>(new_rect.width);
+	height = static_cast<int>(new_rect.height);
 }
 
 void ColorModel::SettingShader()

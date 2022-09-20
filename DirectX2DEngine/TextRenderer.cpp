@@ -31,7 +31,7 @@ TextRenderer::TextRenderer()
 	if (FAILED(hr = GFX.GetSwapChain()->GetBuffer(0, IID_PPV_ARGS(pBackBuffer.GetAddressOf()))))
 		throw GFX_EXCEPTION("An exception has been caught during Text Surface Buffer Creation.", hr);
 
-	const float dpi = GetDpiForWindow(WND.GetHWND());
+	const float dpi = static_cast<float>(GetDpiForWindow(WND.GetHWND()));
 
 	const D2D1_RENDER_TARGET_PROPERTIES props =
 		D2D1::RenderTargetProperties(
@@ -100,7 +100,7 @@ void TextRenderer::Render(const std::wstring& text, const std::wstring& fontFami
 
 	pRenderTarget->DrawText(
 		text.c_str(),
-		text.size(),
+		static_cast<UINT32>(text.size()),
 		fonts.at(std::pair(fontFamily, fontSize)).Get(),
 		layout_rect,
 		pTextBrush.Get()

@@ -33,7 +33,7 @@ private:
     int height = 0, width = 0;
     float angle = 0.f;
 
-    TextureShader::VertexInput texture_vertices[6];
-    TextureShader::VertexInput inverted_texture_vertices[6];
+    TextureShader::VertexInput texture_vertices[6] = {};
+    TextureShader::VertexInput inverted_texture_vertices[6] = {};
 };
 

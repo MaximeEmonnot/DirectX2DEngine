@@ -33,6 +33,6 @@ private:
     DirectX::XMFLOAT4 color;
     float angle;
 
-    ColorShader::VertexInput color_vertices[6];
+    ColorShader::VertexInput color_vertices[6] = {};
 };
 

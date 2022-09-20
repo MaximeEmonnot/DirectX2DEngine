@@ -37,7 +37,7 @@ public:
 	{
 		std::shared_ptr<BaseModel> new_model = std::make_shared<T>();
 		new_model->Initialize();
-		new_model->SetDepth(priority);
+		new_model->SetDepth(static_cast<float>(priority));
 		models.emplace(std::pair(priority, new_model));
 		return std::dynamic_pointer_cast<T>(new_model);
 	}
@@ -47,7 +47,7 @@ public:
 	{
 		std::shared_ptr<BaseModel> new_model = std::make_shared<T>(args...);
 		new_model->Initialize();
-		new_model->SetDepth(priority);
+		new_model->SetDepth(static_cast<float>(priority));
 		models.emplace(std::pair(priority, new_model));
 		return std::dynamic_pointer_cast<T>(new_model);
 	}

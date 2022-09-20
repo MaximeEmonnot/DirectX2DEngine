@@ -1,7 +1,7 @@
 #pragma once
+#include <Windows.h>
 #include <memory>
 #include <string>
-#include <Windows.h>
 
 #include "Mouse.h"
 #include "Keyboard.h"

@@ -15,5 +15,7 @@ private:
 	std::shared_ptr<UIImage> titleLogo;
 	std::shared_ptr<UIButton> startButton;
 	std::shared_ptr<UIText> startButtonTitle;
+	std::shared_ptr<UIButton> TEST_connectionButton;
+	std::shared_ptr<UIText> TEST_connectionButtonTitle;
 };
 

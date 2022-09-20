@@ -17,8 +17,8 @@ CollisionSystem::CollisionSystem(Actor& owner, const std::string& file_path, con
 			const int width = jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[2].GetInt();
 			const int height = jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[3].GetInt();
 
-			const float xRatio = width / width;
-			const float yRatio = height / height;
+			const float xRatio = static_cast<float>(width) / static_cast<float>(width);
+			const float yRatio = static_cast<float>(height) / static_cast<float>(height);
 
 			if (m.HasMember("Body"))
 			{

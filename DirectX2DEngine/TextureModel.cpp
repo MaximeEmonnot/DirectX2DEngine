@@ -6,7 +6,9 @@ TextureModel::TextureModel(const std::string& texture_path)
 	:
 	texture(texture_path),
 	width(texture.GetWidth()),
-	height(texture.GetHeight())
+	height(texture.GetHeight()),
+	texture_vertices{},
+	inverted_texture_vertices{}
 {
 }
 
@@ -14,7 +16,9 @@ TextureModel::TextureModel(const Texture& texture)
 	:
 	texture(texture),
 	width(texture.GetWidth()),
-	height(texture.GetHeight())
+	height(texture.GetHeight()),
+	texture_vertices{},
+	inverted_texture_vertices{}
 {
 }
 
@@ -45,16 +49,16 @@ DirectX::XMMATRIX TextureModel::GetScaleMatrix() const
 
 void TextureModel::SetPosition(const FVec2D& new_pos)
 {
-	x = new_pos.x;
-	y = new_pos.y;
+	x = static_cast<int>(new_pos.x);
+	y = static_cast<int>(new_pos.y);
 }
 
 void TextureModel::SetRectangle(const FRect& rectangle)
 {
-	x = rectangle.pos.x;
-	y = rectangle.pos.y;
-	width = rectangle.width;
-	height = rectangle.height;
+	x = static_cast<int>(rectangle.pos.x);
+	y = static_cast<int>(rectangle.pos.y);
+	width = static_cast<int>(rectangle.width);
+	height = static_cast<int>(rectangle.height);
 }
 
 void TextureModel::SetTexture(const Texture& tex)

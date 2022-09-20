@@ -1,7 +1,10 @@
 #pragma once
+
+#include <WinSock2.h>
 #include <memory>
 #include <vector>
-#include <WinSock2.h>
+
+#pragma comment(lib, "Ws2_32.lib")
 
 #include "EngineException.h"
 

@@ -43,15 +43,15 @@ protected:
 	bool bIsVisible = true;
 	bool bIsInverted = false;
 
-	unsigned int vertexBufferByteWidth;
-	int nVertices;
-	unsigned int stride;
-	unsigned int offset;
+	unsigned int vertexBufferByteWidth = 0u;
+	int nVertices = 0;
+	unsigned int stride = 0u;
+	unsigned int offset = 0u;
 
-	void* vertices;
-	void* inverted_vertices;
-	unsigned long* indices;
+	void* vertices = nullptr;
+	void* inverted_vertices = nullptr;
+	unsigned long* indices = nullptr;
 
-	float depth;
+	float depth = 0.f;
 };
 
