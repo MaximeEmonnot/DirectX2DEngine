@@ -1,8 +1,9 @@
 #include "Game.h"
 
-#include "CombatLevel.h"
+#include "SinglePlayerCombatLevel.h"
 #include "Engine.h"
 #include "Graphics.h"
+#include "SinglePlayerSelectionLevel.h"
 #include "SoundSystem.h"
 #include "TextRenderer.h"
 #include "Timer.h"
@@ -18,7 +19,8 @@ Game::Game()
 
 	// Levels Loading
 	ENGINE.AddLevel<TitleLevel>();
-	ENGINE.AddLevel<CombatLevel>();
+	ENGINE.AddLevel<SinglePlayerSelectionLevel>();
+	ENGINE.AddLevel<SinglePlayerCombatLevel>();
 }
 
 void Game::Go()

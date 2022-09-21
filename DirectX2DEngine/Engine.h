@@ -2,6 +2,7 @@
 #include <memory>
 #include <vector>
 
+#include "EngineException.h"
 #include "Level.h"
 
 #define ENGINE Engine::GetInstance()
@@ -25,14 +26,28 @@ public:
 	void AddLevel()
 	{
 		levels.emplace_back(std::make_shared<T>());
+		if (!pCurrentLevel) pCurrentLevel = levels.front();
 	}
 
-	void SetLevel(int newIndex);
-	Level& GetCurrentLevel() const;
+	template<class T>
+	void SetLevel()
+	{
+		for (std::shared_ptr<Level> level : levels)
+		{
+			if (std::dynamic_pointer_cast<T>(level))
+			{
+				pCurrentLevel = level;
+				return;
+			}
+		}
+		throw ENGINE_EXCEPTION("DirectX 2D Engine - Standard exception", "This level doesn't exist! Please check your code.");
+	}
+
+	std::shared_ptr<Level> GetCurrentLevel() const;
 
 private:
 	static std::unique_ptr<Engine> pInstance;
 
 	std::vector<std::shared_ptr<Level>> levels;
-	int levelIndex = 0;
+	std::shared_ptr<Level> pCurrentLevel;
 };

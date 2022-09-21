@@ -186,7 +186,7 @@
     <ClCompile Include="BaseFighter.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
-    <ClCompile Include="CombatLevel.cpp">
+    <ClCompile Include="SinglePlayerCombatLevel.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
     <ClCompile Include="PlayerController.cpp">
@@ -210,7 +210,7 @@
     <ClCompile Include="UIButton.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
-    <ClCompile Include="UICanvas_Combat.cpp">
+    <ClCompile Include="UICanvas_SinglePlayerCombat.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
     <ClCompile Include="UIImage.cpp">
@@ -236,6 +236,12 @@
     </ClCompile>
     <ClCompile Include="NetworkSystem.cpp">
       <Filter>Fichiers sources\NetworkEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UICanvas_SinglePlayerSelection.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="SinglePlayerSelectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -371,7 +377,7 @@
     <ClInclude Include="BaseFighter.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="CombatLevel.h">
+    <ClInclude Include="SinglePlayerCombatLevel.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
     <ClInclude Include="FighterCharacter.h">
@@ -398,7 +404,7 @@
     <ClInclude Include="UIButton.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
-    <ClInclude Include="UICanvas_Combat.h">
+    <ClInclude Include="UICanvas_SinglePlayerCombat.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
     <ClInclude Include="UIImage.h">
@@ -424,6 +430,12 @@
     </ClInclude>
     <ClInclude Include="NetworkSystem.h">
       <Filter>Fichiers d%27en-tête\NetworkEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="SinglePlayerSelectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UICanvas_SinglePlayerSelection.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

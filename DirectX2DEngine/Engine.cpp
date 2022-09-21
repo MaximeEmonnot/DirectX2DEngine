@@ -17,12 +17,12 @@ void Engine::Update() const
 {
 	TICKCLOCK
 
-	if (!levels.empty()) levels.at(levelIndex)->Update();
+	if (pCurrentLevel) pCurrentLevel->Update();
 }
 
 void Engine::Render() const
 {
-	if (!levels.empty()) levels.at(levelIndex)->Render();
+	if (pCurrentLevel) pCurrentLevel->Render();
 }
 
 void Engine::Clear()
@@ -31,12 +31,7 @@ void Engine::Clear()
 	levels.clear();
 }
 
-void Engine::SetLevel(int newIndex)
+std::shared_ptr<Level> Engine::GetCurrentLevel() const
 {
-	levelIndex = newIndex;
-}
-
-Level& Engine::GetCurrentLevel() const
-{
-	return *levels.at(levelIndex);
+	return pCurrentLevel;
 }

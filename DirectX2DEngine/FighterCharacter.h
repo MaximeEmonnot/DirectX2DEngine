@@ -2,17 +2,34 @@
 #include "BaseFighter.h"
 #include "Character.h"
 #include "Collider.h"
+#include "RoboKy.h"
+#include "SolBadguy.h"
 
-template<class ControllerClass, class Fighter>
+template<class ControllerClass>
 class FighterCharacter : public Character
 {
 public:
-    FighterCharacter() = delete;
-    FighterCharacter(World& world, const FVec2D& pos, const std::string& name, int priority)
-	    :
-		Character(world, pos, name, std::make_shared<ControllerClass>(*this)),
-        pFighter(std::make_shared<Fighter>(*this, priority))
+    enum class EFighterName
     {
+	    SolBadguy,
+        RoboKy
+    };
+public:
+    FighterCharacter() = delete;
+    FighterCharacter(World& world, const FVec2D& pos, const std::string& name, EFighterName fighter_name, int priority)
+	    :
+		Character(world, pos, name, std::make_shared<ControllerClass>(*this))
+    {
+        switch(fighter_name)
+        {
+        case EFighterName::SolBadguy: pFighter = std::make_shared<SolBadguy>(*this, priority);
+            break;
+        case EFighterName::RoboKy: pFighter = std::make_shared<RoboKy>(*this, priority);
+            break;
+        default:
+            break;
+        }
+
         rootCollider->SetRectPos(FRect(0, 5, 10, 10));
         rootCollider->SetCollisionMode(Collider::CollisionMode::Blocking);
         rootCollider->SetGravity(true);

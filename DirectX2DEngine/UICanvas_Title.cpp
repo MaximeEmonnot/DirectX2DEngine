@@ -2,6 +2,7 @@
 
 #include "Engine.h"
 #include "NetworkSystem.h"
+#include "SinglePlayerSelectionLevel.h"
 
 
 UICanvas_Title::UICanvas_Title()
@@ -15,7 +16,7 @@ UICanvas_Title::UICanvas_Title()
 {
 	startButton->SetTask([&]
 		{
-			ENGINE.SetLevel(1);
+			ENGINE.SetLevel<SinglePlayerSelectionLevel>();
 		});
 
 	TEST_connectionButton->SetTask([&]
