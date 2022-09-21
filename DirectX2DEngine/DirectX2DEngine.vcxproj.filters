@@ -243,6 +243,15 @@
     <ClCompile Include="SinglePlayerSelectionLevel.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="UICanvas_Connection.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UITextBox.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="ConnectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -436,6 +445,15 @@
     </ClInclude>
     <ClInclude Include="UICanvas_SinglePlayerSelection.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UITextBox.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UICanvas_Connection.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="ConnectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

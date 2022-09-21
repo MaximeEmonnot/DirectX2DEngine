@@ -76,7 +76,7 @@ unsigned char* Texture::LoadTGA(const std::string& filepath)
 	TGAHeader tgaFileHeader = {};
 	fopen_s(&pFile, filepath.c_str(), "rb");
 
-	unsigned int count = fread(&tgaFileHeader, sizeof(TGAHeader), 1, pFile);
+	unsigned int count = static_cast<unsigned int>(fread(&tgaFileHeader, sizeof(TGAHeader), 1, pFile));
 
 	width = static_cast<int>(tgaFileHeader.width);
 	height = static_cast<int>(tgaFileHeader.height);
@@ -84,11 +84,11 @@ unsigned char* Texture::LoadTGA(const std::string& filepath)
 	if (tgaFileHeader.bpp != 32)
 		throw GFX_EXCEPTION("An exception has occured during TGA file reading. Please use TGA 32 bits.", S_FALSE);
 
-	int imageSize = width * height * 4;
+	const int imageSize = width * height * 4;
 
 	unsigned char* tgaImage = new unsigned char[imageSize];
 
-	count = fread(tgaImage, 1, imageSize, pFile);
+	fread(tgaImage, 1, imageSize, pFile);
 
 	fclose(pFile);
 

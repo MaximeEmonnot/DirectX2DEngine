@@ -116,7 +116,7 @@
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -131,7 +131,7 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
@@ -158,6 +158,7 @@
     <ClCompile Include="CollisionSystem.cpp" />
     <ClCompile Include="ColorModel.cpp" />
     <ClCompile Include="ColorShader.cpp" />
+    <ClCompile Include="ConnectionLevel.cpp" />
     <ClCompile Include="SinglePlayerCombatLevel.cpp" />
     <ClCompile Include="ConsoleLogger.cpp" />
     <ClCompile Include="Controller.cpp" />
@@ -186,6 +187,7 @@
     <ClCompile Include="SoundSystem.cpp" />
     <ClCompile Include="TitleLevel.cpp" />
     <ClCompile Include="UIButton.cpp" />
+    <ClCompile Include="UICanvas_Connection.cpp" />
     <ClCompile Include="UICanvas_SinglePlayerCombat.cpp" />
     <ClCompile Include="UICanvas_SinglePlayerSelection.cpp" />
     <ClCompile Include="UICanvas_Title.cpp" />
@@ -200,6 +202,7 @@
     <ClCompile Include="AnimationTexture.cpp" />
     <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="Timer.cpp" />
+    <ClCompile Include="UITextBox.cpp" />
     <ClCompile Include="Window.cpp" />
     <ClCompile Include="World.cpp" />
   </ItemGroup>
@@ -219,6 +222,7 @@
     <ClInclude Include="CollisionSystem.h" />
     <ClInclude Include="ColorModel.h" />
     <ClInclude Include="ColorShader.h" />
+    <ClInclude Include="ConnectionLevel.h" />
     <ClInclude Include="SinglePlayerCombatLevel.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="ConsoleLogger.h" />
@@ -251,6 +255,7 @@
     <ClInclude Include="SoundSystem.h" />
     <ClInclude Include="TitleLevel.h" />
     <ClInclude Include="UIButton.h" />
+    <ClInclude Include="UICanvas_Connection.h" />
     <ClInclude Include="UICanvas_SinglePlayerCombat.h" />
     <ClInclude Include="UICanvas_SinglePlayerSelection.h" />
     <ClInclude Include="UICanvas_Title.h" />
@@ -265,6 +270,7 @@
     <ClInclude Include="AnimationTexture.h" />
     <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="Timer.h" />
+    <ClInclude Include="UITextBox.h" />
     <ClInclude Include="Vec2D.h" />
     <ClInclude Include="Window.h" />
     <ClInclude Include="World.h" />

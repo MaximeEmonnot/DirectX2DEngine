@@ -1,5 +1,6 @@
 #include "Game.h"
 
+#include "ConnectionLevel.h"
 #include "SinglePlayerCombatLevel.h"
 #include "Engine.h"
 #include "Graphics.h"
@@ -21,6 +22,7 @@ Game::Game()
 	ENGINE.AddLevel<TitleLevel>();
 	ENGINE.AddLevel<SinglePlayerSelectionLevel>();
 	ENGINE.AddLevel<SinglePlayerCombatLevel>();
+	ENGINE.AddLevel<ConnectionLevel>();
 }
 
 void Game::Go()
