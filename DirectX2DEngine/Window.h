@@ -29,6 +29,8 @@ public:
 
 	HWND GetHWND() const;
 
+	bool IsPlaying() const;
+
 private:
 	static LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
@@ -45,5 +47,7 @@ private:
 	// Window Constants
 	static constexpr int width = 800;
 	static constexpr int height = 640;
+
+	static bool bIsPlaying;
 };
 

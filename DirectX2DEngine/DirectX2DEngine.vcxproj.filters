@@ -264,6 +264,9 @@
     <ClCompile Include="UICanvas_MultiPlayerSelection.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
+    <ClCompile Include="NetworkEnemyController.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -478,6 +481,9 @@
     </ClInclude>
     <ClInclude Include="UICanvas_MultiPlayerCombat.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="NetworkEnemyController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

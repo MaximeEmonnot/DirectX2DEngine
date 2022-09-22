@@ -1,5 +1,9 @@
 #pragma once
+#include "FighterCharacter.h"
 #include "Level.h"
+#include "NetworkEnemyController.h"
+#include "PlayerController.h"
+
 class MultiPlayerCombatLevel :
     public Level
 {
@@ -10,7 +14,14 @@ public:
     virtual void BeginLevel() override;
 
     void SetSelection(std::pair<int, int> _selection);
+
 private:
+    void SendPositionData(FVec2D position);
+
+private:
+    std::shared_ptr<FighterCharacter<PlayerController>> player;
+    std::shared_ptr<FighterCharacter<NetworkEnemyController>> enemy;
+
     std::pair<int, int> selection;
 };
 

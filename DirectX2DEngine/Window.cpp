@@ -6,6 +6,8 @@ std::unique_ptr<Window> Window::pInstance = nullptr;
 HINSTANCE Window::hInstance;
 std::wstring Window::className;
 
+bool Window::bIsPlaying = true;
+
 // CLASS DEFINITION
 Window::Window() noexcept
 {
@@ -102,16 +104,23 @@ HWND Window::GetHWND() const
 	return hWnd;
 }
 
+bool Window::IsPlaying() const
+{
+	return bIsPlaying;
+}
+
 LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch(uMsg)
 	{
 		//*** CLOSE WINDOW EVENTS ***//
 	case WM_CLOSE:
+		bIsPlaying = false;
 		PostQuitMessage(0);
 		return 0;
 		break;
 	case WM_DESTROY:
+		bIsPlaying = false;
 		PostQuitMessage(0);
 		return 0;
 		break;

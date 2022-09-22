@@ -37,6 +37,7 @@ public:
 	virtual void Update();
 
 	FVec2D GetPosition() const;
+	void SetPosition(const FVec2D& new_position);
 	std::string GetName() const;
 	virtual std::vector<std::shared_ptr<class Collider>> GetColliders() const;
 

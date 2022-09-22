@@ -161,6 +161,7 @@
     <ClCompile Include="ConnectionLevel.cpp" />
     <ClCompile Include="MultiPlayerCombatLevel.cpp" />
     <ClCompile Include="MultiPlayerSelectionLevel.cpp" />
+    <ClCompile Include="NetworkEnemyController.cpp" />
     <ClCompile Include="SinglePlayerCombatLevel.cpp" />
     <ClCompile Include="ConsoleLogger.cpp" />
     <ClCompile Include="Controller.cpp" />
@@ -229,6 +230,7 @@
     <ClInclude Include="ConnectionLevel.h" />
     <ClInclude Include="MultiPlayerCombatLevel.h" />
     <ClInclude Include="MultiPlayerSelectionLevel.h" />
+    <ClInclude Include="NetworkEnemyController.h" />
     <ClInclude Include="SinglePlayerCombatLevel.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="ConsoleLogger.h" />

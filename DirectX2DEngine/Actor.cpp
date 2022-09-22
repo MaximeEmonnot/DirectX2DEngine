@@ -25,6 +25,11 @@ FVec2D Actor::GetPosition() const
 	return pos;
 }
 
+void Actor::SetPosition(const FVec2D& new_position)
+{
+	pos = new_position;
+}
+
 std::string Actor::GetName() const
 {
 	return name;
