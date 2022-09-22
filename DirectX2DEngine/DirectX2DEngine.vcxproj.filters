@@ -265,7 +265,7 @@
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
     <ClCompile Include="NetworkEnemyController.cpp">
-      <Filter>Fichiers sources</Filter>
+      <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
