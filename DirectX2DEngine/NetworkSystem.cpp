@@ -1,6 +1,7 @@
 #include "NetworkSystem.h"
 
 #include "LoggerManager.h"
+#include "Timer.h"
 
 std::unique_ptr<NetworkSystem> NetworkSystem::pInstance = nullptr;
 
@@ -36,6 +37,10 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 
 	if (connect(sock, reinterpret_cast<sockaddr*>(&addr_in), sizeof(addr_in)) == SOCKET_ERROR)
 		throw NETWORK_EXCEPTION("An error has been caught during TCP Socket Connection.", WSAGetLastError());
+
+	// Receive place
+	std::vector<uint8_t> input = ReceiveData();
+	place = input.at(0);
 }
 
 void NetworkSystem::Disconnect() const
@@ -71,4 +76,9 @@ std::vector<uint8_t> NetworkSystem::ReceiveData() const
 		}
 	}
 	return out;
+}
+
+int NetworkSystem::GetPlace() const
+{
+	return place;
 }

@@ -159,6 +159,8 @@
     <ClCompile Include="ColorModel.cpp" />
     <ClCompile Include="ColorShader.cpp" />
     <ClCompile Include="ConnectionLevel.cpp" />
+    <ClCompile Include="MultiPlayerCombatLevel.cpp" />
+    <ClCompile Include="MultiPlayerSelectionLevel.cpp" />
     <ClCompile Include="SinglePlayerCombatLevel.cpp" />
     <ClCompile Include="ConsoleLogger.cpp" />
     <ClCompile Include="Controller.cpp" />
@@ -188,6 +190,8 @@
     <ClCompile Include="TitleLevel.cpp" />
     <ClCompile Include="UIButton.cpp" />
     <ClCompile Include="UICanvas_Connection.cpp" />
+    <ClCompile Include="UICanvas_MultiPlayerCombat.cpp" />
+    <ClCompile Include="UICanvas_MultiPlayerSelection.cpp" />
     <ClCompile Include="UICanvas_SinglePlayerCombat.cpp" />
     <ClCompile Include="UICanvas_SinglePlayerSelection.cpp" />
     <ClCompile Include="UICanvas_Title.cpp" />
@@ -223,6 +227,8 @@
     <ClInclude Include="ColorModel.h" />
     <ClInclude Include="ColorShader.h" />
     <ClInclude Include="ConnectionLevel.h" />
+    <ClInclude Include="MultiPlayerCombatLevel.h" />
+    <ClInclude Include="MultiPlayerSelectionLevel.h" />
     <ClInclude Include="SinglePlayerCombatLevel.h" />
     <ClInclude Include="Commands.h" />
     <ClInclude Include="ConsoleLogger.h" />
@@ -256,6 +262,8 @@
     <ClInclude Include="TitleLevel.h" />
     <ClInclude Include="UIButton.h" />
     <ClInclude Include="UICanvas_Connection.h" />
+    <ClInclude Include="UICanvas_MultiPlayerCombat.h" />
+    <ClInclude Include="UICanvas_MultiPlayerSelection.h" />
     <ClInclude Include="UICanvas_SinglePlayerCombat.h" />
     <ClInclude Include="UICanvas_SinglePlayerSelection.h" />
     <ClInclude Include="UICanvas_Title.h" />

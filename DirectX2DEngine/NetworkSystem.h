@@ -38,9 +38,12 @@ public:
 	void SendData(std::vector<uint8_t> data) const;
 	std::vector<uint8_t> ReceiveData() const;
 
+	int GetPlace() const;
+
 private:
 	static std::unique_ptr<NetworkSystem> pInstance;
 
 	SOCKET sock;
+	int place = 0;
 };
 

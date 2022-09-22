@@ -1,5 +1,7 @@
 #include "UICanvas_Connection.h"
 
+#include "Engine.h"
+#include "MultiPlayerSelectionLevel.h"
 #include "NetworkSystem.h"
 
 UICanvas_Connection::UICanvas_Connection()
@@ -12,6 +14,7 @@ UICanvas_Connection::UICanvas_Connection()
 	connectionButton->SetTask([&]
 	{
 		NETWORK.ConnectTo(ipAddressTextBox->GetText(), std::stoi(portTextBox->GetText()));
+		ENGINE.SetLevel<MultiPlayerSelectionLevel>();
 	});
 }
 

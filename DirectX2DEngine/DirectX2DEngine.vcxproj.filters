@@ -252,6 +252,18 @@
     <ClCompile Include="ConnectionLevel.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="MultiPlayerSelectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="MultiPlayerCombatLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UICanvas_MultiPlayerCombat.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="UICanvas_MultiPlayerSelection.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
@@ -454,6 +466,18 @@
     </ClInclude>
     <ClInclude Include="ConnectionLevel.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPlayerSelectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="MultiPlayerCombatLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UICanvas_MultiPlayerSelection.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="UICanvas_MultiPlayerCombat.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

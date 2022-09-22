@@ -36,6 +36,11 @@ void Server::Update()
 			clients.emplace_back(client);
 			FD_SET(client, &sockets);
 			std::cout << "New client connected !" << std::endl;
+
+			// Send client's place
+			std::vector<uint8_t> data;
+			data.emplace_back(clients.size());
+			client.SendData(data);
 		}
 		else
 		{

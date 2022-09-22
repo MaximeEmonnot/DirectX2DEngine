@@ -4,9 +4,12 @@
 #include "SinglePlayerCombatLevel.h"
 #include "Engine.h"
 #include "Graphics.h"
+#include "MultiPlayerCombatLevel.h"
+#include "MultiPlayerSelectionLevel.h"
 #include "SinglePlayerSelectionLevel.h"
 #include "SoundSystem.h"
 #include "TextRenderer.h"
+#include "ThreadPool.h"
 #include "Timer.h"
 #include "TitleLevel.h"
 
@@ -23,6 +26,8 @@ Game::Game()
 	ENGINE.AddLevel<SinglePlayerSelectionLevel>();
 	ENGINE.AddLevel<SinglePlayerCombatLevel>();
 	ENGINE.AddLevel<ConnectionLevel>();
+	ENGINE.AddLevel<MultiPlayerSelectionLevel>();
+	ENGINE.AddLevel<MultiPlayerCombatLevel>();
 }
 
 void Game::Go()
