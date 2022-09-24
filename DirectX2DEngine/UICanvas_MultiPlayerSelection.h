@@ -13,6 +13,9 @@ public:
     void Update() override;
 
 private:
+    void SelectFighter(int fighter_value) const;
+
+private:
     std::shared_ptr<UIImage> solBadguyImage;
     std::shared_ptr<UIButton> solBadguyButton;
     std::shared_ptr<UIText> solBadguyButtonTitle;

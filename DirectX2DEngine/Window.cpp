@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include "Timer.h"
+
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<Window> Window::pInstance = nullptr;
 
@@ -126,6 +128,9 @@ LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		break;
 		//*** END CLOSE WINDOW EVENTS ***//
 
+	case WM_MOVING:
+		TICKCLOCK
+		break;
 
 		//*** KEYBOARD EVENTS ***//
 	case WM_KEYDOWN: 

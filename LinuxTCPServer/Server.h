@@ -14,6 +14,6 @@ private:
 	TCPSocket server;
 	std::vector<TCPSocket> clients;
 	fd_set sockets;
-	int mMaxClients;
+	unsigned long mMaxClients;
 };
 

@@ -18,80 +18,14 @@ UICanvas_MultiPlayerSelection::UICanvas_MultiPlayerSelection()
 	solBadguyButton->SetTask(
 		[&]
 		{
-			if (std::shared_ptr<MultiPlayerSelectionLevel> level = std::dynamic_pointer_cast<MultiPlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
-			{
-				std::vector<uint8_t> input;
-
-				switch(NETWORK.GetPlace())
-				{
-				case 1: // If the client is the first one connected, we should wait for another client to send data
-				{
-					input = NETWORK.ReceiveData();
-					std::vector<uint8_t> output;
-					output.emplace_back(1);
-					NETWORK.SendData(output);
-				}
-					break;
-				case 2: // If the client is the second one connected, we should send the data first
-				{
-					std::vector<uint8_t> output;
-					output.emplace_back(1);
-					NETWORK.SendData(output);
-					input = NETWORK.ReceiveData();
-				}
-					break;
-				default:
-					break;
-				}
-
-				ENGINE.SetLevel<MultiPlayerCombatLevel>();
-				if (std::shared_ptr<MultiPlayerCombatLevel> new_level = std::dynamic_pointer_cast<MultiPlayerCombatLevel>(ENGINE.GetCurrentLevel()))
-				{
-					new_level->SetSelection(std::pair(1, static_cast<int>(input.at(0))));
-					new_level->BeginLevel();
-				}
-			}
+			SelectFighter(1);
 		}
 		);
 
 	roboKyButton->SetTask(
 		[&]
 		{
-			if (std::shared_ptr<MultiPlayerSelectionLevel> level = std::dynamic_pointer_cast<MultiPlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
-			{
-				std::vector<uint8_t> input;
-
-				switch (NETWORK.GetPlace())
-				{
-				case 1: // If the client is the first one connected, we should wait for another client to send data
-				{
-					input = NETWORK.ReceiveData();
-					TICKCLOCK // We reset the DeltaTime value as we use a blocking call on the main thread
-					std::vector<uint8_t> output;
-					output.emplace_back(2);
-					NETWORK.SendData(output);
-				}
-				break;
-				case 2: // If the client is the second one connected, we should send the data first
-				{
-					std::vector<uint8_t> output;
-					output.emplace_back(2);
-					NETWORK.SendData(output);
-					input = NETWORK.ReceiveData();
-					TICKCLOCK // We reset the DeltaTime value as we use a blocking call on the main thread
-				}
-				break;
-				default:
-					break;
-				}
-
-				ENGINE.SetLevel<MultiPlayerCombatLevel>();
-				if (std::shared_ptr<MultiPlayerCombatLevel> new_level = std::dynamic_pointer_cast<MultiPlayerCombatLevel>(ENGINE.GetCurrentLevel()))
-				{
-					new_level->SetSelection(std::pair(2, static_cast<int>(input.at(0))));
-					new_level->BeginLevel();
-				}
-			}
+			SelectFighter(2);
 		}
 		);
 }
@@ -100,4 +34,42 @@ void UICanvas_MultiPlayerSelection::Update()
 {
 	solBadguyButton->Update();
 	roboKyButton->Update();
+}
+
+void UICanvas_MultiPlayerSelection::SelectFighter(int fighter_value) const
+{
+	if (std::shared_ptr<MultiPlayerSelectionLevel> level = std::dynamic_pointer_cast<MultiPlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
+	{
+		std::vector<uint8_t> input;
+
+		switch (NETWORK.GetPlace())
+		{
+		case 1: // If the client is the first one connected, we should wait for another client to send data
+		{
+			input = NETWORK.ReceiveData();
+			std::vector<uint8_t> output;
+			output.emplace_back(fighter_value);
+			NETWORK.SendData(output);
+		}
+		break;
+		case 2: // If the client is the second one connected, we should send the data first
+		{
+			std::vector<uint8_t> output;
+			output.emplace_back(fighter_value);
+			NETWORK.SendData(output);
+			input = NETWORK.ReceiveData();
+		}
+		break;
+		default:
+			break;
+		}
+		TICKCLOCK // We reset the DeltaTime value as we use a blocking call on the main thread
+
+			ENGINE.SetLevel<MultiPlayerCombatLevel>();
+		if (std::shared_ptr<MultiPlayerCombatLevel> new_level = std::dynamic_pointer_cast<MultiPlayerCombatLevel>(ENGINE.GetCurrentLevel()))
+		{
+			new_level->SetSelection(std::pair(fighter_value, static_cast<int>(input.at(0))));
+			new_level->BeginLevel();
+		}
+	}
 }

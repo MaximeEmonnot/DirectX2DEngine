@@ -27,14 +27,14 @@ void MultiPlayerCombatLevel::BeginLevel()
 	switch(NETWORK.GetPlace())
 	{
 	case 1:
-		player = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(-250, -125), "Player", static_cast<FighterCharacter<PlayerController>::EFighterName>(selection.first - 1), 15);
-		enemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(250, -125), "Enemy", static_cast<FighterCharacter<NetworkEnemyController>::EFighterName>(selection.second - 1), 12);
+		player = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(-250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
+		enemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
 		// Create UI Canvas
 		CreateCanvas<UICanvas_SinglePlayerCombat>(player->GetFighter(), enemy->GetFighter());
 		break;
 	case 2:
-		player = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(250, -125), "Player", static_cast<FighterCharacter<PlayerController>::EFighterName>(selection.first - 1), 15);
-		enemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(-250, -125), "Enemy", static_cast<FighterCharacter<NetworkEnemyController>::EFighterName>(selection.second - 1), 12);
+		player = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
+		enemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(-250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
 		// Create UI Canvas
 		CreateCanvas<UICanvas_SinglePlayerCombat>(enemy->GetFighter(), player->GetFighter());
 		break;

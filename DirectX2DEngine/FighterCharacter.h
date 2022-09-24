@@ -5,15 +5,15 @@
 #include "RoboKy.h"
 #include "SolBadguy.h"
 
+enum class EFighterName
+{
+    SolBadguy,
+    RoboKy
+};
+
 template<class ControllerClass>
 class FighterCharacter : public Character
 {
-public:
-    enum class EFighterName
-    {
-	    SolBadguy,
-        RoboKy
-    };
 public:
     FighterCharacter() = delete;
     FighterCharacter(World& world, const FVec2D& pos, const std::string& name, EFighterName fighter_name, int priority)

@@ -48,16 +48,20 @@ void Server::Update()
 		}
 	}
 	else {
+		// D'abord Receive puis Send
 		for (size_t i = 0; i < clients.size(); i++) {
 			if (FD_ISSET(clients.at(i), &sockets))
 			{
 				const std::vector<uint8_t> data = clients.at(i).RecieveData();
 				if (!data.empty()) {
 					std::cout << "Data recieved : " << std::to_string(data.size()) << std::endl;
-					for (TCPSocket& client : clients) if (client != clients.at(i)) client.SendData(data);
+					for (TCPSocket& client : clients) 
+						if (client != clients.at(i)) 
+							client.SendData(data);
 				}
 				else {
 					std::cout << "A client has disconnected" << std::endl;
+					clients.at(i).Close();
 					clients.erase(clients.begin() + static_cast<int>(i));
 					break;
 				}
