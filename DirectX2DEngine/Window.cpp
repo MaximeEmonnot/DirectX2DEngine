@@ -1,5 +1,7 @@
 #include "Window.h"
 
+#include "NetworkSystem.h"
+#include "ThreadPool.h"
 #include "Timer.h"
 
 // STATIC VARIABLES INITIALIZATION
@@ -111,21 +113,22 @@ bool Window::IsPlaying() const
 	return bIsPlaying;
 }
 
+
 LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 {
 	switch(uMsg)
 	{
 		//*** CLOSE WINDOW EVENTS ***//
 	case WM_CLOSE:
-		bIsPlaying = false;
 		PostQuitMessage(0);
+		bIsPlaying = false;
+		NETWORK.Disconnect();
 		return 0;
-		break;
 	case WM_DESTROY:
-		bIsPlaying = false;
 		PostQuitMessage(0);
+		bIsPlaying = false;
+		NETWORK.Disconnect();
 		return 0;
-		break;
 		//*** END CLOSE WINDOW EVENTS ***//
 
 	case WM_MOVING:

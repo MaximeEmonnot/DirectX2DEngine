@@ -65,3 +65,7 @@ void ThreadPool::Enqueue(std::function<void()> task)
 	}
 	eventVar.notify_one();
 }
+
+void ThreadPool::KillPool()
+{
+}

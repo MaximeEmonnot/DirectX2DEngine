@@ -1,17 +1,20 @@
 ﻿#include <iostream>
-#include <signal.h>
 #include "Server.h"
 
-void sigpipe_handle(int signal)
-{
-    std::cout << "A disconnection has occurred." << std::endl;
-}
 
 int main()
 {
-    sigaction(SIGPIPE, reinterpret_cast<struct sigaction*>(&sigpipe_handle), nullptr);
-        
-    Server server;
-    while (true) server.Update();
+    try {
+        Server server;
+        while (true) server.Update();
+    }
+    catch(std::exception& e)
+    {
+        std::cerr << "An exception has occurred : " << e.what() << std::endl;
+    }
+    catch(...)
+    {
+        std::cerr << "An unknown exception has occurred." << std::endl;
+    }
     return 0;
 }

@@ -45,6 +45,7 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 
 void NetworkSystem::Disconnect() const
 {
+	shutdown(sock, SD_BOTH);
 	closesocket(sock);
 }
 

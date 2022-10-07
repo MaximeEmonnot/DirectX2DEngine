@@ -19,6 +19,8 @@ public:
 
 	void Enqueue(std::function<void()> task);
 
+	void KillPool();
+
 private:
 	static std::unique_ptr<ThreadPool> pInstance;
 
