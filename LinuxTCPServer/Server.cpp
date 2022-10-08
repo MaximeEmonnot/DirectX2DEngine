@@ -26,7 +26,6 @@ void Server::Update()
 	FD_ZERO(&sockets);
 	FD_SET(server, &sockets);
 	for (TCPSocket& client : clients) FD_SET(client, &sockets);
-	dataReceived.clear();
 
 	select(128, &sockets, nullptr, nullptr, nullptr);
 
@@ -49,14 +48,13 @@ void Server::Update()
 		}
 	}
 	else {
-		// Receive Stage
 		for (size_t i = 0; i < clients.size(); i++) {
 			if (FD_ISSET(clients.at(i), &sockets))
 			{
 				const std::vector<uint8_t> data = clients.at(i).RecieveData();
 				if (!data.empty()) {
 					std::cout << "Data recieved : " << std::to_string(data.size()) << std::endl;
-					dataReceived.emplace(clients.at(i), data);
+					for (TCPSocket& client : clients) if (client != clients.at(i)) client.SendData(data);
 				}
 				else {
 					std::cout << "A client has disconnected" << std::endl;
@@ -66,11 +64,5 @@ void Server::Update()
 				}
 			}
 		}
-
-		// Send Stage
-		select(128, nullptr, &sockets, nullptr, nullptr);
-		for (TCPSocket& client : clients)
-				for (auto& entry : dataReceived)
-					if (client != entry.first) client.SendData(entry.second);
 	}
 }
