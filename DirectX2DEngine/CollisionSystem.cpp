@@ -1,87 +1,33 @@
 #include "CollisionSystem.h"
 #include "JSONParser.h"
+#include "TextureFactory.h"
 
 CollisionSystem::CollisionSystem(Actor& owner, const std::string& file_path, const std::vector<std::string>& animations)
 {
 	JSONParser::Reader jsonParser;
 	jsonParser.ReadFile(file_path);
 
-	auto& v = jsonParser.GetValueOf("collisions");
+	auto& jsonCollisions = jsonParser.GetValueOf("collisions");
 	for (auto& anim : animations)
 	{
-		if (v.HasMember(anim.c_str()))
+		if (jsonCollisions.HasMember(anim.c_str()))
 		{
 			CollisionGroup collision_group;
-			auto& m = v[anim.c_str()];
+			auto& jsonCollider = jsonCollisions[anim.c_str()];
 
-			const int width = jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[2].GetInt();
-			const int height = jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[3].GetInt();
+			const float hold_time = jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[1].GetFloat();
+			const Animation::AnimationMode loop_mode = static_cast<Animation::AnimationMode>(jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[2].GetInt());
+			const std::string animation_path = jsonParser.GetValueOf("character").GetString() + anim + std::string("/");
 
-			const float xRatio = static_cast<float>(width) / static_cast<float>(width);
-			const float yRatio = static_cast<float>(height) / static_cast<float>(height);
+			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Head", Collider::CollisionChannel::Stun, hold_time, loop_mode, animation_path);
+			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Body", Collider::CollisionChannel::Defense, hold_time, loop_mode, animation_path);
+			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Attack", Collider::CollisionChannel::Attack, hold_time, loop_mode, animation_path);
 
-			if (m.HasMember("Body"))
-			{
-				auto& c = m["Body"];
-				MovingCollider moving_collider(owner);
-				moving_collider.SetVisible(true);
-				moving_collider.SetCollisionMode(Collider::CollisionMode::Overlapping);
-				moving_collider.SetCollisionChannel(Collider::CollisionChannel::Defense);
-				moving_collider.SetHoldTime(m["HoldTime"].GetFloat());
-				moving_collider.SetLoop(m["IsLooping"].GetBool());
-				for (auto itr = c.MemberBegin(); itr != c.MemberEnd(); ++itr)
-				{
-					const float x_pos = itr->value.GetArray()[0].GetFloat();
-					const float y_pos = itr->value.GetArray()[1].GetFloat();
-					const float coll_width = itr->value.GetArray()[2].GetFloat();
-					const float coll_height = itr->value.GetArray()[3].GetFloat();
-					moving_collider.AddPosition(FRect(xRatio * (x_pos - (width - coll_width) / 2), yRatio * (-y_pos + (height - coll_height) / 2), xRatio * coll_width, yRatio * coll_height));
-				}
-				collision_group.AddCollider(moving_collider);
-			}
-			if (m.HasMember("Head"))
-			{
-				auto& c = m["Head"];
-				MovingCollider moving_collider(owner);
-				moving_collider.SetVisible(true);
-				moving_collider.SetCollisionMode(Collider::CollisionMode::Overlapping);
-				moving_collider.SetCollisionChannel(Collider::CollisionChannel::Stun);
-				moving_collider.SetHoldTime(m["HoldTime"].GetFloat());
-				moving_collider.SetLoop(m["IsLooping"].GetBool());
-				for (auto itr = c.MemberBegin(); itr != c.MemberEnd(); ++itr)
-				{
-					const float x_pos = itr->value.GetArray()[0].GetFloat();
-					const float y_pos = itr->value.GetArray()[1].GetFloat();
-					const float coll_width = itr->value.GetArray()[2].GetFloat();
-					const float coll_height = itr->value.GetArray()[3].GetFloat();
-					moving_collider.AddPosition(FRect(xRatio * (x_pos - (width - coll_width) / 2), yRatio * (-y_pos + (height - coll_height) / 2), xRatio * coll_width, yRatio * coll_height));
-				}
-				collision_group.AddCollider(moving_collider);
-			}
-			if (m.HasMember("Attack"))
-			{
-				auto& c = m["Attack"];
-				MovingCollider moving_collider(owner);
-				moving_collider.SetVisible(true);
-				moving_collider.SetCollisionMode(Collider::CollisionMode::Overlapping);
-				moving_collider.SetCollisionChannel(Collider::CollisionChannel::Attack);
-				moving_collider.SetHoldTime(m["HoldTime"].GetFloat());
-				moving_collider.SetLoop(m["IsLooping"].GetBool());
-				for (auto itr = c.MemberBegin(); itr != c.MemberEnd(); ++itr)
-				{
-					const float x_pos = itr->value.GetArray()[0].GetFloat();
-					const float y_pos = itr->value.GetArray()[1].GetFloat();
-					const float coll_width = itr->value.GetArray()[2].GetFloat();
-					const float coll_height = itr->value.GetArray()[3].GetFloat();
-					moving_collider.AddPosition(FRect(xRatio * (x_pos - (width - coll_width) / 2), yRatio * (-y_pos + (height - coll_height) / 2), xRatio * coll_width, yRatio * coll_height));
-				}
-				collision_group.AddCollider(moving_collider);
-			}
 			collisionGroups.insert(std::pair(anim, collision_group));
 		}
 	}
 
-	animState = "IdleRight";
+	animState = "Idle";
 }
 
 void CollisionSystem::Update()
@@ -113,5 +59,29 @@ void CollisionSystem::SetCollisionGroup(const std::string& state)
 	if (animState != state) {
 		animState = state;
 		collisionGroups.at(animState).Reset();
+	}
+}
+
+void CollisionSystem::AddCollisionsToGroup(CollisionGroup& collision_group, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collision_channel, float hold_time, Animation::AnimationMode loop_mode, const std::string& animation) const
+{
+	if (jsonObject.HasMember(name.c_str()))
+	{
+		auto& collider = jsonObject[name.c_str()];
+		MovingCollider moving_collider(owner);
+		moving_collider.SetVisible(true);
+		moving_collider.SetCollisionMode(Collider::CollisionMode::Overlapping);
+		moving_collider.SetCollisionChannel(collision_channel);
+		moving_collider.SetHoldTime(hold_time);
+		moving_collider.SetLoop(loop_mode);
+		for (auto itr = collider.MemberBegin(); itr != collider.MemberEnd(); ++itr)
+		{
+			const float x_pos = itr->value.GetArray()[0].GetFloat();
+			const float y_pos = itr->value.GetArray()[1].GetFloat();
+			const float width = itr->value.GetArray()[2].GetFloat();
+			const float height = itr->value.GetArray()[3].GetFloat();
+			const FVec2D texture_center = ANIMATION_TEXTURE(animation + std::string(itr->name.GetString()) + std::string(".tga")).GetCenter();
+			moving_collider.AddPosition(FRect(x_pos - texture_center.x, y_pos - texture_center.y, width, height));
+		}
+		collision_group.AddCollider(moving_collider);
 	}
 }

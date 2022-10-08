@@ -119,8 +119,8 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
     owner(owner),
     pComboTree(pComboTree),
     animSys(jsonPath),
-	model(owner.GetWorld().CreateModel<TextureModel>(priority))
-    //collisionSys(owner, jsonPath, animSys.GetAnimationList())_
+	model(owner.GetWorld().CreateModel<TextureModel>(priority)),
+    collisionSys(owner, jsonPath, animSys.GetAnimationList())
 {
     JSONParser::Reader jsonParser;
     jsonParser.ReadFile(jsonPath);
@@ -149,7 +149,7 @@ void BaseFighter::Update()
     model->SetPosition(owner.GetPosition() - texture_center);
     model->SetTexture(animSys.GetTexture());
     
-    //collisionSys.Update();
+    collisionSys.Update();
 }
 
 void BaseFighter::SetEnemy(std::weak_ptr<BaseFighter> enemy)
@@ -170,6 +170,6 @@ std::wstring BaseFighter::GetName() const
 std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const
 {
     std::vector<std::shared_ptr<Collider>> out;
-    //for (std::shared_ptr<Collider>& c : collisionSys.GetColliders()) out.emplace_back(c);
+    for (std::shared_ptr<Collider>& c : collisionSys.GetColliders()) out.emplace_back(c);
     return out;
 }

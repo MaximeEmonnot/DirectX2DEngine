@@ -1,4 +1,5 @@
 #pragma once
+#include "Animation.h"
 #include "Collider.h"
 
 class MovingCollider
@@ -8,7 +9,7 @@ public:
 
 	void Update();
 
-	void SetLoop(bool bValue);
+	void SetLoop(Animation::AnimationMode loop_mode);
 	void SetHoldTime(float _holdTime);
 	void SetCollisionMode(Collider::CollisionMode cMode);
 	void SetCollisionChannel(Collider::CollisionChannel cChannel);
@@ -32,8 +33,9 @@ private:
 	float curFrameTime = 0.0f;
 	float holdTime;
 	int curRectPos = 0;
+	int threshold = 1;
 
-	bool bIsLooping = true;
+	Animation::AnimationMode loopMode = Animation::AnimationMode::NoLoop;
 	bool bIsFinished = false;
 };
 

@@ -132,5 +132,11 @@ SolBadguy::SolBadguy(Actor& owner, int priority)
 			if (player) return player->IsGrounded();
 			return false;
 		});
+
+	///COLLISIONS TRANSITIONS
+	collisionSys.AddTransition("Idle", "RandomIdle", [&]
+		{
+			return false;
+		});
 }
 

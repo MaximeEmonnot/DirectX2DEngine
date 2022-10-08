@@ -6,7 +6,7 @@
 
 class Animation {
 public:
-	enum AnimationMode
+	enum class AnimationMode
 	{
 		NoLoop,
 		LoopingAll,

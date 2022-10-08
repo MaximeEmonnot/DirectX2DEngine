@@ -1,5 +1,7 @@
 #include "NetworkSystem.h"
 
+#include <deque>
+
 #include "LoggerManager.h"
 #include "Timer.h"
 
@@ -52,9 +54,11 @@ void NetworkSystem::Disconnect() const
 void NetworkSystem::SendData(std::vector<uint8_t> data) const
 {
 	int size = static_cast<int>(data.size());
-	if (send(sock, reinterpret_cast<char*>(&size), sizeof(int), 0) == SOCKET_ERROR)
-		LOG(std::string("Error while sending size!\nMore infos : ") + std::to_string(WSAGetLastError()), LOG_ERROR)
-	if (send(sock, reinterpret_cast<char*>(data.data()), size, 0) == SOCKET_ERROR) 
+	uint8_t* size_array = reinterpret_cast<uint8_t*>(&size);
+	std::vector<uint8_t> size_vector(size_array, size_array + 4);
+	data.insert(data.begin(), size_vector.begin(), size_vector.end());
+
+	if (send(sock, reinterpret_cast<char*>(data.data()), data.size(), 0) == SOCKET_ERROR) 
 		LOG(std::string("Error while sending message!\nMore infos : ") + std::to_string(WSAGetLastError()), LOG_ERROR)
 }
 

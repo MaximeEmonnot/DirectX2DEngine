@@ -18,7 +18,7 @@ public:
 	void Close() const;
 
 	void SendData(std::vector<uint8_t> data) const;
-	std::vector<uint8_t> RecieveData() const;
+	std::vector<uint8_t> ReceiveData() const;
 
 private:
 	int mSocketDescriptor = -1;

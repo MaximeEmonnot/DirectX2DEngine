@@ -1,5 +1,7 @@
 #pragma once
 #include "CollisionGroup.h"
+#include "rapidjson/document.h"
+
 class CollisionSystem
 {
 public:
@@ -15,6 +17,7 @@ public:
 
 private:
 	void SetCollisionGroup(const std::string& state);
+	void AddCollisionsToGroup(CollisionGroup& collision_group, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collision_channel, float hold_time, Animation::AnimationMode loop_mode, const std::string& animation) const;
 
 private:
 	std::string animState;

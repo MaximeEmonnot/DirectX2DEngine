@@ -1,9 +1,17 @@
 ﻿#include <iostream>
 #include "Server.h"
 
+#include <signal.h>
+
+void handler(int sig)
+{
+    std::cout << "SigPipe received!" << std::endl;
+}
 
 int main()
 {
+    signal(SIGPIPE, handler);
+
     try {
         Server server;
         while (true) server.Update();

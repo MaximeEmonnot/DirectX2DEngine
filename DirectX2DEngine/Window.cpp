@@ -120,10 +120,6 @@ LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 	{
 		//*** CLOSE WINDOW EVENTS ***//
 	case WM_CLOSE:
-		PostQuitMessage(0);
-		bIsPlaying = false;
-		NETWORK.Disconnect();
-		return 0;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		bIsPlaying = false;

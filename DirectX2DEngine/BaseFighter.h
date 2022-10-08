@@ -1,6 +1,7 @@
 #pragma once
 #include "Actor.h"
 #include "AnimationSystem.h"
+#include "CollisionSystem.h"
 #include "TextureModel.h"
 
 class BaseFighter
@@ -75,6 +76,7 @@ public:
 protected:
     Actor& owner;
     AnimationSystem animSys;
+    CollisionSystem collisionSys;
     std::shared_ptr<TextureModel> model;
     std::shared_ptr<ComboTree> pComboTree;
     std::string icon;

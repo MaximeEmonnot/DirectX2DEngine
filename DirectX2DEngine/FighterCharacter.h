@@ -48,6 +48,8 @@ public:
     {
         std::vector<std::shared_ptr<Collider>> out;
         out.emplace_back(rootCollider);
+        for (std::shared_ptr<Collider> col : pFighter->GetColliders())
+            out.emplace_back(col);
         return out;
     }
 

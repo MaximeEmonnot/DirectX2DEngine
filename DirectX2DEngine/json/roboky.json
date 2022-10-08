@@ -13,5 +13,115 @@
         "Jump": [1, 0.15, 0],
         "MaxJump": [7, 0.05, 0],
         "Fall": [3, 0.1, 2]
+    },
+    "collisions": {
+        "Idle": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "WalkingForward": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "WalkingBackward": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "CrouchTransition": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "CrouchIdle": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "Punch": {
+            "Head": {
+
+            },
+            "Body": {
+
+            },
+            "Attack": {
+
+            }
+        },
+        "Kick": {
+            "Head": {
+
+            },
+            "Body": {
+
+            },
+            "Attack": {
+
+            }
+        },
+        "Slash": {
+            "Head": {
+
+            },
+            "Body": {
+
+            },
+            "Attack": {
+
+            }
+        },
+        "HardSlash": {
+            "Head": {
+
+            },
+            "Body": {
+
+            },
+            "Attack": {
+
+            }
+        },
+        "Jump": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "MaxJump": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        },
+        "Fall": {
+            "Head": {
+
+            },
+            "Body": {
+
+            }
+        }
     }
 }

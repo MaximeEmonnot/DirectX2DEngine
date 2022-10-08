@@ -26,6 +26,7 @@ void Server::Update()
 	FD_ZERO(&sockets);
 	FD_SET(server, &sockets);
 	for (TCPSocket& client : clients) FD_SET(client, &sockets);
+	dataReceived.clear();
 
 	select(128, &sockets, nullptr, nullptr, nullptr);
 
@@ -43,18 +44,16 @@ void Server::Update()
 			client.SendData(data);
 		}
 		else
-		{
 			std::cout << "Too many clients !" << std::endl;
-		}
 	}
 	else {
+		// Receive Phase
 		for (size_t i = 0; i < clients.size(); i++) {
 			if (FD_ISSET(clients.at(i), &sockets))
 			{
-				const std::vector<uint8_t> data = clients.at(i).RecieveData();
+				const std::vector<uint8_t> data = clients.at(i).ReceiveData();
 				if (!data.empty()) {
-					std::cout << "Data recieved : " << std::to_string(data.size()) << std::endl;
-					for (TCPSocket& client : clients) if (client != clients.at(i)) client.SendData(data);
+					dataReceived.emplace(std::pair<TCPSocket, std::vector<uint8_t>>(clients.at(i), data));
 				}
 				else {
 					std::cout << "A client has disconnected" << std::endl;
@@ -64,5 +63,16 @@ void Server::Update()
 				}
 			}
 		}
+
+		// Send Phase
+		FD_ZERO(&sockets);
+		for (TCPSocket& client : clients) FD_SET(client, &sockets);
+		timeval timeout = {0, 5000};
+		select(128, nullptr, &sockets, nullptr, &timeout);
+
+		for (TCPSocket& client : clients)
+			if (FD_ISSET(client, &sockets))
+				for (auto& entry : dataReceived)
+					if (client != entry.first) client.SendData(entry.second);
 	}
 }
