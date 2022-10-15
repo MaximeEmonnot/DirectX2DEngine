@@ -38,16 +38,16 @@ public:
 
 	virtual void Update();
 
-	FVec2D GetPosition() const;
-	void SetPosition(const FVec2D& newPosition);
-	std::string GetName() const;
-	virtual std::vector<std::shared_ptr<class Collider>> GetColliders() const;
+	FVec2D													GetPosition() const;
+	void													SetPosition(const FVec2D& newPosition);
+	std::string												GetName() const;
+	virtual std::vector<std::shared_ptr<class Collider>>	GetColliders() const;
 
-	World& GetWorld() const;
+	World&													GetWorld() const;
 
 protected:
-	World& world;
-	FVec2D pos;
-	std::string name;
+	World&			world;
+	FVec2D			pos;
+	std::string		name;
  };
 

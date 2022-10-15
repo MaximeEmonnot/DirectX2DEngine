@@ -16,12 +16,12 @@ public:
 	Engine& operator=(const Engine&) = delete;
 	~Engine() = default;
 
-	static Engine& GetInstance();
+	static Engine&	GetInstance();
 
-	void Update() const;
-	void Render() const;
+	void			Update() const;
+	void			Render() const;
 
-	void Clear();
+	void			Clear();
 
 	template<class T>
 	void AddLevel()
@@ -44,11 +44,11 @@ public:
 		throw ENGINE_EXCEPTION("DirectX 2D Engine - Standard exception", "This level doesn't exist! Please check your code.");
 	}
 
-	std::shared_ptr<Level> GetCurrentLevel() const;
+	std::shared_ptr<Level>	GetCurrentLevel() const;
 
 private:
-	static std::unique_ptr<Engine> pInstance;
+	static std::unique_ptr<Engine>			pInstance;
 
-	std::vector<std::shared_ptr<Level>> levels;
-	std::shared_ptr<Level> pCurrentLevel;
+	std::vector<std::shared_ptr<Level>>		levels;
+	std::shared_ptr<Level>					pCurrentLevel;
 };

@@ -13,27 +13,29 @@ public:
     ColorModel(FRect rect, DirectX::XMFLOAT4 color);
     ~ColorModel() override = default;
 
-    DirectX::XMFLOAT2 GetOffset() const;
-    DirectX::XMMATRIX GetRotationMatrix() const;
-    DirectX::XMMATRIX GetScaleMatrix() const;
-    DirectX::XMFLOAT4 GetColor() const;
+    DirectX::XMFLOAT2   GetOffset() const;
+    DirectX::XMMATRIX   GetRotationMatrix() const;
+    DirectX::XMMATRIX   GetScaleMatrix() const;
+    DirectX::XMFLOAT4   GetColor() const;
 
-    void SetColor(const DirectX::XMFLOAT4& newColor);
-    void SetPosition(const FVec2D& newPos);
-    void SetRectangle(const FRect& newRect);
+    void                SetColor(const DirectX::XMFLOAT4& newColor);
+    void                SetPosition(const FVec2D& newPos);
+    void                SetRectangle(const FRect& newRect);
 
 protected:
-    virtual void SettingShader() override;
-    virtual void SettingRenderingConstants() override;
-    virtual void SettingBufferConstants() override;
-    virtual void SettingVertices() override;
+    virtual void        SettingShader() override;
+    virtual void        SettingRenderingConstants() override;
+    virtual void        SettingBufferConstants() override;
+    virtual void        SettingVertices() override;
 
 private:
-    int x, y;
-    int width, height;
-    DirectX::XMFLOAT4 color;
-    float angle;
+    int                         x;
+	int                         y;
+    int                         width;
+	int                         height;
+    DirectX::XMFLOAT4           color;
+    float                       angle;
 
-    ColorShader::VertexInput colorVertices[6] = {};
+    ColorShader::VertexInput    colorVertices[6] = {};
 };
 

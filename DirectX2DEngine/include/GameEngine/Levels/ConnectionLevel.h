@@ -8,7 +8,7 @@ class ConnectionLevel :
 public:
     ConnectionLevel();
 
-    virtual void Update() override;
-    virtual void BeginLevel() override;
+    virtual void    Update() override;
+    virtual void    BeginLevel() override;
 };
 

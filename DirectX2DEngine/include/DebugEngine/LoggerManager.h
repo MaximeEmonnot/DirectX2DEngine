@@ -13,13 +13,13 @@ public:
 	LoggerManager(const LoggerManager&) = delete;
 	LoggerManager& operator= (const LoggerManager&) = delete;
 
-	static LoggerManager& GetInstance();
+	static LoggerManager&	GetInstance();
 
 	// Logs a message on the specified Logging Level.
-	void Log(const std::string& message, Logger::Level level) const;
+	void					Log(const std::string& message, Logger::Level level) const;
 
 private:
-	static std::unique_ptr<LoggerManager> pInstance;
-	std::shared_ptr<Logger> pLog;
+	static std::unique_ptr<LoggerManager>	pInstance;
+	std::shared_ptr<Logger>					pLog;
 };
 

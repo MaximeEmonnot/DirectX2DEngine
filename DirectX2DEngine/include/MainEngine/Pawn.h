@@ -14,9 +14,9 @@ public:
     Pawn& operator= (const Pawn& toCopy);
     virtual ~Pawn() override = default;
 
-    virtual void Update() override;
+    virtual void    Update() override;
 
 protected:
-    std::shared_ptr<Controller> pController;
+    std::shared_ptr<Controller>     pController;
 };
 

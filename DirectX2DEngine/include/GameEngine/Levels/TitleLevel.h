@@ -8,7 +8,7 @@ class TitleLevel :
 public:
     TitleLevel();
 
-    virtual void Update() override;
-    virtual void BeginLevel() override;
+    virtual void    Update() override;
+    virtual void    BeginLevel() override;
 };
 

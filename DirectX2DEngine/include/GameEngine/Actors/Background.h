@@ -8,10 +8,10 @@ class Background : public Actor
 public:
 	Background(World& world, const FVec2D& pos, const std::string& name);
 
-	virtual void Update() override;
+	virtual void									Update() override;
 
-	virtual std::vector<std::shared_ptr<Collider>> GetColliders() const override;
+	virtual std::vector<std::shared_ptr<Collider>>	GetColliders() const override;
 private:
-	std::shared_ptr<Collider> pCollider;
-	std::shared_ptr<TextureModel> pModel;
+	std::shared_ptr<TextureModel>	pModel;
+	std::shared_ptr<Collider>		pCollider;
 };

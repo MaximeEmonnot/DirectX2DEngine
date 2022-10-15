@@ -31,43 +31,41 @@ public:
 	Mouse& operator= (const Mouse&) = delete;
 	~Mouse();
 
-	static Mouse& GetInstance();
+	static Mouse&		GetInstance();
 
 	// Reads the last frame's Mouse event.
-	Mouse::EventType Read() const;
+	Mouse::EventType	Read() const;
 
-	FVec2D GetPosition() const;
+	FVec2D				GetPosition() const;
 
-	bool LeftIsPressed() const;
-	bool MiddleIsPressed() const;
-	bool RightIsPressed() const;
-
-private:
-	void OnMouseMove(int x, int y);
-	void OnLeftPressed();
-	void OnLeftReleased();
-	void OnMiddlePressed();
-	void OnMiddleReleased();
-	void OnRightPressed();
-	void OnRightReleased();
-	void OnWheelUp();
-	void OnWheelDown();
-
-	void FlushBuffer();
-	void TrimBuffer();
-
-	void PopLastEvent();
+	bool				LeftIsPressed() const;
+	bool				MiddleIsPressed() const;
+	bool				RightIsPressed() const;
 
 private:
-	static std::unique_ptr<Mouse> pInstance;
+	void				OnMouseMove(int x, int y);
+	void				OnLeftPressed();
+	void				OnLeftReleased();
+	void				OnMiddlePressed();
+	void				OnMiddleReleased();
+	void				OnRightPressed();
+	void				OnRightReleased();
+	void				OnWheelUp();
+	void				OnWheelDown();
 
-	FVec2D position = FVec2D(0.f, 0.f);
+	void				FlushBuffer();
+	void				TrimBuffer();
 
-	bool bLeftPressed = false;
-	bool bMiddlePressed = false;
-	bool bRightPressed = false;
+	void				PopLastEvent();
 
-	const size_t sizeBuffer = 4u;
-	std::queue<EventType> buffer;
+private:
+	static std::unique_ptr<Mouse>	pInstance;
+
+	FVec2D							position = FVec2D(0.f, 0.f);
+	bool							bLeftPressed = false;
+	bool							bMiddlePressed = false;
+	bool							bRightPressed = false;
+	const size_t					sizeBuffer = 4u;
+	std::queue<EventType>			buffer;
 };
 

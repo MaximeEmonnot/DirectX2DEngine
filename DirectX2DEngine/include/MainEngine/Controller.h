@@ -5,9 +5,9 @@ class Controller
 public:
 	Controller(class Pawn& owner);
 
-	virtual void Update() = 0;
+	virtual void	Update() = 0;
 
 protected:
-	class Pawn& owner;
+	class Pawn&		owner;
 };
 

@@ -9,8 +9,8 @@ class NetworkEnemyController :
 public:
 	NetworkEnemyController(Pawn& owner);
 
-	void Update() override;
+	void	Update() override;
 private:
-    FVec2D lastPosition;
+    FVec2D	lastPosition;
 };
 

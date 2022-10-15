@@ -7,17 +7,17 @@ class CollisionGroup
 public:
 	CollisionGroup() = default;
 
-	void Update();
+	void									Update();
+											
+	void									Reset();
+											
+	void									AddCollider(const MovingCollider& collider);
+											
+	bool									IsFinished() const;
 
-	void Reset();
-
-	void AddCollider(const MovingCollider& collider);
-
-	bool IsFinished() const;
-
-	std::vector<std::shared_ptr<Collider>> GetColliders() const;
+	std::vector<std::shared_ptr<Collider>>	GetColliders() const;
 
 private:
-	std::vector<MovingCollider> colliders;
+	std::vector<MovingCollider>				colliders;
 };
 

@@ -12,9 +12,9 @@ public:
 
 	Texture& operator()();
 
-	IVec2D GetCenter() const;
+	IVec2D	GetCenter() const;
 
 private:
-	IVec2D center;
+	IVec2D	center;
 };
 

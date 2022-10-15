@@ -24,13 +24,13 @@ namespace JSONParser
 		Reader() = default;
 
 		// Initializes the JSON Document.
-		void ReadFile(const std::string& filePath);
+		void				ReadFile(const std::string& filePath);
 
 		// Reads any value using its name.
-		rapidjson::Value& GetValueOf(const std::string& valueName);
+		rapidjson::Value&	GetValueOf(const std::string& valueName);
 
 	private:
-		rapidjson::Document document;
+		rapidjson::Document	document;
 	};
 }
 

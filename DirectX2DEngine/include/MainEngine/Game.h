@@ -6,10 +6,10 @@ public:
 	Game();
 	~Game() = default;
 
-	void Go();
+	void	Go();
 
 private:
-	void UpdateFrame() const;
-	void RenderFrame() const;
+	void	UpdateFrame() const;
+	void	RenderFrame() const;
 };
 

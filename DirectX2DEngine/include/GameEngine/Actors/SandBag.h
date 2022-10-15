@@ -9,13 +9,13 @@ class SandBag :
 public:
     SandBag(World& world, const FRect& pos, const std::string& name);
 
-    void Update() override;
+    void                                    Update() override;
 
-    std::vector<std::shared_ptr<Collider>> GetColliders() const override;
+    std::vector<std::shared_ptr<Collider>>  GetColliders() const override;
 
 private:
-    std::shared_ptr<Collider> pRootCollider;
-    std::shared_ptr<Collider> pDefenseCollider;
-    std::shared_ptr<ColorModel> pModel;
+    std::shared_ptr<ColorModel>     pModel;
+    std::shared_ptr<Collider>       pRootCollider;
+    std::shared_ptr<Collider>       pDefenseCollider;
 };
 

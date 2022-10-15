@@ -10,9 +10,9 @@ public:
     virtual ~DebugLogger() override;
 
 protected:
-    void LogMessage(const std::string& message) override;
+    void            LogMessage(const std::string& message) override;
 
 private:
-    std::ofstream out;
+    std::ofstream   out;
 };
 

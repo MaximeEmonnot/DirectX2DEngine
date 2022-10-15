@@ -21,18 +21,18 @@ public:
 	TextRenderer& operator=(const TextRenderer&) = delete;
 	~TextRenderer() = default;
 
-	static TextRenderer& GetInstance();
+	static TextRenderer&	GetInstance();
 
-	void Render(const std::wstring& text, const std::wstring& fontFamily, float fontSize, FRect position, D2D1_COLOR_F fontColor = D2D1::ColorF(D2D1::ColorF::White));
+	void					Render(const std::wstring& text, const std::wstring& fontFamily, float fontSize, FRect position, D2D1_COLOR_F fontColor = D2D1::ColorF(D2D1::ColorF::White));
 
 public:
-	static std::unique_ptr<TextRenderer> pInstance;
+	static std::unique_ptr<TextRenderer>													pInstance;
 
-	Microsoft::WRL::ComPtr<IDWriteFactory> pDWriteFactory;
-	Microsoft::WRL::ComPtr<ID2D1Factory> pD2DFactory;
-	Microsoft::WRL::ComPtr<ID2D1RenderTarget> pRenderTarget;
-	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush> pTextBrush;
+	Microsoft::WRL::ComPtr<IDWriteFactory>													pDWriteFactory;
+	Microsoft::WRL::ComPtr<ID2D1Factory>													pD2DFactory;
+	Microsoft::WRL::ComPtr<ID2D1RenderTarget>												pRenderTarget;
+	Microsoft::WRL::ComPtr<ID2D1SolidColorBrush>											pTextBrush;
 
-	std::map<std::pair<std::wstring, float>, Microsoft::WRL::ComPtr<IDWriteTextFormat>> fonts;
+	std::map<std::pair<std::wstring, float>, Microsoft::WRL::ComPtr<IDWriteTextFormat>>		fonts;
 };
 

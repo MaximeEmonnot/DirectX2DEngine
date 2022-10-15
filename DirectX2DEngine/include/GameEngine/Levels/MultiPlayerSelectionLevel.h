@@ -8,13 +8,13 @@ class MultiPlayerSelectionLevel :
 public:
     MultiPlayerSelectionLevel();
 
-    virtual void Update() override;
-    virtual void BeginLevel() override;
+    virtual void    Update() override;
+    virtual void    BeginLevel() override;
 
-    void SetSelectionValue(int value);
-    int GetSelection() const;
+    void            SetSelectionValue(int value);
+    int             GetSelection() const;
 
 private:
-    int selection = 0;
+    int             selection = 0;
 };
 

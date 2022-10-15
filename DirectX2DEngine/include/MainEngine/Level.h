@@ -17,15 +17,15 @@ public:
 
 	virtual ~Level() = default;
 
-	virtual void Update();
+	virtual void	Update();
 
-	virtual void BeginLevel() = 0;
+	virtual void	BeginLevel() = 0;
 
-	void Render() const;
+	void			Render() const;
 
-	void Clear();
+	void			Clear();
 
-	World& GetWorld() const;
+	World&			GetWorld() const;
 
 protected:
 	template<class T>
@@ -41,6 +41,6 @@ protected:
 	}
 
 protected:
-	std::shared_ptr<World> pWorld;
-	std::vector<std::shared_ptr<AUICanvas>> canvasList;
+	std::shared_ptr<World>						pWorld;
+	std::vector<std::shared_ptr<AUICanvas>>		canvasList;
 };

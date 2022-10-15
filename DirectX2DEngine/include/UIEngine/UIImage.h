@@ -14,13 +14,13 @@ public:
 	UIImage(const FRect& position, const Texture& texture);
 	UIImage(const FRect& position, const std::string& texturePath);
 
-	void SetPosition(const FRect& newPosition) override;
-	void SetTexture(const Texture& newTexture) const;
-	void SetInverted(bool bValue) const;
+	void	SetPosition(const FRect& newPosition) override;
+	void	SetTexture(const Texture& newTexture) const;
+	void	SetInverted(bool bValue) const;
 
-	void Render() const override;
+	void	Render() const override;
 
 private:
-	std::shared_ptr<TextureModel> pModel;
+	std::shared_ptr<TextureModel>	pModel;
 };
 

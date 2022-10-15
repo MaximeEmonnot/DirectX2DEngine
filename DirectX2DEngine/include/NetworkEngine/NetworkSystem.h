@@ -30,22 +30,22 @@ public:
 	NetworkSystem& operator=(const NetworkSystem&) = delete;
 	~NetworkSystem();
 
-	static NetworkSystem& GetInstance();
+	static NetworkSystem&	GetInstance();
 
 	// Connects the Client to a distance Server.
-	void ConnectTo(const std::string& ipAddress, int port);
+	void					ConnectTo(const std::string& ipAddress, int port);
 	// Disconnects the client's socket.
-	void Disconnect() const;
+	void					Disconnect() const;
 
-	void SendData(std::vector<uint8_t> data) const;
-	std::vector<uint8_t> ReceiveData() const;
+	void					SendData(std::vector<uint8_t> data) const;
+	std::vector<uint8_t>	ReceiveData() const;
 
-	int GetPlace() const;
+	int						GetPlace() const;
 
 private:
-	static std::unique_ptr<NetworkSystem> pInstance;
+	static std::unique_ptr<NetworkSystem>	pInstance;
 
-	SOCKET sock;
-	int place = 0;
+	SOCKET									sock;
+	int										place = 0;
 };
 

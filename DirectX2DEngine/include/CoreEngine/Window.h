@@ -18,37 +18,37 @@ public:
 	Window(const Window&) = delete;
 	Window& operator=(const Window&) = delete;
 
-	static Window& GetInstance();
+	static Window&				GetInstance();
 
 	// Processes any Windows events. Returns always true until a closing event is caught.
-	bool ProcessMessages();
+	bool						ProcessMessages();
 
-	int GetWidth() const;
-	int GetHeight() const;
+	int							GetWidth() const;
+	int							GetHeight() const;
 
-	float GetRatio() const;
+	float						GetWidthHeightRatio() const;
 
-	HWND GetHWND() const;
+	HWND						GetHWND() const;
 
-	bool IsPlaying() const;
+	bool						IsPlaying() const;
 
 private:
-	static LRESULT CALLBACK WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
+	static LRESULT CALLBACK		WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam);
 
 private:
 
 	// Class Instance
-	static std::unique_ptr<Window> pInstance;
+	static std::unique_ptr<Window>	pInstance;
 
 	// Window Creation Variables
-	HWND hWnd;
-	static HINSTANCE hInstance;
-	static std::wstring className;
+	HWND							hWnd;
+	static HINSTANCE				hInstance;
+	static std::wstring				className;
 
 	// Window Constants
-	static constexpr int width = 800;
-	static constexpr int height = 640;
+	static constexpr int			width = 800;
+	static constexpr int			height = 640;
 
-	static bool bIsPlaying;
+	static bool						bIsPlaying;
 };
 

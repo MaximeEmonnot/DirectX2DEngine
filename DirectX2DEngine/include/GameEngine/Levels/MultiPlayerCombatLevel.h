@@ -11,18 +11,18 @@ class MultiPlayerCombatLevel :
 public:
     MultiPlayerCombatLevel();
 
-    virtual void Update() override;
-    virtual void BeginLevel() override;
+    virtual void    Update() override;
+    virtual void    BeginLevel() override;
 
-    void SetSelection(std::pair<int, int> _selection);
-
-private:
-    void SendPositionData(FVec2D position);
+    void            SetSelection(std::pair<int, int> _selection);
 
 private:
-    std::shared_ptr<FighterCharacter<PlayerController>> pPlayer;
-    std::shared_ptr<FighterCharacter<NetworkEnemyController>> pEnemy;
+    void            SendPositionData(FVec2D position);
 
-    std::pair<int, int> selection;
+private:
+    std::shared_ptr<FighterCharacter<PlayerController>>         pPlayer;
+    std::shared_ptr<FighterCharacter<NetworkEnemyController>>   pEnemy;
+
+    std::pair<int, int>                                         selection;
 };
 

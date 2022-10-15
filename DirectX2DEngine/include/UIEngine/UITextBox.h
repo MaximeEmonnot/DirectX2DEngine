@@ -11,20 +11,20 @@ public:
     UITextBox() = default;
     UITextBox(const FRect& position, const DirectX::XMFLOAT4& outlineColor, const std::wstring& font, const std::wstring& defaultText);
 
-    void SetPosition(const FRect& newPosition) override;
-    void SetOutlineColor(const DirectX::XMFLOAT4& newOutlineColor) const;
+    void            SetPosition(const FRect& newPosition) override;
+    void            SetOutlineColor(const DirectX::XMFLOAT4& newOutlineColor) const;
 
-    virtual void Update() override;
-    virtual void Render() const override;
+    virtual void    Update() override;
+    virtual void    Render() const override;
 
-    std::string GetText() const;
+    std::string     GetText() const;
 
 private:
-    std::shared_ptr<ColorModel> pOutlineModel;
-    std::shared_ptr<ColorModel> pBoxModel;
-    std::wstring font;
-    std::wstring defaultText;
-    std::wstring text;
-    bool bIsFocused;
+    std::shared_ptr<ColorModel>     pOutlineModel;
+    std::shared_ptr<ColorModel>     pBoxModel;
+    std::wstring                    font;
+    std::wstring                    defaultText;
+    std::wstring                    text;
+    bool                            bIsFocused;
 };
 

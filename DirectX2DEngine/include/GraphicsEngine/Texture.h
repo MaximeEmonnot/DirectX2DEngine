@@ -22,20 +22,20 @@ public:
 
 	virtual ~Texture() = default;
 
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> GetShaderResourceView() const;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView>	GetShaderResourceView() const;
 
-	int GetWidth() const;
-	int GetHeight() const;
-
-protected:
-	unsigned char* LoadTGA(const std::string& filePath);
+	int													GetWidth() const;
+	int													GetHeight() const;
 
 protected:
-	int width = 0;
-	int height = 0;
+	unsigned char*										LoadTGA(const std::string& filePath);
+
+protected:
+	int													width = 0;
+	int													height = 0;
 
 private:
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> pTexture;
-	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView> pTextureView;
+	Microsoft::WRL::ComPtr<ID3D11Texture2D>				pTexture;
+	Microsoft::WRL::ComPtr<ID3D11ShaderResourceView>	pTextureView;
 };
 

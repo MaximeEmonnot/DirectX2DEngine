@@ -8,8 +8,8 @@ public:
 	AUICanvas() = default;
 	virtual ~AUICanvas() = default;
 
-	virtual void Update() = 0;
-	void Render() const;
+	virtual void	Update() = 0;
+	void			Render() const;
 
 protected:
 	template<class T>
@@ -29,6 +29,6 @@ protected:
 	}
 
 private:
-	std::vector<std::shared_ptr<AUIElement>> UIElements;
+	std::vector<std::shared_ptr<AUIElement>>	UIElements;
 };
 

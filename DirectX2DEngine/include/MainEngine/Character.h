@@ -9,12 +9,12 @@ public:
     Character() = delete;
     Character(World& world, const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController);
 
-    virtual void Update() override;
+    virtual void                Update() override;
 
-    std::shared_ptr<Collider> GetRootCollider() const;
+    std::shared_ptr<Collider>   GetRootCollider() const;
 
-    bool IsGrounded() const;
+    bool                        IsGrounded() const;
 
 protected:
-    std::shared_ptr<Collider> pRootCollider;
+    std::shared_ptr<Collider>   pRootCollider;
 };

@@ -8,35 +8,35 @@ class MovingCollider
 public:
 	MovingCollider(Actor& owner);
 
-	void Update();
+	void						Update();
 
-	void SetLoop(Animation::AnimationMode _loopMode);
-	void SetHoldTime(float _holdTime);
-	void SetCollisionMode(Collider::CollisionMode collisionMode);
-	void SetCollisionChannel(Collider::CollisionChannel collisionChannel);
-	void SetVisible(bool bValue);
-	void AddPosition(const FRect& pos);
+	void						SetLoop(Animation::AnimationMode _loopMode);
+	void						SetHoldTime(float _holdTime);
+	void						SetCollisionMode(Collider::CollisionMode collisionMode);
+	void						SetCollisionChannel(Collider::CollisionChannel collisionChannel);
+	void						SetVisible(bool bValue);
+	void						AddPosition(const FRect& pos);
 
-	void Reset();
+	void						Reset();
 
-	bool IsFinished() const;
+	bool						IsFinished() const;
 
-	std::shared_ptr<Collider> GetCollider() const;
-
-private:
-	void Advance();
+	std::shared_ptr<Collider>	GetCollider() const;
 
 private:
-	FRect defaultPos = FRect(0.0, 0.0, 0.0, 0.0);
+	void						Advance();
 
-	std::shared_ptr<Collider> pCollider;
-	std::vector<FRect> positions;
-	float curFrameTime = 0.0f;
-	float holdTime;
-	int curRectPos = 0;
-	int threshold = 1;
+private:
+	FRect						defaultPos = FRect(0.0, 0.0, 0.0, 0.0);
 
-	Animation::AnimationMode loopMode = Animation::AnimationMode::NoLoop;
-	bool bIsFinished = false;
+	std::shared_ptr<Collider>	pCollider;
+	std::vector<FRect>			positions;
+	float						curFrameTime = 0.0f;
+	float						holdTime;
+	int							curRectPos = 0;
+	int							threshold = 1;
+
+	Animation::AnimationMode	loopMode = Animation::AnimationMode::NoLoop;
+	bool						bIsFinished = false;
 };
 

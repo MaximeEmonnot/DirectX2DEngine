@@ -8,13 +8,13 @@ class SinglePlayerSelectionLevel :
 public:
     SinglePlayerSelectionLevel();
 
-    virtual void Update() override;
-    virtual void BeginLevel() override;
+    virtual void            Update() override;
+    virtual void            BeginLevel() override;
 
-    void SetSelectionValue(bool bIsLeft, int value);
-    std::pair<int, int> GetSelection() const;
+    void                    SetSelectionValue(bool bIsLeft, int value);
+    std::pair<int, int>     GetSelection() const;
 
 private:
-    std::pair<int, int> selection = {0, 0};
+    std::pair<int, int>     selection = {0, 0};
 };
 

@@ -24,14 +24,14 @@ public:
     UIProgressBar() = default;
     UIProgressBar(const FRect& position, const DirectX::XMFLOAT4& color, ProgressDirection direction = ProgressDirection::LeftToRight);
 
-    void SetPercentage(float newPercentage);
+    void    SetPercentage(float newPercentage);
 
-    void Render() const override;
+    void    Render() const override;
 
 private:
-    std::shared_ptr<ColorModel> pBackgroundModel;
-    std::shared_ptr<ColorModel> pFillModel;
-    float percentage = 1.f;
-    ProgressDirection direction;
+    std::shared_ptr<ColorModel>     pBackgroundModel;
+    std::shared_ptr<ColorModel>     pFillModel;
+    float                           percentage = 1.f;
+    ProgressDirection               direction;
 };
 

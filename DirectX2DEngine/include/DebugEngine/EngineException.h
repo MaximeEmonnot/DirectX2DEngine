@@ -76,10 +76,10 @@ public:
 	}
 
 protected:
-	std::string infos;
+	std::string		infos;
 private:
-	std::string type;
-	std::string note;
-	std::string file;
-	unsigned int line;
+	std::string		type;
+	std::string		note;
+	std::string		file;
+	unsigned int	line;
 };

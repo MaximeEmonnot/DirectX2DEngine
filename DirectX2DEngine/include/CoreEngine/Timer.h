@@ -13,14 +13,14 @@ public:
 	Timer(const Timer&) = delete;
 	Timer& operator= (const Timer&) = delete;
 
-	static Timer& GetInstance();
+	static Timer&	GetInstance();
 
-	void Update();
+	void			Update();
 
-	float DeltaTime() const;
+	float			DeltaTime() const;
 private:
-	static std::unique_ptr<Timer> pInstance;
+	static std::unique_ptr<Timer>			pInstance;
 
-	std::chrono::steady_clock::time_point last;
-	float deltaTime;
+	std::chrono::steady_clock::time_point	last;
+	float									deltaTime;
 };

@@ -16,40 +16,14 @@ UICanvas_SinglePlayerSelection::UICanvas_SinglePlayerSelection()
 	pSolBadguyButton->SetTask(
 		[&]
 		{
-			if(std::shared_ptr<SinglePlayerSelectionLevel> level = std::dynamic_pointer_cast<SinglePlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
-			{
-				if (level->GetSelection().first == 0) level->SetSelectionValue(true, 1);
-				else if (level->GetSelection().second == 0) {
-					level->SetSelectionValue(false, 1);
-					const std::pair<int, int> selection = level->GetSelection();
-					ENGINE.SetLevel<SinglePlayerCombatLevel>();
-					if (std::shared_ptr<SinglePlayerCombatLevel> new_level = std::dynamic_pointer_cast<SinglePlayerCombatLevel>(ENGINE.GetCurrentLevel()))
-					{
-						new_level->SetSelection(selection);
-						new_level->BeginLevel();
-					}
-				}
-			}
+			SelectFighter(1);
 		}
 	);
 
 	pRoboKyButton->SetTask(
 		[&]
 		{
-			if (std::shared_ptr<SinglePlayerSelectionLevel> level = std::dynamic_pointer_cast<SinglePlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
-			{
-				if (level->GetSelection().first == 0) level->SetSelectionValue(true, 2);
-				else if (level->GetSelection().second == 0) {
-					level->SetSelectionValue(false, 2);
-					const std::pair<int, int> selection = level->GetSelection();
-					ENGINE.SetLevel<SinglePlayerCombatLevel>();
-					if (std::shared_ptr<SinglePlayerCombatLevel> new_level = std::dynamic_pointer_cast<SinglePlayerCombatLevel>(ENGINE.GetCurrentLevel()))
-					{
-						new_level->SetSelection(selection);
-						new_level->BeginLevel();
-					}
-				}
-			}
+			SelectFighter(2);
 		}
 	);
 }
@@ -58,4 +32,22 @@ void UICanvas_SinglePlayerSelection::Update()
 {
 	pSolBadguyButton->Update();
 	pRoboKyButton->Update();
+}
+
+void UICanvas_SinglePlayerSelection::SelectFighter(int fighterValue) const
+{
+	if (std::shared_ptr<SinglePlayerSelectionLevel> level = std::dynamic_pointer_cast<SinglePlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
+	{
+		if (level->GetSelection().first == 0) level->SetSelectionValue(true, fighterValue);
+		else if (level->GetSelection().second == 0) {
+			level->SetSelectionValue(false, fighterValue);
+			const std::pair<int, int> selection = level->GetSelection();
+			ENGINE.SetLevel<SinglePlayerCombatLevel>();
+			if (std::shared_ptr<SinglePlayerCombatLevel> new_level = std::dynamic_pointer_cast<SinglePlayerCombatLevel>(ENGINE.GetCurrentLevel()))
+			{
+				new_level->SetSelection(selection);
+				new_level->BeginLevel();
+			}
+		}
+	}
 }

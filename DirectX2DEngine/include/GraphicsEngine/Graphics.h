@@ -31,27 +31,27 @@ public:
 	Graphics(const Graphics&) = delete;
 	Graphics& operator= (const Graphics&) = delete;
 
-	static Graphics& GetInstance();
+	static Graphics&		GetInstance();
 
-	void BeginDraw() const;
-	void EndDraw() const;
+	void					BeginDraw() const;
+	void					EndDraw() const;
 
-	ID3D11Device* GetDevice() const;
-	ID3D11DeviceContext* GetDeviceContext() const;
-	IDXGISwapChain* GetSwapChain() const;
+	ID3D11Device*			GetDevice() const;
+	ID3D11DeviceContext*	GetDeviceContext() const;
+	IDXGISwapChain*			GetSwapChain() const;
 
 private:
-	static std::unique_ptr<Graphics> pInstance;
+	static std::unique_ptr<Graphics>					pInstance;
 
 	// Direct3D Engine
-	Microsoft::WRL::ComPtr<ID3D11Device> pDevice;
-	Microsoft::WRL::ComPtr<ID3D11DeviceContext> pDeviceContext;
-	Microsoft::WRL::ComPtr<IDXGISwapChain> pSwapChain;
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> pBackBuffer;
-	Microsoft::WRL::ComPtr<ID3D11RenderTargetView> pRenderTarget;
-	Microsoft::WRL::ComPtr<ID3D11Texture2D> pDepthStencilBuffer;
-	Microsoft::WRL::ComPtr<ID3D11DepthStencilState> pDepthStencilState;
-	Microsoft::WRL::ComPtr<ID3D11DepthStencilView> pDepthStencilView;
-	Microsoft::WRL::ComPtr<ID3D11BlendState> pBlendState;
+	Microsoft::WRL::ComPtr<ID3D11Device>				pDevice;
+	Microsoft::WRL::ComPtr<ID3D11DeviceContext>			pDeviceContext;
+	Microsoft::WRL::ComPtr<IDXGISwapChain>				pSwapChain;
+	Microsoft::WRL::ComPtr<ID3D11Texture2D>				pBackBuffer;
+	Microsoft::WRL::ComPtr<ID3D11RenderTargetView>		pRenderTarget;
+	Microsoft::WRL::ComPtr<ID3D11Texture2D>				pDepthStencilBuffer;
+	Microsoft::WRL::ComPtr<ID3D11DepthStencilState>		pDepthStencilState;
+	Microsoft::WRL::ComPtr<ID3D11DepthStencilView>		pDepthStencilView;
+	Microsoft::WRL::ComPtr<ID3D11BlendState>			pBlendState;
 };
 

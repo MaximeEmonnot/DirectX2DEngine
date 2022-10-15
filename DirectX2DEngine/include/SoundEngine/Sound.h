@@ -36,16 +36,16 @@ public:
 	~Sound() = default;
 
 private:
-	void SetVoice(IXAudio2* pAudio);
-	void Pause() const;
+	void		SetVoice(IXAudio2* pAudio);
+	void		Pause() const;
 
-	HRESULT FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& dwChunkDataPosition);
-	HRESULT ReadChunkData(HANDLE hFile, void* buffer, DWORD bufferSize, DWORD bufferOffset);
+	HRESULT		FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& dwChunkDataPosition);
+	HRESULT		ReadChunkData(HANDLE hFile, void* buffer, DWORD bufferSize, DWORD bufferOffset);
 
 protected:
-	IXAudio2SourceVoice* pSourceVoice;
-	WAVEFORMATEXTENSIBLE wfx = { 0 };
-	XAUDIO2_BUFFER buffer = { 0 };
-	Type soundType = Type::NONE;
+	IXAudio2SourceVoice*	pSourceVoice;
+	WAVEFORMATEXTENSIBLE	wfx = { 0 };
+	XAUDIO2_BUFFER			buffer = { 0 };
+	Type					soundType = Type::NONE;
 };
 

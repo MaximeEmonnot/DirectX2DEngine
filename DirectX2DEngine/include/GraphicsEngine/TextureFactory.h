@@ -17,14 +17,14 @@ public:
 	TextureFactory(const TextureFactory&) = delete;
 	TextureFactory& operator=(const TextureFactory&) = delete;
 
-	static TextureFactory& GetInstance();
+	static TextureFactory&	GetInstance();
 
-	Texture& GetTexture(const std::string& path);
-	AnimationTexture& GetAnimationTexture(const std::string& path);
+	Texture&				GetTexture(const std::string& path);
+	AnimationTexture&		GetAnimationTexture(const std::string& path);
 
 private:
-	static std::unique_ptr<TextureFactory> pInstance;
+	static std::unique_ptr<TextureFactory>				pInstance;
 
-	std::map<std::string, std::shared_ptr<Texture>> textureMap;
+	std::map<std::string, std::shared_ptr<Texture>>		textureMap;
 };
 

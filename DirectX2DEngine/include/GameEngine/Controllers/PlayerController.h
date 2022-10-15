@@ -8,9 +8,9 @@ class PlayerController :
 public:
     PlayerController(class Pawn& owner);
 
-    void Update() override;
+    void    Update() override;
 
 private:
-    float speed = 100.0f;
+    float   speed = 100.0f;
 };
 

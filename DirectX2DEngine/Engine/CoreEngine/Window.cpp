@@ -99,7 +99,7 @@ int Window::GetHeight() const
 	return height;
 }
 
-float Window::GetRatio() const
+float Window::GetWidthHeightRatio() const
 {
 	return static_cast<float>(width) / static_cast<float>(height);
 }

@@ -11,10 +11,10 @@ class World
 public:
 	World() = default;
 	 
-	void Update();
-	void Render() const;
+	void	Update();
+	void	Render() const;
 
-	void Clear();
+	void	Clear();
 
 	template<class T>
 	std::shared_ptr<T> SpawnActor()
@@ -52,11 +52,11 @@ public:
 		return std::dynamic_pointer_cast<T>(new_model);
 	}
 
-	std::vector<std::shared_ptr<class Actor>> GetActors() const;
+	std::vector<std::shared_ptr<class Actor>>		GetActors() const;
 
 private:
-	std::vector<std::shared_ptr<class Actor>> actors;
+	std::vector<std::shared_ptr<class Actor>>		actors;
 
-	std::multimap<int, std::shared_ptr<BaseModel>> models;
+	std::multimap<int, std::shared_ptr<BaseModel>>	models;
 };
 

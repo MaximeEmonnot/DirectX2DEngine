@@ -15,19 +15,19 @@ public:
 	ThreadPool& operator=(const ThreadPool&) = delete;
 	~ThreadPool();
 
-	static ThreadPool& GetInstance();
+	static ThreadPool&	GetInstance();
 
 	// Enqueues a task that will be executed by one of the threads in the pool.
-	void Enqueue(std::function<void()> task);
+	void				Enqueue(std::function<void()> task);
 
 private:
-	static std::unique_ptr<ThreadPool> pInstance;
+	static std::unique_ptr<ThreadPool>	pInstance;
 
-	std::vector<std::thread> threads;
-	std::queue<std::function<void()>> tasks;
-	std::condition_variable eventVar;
-	std::mutex eventMutex;
-	bool bStopping = false;
-	const size_t numThreads = 8u;
+	const size_t						numThreads = 8u;
+	std::vector<std::thread>			threads;
+	std::queue<std::function<void()>>	tasks;
+	std::condition_variable				eventVar;
+	std::mutex							eventMutex;
+	bool								bStopping = false;
 };
 

@@ -35,62 +35,62 @@ public:
 
 	Collider& operator=(const Collider& collider);
 
-	void Update();
+	void														Update();
 
-	void SetCollisionMode(CollisionMode collisionMode);
-	void SetVisible(bool bValue);
-	void SetCollisionChannel(CollisionChannel collisionChannel);
-	void SetGravity(bool bValue);
-	void SetRectPos(const FRect& pos);
+	void														SetCollisionMode(CollisionMode collisionMode);
+	void														SetVisible(bool bValue);
+	void														SetCollisionChannel(CollisionChannel collisionChannel);
+	void														SetGravity(bool bValue);
+	void														SetRectPos(const FRect& pos);
 
-	bool IsOverlapping() const;
-	bool IsBlocking() const;
+	bool														IsOverlapping() const;
+	bool														IsBlocking() const;
 
-	bool IsFalling() const;
+	bool														IsFalling() const;
 
-	std::unordered_set<std::shared_ptr<Actor>, Actor::Hash> GetOverlappingActors() const;
+	std::unordered_set<std::shared_ptr<Actor>, Actor::Hash>		GetOverlappingActors() const;
 
-	void AddForce(const FVec2D& dir);
-	void AddImpulse(const FVec2D& dir);
-	void AddInputMovement(const FVec2D& dir);
+	void														AddForce(const FVec2D& dir);
+	void														AddImpulse(const FVec2D& dir);
+	void														AddInputMovement(const FVec2D& dir);
 
-
-private:
-	void ApplyGravity();
-	void ApplyForces();
-	void ApplyFriction();
-	void ApplyReaction(const FRect& testRect, FVec2D& direction);
-
-	void UpdateInvincibility();
-	void TryMovingInThisDirection(FVec2D& direction);
-	void SetInvicibilityState();
 
 private:
-	bool bIsBlocking = false;
-	bool bIsOverlapping = false;
-	bool bIsVisible = false;
-	bool bIsGravityEnabled = false;
+	void														ApplyGravity();
+	void														ApplyForces();
+	void														ApplyFriction();
+	void														ApplyReaction(const FRect& testRect, FVec2D& direction);
 
-	CollisionMode mode = CollisionMode::None;
-	CollisionChannel channel = CollisionChannel::None;
+	void														UpdateInvincibility();
+	void														TryMovingInThisDirection(FVec2D& direction);
+	void														SetInvicibilityState();
 
-	std::shared_ptr<ColorModel> pModel;
+private:
+	bool														bIsBlocking = false;
+	bool														bIsOverlapping = false;
+	bool														bIsVisible = false;
+	bool														bIsGravityEnabled = false;
 
-	Actor& owner;
-	FVec2D& origin;
-	FRect rect;
+	CollisionMode												mode = CollisionMode::None;
+	CollisionChannel											channel = CollisionChannel::None;
 
-	FVec2D velocity;
+	std::shared_ptr<ColorModel>									pModel;
 
-	std::unordered_set<std::shared_ptr<Actor>, Actor::Hash> overlappingActors;
+	Actor&														owner;
+	FVec2D&														origin;
+	FRect														rect;
 
-	std::vector<FVec2D> forces;
+	FVec2D														velocity;
 
-	static constexpr FVec2D topNormal = FVec2D(0, 1);
-	static constexpr FVec2D rightNormal = FVec2D(1, 0);
-	static constexpr FVec2D gravity = FVec2D(0, -30.f);
-	static constexpr float pixelsPerMeter = 140.6593407f;
+	std::unordered_set<std::shared_ptr<Actor>, Actor::Hash>		overlappingActors;
 
-	int nInvicibilityFrames = 0;
+	std::vector<FVec2D>											forces;
+
+	static constexpr FVec2D										topNormal = FVec2D(0, 1);
+	static constexpr FVec2D										rightNormal = FVec2D(1, 0);
+	static constexpr FVec2D										gravity = FVec2D(0, -30.f);
+	static constexpr float										pixelsPerMeter = 140.6593407f;
+
+	int															nInvincibilityFrames = 0;
 };
 

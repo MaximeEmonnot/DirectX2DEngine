@@ -37,26 +37,26 @@ protected:
                 return value == action;
             }
 
-            const Action value;
-            std::string result;
-            std::vector<std::shared_ptr<ComboNode>> leaves;
+            const Action                                value;
+            std::string                                 result;
+            std::vector<std::shared_ptr<ComboNode>>     leaves;
         };
     public:
         ComboTree();
 
-        void UpdateTree();
+        void            UpdateTree();
 
-        std::string GetCurrentCombo();
+        std::string     GetCurrentCombo();
     private:
-        IVec2D GetCommandInput() const;
+        IVec2D          GetCommandInput() const;
 
     protected:
-        std::shared_ptr<ComboNode> pRoot;
+        std::shared_ptr<ComboNode>  pRoot;
     private:
-        std::shared_ptr<ComboNode> pCurrentStage;
+        std::shared_ptr<ComboNode>  pCurrentStage;
 
-        Action lastAction = Action::None;
-        float timer = 0.125f;
+        Action                      lastAction = Action::None;
+        float                       timer = 0.125f;
     };
 
 protected:
@@ -65,24 +65,24 @@ protected:
 public:
     virtual ~BaseFighter() = default;
 
-    virtual void Update();
+    virtual void                            Update();
 
-    void SetEnemy(std::weak_ptr<BaseFighter> _pEnemy);
+    void                                    SetEnemy(std::weak_ptr<BaseFighter> _pEnemy);
 
-    std::string GetIcon() const;
-    std::wstring GetName() const;
+    std::string                             GetIcon() const;
+    std::wstring                            GetName() const;
 
-    std::vector<std::shared_ptr<Collider>> GetColliders() const;
+    std::vector<std::shared_ptr<Collider>>  GetColliders() const;
 
 protected:
-    Actor& owner;
-    AnimationSystem animSys;
-    CollisionSystem collisionSys;
-    std::shared_ptr<TextureModel> pModel;
-    std::shared_ptr<ComboTree> pComboTree;
-    std::string icon;
-    std::wstring name;
+    Actor&                          owner;
+    AnimationSystem                 animSys;
+    CollisionSystem                 collisionSys;
+    std::shared_ptr<TextureModel>   pModel;
+    std::shared_ptr<ComboTree>      pComboTree;
+    std::string                     icon;
+    std::wstring                    name;
 
-    std::weak_ptr<BaseFighter> pEnemy;
+    std::weak_ptr<BaseFighter>      pEnemy;
 };
 
