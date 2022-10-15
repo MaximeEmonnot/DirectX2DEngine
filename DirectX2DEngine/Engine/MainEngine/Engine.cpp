@@ -29,7 +29,7 @@ void Engine::Render() const
 
 void Engine::Clear()
 {
-	for (std::shared_ptr<Level>& level : levels) level->Clear();
+	for (std::shared_ptr<Level>& pLevel : levels) pLevel->Clear();
 	levels.clear();
 }
 

@@ -13,9 +13,9 @@ public:
 
     virtual void Update() override;
 private:
-    std::shared_ptr<UITextBox> ipAddressTextBox;
-    std::shared_ptr<UITextBox> portTextBox;
-    std::shared_ptr<UIButton> connectionButton;
-    std::shared_ptr<UIText> connectionButtonTitle;
+    std::shared_ptr<UITextBox> pIpAddressTextBox;
+    std::shared_ptr<UITextBox> pPortTextBox;
+    std::shared_ptr<UIButton> pConnectionButton;
+    std::shared_ptr<UIText> pConnectionButtonTitle;
 };
 

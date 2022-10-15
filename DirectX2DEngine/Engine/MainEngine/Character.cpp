@@ -5,22 +5,22 @@
 Character::Character(World& world, const FVec2D& pos, const std::string& name, std::shared_ptr<Controller> pController)
 	:
 	Pawn(world, pos, name, pController),
-	rootCollider(std::make_shared<Collider>(*this))
+	pRootCollider(std::make_shared<Collider>(*this))
 {
 }
 
 void Character::Update()
 {
 	Pawn::Update();
-	rootCollider->Update();
+	pRootCollider->Update();
 }
 
 std::shared_ptr<Collider> Character::GetRootCollider() const
 {
-	return rootCollider;
+	return pRootCollider;
 }
 
 bool Character::IsGrounded() const
 {
-	return !rootCollider->IsFalling();
+	return !pRootCollider->IsFalling();
 }

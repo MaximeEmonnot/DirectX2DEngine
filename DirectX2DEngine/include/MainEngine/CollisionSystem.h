@@ -7,7 +7,7 @@
 class CollisionSystem
 {
 public:
-	CollisionSystem(Actor& owner, const std::string& file_path, const std::vector<std::string>& animations);
+	CollisionSystem(Actor& owner, const std::string& filePath, const std::vector<std::string>& animations);
 
 	void Update();
 
@@ -19,7 +19,7 @@ public:
 
 private:
 	void SetCollisionGroup(const std::string& state);
-	void AddCollisionsToGroup(CollisionGroup& collision_group, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collision_channel, float hold_time, Animation::AnimationMode loop_mode, const std::string& animation) const;
+	void AddCollisionsToGroup(CollisionGroup& collisionGroup, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collisionChannel, float holdTime, Animation::AnimationMode loopMode, const std::string& animation) const;
 
 private:
 	std::string animState;

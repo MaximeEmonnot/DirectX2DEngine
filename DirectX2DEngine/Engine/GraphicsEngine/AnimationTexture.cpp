@@ -1,10 +1,10 @@
 #include "GraphicsEngine/AnimationTexture.h"
 
-AnimationTexture::AnimationTexture(const std::string& filepath)
+AnimationTexture::AnimationTexture(const std::string& filePath)
 	:
-	Texture(filepath)
+	Texture(filePath)
 {
-	const unsigned char* tga_data = LoadTGA(filepath);
+	const unsigned char* tga_data = LoadTGA(filePath);
 
 	// Reading Center Data from the first pixel (This pixel won't be drawn because its alpha value is null)
 	center = IVec2D(tga_data[0] << 4 | tga_data[1] >> 4,

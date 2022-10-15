@@ -29,9 +29,11 @@ NetworkSystem& NetworkSystem::GetInstance()
 
 void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 {
+	// TCP Socket Creation
 	if ((sock = socket(AF_INET, SOCK_STREAM, IPPROTO_TCP)) == INVALID_SOCKET)
 		throw NETWORK_EXCEPTION("An exception has been caught during TCP Socket Creation.", WSAGetLastError());
 
+	// Connection to the distant server
 	SOCKADDR_IN addr_in;
 	addr_in.sin_addr.S_un.S_addr = inet_addr(ip_address.c_str());
 	addr_in.sin_port = htons(port);

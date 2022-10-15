@@ -20,8 +20,8 @@ private:
     void SendPositionData(FVec2D position);
 
 private:
-    std::shared_ptr<FighterCharacter<PlayerController>> player;
-    std::shared_ptr<FighterCharacter<NetworkEnemyController>> enemy;
+    std::shared_ptr<FighterCharacter<PlayerController>> pPlayer;
+    std::shared_ptr<FighterCharacter<NetworkEnemyController>> pEnemy;
 
     std::pair<int, int> selection;
 };

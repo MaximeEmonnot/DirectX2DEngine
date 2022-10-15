@@ -12,15 +12,15 @@ class UIImage : public AUIElement
 public:
 	UIImage() = default;
 	UIImage(const FRect& position, const Texture& texture);
-	UIImage(const FRect& position, const std::string& texture_path);
+	UIImage(const FRect& position, const std::string& texturePath);
 
-	void SetPosition(const FRect& new_position) override;
-	void SetTexture(const Texture& texture) const;
+	void SetPosition(const FRect& newPosition) override;
+	void SetTexture(const Texture& newTexture) const;
 	void SetInverted(bool bValue) const;
 
 	void Render() const override;
 
 private:
-	std::shared_ptr<TextureModel> model;
+	std::shared_ptr<TextureModel> pModel;
 };
 

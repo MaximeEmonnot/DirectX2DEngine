@@ -6,9 +6,7 @@ TextureModel::TextureModel(const std::string& texture_path)
 	:
 	texture(texture_path),
 	width(texture.GetWidth()),
-	height(texture.GetHeight()),
-	texture_vertices{},
-	inverted_texture_vertices{}
+	height(texture.GetHeight())
 {
 }
 
@@ -16,9 +14,7 @@ TextureModel::TextureModel(const Texture& texture)
 	:
 	texture(texture),
 	width(texture.GetWidth()),
-	height(texture.GetHeight()),
-	texture_vertices{},
-	inverted_texture_vertices{}
+	height(texture.GetHeight())
 {
 }
 
@@ -47,23 +43,23 @@ DirectX::XMMATRIX TextureModel::GetScaleMatrix() const
 	);
 }
 
-void TextureModel::SetPosition(const FVec2D& new_pos)
+void TextureModel::SetPosition(const FVec2D& newPos)
 {
-	x = static_cast<int>(new_pos.x);
-	y = static_cast<int>(new_pos.y);
+	x = static_cast<int>(newPos.x);
+	y = static_cast<int>(newPos.y);
 }
 
-void TextureModel::SetRectangle(const FRect& rectangle)
+void TextureModel::SetRectangle(const FRect& newRectangle)
 {
-	x = static_cast<int>(rectangle.pos.x);
-	y = static_cast<int>(rectangle.pos.y);
-	width = static_cast<int>(rectangle.width);
-	height = static_cast<int>(rectangle.height);
+	x = static_cast<int>(newRectangle.pos.x);
+	y = static_cast<int>(newRectangle.pos.y);
+	width = static_cast<int>(newRectangle.width);
+	height = static_cast<int>(newRectangle.height);
 }
 
-void TextureModel::SetTexture(const Texture& tex)
+void TextureModel::SetTexture(const Texture& newTexture)
 {
-	texture = tex;
+	texture = newTexture;
 	width = texture.GetWidth();
 	height = texture.GetHeight();
 }
@@ -93,20 +89,20 @@ void TextureModel::SettingBufferConstants()
 
 void TextureModel::SettingVertices()
 {
-	texture_vertices[0] = { DirectX::XMFLOAT3(-1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
-	texture_vertices[1] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
-	texture_vertices[2] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
-	texture_vertices[3] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
-	texture_vertices[4] = { DirectX::XMFLOAT3(1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
-	texture_vertices[5] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
+	textureVertices[0] = { DirectX::XMFLOAT3(-1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
+	textureVertices[1] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
+	textureVertices[2] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
+	textureVertices[3] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
+	textureVertices[4] = { DirectX::XMFLOAT3(1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
+	textureVertices[5] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
 
-	inverted_texture_vertices[0] = { DirectX::XMFLOAT3(-1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
-	inverted_texture_vertices[1] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
-	inverted_texture_vertices[2] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
-	inverted_texture_vertices[3] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
-	inverted_texture_vertices[4] = { DirectX::XMFLOAT3(1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
-	inverted_texture_vertices[5] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
+	invertedTextureVertices[0] = { DirectX::XMFLOAT3(-1.f, -1.f, 0.f), DirectX::XMFLOAT2(1.f, 1.f) };
+	invertedTextureVertices[1] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
+	invertedTextureVertices[2] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
+	invertedTextureVertices[3] = { DirectX::XMFLOAT3(-1.f, 1.f, 0.f), DirectX::XMFLOAT2(1.f, 0.f) };
+	invertedTextureVertices[4] = { DirectX::XMFLOAT3(1.f, 1.f, 0.f), DirectX::XMFLOAT2(0.f, 0.f) };
+	invertedTextureVertices[5] = { DirectX::XMFLOAT3(1.f, -1.f, 0.f), DirectX::XMFLOAT2(0.f, 1.f) };
 
-	vertices = texture_vertices;
-	inverted_vertices = inverted_texture_vertices;
+	pVertices = textureVertices;
+	pInvertedVertices = invertedTextureVertices;
 }

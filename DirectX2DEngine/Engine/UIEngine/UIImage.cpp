@@ -3,40 +3,40 @@
 UIImage::UIImage(const FRect& position, const Texture& texture)
 	:
 	AUIElement(position),
-	model(std::make_shared<TextureModel>(texture))
+	pModel(std::make_shared<TextureModel>(texture))
 {
-	model->Initialize();
-	model->SetRectangle(position);
-	model->SetDepth(depth);
+	pModel->Initialize();
+	pModel->SetRectangle(position);
+	pModel->SetDepth(depth);
 }
 
-UIImage::UIImage(const FRect& position, const std::string& texture_path)
+UIImage::UIImage(const FRect& position, const std::string& texturePath)
 	:
 	AUIElement(position),
-	model(std::make_shared<TextureModel>(texture_path))
+	pModel(std::make_shared<TextureModel>(texturePath))
 {
-	model->Initialize();
-	model->SetRectangle(position);
-	model->SetDepth(depth);
+	pModel->Initialize();
+	pModel->SetRectangle(position);
+	pModel->SetDepth(depth);
 }
 
-void UIImage::SetPosition(const FRect& new_position)
+void UIImage::SetPosition(const FRect& newPosition)
 {
-	AUIElement::SetPosition(new_position);
-	model->SetRectangle(new_position);
+	AUIElement::SetPosition(newPosition);
+	pModel->SetRectangle(newPosition);
 }
 
-void UIImage::SetTexture(const Texture& texture) const
+void UIImage::SetTexture(const Texture& newTexture) const
 {
-	model->SetTexture(texture);
+	pModel->SetTexture(newTexture);
 }
 
 void UIImage::SetInverted(bool bValue) const
 {
-	model->SetInverted(bValue);
+	pModel->SetInverted(bValue);
 }
 
 void UIImage::Render() const
 {
-	model->Render();
+	pModel->Render();
 }

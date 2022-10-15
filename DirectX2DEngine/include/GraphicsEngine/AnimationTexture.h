@@ -6,7 +6,7 @@
 class AnimationTexture : public Texture
 {
 public:
-	AnimationTexture(const std::string& filepath);
+	AnimationTexture(const std::string& filePath);
 
 	virtual ~AnimationTexture() override = default;
 

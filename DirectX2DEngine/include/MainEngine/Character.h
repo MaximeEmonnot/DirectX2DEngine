@@ -16,6 +16,5 @@ public:
     bool IsGrounded() const;
 
 protected:
-    std::shared_ptr<Collider> rootCollider;
+    std::shared_ptr<Collider> pRootCollider;
 };
-

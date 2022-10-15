@@ -26,9 +26,9 @@ FVec2D Actor::GetPosition() const
 	return pos;
 }
 
-void Actor::SetPosition(const FVec2D& new_position)
+void Actor::SetPosition(const FVec2D& newPosition)
 {
-	pos = new_position;
+	pos = newPosition;
 }
 
 std::string Actor::GetName() const
@@ -40,7 +40,6 @@ std::vector<std::shared_ptr<class Collider>> Actor::GetColliders() const
 {
 	return std::vector<std::shared_ptr<class Collider>>();
 }
-
 
 World& Actor::GetWorld() const
 {

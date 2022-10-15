@@ -11,10 +11,10 @@ public:
     UIText() = default;
     UIText(const FRect& position, const std::wstring& text, const std::wstring& font, float size, const D2D1_COLOR_F& color);
 
-    void SetText(const std::wstring& new_text);
-    void SetFont(const std::wstring& new_font);
-    void SetSize(float new_size);
-    void SetColor(const D2D1_COLOR_F& new_color);
+    void SetText(const std::wstring& newText);
+    void SetFont(const std::wstring& newFont);
+    void SetSize(float newSize);
+    void SetColor(const D2D1_COLOR_F& newColor);
 
     void Render() const override;
 

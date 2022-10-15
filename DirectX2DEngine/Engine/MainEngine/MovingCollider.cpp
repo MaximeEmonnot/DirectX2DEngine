@@ -4,22 +4,22 @@
 
 MovingCollider::MovingCollider(Actor& owner)
 	:
-	collider(std::make_shared<Collider>(owner, defaultPos))
+	pCollider(std::make_shared<Collider>(owner, defaultPos))
 {
-	collider->SetCollisionMode(Collider::CollisionMode::None);
+	pCollider->SetCollisionMode(Collider::CollisionMode::None);
 }
 
 void MovingCollider::Update()
 {
-	collider->SetRectPos(positions[curRectPos]);
-	collider->Update();
+	pCollider->SetRectPos(positions[curRectPos]);
+	pCollider->Update();
 	curFrameTime += DELTATIME;
 	while (curFrameTime > holdTime) Advance();
 }
 
-void MovingCollider::SetLoop(Animation::AnimationMode loop_mode)
+void MovingCollider::SetLoop(Animation::AnimationMode _loopMode)
 {
-	loopMode = loop_mode;
+	loopMode = _loopMode;
 }
 
 void MovingCollider::SetHoldTime(float _holdTime)
@@ -27,19 +27,19 @@ void MovingCollider::SetHoldTime(float _holdTime)
 	holdTime = _holdTime;
 }
 
-void MovingCollider::SetCollisionMode(Collider::CollisionMode cMode)
+void MovingCollider::SetCollisionMode(Collider::CollisionMode collisionMode)
 {
-	collider->SetCollisionMode(cMode);
+	pCollider->SetCollisionMode(collisionMode);
 }
 
-void MovingCollider::SetCollisionChannel(Collider::CollisionChannel cChannel)
+void MovingCollider::SetCollisionChannel(Collider::CollisionChannel collisionChannel)
 {
-	collider->SetCollisionChannel(cChannel);
+	pCollider->SetCollisionChannel(collisionChannel);
 }
 
 void MovingCollider::SetVisible(bool bValue)
 {
-	collider->SetVisible(bValue);
+	pCollider->SetVisible(bValue);
 }
 
 void MovingCollider::AddPosition(const FRect& pos)
@@ -60,7 +60,7 @@ bool MovingCollider::IsFinished() const
 
 std::shared_ptr<Collider> MovingCollider::GetCollider() const
 {
-	return collider;
+	return pCollider;
 }
 
 void MovingCollider::Advance()

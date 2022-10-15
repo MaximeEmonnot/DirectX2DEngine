@@ -11,8 +11,8 @@
 
 BaseFighter::ComboTree::ComboTree()
     :
-    root(std::make_shared<ComboNode>(Action::None)),
-    currentStage(root)
+    pRoot(std::make_shared<ComboNode>(Action::None)),
+    pCurrentStage(pRoot)
 {}
 
 void BaseFighter::ComboTree::UpdateTree()
@@ -74,11 +74,11 @@ void BaseFighter::ComboTree::UpdateTree()
     if (new_action != lastAction)
     {
         lastAction = new_action;
-        for (const std::shared_ptr<ComboNode> leaf : currentStage->leaves)
+        for (const std::shared_ptr<ComboNode> leaf : pCurrentStage->leaves)
         {
             if (*leaf == new_action)
             {
-                currentStage = leaf;
+                pCurrentStage = leaf;
                 timer = 0.3f;
                 break;
             }
@@ -89,17 +89,17 @@ void BaseFighter::ComboTree::UpdateTree()
     if (timer <= 0.0f)
     {
         lastAction = Action::None;
-        currentStage = root;
+        pCurrentStage = pRoot;
         timer = 0.3f;
     }
 }
 
 std::string BaseFighter::ComboTree::GetCurrentCombo()
 {
-    std::string out = currentStage->result;
+    std::string out = pCurrentStage->result;
     lastAction = Action::None;
     timer = 0.3f;
-    currentStage = root;
+    pCurrentStage = pRoot;
     return out;
 }
 
@@ -120,7 +120,7 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
     owner(owner),
     pComboTree(pComboTree),
     animSys(jsonPath),
-	model(owner.GetWorld().CreateModel<TextureModel>(priority)),
+	pModel(owner.GetWorld().CreateModel<TextureModel>(priority)),
     collisionSys(owner, jsonPath, animSys.GetAnimationList())
 {
     JSONParser::Reader jsonParser;
@@ -128,14 +128,10 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
     icon = jsonParser.GetValueOf("character").GetString() + std::string("icon.tga");
 }
 
-BaseFighter::~BaseFighter()
-{
-}
-
 void BaseFighter::Update()
 {
     if (const std::shared_ptr<BaseFighter> shared_enemy = pEnemy.lock()) 
-        model->SetInverted(owner.GetPosition().x < shared_enemy->owner.GetPosition().x);
+        pModel->SetInverted(owner.GetPosition().x < shared_enemy->owner.GetPosition().x);
 
     pComboTree->UpdateTree();
     if (KBD.KeyIsPressed(Commands::PUNCH)) {
@@ -145,17 +141,17 @@ void BaseFighter::Update()
     animSys.Update();
 
     FVec2D texture_center = animSys.GetTexture().GetCenter();
-    if (model->IsInverted()) texture_center.x *= -1;
+    if (pModel->IsInverted()) texture_center.x *= -1;
 
-    model->SetPosition(owner.GetPosition() - texture_center);
-    model->SetTexture(animSys.GetTexture());
+    pModel->SetPosition(owner.GetPosition() - texture_center);
+    pModel->SetTexture(animSys.GetTexture());
     
     collisionSys.Update();
 }
 
-void BaseFighter::SetEnemy(std::weak_ptr<BaseFighter> enemy)
+void BaseFighter::SetEnemy(std::weak_ptr<BaseFighter> _pEnemy)
 {
-    pEnemy = enemy;
+    pEnemy = _pEnemy;
 }
 
 std::string BaseFighter::GetIcon() const
@@ -171,6 +167,6 @@ std::wstring BaseFighter::GetName() const
 std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const
 {
     std::vector<std::shared_ptr<Collider>> out;
-    for (std::shared_ptr<Collider>& c : collisionSys.GetColliders()) out.emplace_back(c);
+    for (std::shared_ptr<Collider>& pCollider : collisionSys.GetColliders()) out.emplace_back(pCollider);
     return out;
 }

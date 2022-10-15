@@ -14,11 +14,11 @@ public:
     void Update() override;
 
 private:
-    std::shared_ptr<UIImage> solBadguyImage;
-    std::shared_ptr<UIButton> solBadguyButton;
-    std::shared_ptr<UIText> solBadguyButtonTitle;
-    std::shared_ptr<UIImage> roboKyImage;
-    std::shared_ptr<UIButton> roboKyButton;
-    std::shared_ptr<UIText> roboKyButtonTitle;
+    std::shared_ptr<UIImage> pSolBadguyImage;
+    std::shared_ptr<UIButton> pSolBadguyButton;
+    std::shared_ptr<UIText> pSolBadguyButtonTitle;
+    std::shared_ptr<UIImage> pRoboKyImage;
+    std::shared_ptr<UIButton> pRoboKyButton;
+    std::shared_ptr<UIText> pRoboKyButtonTitle;
 };
 

@@ -9,42 +9,42 @@
 SolBadguy::SolComboTree::SolComboTree()
 {
 	// Down
-	root->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down, "Down"));
+	pRoot->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down, "Down"));
 	// Down DownRight Right
-	root->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight));
-	root->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Quarter Circle Front"));
+	pRoot->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight));
+	pRoot->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Quarter Circle Front"));
 	// Down DownLeft Left
-	root->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
-	root->leaves.at(0)->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left, "Quarter Circle Back"));
+	pRoot->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
+	pRoot->leaves.at(0)->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left, "Quarter Circle Back"));
 	// Down DownLeft Left Down DownLeft Left
-	root->leaves.at(0)->leaves.at(1)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
-	root->leaves.at(0)->leaves.at(1)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
-	root->leaves.at(0)->leaves.at(1)->leaves.at(0)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left, "Double Quarter Circle Back"));
+	pRoot->leaves.at(0)->leaves.at(1)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
+	pRoot->leaves.at(0)->leaves.at(1)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
+	pRoot->leaves.at(0)->leaves.at(1)->leaves.at(0)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left, "Double Quarter Circle Back"));
 
 	// Left Left
-	root->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left));
-	root->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left, "Escape"));
+	pRoot->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left));
+	pRoot->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left, "Escape"));
 	// Left Right
-	root->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right));
+	pRoot->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right));
 	// Left DownLeft Down DownRight Right
-	root->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
-	root->leaves.at(1)->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
-	root->leaves.at(1)->leaves.at(2)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight));
-	root->leaves.at(1)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Half Circle Front"));
+	pRoot->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
+	pRoot->leaves.at(1)->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
+	pRoot->leaves.at(1)->leaves.at(2)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight));
+	pRoot->leaves.at(1)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Half Circle Front"));
 
 	// Right
-	root->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Right"));
+	pRoot->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Right"));
 	// Right Right
-	root->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Dash"));
+	pRoot->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Dash"));
 	// Right Down DownRight
-	root->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
-	root->leaves.at(2)->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight, "Dragon Punch"));
+	pRoot->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
+	pRoot->leaves.at(2)->leaves.at(1)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight, "Dragon Punch"));
 	// Right DownRight Down DownLeft Left Right
-	root->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight));
-	root->leaves.at(2)->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
-	root->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
-	root->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left));
-	root->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Overdrive"));
+	pRoot->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownRight));
+	pRoot->leaves.at(2)->leaves.at(2)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down));
+	pRoot->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::DownLeft));
+	pRoot->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Left));
+	pRoot->leaves.at(2)->leaves.at(2)->leaves.at(0)->leaves.at(0)->leaves.at(0)->leaves.emplace_back(std::make_shared<ComboNode>(Action::Right, "Overdrive"));
 }
 
 SolBadguy::SolBadguy(Actor& owner, int priority)

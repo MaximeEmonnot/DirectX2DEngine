@@ -7,11 +7,13 @@
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<LoggerManager> LoggerManager::pInstance = nullptr;
 
+//******//
+
 LoggerManager::LoggerManager()
 	:
-	log(std::make_shared<ConsoleLogger>())
+	pLog(std::make_shared<ConsoleLogger>())
 {
-	log->SetNext(std::make_shared<DebugLogger>())->SetNext(std::make_shared<ErrorLogger>());
+	pLog->SetNext(std::make_shared<DebugLogger>())->SetNext(std::make_shared<ErrorLogger>());
 }
 
 LoggerManager& LoggerManager::GetInstance()
@@ -23,5 +25,5 @@ LoggerManager& LoggerManager::GetInstance()
 
 void LoggerManager::Log(const std::string& message, Logger::Level level) const
 {
-	log->Write(message, level);
+	pLog->Write(message, level);
 }

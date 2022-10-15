@@ -7,32 +7,32 @@
 #include "CoreEngine/Mouse.h"
 #include "GraphicsEngine/TextRenderer.h"
 
-UITextBox::UITextBox(const FRect& position, const DirectX::XMFLOAT4& outline_color, const std::wstring& font, const std::wstring& default_text)
+UITextBox::UITextBox(const FRect& position, const DirectX::XMFLOAT4& outlineColor, const std::wstring& font, const std::wstring& defaultText)
 	:
 	AUIElement(position),
-	outlineModel(std::make_shared<ColorModel>(FRect(position.pos, position.width + 5, position.height + 5), DirectX::XMFLOAT4(1.f, 1.f, 1.f, 1.f))),
-	boxModel(std::make_shared<ColorModel>(position, DirectX::XMFLOAT4(0.f, 0.f, 0.f, 1.f))),
+	pOutlineModel(std::make_shared<ColorModel>(FRect(position.pos, position.width + 5, position.height + 5), DirectX::XMFLOAT4(1.f, 1.f, 1.f, 1.f))),
+	pBoxModel(std::make_shared<ColorModel>(position, DirectX::XMFLOAT4(0.f, 0.f, 0.f, 1.f))),
 	font(font),
-	default_text(default_text),
+	defaultText(defaultText),
 	bIsFocused(false)
 {
-	outlineModel->Initialize();
-	outlineModel->SetDepth(depth - 2.f);
+	pOutlineModel->Initialize();
+	pOutlineModel->SetDepth(depth - 2.f);
 
-	boxModel->Initialize();
-	boxModel->SetDepth(depth);
+	pBoxModel->Initialize();
+	pBoxModel->SetDepth(depth);
 }
 
-void UITextBox::SetPosition(const FRect& new_position)
+void UITextBox::SetPosition(const FRect& newPosition)
 {
-	AUIElement::SetPosition(new_position);
-	outlineModel->SetRectangle(FRect(new_position.pos, new_position.width, new_position.height));
-	boxModel->SetRectangle(new_position);
+	AUIElement::SetPosition(newPosition);
+	pOutlineModel->SetRectangle(FRect(newPosition.pos, newPosition.width, newPosition.height));
+	pBoxModel->SetRectangle(newPosition);
 }
 
-void UITextBox::SetOutlineColor(const DirectX::XMFLOAT4& new_outline_color) const
+void UITextBox::SetOutlineColor(const DirectX::XMFLOAT4& newOutlineColor) const
 {
-	outlineModel->SetColor(new_outline_color);
+	pOutlineModel->SetColor(newOutlineColor);
 }
 
 void UITextBox::Update()
@@ -50,11 +50,11 @@ void UITextBox::Update()
 
 void UITextBox::Render() const
 {
-	boxModel->Render();
-	outlineModel->Render();
+	pBoxModel->Render();
+	pOutlineModel->Render();
 
 	if (bIsFocused || !text.empty()) TEXT_ENGINE.Render(text, font, position.height / 2.f, position, D2D1::ColorF(D2D1::ColorF::White));
-	else TEXT_ENGINE.Render(default_text, font, position.height / 2.f, position, D2D1::ColorF(D2D1::ColorF::LightGray));
+	else TEXT_ENGINE.Render(defaultText, font, position.height / 2.f, position, D2D1::ColorF(D2D1::ColorF::LightGray));
 }
 
 std::string UITextBox::GetText() const

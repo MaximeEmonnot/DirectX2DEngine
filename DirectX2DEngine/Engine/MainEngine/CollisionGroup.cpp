@@ -25,6 +25,6 @@ bool CollisionGroup::IsFinished() const
 std::vector<std::shared_ptr<Collider>> CollisionGroup::GetColliders() const
 {
 	std::vector<std::shared_ptr<Collider>> out;
-	for (auto& c : colliders) out.emplace_back(c.GetCollider());
+	for (auto& movingCollider : colliders) out.emplace_back(movingCollider.GetCollider());
 	return out;
 }

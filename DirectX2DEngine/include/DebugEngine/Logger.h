@@ -18,7 +18,7 @@ public:
 	virtual ~Logger() = default;
 
 	// Defines the next Logging Level
-	std::shared_ptr<Logger> SetNext(std::shared_ptr<Logger> next);
+	std::shared_ptr<Logger> SetNext(std::shared_ptr<Logger> pNextLog);
 
 	// Writes on the current Logging Level, or pass it to the next level.
 	void Write(const std::string& message, Level priority);

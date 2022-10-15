@@ -10,7 +10,7 @@ Collider::Collider(Actor& owner)
 	owner(owner),
 	origin(owner.pos),
 	rect(FRect(0, 0, 0, 0)),
-	model(owner.GetWorld().CreateModel<ColorModel>(256))
+	pModel(owner.GetWorld().CreateModel<ColorModel>(256))
 {
 }
 
@@ -19,7 +19,7 @@ Collider::Collider(Actor& owner, const FRect& rect)
 	owner(owner),
 	origin(owner.pos),
 	rect(rect),
-	model(owner.GetWorld().CreateModel<ColorModel>(256))
+	pModel(owner.GetWorld().CreateModel<ColorModel>(256))
 {
 }
 
@@ -31,7 +31,7 @@ Collider& Collider::operator=(const Collider& collider)
 	channel = collider.channel;
 	bIsGravityEnabled = collider.bIsGravityEnabled;
 	bIsVisible = collider.bIsVisible;
-	model = collider.model;
+	pModel = collider.pModel;
 	return *this;
 }
 
@@ -52,7 +52,7 @@ void Collider::Update()
 
 	forces.clear();
 
-	model->SetRectangle(rect + origin);
+	pModel->SetRectangle(rect + origin);
 }
 
 void Collider::SetCollisionMode(CollisionMode cMode)
@@ -62,7 +62,7 @@ void Collider::SetCollisionMode(CollisionMode cMode)
 
 void Collider::SetVisible(bool bValue)
 {
-	model->SetVisibility(bValue);
+	pModel->SetVisibility(bValue);
 }
 
 void Collider::SetCollisionChannel(CollisionChannel cChannel)
@@ -72,19 +72,19 @@ void Collider::SetCollisionChannel(CollisionChannel cChannel)
 	switch (channel)
 	{
 	case CollisionChannel::Stun:
-		model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
+		pModel->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 1.f, 0.25f)); //Cyan
 		break;
 	case CollisionChannel::Defense:
-		model->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
+		pModel->SetColor(DirectX::XMFLOAT4(0.f, 0.f, 1.f, 0.25f)); //Blue
 		break;
 	case CollisionChannel::Attack:
-		model->SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
+		pModel->SetColor(DirectX::XMFLOAT4(1.f, 0.f, 0.f, 0.25f)); //Red
 		break;
 	case CollisionChannel::Gravity:
-		model->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
+		pModel->SetColor(DirectX::XMFLOAT4(0.f, 1.f, 0.f, 0.25f)); //Green
 		break;
 	case CollisionChannel::None:
-		model->SetColor(DirectX::XMFLOAT4(1.f, 1.f, 1.f, 0.25f)); //Gray
+		pModel->SetColor(DirectX::XMFLOAT4(1.f, 1.f, 1.f, 0.25f)); //Gray
 		break;
 	default:
 		break;
@@ -156,12 +156,12 @@ void Collider::ApplyFriction()
 	velocity -= friction;
 }
 
-void Collider::ApplyReaction(const FRect& test_rect, FVec2D& direction)
+void Collider::ApplyReaction(const FRect& testRect, FVec2D& direction)
 {
 	FVec2D final_normal;
 	for (const std::shared_ptr<Actor>& overlapped_act : overlappingActors)
 		for (const std::shared_ptr<Collider>& overlapped_act_collider : overlapped_act->GetColliders())
-			final_normal += (overlapped_act_collider->rect + overlapped_act_collider->origin).GetNormalFromPoint(test_rect.pos);
+			final_normal += (overlapped_act_collider->rect + overlapped_act_collider->origin).GetNormalFromPoint(testRect.pos);
 
 	final_normal.Normalize();
 	direction += final_normal * direction.GetLength();

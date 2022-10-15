@@ -18,6 +18,7 @@ void ColorShader::RenderModel(BaseModel& model)
 	GFX.GetDeviceContext()->IASetInputLayout(pInputLayout.Get());
 	GFX.GetDeviceContext()->VSSetShader(pVertexShader.Get(), nullptr, 0);
 
+	// We pass all the data needed for the Shader's Constant Buffer
 	D3D11_MAPPED_SUBRESOURCE mapped_subresource;
 	if (FAILED(hr = GFX.GetDeviceContext()->Map(pConstantBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped_subresource)))
 		throw GFX_EXCEPTION("An exception has been caught during Shader Object Subresource Mapping.", hr);
@@ -28,9 +29,11 @@ void ColorShader::RenderModel(BaseModel& model)
 	data->scale = dynamic_cast<ColorModel*>(&model)->GetScaleMatrix();
 	data->color = dynamic_cast<ColorModel*>(&model)->GetColor();
 	data->depth = model.GetDepth();
-		
+
 	GFX.GetDeviceContext()->Unmap(pConstantBuffer.Get(), 0);
 	GFX.GetDeviceContext()->VSSetConstantBuffers(0, 1, pConstantBuffer.GetAddressOf());
+
+	// Finishing rendering Model
 
 	GFX.GetDeviceContext()->PSSetShader(pPixelShader.Get(), nullptr, 0);
 	GFX.GetDeviceContext()->Draw(model.GetVertices(), 0);

@@ -10,10 +10,10 @@ public:
 
 	void Update();
 
-	void SetLoop(Animation::AnimationMode loop_mode);
+	void SetLoop(Animation::AnimationMode _loopMode);
 	void SetHoldTime(float _holdTime);
-	void SetCollisionMode(Collider::CollisionMode cMode);
-	void SetCollisionChannel(Collider::CollisionChannel cChannel);
+	void SetCollisionMode(Collider::CollisionMode collisionMode);
+	void SetCollisionChannel(Collider::CollisionChannel collisionChannel);
 	void SetVisible(bool bValue);
 	void AddPosition(const FRect& pos);
 
@@ -29,7 +29,7 @@ private:
 private:
 	FRect defaultPos = FRect(0.0, 0.0, 0.0, 0.0);
 
-	std::shared_ptr<Collider> collider;
+	std::shared_ptr<Collider> pCollider;
 	std::vector<FRect> positions;
 	float curFrameTime = 0.0f;
 	float holdTime;

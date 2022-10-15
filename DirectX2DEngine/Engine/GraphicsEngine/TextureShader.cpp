@@ -33,6 +33,7 @@ void TextureShader::RenderModel(BaseModel& model)
 	GFX.GetDeviceContext()->IASetInputLayout(pInputLayout.Get());
 	GFX.GetDeviceContext()->VSSetShader(pVertexShader.Get(), nullptr, 0);
 
+	// We pass all the data needed for the Shader's Constant Buffer
 	D3D11_MAPPED_SUBRESOURCE mapped_subresource;
 	if (FAILED(hr = GFX.GetDeviceContext()->Map(pConstantBuffer.Get(), 0, D3D11_MAP_WRITE_DISCARD, 0, &mapped_subresource)))
 		throw GFX_EXCEPTION("An exception has been caught during Shader Object Subresource Mapping.", hr);
@@ -45,6 +46,8 @@ void TextureShader::RenderModel(BaseModel& model)
 
 	GFX.GetDeviceContext()->Unmap(pConstantBuffer.Get(), 0);
 	GFX.GetDeviceContext()->VSSetConstantBuffers(0, 1, pConstantBuffer.GetAddressOf());
+
+	// Finishing rendering Model
 
 	GFX.GetDeviceContext()->PSSetShaderResources(0, 1, dynamic_cast<TextureModel*>(&model)->GetTexture().GetShaderResourceView().GetAddressOf());
 	GFX.GetDeviceContext()->PSSetShader(pPixelShader.Get(), nullptr, 0);

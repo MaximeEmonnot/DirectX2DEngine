@@ -10,8 +10,7 @@ ColorModel::ColorModel(int x, int y, int width, int height, DirectX::XMFLOAT4 co
 	width(width),
 	height(height),
 	color(color),
-	angle(0.f),
-	color_vertices{}
+	angle(0.f)
 {
 }
 
@@ -22,8 +21,7 @@ ColorModel::ColorModel(FRect rect, DirectX::XMFLOAT4 color)
 	width(static_cast<int>(rect.width)),
 	height(static_cast<int>(rect.height)),
 	color(color),
-	angle(0.f),
-	color_vertices{}
+	angle(0.f)
 {
 }
 
@@ -57,23 +55,23 @@ DirectX::XMFLOAT4 ColorModel::GetColor() const
 	return color;
 }
 
-void ColorModel::SetColor(const DirectX::XMFLOAT4& new_color)
+void ColorModel::SetColor(const DirectX::XMFLOAT4& newColor)
 {
-	color = new_color;
+	color = newColor;
 }
 
-void ColorModel::SetPosition(const FVec2D& new_pos)
+void ColorModel::SetPosition(const FVec2D& newPos)
 {
-	x = static_cast<int>(new_pos.x);
-	y = static_cast<int>(new_pos.y);
+	x = static_cast<int>(newPos.x);
+	y = static_cast<int>(newPos.y);
 }
 
-void ColorModel::SetRectangle(const FRect& new_rect)
+void ColorModel::SetRectangle(const FRect& newRect)
 {
-	x = static_cast<int>(new_rect.pos.x);
-	y = static_cast<int>(new_rect.pos.y);
-	width = static_cast<int>(new_rect.width);
-	height = static_cast<int>(new_rect.height);
+	x = static_cast<int>(newRect.pos.x);
+	y = static_cast<int>(newRect.pos.y);
+	width = static_cast<int>(newRect.width);
+	height = static_cast<int>(newRect.height);
 }
 
 void ColorModel::SettingShader()
@@ -96,13 +94,13 @@ void ColorModel::SettingBufferConstants()
 
 void ColorModel::SettingVertices()
 {
-	color_vertices[0] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.f}};
-	color_vertices[1] = { DirectX::XMFLOAT3{-1.f, 1.f, 0.f}};
-	color_vertices[2] = { DirectX::XMFLOAT3{1.f, 1.f, 0.f}};
-	color_vertices[3] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.f} };
-	color_vertices[4] = { DirectX::XMFLOAT3{1.f, 1.f, 0.f}};
-	color_vertices[5] = { DirectX::XMFLOAT3{1.f, -1.f, 0.f}};
+	colorVertices[0] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.f}};
+	colorVertices[1] = { DirectX::XMFLOAT3{-1.f, 1.f, 0.f}};
+	colorVertices[2] = { DirectX::XMFLOAT3{1.f, 1.f, 0.f}};
+	colorVertices[3] = { DirectX::XMFLOAT3{-1.f, -1.f, 0.f} };
+	colorVertices[4] = { DirectX::XMFLOAT3{1.f, 1.f, 0.f}};
+	colorVertices[5] = { DirectX::XMFLOAT3{1.f, -1.f, 0.f}};
 
-	vertices = color_vertices;
-	inverted_vertices = color_vertices;
+	pVertices = colorVertices;
+	pInvertedVertices = colorVertices;
 }

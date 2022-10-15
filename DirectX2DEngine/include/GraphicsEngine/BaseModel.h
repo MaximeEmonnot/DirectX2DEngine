@@ -16,7 +16,7 @@ public:
 	void Render();
 	int GetVertices() const;
 
-	void SetDepth(float new_depth);
+	void SetDepth(float newDepth);
 	float GetDepth() const;
 
 	void SetVisibility(bool bValue);
@@ -51,9 +51,9 @@ protected:
 	unsigned int stride = 0u;
 	unsigned int offset = 0u;
 
-	void* vertices = nullptr;
-	void* inverted_vertices = nullptr;
-	unsigned long* indices = nullptr;
+	void* pVertices = nullptr;
+	void* pInvertedVertices = nullptr;
+	unsigned long* pIndices = nullptr;
 
 	float depth = 0.f;
 };

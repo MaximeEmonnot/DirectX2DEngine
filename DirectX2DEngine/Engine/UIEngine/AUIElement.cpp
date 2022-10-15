@@ -6,9 +6,9 @@ AUIElement::AUIElement(const FRect& position)
 {
 }
 
-void AUIElement::SetPosition(const FRect& new_position)
+void AUIElement::SetPosition(const FRect& newPosition)
 {
-	position = new_position;
+	position = newPosition;
 }
 
 void AUIElement::Update()

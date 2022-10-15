@@ -17,7 +17,7 @@ private:
 	};
 public:
 	Texture() = default;
-	Texture(const std::string& filepath);
+	Texture(const std::string& filePath);
 	Texture(const Texture& tex);
 
 	virtual ~Texture() = default;
@@ -28,7 +28,7 @@ public:
 	int GetHeight() const;
 
 protected:
-	unsigned char* LoadTGA(const std::string& filepath);
+	unsigned char* LoadTGA(const std::string& filePath);
 
 protected:
 	int width = 0;

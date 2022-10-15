@@ -10,16 +10,16 @@ class UICanvas_SinglePlayerCombat :
     public AUICanvas
 {
 public:
-    UICanvas_SinglePlayerCombat(std::shared_ptr<BaseFighter> player, std::shared_ptr<BaseFighter> enemy);
+    UICanvas_SinglePlayerCombat(std::shared_ptr<BaseFighter> pPlayer, std::shared_ptr<BaseFighter> pEnemy);
 
     void Update() override;
 
 private:
-    std::shared_ptr<UIProgressBar> playerHealthBar;
-    std::shared_ptr<UIImage> playerIcon;
-    std::shared_ptr<UIText> playerName;
-    std::shared_ptr<UIProgressBar> enemyHealthBar;
-    std::shared_ptr<UIImage> enemyIcon;
-    std::shared_ptr<UIText> enemyName;
+    std::shared_ptr<UIProgressBar> pPlayerHealthBar;
+    std::shared_ptr<UIImage> pPlayerIcon;
+    std::shared_ptr<UIText> pPlayerName;
+    std::shared_ptr<UIProgressBar> pEnemyHealthBar;
+    std::shared_ptr<UIImage> pEnemyIcon;
+    std::shared_ptr<UIText> pEnemyName;
 };
 

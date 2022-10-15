@@ -13,14 +13,14 @@ public:
 	class Hash
 	{
 	public:
-		size_t operator()(const Actor& a) const {
+		size_t operator()(const Actor& actor) const {
 			constexpr std::hash<std::string> hasher;
-			return hasher(a.name);
+			return hasher(actor.name);
 		}
-		size_t operator()(const std::shared_ptr<Actor>& a) const
+		size_t operator()(const std::shared_ptr<Actor>& pActor) const
 		{
 			constexpr std::hash<std::string> hasher;
-			return hasher(a->name);
+			return hasher(pActor->name);
 		}
 	};
 
@@ -39,7 +39,7 @@ public:
 	virtual void Update();
 
 	FVec2D GetPosition() const;
-	void SetPosition(const FVec2D& new_position);
+	void SetPosition(const FVec2D& newPosition);
 	std::string GetName() const;
 	virtual std::vector<std::shared_ptr<class Collider>> GetColliders() const;
 

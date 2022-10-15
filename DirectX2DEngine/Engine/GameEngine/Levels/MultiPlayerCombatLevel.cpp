@@ -18,7 +18,7 @@ void MultiPlayerCombatLevel::Update()
 	Level::Update();
 
 	// Send Data
-	SendPositionData(player->GetPosition());
+	SendPositionData(pPlayer->GetPosition());
 }
 
 void MultiPlayerCombatLevel::BeginLevel()
@@ -26,23 +26,23 @@ void MultiPlayerCombatLevel::BeginLevel()
 	switch(NETWORK.GetPlace())
 	{
 	case 1:
-		player = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(-250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
-		enemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
+		pPlayer = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(-250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
+		pEnemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
 		// Create UI Canvas
-		CreateCanvas<UICanvas_SinglePlayerCombat>(player->GetFighter(), enemy->GetFighter());
+		CreateCanvas<UICanvas_SinglePlayerCombat>(pPlayer->GetFighter(), pEnemy->GetFighter());
 		break;
 	case 2:
-		player = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
-		enemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(-250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
+		pPlayer = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
+		pEnemy = GetWorld().SpawnActor<FighterCharacter<NetworkEnemyController>>(FVec2D(-250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
 		// Create UI Canvas
-		CreateCanvas<UICanvas_SinglePlayerCombat>(enemy->GetFighter(), player->GetFighter());
+		CreateCanvas<UICanvas_SinglePlayerCombat>(pEnemy->GetFighter(), pPlayer->GetFighter());
 		break;
 	default:
 		break;
 	}
 
-	player->GetFighter()->SetEnemy(enemy->GetFighter());
-	enemy->GetFighter()->SetEnemy(player->GetFighter());
+	pPlayer->GetFighter()->SetEnemy(pEnemy->GetFighter());
+	pEnemy->GetFighter()->SetEnemy(pPlayer->GetFighter());
 
 	// Play background sounds
 	SFX.Play("Sounds/BeJustOrBeDead.wav");

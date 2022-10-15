@@ -17,11 +17,11 @@ class FighterCharacter : public Character
 {
 public:
     FighterCharacter() = delete;
-    FighterCharacter(World& world, const FVec2D& pos, const std::string& name, EFighterName fighter_name, int priority)
+    FighterCharacter(World& world, const FVec2D& pos, const std::string& name, EFighterName fighterName, int priority)
 	    :
 		Character(world, pos, name, std::make_shared<ControllerClass>(*this))
     {
-        switch(fighter_name)
+        switch(fighterName)
         {
         case EFighterName::SolBadguy: pFighter = std::make_shared<SolBadguy>(*this, priority);
             break;
@@ -31,11 +31,11 @@ public:
             break;
         }
 
-        rootCollider->SetRectPos(FRect(0, 5, 10, 10));
-        rootCollider->SetCollisionMode(Collider::CollisionMode::Blocking);
-        rootCollider->SetGravity(true);
-        rootCollider->SetVisible(true);
-        rootCollider->SetCollisionChannel(Collider::CollisionChannel::Gravity);
+        pRootCollider->SetRectPos(FRect(0, 5, 10, 10));
+        pRootCollider->SetCollisionMode(Collider::CollisionMode::Blocking);
+        pRootCollider->SetGravity(true);
+        pRootCollider->SetVisible(true);
+        pRootCollider->SetCollisionChannel(Collider::CollisionChannel::Gravity);
     }
 
     virtual void Update() override
@@ -48,9 +48,9 @@ public:
     virtual std::vector<std::shared_ptr<Collider>> GetColliders() const override
     {
         std::vector<std::shared_ptr<Collider>> out;
-        out.emplace_back(rootCollider);
-        for (std::shared_ptr<Collider> col : pFighter->GetColliders())
-            out.emplace_back(col);
+        out.emplace_back(pRootCollider);
+        for (std::shared_ptr<Collider> pCollider : pFighter->GetColliders())
+            out.emplace_back(pCollider);
         return out;
     }
 

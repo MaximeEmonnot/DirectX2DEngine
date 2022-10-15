@@ -4,8 +4,8 @@
 
 void World::Update()
 {
-	for (std::shared_ptr<Actor>& actor : actors)
-		actor->Update();
+	for (std::shared_ptr<Actor>& pActor : actors)
+		pActor->Update();
 }
 
 void World::Render() const

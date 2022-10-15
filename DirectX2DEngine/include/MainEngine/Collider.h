@@ -37,9 +37,9 @@ public:
 
 	void Update();
 
-	void SetCollisionMode(CollisionMode cMode);
+	void SetCollisionMode(CollisionMode collisionMode);
 	void SetVisible(bool bValue);
-	void SetCollisionChannel(CollisionChannel cChannel);
+	void SetCollisionChannel(CollisionChannel collisionChannel);
 	void SetGravity(bool bValue);
 	void SetRectPos(const FRect& pos);
 
@@ -59,7 +59,7 @@ private:
 	void ApplyGravity();
 	void ApplyForces();
 	void ApplyFriction();
-	void ApplyReaction(const FRect& test_rect, FVec2D& direction);
+	void ApplyReaction(const FRect& testRect, FVec2D& direction);
 
 	void UpdateInvincibility();
 	void TryMovingInThisDirection(FVec2D& direction);
@@ -74,7 +74,7 @@ private:
 	CollisionMode mode = CollisionMode::None;
 	CollisionChannel channel = CollisionChannel::None;
 
-	std::shared_ptr<ColorModel> model;
+	std::shared_ptr<ColorModel> pModel;
 
 	Actor& owner;
 	FVec2D& origin;

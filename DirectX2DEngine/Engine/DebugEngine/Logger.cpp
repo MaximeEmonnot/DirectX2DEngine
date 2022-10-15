@@ -13,9 +13,9 @@ Logger::Logger()
 	std::filesystem::create_directories(outDirectory);
 }
 
-std::shared_ptr<Logger> Logger::SetNext(std::shared_ptr<Logger> next)
+std::shared_ptr<Logger> Logger::SetNext(std::shared_ptr<Logger> pNextLog)
 {
-	pNext = next;
+	pNext = pNextLog;
 	return pNext;
 }
 

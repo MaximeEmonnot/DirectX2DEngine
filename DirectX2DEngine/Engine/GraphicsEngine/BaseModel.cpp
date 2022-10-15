@@ -35,9 +35,9 @@ int BaseModel::GetVertices() const
 	return nVertices;
 }
 
-void BaseModel::SetDepth(float new_depth)
+void BaseModel::SetDepth(float newDepth)
 {
-	depth = new_depth;
+	depth = newDepth;
 }
 
 float BaseModel::GetDepth() const
@@ -67,9 +67,9 @@ bool BaseModel::IsInverted() const
 
 void BaseModel::SettingIndices()
 {
-	indices = new unsigned long[nVertices];
+	pIndices = new unsigned long[nVertices];
 	for (int i = 0; i < nVertices; i++)
-		indices[i] = i;
+		pIndices[i] = i;
 }
 
 HRESULT BaseModel::SettingVertexBuffers()
@@ -84,7 +84,7 @@ HRESULT BaseModel::SettingVertexBuffers()
 
 	D3D11_SUBRESOURCE_DATA vb_data;
 	ZeroMemory(&vb_data, sizeof(D3D11_SUBRESOURCE_DATA));
-	vb_data.pSysMem = vertices;
+	vb_data.pSysMem = pVertices;
 
 	hr = GFX.GetDevice()->CreateBuffer(&vb_desc, &vb_data, &pVertexBuffer);
 
@@ -96,7 +96,7 @@ HRESULT BaseModel::SettingVertexBuffers()
 
 	D3D11_SUBRESOURCE_DATA ivb_data;
 	ZeroMemory(&ivb_data, sizeof(D3D11_SUBRESOURCE_DATA));
-	ivb_data.pSysMem = inverted_vertices;
+	ivb_data.pSysMem = pInvertedVertices;
 
 	hr = GFX.GetDevice()->CreateBuffer(&ivb_desc, &ivb_data, &pInvertedVertexBuffer);
 
@@ -113,7 +113,7 @@ HRESULT BaseModel::SettingIndexBuffer()
 
 	D3D11_SUBRESOURCE_DATA ib_data;
 	ZeroMemory(&ib_data, sizeof(D3D11_SUBRESOURCE_DATA));
-	ib_data.pSysMem = indices;
+	ib_data.pSysMem = pIndices;
 
 	return GFX.GetDevice()->CreateBuffer(&ib_desc, &ib_data, &pIndexBuffer);
 }

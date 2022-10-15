@@ -20,6 +20,6 @@ public:
 
 private:
 	static std::unique_ptr<LoggerManager> pInstance;
-	std::shared_ptr<Logger> log;
+	std::shared_ptr<Logger> pLog;
 };
 

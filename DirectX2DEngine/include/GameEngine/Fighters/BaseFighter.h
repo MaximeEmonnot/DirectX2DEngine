@@ -51,9 +51,9 @@ protected:
         IVec2D GetCommandInput() const;
 
     protected:
-        std::shared_ptr<ComboNode> root;
+        std::shared_ptr<ComboNode> pRoot;
     private:
-        std::shared_ptr<ComboNode> currentStage;
+        std::shared_ptr<ComboNode> pCurrentStage;
 
         Action lastAction = Action::None;
         float timer = 0.125f;
@@ -63,11 +63,11 @@ protected:
     BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int priority);
 
 public:
-    virtual ~BaseFighter();
+    virtual ~BaseFighter() = default;
 
     virtual void Update();
 
-    void SetEnemy(std::weak_ptr<BaseFighter> enemy);
+    void SetEnemy(std::weak_ptr<BaseFighter> _pEnemy);
 
     std::string GetIcon() const;
     std::wstring GetName() const;
@@ -78,7 +78,7 @@ protected:
     Actor& owner;
     AnimationSystem animSys;
     CollisionSystem collisionSys;
-    std::shared_ptr<TextureModel> model;
+    std::shared_ptr<TextureModel> pModel;
     std::shared_ptr<ComboTree> pComboTree;
     std::string icon;
     std::wstring name;

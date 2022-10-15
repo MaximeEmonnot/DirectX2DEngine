@@ -11,15 +11,15 @@ class TextureModel :
 public:
     TextureModel() = default;
     ~TextureModel() override = default;
-    TextureModel(const std::string& texture_path);
+    TextureModel(const std::string& texturePath);
     TextureModel(const Texture& texture); 
     DirectX::XMFLOAT2 GetOffset() const;
     DirectX::XMMATRIX GetRotationMatrix() const;
     DirectX::XMMATRIX GetScaleMatrix() const;
 
-    void SetPosition(const FVec2D& new_pos);
-    void SetRectangle(const FRect& rectangle);
-    void SetTexture(const Texture& tex);
+    void SetPosition(const FVec2D& newPos);
+    void SetRectangle(const FRect& newRectangle);
+    void SetTexture(const Texture& newTexture);
     Texture GetTexture() const;
 
 protected:
@@ -34,7 +34,7 @@ private:
     int height = 0, width = 0;
     float angle = 0.f;
 
-    TextureShader::VertexInput texture_vertices[6] = {};
-    TextureShader::VertexInput inverted_texture_vertices[6] = {};
+    TextureShader::VertexInput textureVertices[6] = {};
+    TextureShader::VertexInput invertedTextureVertices[6] = {};
 };
 

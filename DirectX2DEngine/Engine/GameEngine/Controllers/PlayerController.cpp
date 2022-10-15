@@ -14,12 +14,12 @@ PlayerController::PlayerController(Pawn& owner)
 
 void PlayerController::Update()
 {
-	FVec2D moveInput;
-	if (KBD.KeyIsPressed(Commands::RIGHT)) moveInput.x++;
-	if (KBD.KeyIsPressed(Commands::LEFT)) moveInput.x--;
+	FVec2D move_input;
+	if (KBD.KeyIsPressed(Commands::RIGHT)) move_input.x++;
+	if (KBD.KeyIsPressed(Commands::LEFT)) move_input.x--;
 
 	if (KBD.KeyIsPressed(Commands::JUMP))
 		if (!dynamic_cast<Character*>(&owner)->GetRootCollider()->IsFalling()) dynamic_cast<Character*>(&owner)->GetRootCollider()->AddImpulse(FVec2D(0.f, 60.f));
 
-	dynamic_cast<Character*>(&owner)->GetRootCollider()->AddInputMovement(moveInput * speed);
+	dynamic_cast<Character*>(&owner)->GetRootCollider()->AddInputMovement(move_input * speed);
 }

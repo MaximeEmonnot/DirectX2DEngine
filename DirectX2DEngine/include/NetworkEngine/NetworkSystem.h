@@ -33,7 +33,7 @@ public:
 	static NetworkSystem& GetInstance();
 
 	// Connects the Client to a distance Server.
-	void ConnectTo(const std::string& ip_address, int port);
+	void ConnectTo(const std::string& ipAddress, int port);
 	// Disconnects the client's socket.
 	void Disconnect() const;
 

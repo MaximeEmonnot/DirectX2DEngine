@@ -8,15 +8,15 @@ class UIButton : public AUIElement
 {
 public:
 	UIButton() = default;
-	UIButton(const FRect& position, const DirectX::XMFLOAT4& base_color, const DirectX::XMFLOAT4& hover_color, const DirectX::XMFLOAT4& click_color);
+	UIButton(const FRect& position, const DirectX::XMFLOAT4& baseColor, const DirectX::XMFLOAT4& hoverColor, const DirectX::XMFLOAT4& clickColor);
 
-	void SetTask(std::function<void()> new_task);
+	void SetTask(std::function<void()> newTask);
 
 	void Update() override;
 	void Render() const override;
 
 private:
-	std::shared_ptr<ColorModel> model;
+	std::shared_ptr<ColorModel> pModel;
 	DirectX::XMFLOAT4 baseColor;
 	DirectX::XMFLOAT4 hoverColor;
 	DirectX::XMFLOAT4 clickColor;

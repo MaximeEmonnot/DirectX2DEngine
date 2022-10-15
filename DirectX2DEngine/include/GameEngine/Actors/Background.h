@@ -12,6 +12,6 @@ public:
 
 	virtual std::vector<std::shared_ptr<Collider>> GetColliders() const override;
 private:
-	std::shared_ptr<Collider> collider;
-	std::shared_ptr<TextureModel> model;
+	std::shared_ptr<Collider> pCollider;
+	std::shared_ptr<TextureModel> pModel;
 };

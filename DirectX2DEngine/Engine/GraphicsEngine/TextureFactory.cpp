@@ -5,6 +5,8 @@
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<TextureFactory> TextureFactory::pInstance = nullptr;
 
+//******//
+
 TextureFactory& TextureFactory::GetInstance()
 {
     if (!pInstance)
@@ -14,6 +16,7 @@ TextureFactory& TextureFactory::GetInstance()
 
 Texture& TextureFactory::GetTexture(const std::string& path)
 {
+    // We check whether an initialization is needed or not
     if (!textureMap.contains(path)) 
         textureMap.emplace(path, std::make_shared<Texture>(path));
     return *textureMap.at(path);
@@ -21,6 +24,7 @@ Texture& TextureFactory::GetTexture(const std::string& path)
 
 AnimationTexture& TextureFactory::GetAnimationTexture(const std::string& path)
 {
+    // We check whether an initialization is needed or not
     if (!textureMap.contains(path))
         textureMap.emplace(path, std::make_shared<AnimationTexture>(path));
     const std::shared_ptr<AnimationTexture> out = std::dynamic_pointer_cast<AnimationTexture>(textureMap.at(path));

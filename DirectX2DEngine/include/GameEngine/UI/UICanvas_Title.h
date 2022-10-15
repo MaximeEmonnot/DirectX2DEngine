@@ -13,10 +13,10 @@ public:
 	virtual void Update() override;
 
 private:
-	std::shared_ptr<UIImage> titleLogo;
-	std::shared_ptr<UIButton> singlePlayerButton;
-	std::shared_ptr<UIText> singlePlayerButtonTitle;
-	std::shared_ptr<UIButton> multiPlayerButton;
-	std::shared_ptr<UIText> multiPlayerButtonTitle;
+	std::shared_ptr<UIImage> pTitleLogo;
+	std::shared_ptr<UIButton> pSinglePlayerButton;
+	std::shared_ptr<UIText> pSinglePlayerButtonTitle;
+	std::shared_ptr<UIButton> pMultiPlayerButton;
+	std::shared_ptr<UIText> pMultiPlayerButtonTitle;
 };
 

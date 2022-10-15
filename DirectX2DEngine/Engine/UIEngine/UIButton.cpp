@@ -2,37 +2,37 @@
 
 #include "CoreEngine/Mouse.h"
 
-UIButton::UIButton(const FRect& position, const DirectX::XMFLOAT4& base_color, const DirectX::XMFLOAT4& hover_color, const DirectX::XMFLOAT4& click_color)
+UIButton::UIButton(const FRect& position, const DirectX::XMFLOAT4& baseColor, const DirectX::XMFLOAT4& hoverColor, const DirectX::XMFLOAT4& clickColor)
 	:
 	AUIElement(position),
-	model(std::make_shared<ColorModel>(position, base_color)),
-	baseColor(base_color),
-	hoverColor(hover_color),
-	clickColor(click_color),
+	pModel(std::make_shared<ColorModel>(position, baseColor)),
+	baseColor(baseColor),
+	hoverColor(hoverColor),
+	clickColor(clickColor),
 	task([&]{})
 {
-	model->Initialize();
-	model->SetDepth(depth);
+	pModel->Initialize();
+	pModel->SetDepth(depth);
 }
 
-void UIButton::SetTask(std::function<void()> new_task)
+void UIButton::SetTask(std::function<void()> newTask)
 {
-	task = new_task;
+	task = newTask;
 }
 
 void UIButton::Update()
 {
 	if (position.ContainsVec2D(MOUSE_POSITION)){
 		if (MOUSE.Read() == Mouse::EventType::LPress) {
-			model->SetColor(clickColor);
+			pModel->SetColor(clickColor);
 			task();
 		}
-		else model->SetColor(hoverColor);
+		else pModel->SetColor(hoverColor);
 	}
-	else model->SetColor(baseColor);
+	else pModel->SetColor(baseColor);
 }
 
 void UIButton::Render() const
 {
-	model->Render();
+	pModel->Render();
 }

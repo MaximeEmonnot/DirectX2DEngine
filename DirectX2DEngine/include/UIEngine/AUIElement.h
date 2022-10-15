@@ -9,7 +9,7 @@ public:
 	AUIElement(const FRect& position);
 	virtual ~AUIElement() = default;
 
-	virtual void SetPosition(const FRect& new_position);
+	virtual void SetPosition(const FRect& newPosition);
 
 	virtual void Update();
 	virtual void Render() const = 0;

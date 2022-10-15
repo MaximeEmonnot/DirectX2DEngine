@@ -18,9 +18,9 @@ public:
     DirectX::XMMATRIX GetScaleMatrix() const;
     DirectX::XMFLOAT4 GetColor() const;
 
-    void SetColor(const DirectX::XMFLOAT4& new_color);
-    void SetPosition(const FVec2D& new_pos);
-    void SetRectangle(const FRect& new_rect);
+    void SetColor(const DirectX::XMFLOAT4& newColor);
+    void SetPosition(const FVec2D& newPos);
+    void SetRectangle(const FRect& newRect);
 
 protected:
     virtual void SettingShader() override;
@@ -34,6 +34,6 @@ private:
     DirectX::XMFLOAT4 color;
     float angle;
 
-    ColorShader::VertexInput color_vertices[6] = {};
+    ColorShader::VertexInput colorVertices[6] = {};
 };
 

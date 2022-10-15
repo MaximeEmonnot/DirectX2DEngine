@@ -10,24 +10,24 @@ UIText::UIText(const FRect& position, const std::wstring& text, const std::wstri
 {
 }
 
-void UIText::SetText(const std::wstring& new_text)
+void UIText::SetText(const std::wstring& newText)
 {
-	text = new_text;
+	text = newText;
 }
 
-void UIText::SetFont(const std::wstring& new_font)
+void UIText::SetFont(const std::wstring& newFont)
 {
-	font = new_font;
+	font = newFont;
 }
 
-void UIText::SetSize(float new_size)
+void UIText::SetSize(float newSize)
 {
-	size = new_size;
+	size = newSize;
 }
 
-void UIText::SetColor(const D2D1_COLOR_F& new_color)
+void UIText::SetColor(const D2D1_COLOR_F& newColor)
 {
-	color = new_color;
+	color = newColor;
 }
 
 void UIText::Render() const

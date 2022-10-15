@@ -3,10 +3,10 @@
 #include "GraphicsEngine/TextureFactory.h"
 #include "ParserEngine/JSONParser.h"
 
-CollisionSystem::CollisionSystem(Actor& owner, const std::string& file_path, const std::vector<std::string>& animations)
+CollisionSystem::CollisionSystem(Actor& owner, const std::string& filePath, const std::vector<std::string>& animations)
 {
 	JSONParser::Reader jsonParser;
-	jsonParser.ReadFile(file_path);
+	jsonParser.ReadFile(filePath);
 
 	auto& jsonCollisions = jsonParser.GetValueOf("collisions");
 	for (auto& anim : animations)
@@ -50,8 +50,8 @@ bool CollisionSystem::AnimationIsFinished() const
 std::vector<std::shared_ptr<Collider>> CollisionSystem::GetColliders() const
 {
 	std::vector<std::shared_ptr<Collider>> out;
-	for (auto& c : collisionGroups.at(animState).GetColliders())
-		out.emplace_back(c);
+	for (auto& pCollider : collisionGroups.at(animState).GetColliders())
+		out.emplace_back(pCollider);
 	return out;
 }
 
@@ -63,7 +63,7 @@ void CollisionSystem::SetCollisionGroup(const std::string& state)
 	}
 }
 
-void CollisionSystem::AddCollisionsToGroup(CollisionGroup& collision_group, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collision_channel, float hold_time, Animation::AnimationMode loop_mode, const std::string& animation) const
+void CollisionSystem::AddCollisionsToGroup(CollisionGroup& collisionGroup, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collisionChannel, float holdTime, Animation::AnimationMode loopMode, const std::string& animation) const
 {
 	if (jsonObject.HasMember(name.c_str()))
 	{
@@ -71,9 +71,9 @@ void CollisionSystem::AddCollisionsToGroup(CollisionGroup& collision_group, Acto
 		MovingCollider moving_collider(owner);
 		moving_collider.SetVisible(true);
 		moving_collider.SetCollisionMode(Collider::CollisionMode::Overlapping);
-		moving_collider.SetCollisionChannel(collision_channel);
-		moving_collider.SetHoldTime(hold_time);
-		moving_collider.SetLoop(loop_mode);
+		moving_collider.SetCollisionChannel(collisionChannel);
+		moving_collider.SetHoldTime(holdTime);
+		moving_collider.SetLoop(loopMode);
 		for (auto itr = collider.MemberBegin(); itr != collider.MemberEnd(); ++itr)
 		{
 			const float x_pos = itr->value.GetArray()[0].GetFloat();
@@ -83,6 +83,6 @@ void CollisionSystem::AddCollisionsToGroup(CollisionGroup& collision_group, Acto
 			const FVec2D texture_center = ANIMATION_TEXTURE(animation + std::string(itr->name.GetString()) + std::string(".tga")).GetCenter();
 			moving_collider.AddPosition(FRect(x_pos - texture_center.x, y_pos - texture_center.y, width, height));
 		}
-		collision_group.AddCollider(moving_collider);
+		collisionGroup.AddCollider(moving_collider);
 	}
 }
