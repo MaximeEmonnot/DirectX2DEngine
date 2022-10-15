@@ -19,6 +19,7 @@ void BaseFighter::ComboTree::UpdateTree()
 {
     const IVec2D input = GetCommandInput();
 
+    // We transform the CommandInput into an Action (X = 1, Y = 0 gives Right; X = 0, Y = 1 gives Up and so on)
     Action new_action = Action::None;
     switch (input.x)
     {
@@ -71,8 +72,10 @@ void BaseFighter::ComboTree::UpdateTree()
         break;
     }
 
+    // If the current Action is different from the last one...
     if (new_action != lastAction)
     {
+        // ... we update the last Action and we move the CurrentStage pointer in the ComboTree, as each node is associated to an Action.
         lastAction = new_action;
         for (const std::shared_ptr<ComboNode> leaf : pCurrentStage->leaves)
         {
@@ -84,8 +87,9 @@ void BaseFighter::ComboTree::UpdateTree()
             }
         }
     }
-    else timer -= DELTATIME;
+    else timer -= DELTATIME; // If it was the same action, we update the Timer
 
+    // When the timer reaches 0.0, the CurrentStage pointer returns to the Root of the ComboTree
     if (timer <= 0.0f)
     {
         lastAction = Action::None;
@@ -130,22 +134,25 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
 
 void BaseFighter::Update()
 {
+    // The fighter faces his enemy based on his position 
     if (const std::shared_ptr<BaseFighter> shared_enemy = pEnemy.lock()) 
         pModel->SetInverted(owner.GetPosition().x < shared_enemy->owner.GetPosition().x);
 
     pComboTree->UpdateTree();
+
+    // We read the result from the ComboTree
     if (KBD.KeyIsPressed(Commands::PUNCH)) {
         const std::string test = pComboTree->GetCurrentCombo();
         if (!test.empty()) OutputDebugStringA((test + std::string("\n")).c_str());
     }
-    animSys.Update();
 
+    // Animation updates
+    animSys.Update();
     FVec2D texture_center = animSys.GetTexture().GetCenter();
     if (pModel->IsInverted()) texture_center.x *= -1;
-
     pModel->SetPosition(owner.GetPosition() - texture_center);
     pModel->SetTexture(animSys.GetTexture());
-    
+
     collisionSys.Update();
 }
 

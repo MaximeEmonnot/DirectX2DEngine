@@ -65,6 +65,7 @@ std::shared_ptr<Collider> MovingCollider::GetCollider() const
 
 void MovingCollider::Advance()
 {
+	// We go into the next frame, depending on the AnimationLoopingMode
 	curRectPos += threshold;
 	if (curRectPos >= positions.size() || curRectPos < 0) {
 		switch (loopMode)

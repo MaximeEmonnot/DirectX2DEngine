@@ -36,6 +36,7 @@ bool Animation::IsFinished() const
 
 void Animation::Advance()
 {
+	// We go into the next frame, depending on the AnimationLoopingMode
 	iCurFrame += threshold;
 	if (iCurFrame >= frames.size() || iCurFrame < 0) {
 		switch (animMode)

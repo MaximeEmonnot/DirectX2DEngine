@@ -38,6 +38,7 @@ void UICanvas_SinglePlayerSelection::SelectFighter(int fighterValue) const
 {
 	if (std::shared_ptr<SinglePlayerSelectionLevel> level = std::dynamic_pointer_cast<SinglePlayerSelectionLevel>(ENGINE.GetCurrentLevel()))
 	{
+		// We chooses 2 characters until we pass into the next Level
 		if (level->GetSelection().first == 0) level->SetSelectionValue(true, fighterValue);
 		else if (level->GetSelection().second == 0) {
 			level->SetSelectionValue(false, fighterValue);

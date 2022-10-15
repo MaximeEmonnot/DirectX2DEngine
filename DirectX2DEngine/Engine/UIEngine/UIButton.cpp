@@ -22,6 +22,7 @@ void UIButton::SetTask(std::function<void()> newTask)
 
 void UIButton::Update()
 {
+	// We adjust the button's color on his Normal state, Hovering state and Click state
 	if (position.ContainsVec2D(MOUSE_POSITION)){
 		if (MOUSE.Read() == Mouse::EventType::LPress) {
 			pModel->SetColor(clickColor);

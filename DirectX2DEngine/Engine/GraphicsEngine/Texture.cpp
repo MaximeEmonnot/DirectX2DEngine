@@ -8,6 +8,7 @@ Texture::Texture(const std::string& filepath)
 
 	unsigned char* tga_data = LoadTGA(filepath);
 
+	// Texture2D Creation 
 	D3D11_TEXTURE2D_DESC tex_desc;
 	ZeroMemory(&tex_desc, sizeof(D3D11_TEXTURE2D_DESC));
 
@@ -26,9 +27,11 @@ Texture::Texture(const std::string& filepath)
 	if (FAILED(hr = GFX.GetDevice()->CreateTexture2D(&tex_desc, nullptr, pTexture.GetAddressOf())))
 		throw GFX_EXCEPTION("An exception has been caught during Texture Object Creation.", hr);
 
+	// Linking the TGA data to the Texture2D Object
 	const int row_pitch = (width * 4) * sizeof(unsigned char);
 	GFX.GetDeviceContext()->UpdateSubresource(pTexture.Get(), 0, nullptr, tga_data, row_pitch, 0);
 
+	// Shader Resource View Creation using the Texture2D data
 	D3D11_SHADER_RESOURCE_VIEW_DESC srv_desc;
 	ZeroMemory(&srv_desc, sizeof(D3D11_SHADER_RESOURCE_VIEW_DESC));
 
@@ -76,27 +79,26 @@ unsigned char* Texture::LoadTGA(const std::string& filepath)
 	TGAHeader tgaFileHeader = {};
 	fopen_s(&pFile, filepath.c_str(), "rb");
 
+	// First we read the TGA header...
 	unsigned int count = static_cast<unsigned int>(fread(&tgaFileHeader, sizeof(TGAHeader), 1, pFile));
 
 	width = static_cast<int>(tgaFileHeader.width);
 	height = static_cast<int>(tgaFileHeader.height);
 
+	//...we also make sure that a single pixel is made of 32 bits (RGBA)
 	if (tgaFileHeader.bpp != 32)
 		throw GFX_EXCEPTION("An exception has occured during TGA file reading. Please use TGA 32 bits.", S_FALSE);
 
+	// Then we read the entire TGA image...
 	const int imageSize = width * height * 4;
-
 	unsigned char* tgaImage = new unsigned char[imageSize];
-
 	fread(tgaImage, 1, imageSize, pFile);
-
 	fclose(pFile);
-
 	unsigned char* tga_data = new unsigned char[imageSize];
-
 	int index = 0;
 	int k = (width * height * 4) - (width * 4);
 
+	// ...and we store it while making sure to invert the rows
 	for (int j = 0; j < height; j++)
 	{
 		for (int i = 0; i < width; i++)

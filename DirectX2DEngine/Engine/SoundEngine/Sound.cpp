@@ -46,7 +46,6 @@ Sound::Sound(const std::string& path, Type soundType)
 	buffer.AudioBytes = dwChunkSize;
 	buffer.pAudioData = pDataBuffer;
 	buffer.Flags = XAUDIO2_END_OF_STREAM;
-
 	if (soundType == Sound::Type::MUSIC)
 		buffer.LoopCount = XAUDIO2_LOOP_INFINITE;
 }

@@ -37,9 +37,11 @@ void UITextBox::SetOutlineColor(const DirectX::XMFLOAT4& newOutlineColor) const
 
 void UITextBox::Update()
 {
+	// When we click on the TextBox, we set the Focus state on
 	if (MOUSE.Read() == Mouse::EventType::LPress)
 		bIsFocused = position.ContainsVec2D(MOUSE_POSITION);
 
+	// When the Focus state is on, we can read the Keyboard inputs
 	if (bIsFocused)
 	{
 		const char c = KBD.ReadChar();
@@ -53,6 +55,7 @@ void UITextBox::Render() const
 	pBoxModel->Render();
 	pOutlineModel->Render();
 
+	// Default text or the User text is displayed, depending on the entry from the user
 	if (bIsFocused || !text.empty()) TEXT_ENGINE.Render(text, font, position.height / 2.f, position, D2D1::ColorF(D2D1::ColorF::White));
 	else TEXT_ENGINE.Render(defaultText, font, position.height / 2.f, position, D2D1::ColorF(D2D1::ColorF::LightGray));
 }

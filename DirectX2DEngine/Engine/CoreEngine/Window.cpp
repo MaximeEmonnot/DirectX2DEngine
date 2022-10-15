@@ -128,6 +128,7 @@ LRESULT Window::WindowProc(HWND hWnd, UINT uMsg, WPARAM wParam, LPARAM lParam)
 		return 0;
 		//*** END CLOSE WINDOW EVENTS ***//
 
+	// We keep updating the DeltaTime value to avoid accidents when the window doesn't move anymore (i.e. absurd DeltaTime values used for physics)
 	case WM_MOVING:
 		TICKCLOCK
 		break;

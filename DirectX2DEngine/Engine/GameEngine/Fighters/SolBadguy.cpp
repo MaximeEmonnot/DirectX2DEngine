@@ -8,6 +8,7 @@
 
 SolBadguy::SolComboTree::SolComboTree()
 {
+	/// COMBOTREE INITIALIZATION
 	// Down
 	pRoot->leaves.emplace_back(std::make_shared<ComboNode>(Action::Down, "Down"));
 	// Down DownRight Right

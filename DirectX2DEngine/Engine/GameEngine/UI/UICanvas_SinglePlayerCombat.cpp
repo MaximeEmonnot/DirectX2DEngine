@@ -14,6 +14,7 @@ UICanvas_SinglePlayerCombat::UICanvas_SinglePlayerCombat(std::shared_ptr<BaseFig
 
 void UICanvas_SinglePlayerCombat::Update()
 {
+	// The following percentage is just an example
 	pPlayerHealthBar->SetPercentage(0.85f);
 	pEnemyHealthBar->SetPercentage(0.15f);
 }

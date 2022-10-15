@@ -41,6 +41,7 @@ void MultiPlayerCombatLevel::BeginLevel()
 		break;
 	}
 
+	// Linking Player and Enemy so they face each other
 	pPlayer->GetFighter()->SetEnemy(pEnemy->GetFighter());
 	pEnemy->GetFighter()->SetEnemy(pPlayer->GetFighter());
 
@@ -55,6 +56,7 @@ void MultiPlayerCombatLevel::SetSelection(std::pair<int, int> _selection)
 
 void MultiPlayerCombatLevel::SendPositionData(FVec2D position)
 {
+	// We reinterpret the floating point values as uint8_t arrays of size 4
 	std::vector<uint8_t> output;
 	uint8_t* position_x = reinterpret_cast<uint8_t*>(&position.x);
 	uint8_t* position_y = reinterpret_cast<uint8_t*>(&position.y);

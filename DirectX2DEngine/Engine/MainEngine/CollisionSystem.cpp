@@ -8,11 +8,13 @@ CollisionSystem::CollisionSystem(Actor& owner, const std::string& filePath, cons
 	JSONParser::Reader jsonParser;
 	jsonParser.ReadFile(filePath);
 
+	// From the JSON File, for each animation...
 	auto& jsonCollisions = jsonParser.GetValueOf("collisions");
 	for (auto& anim : animations)
 	{
 		if (jsonCollisions.HasMember(anim.c_str()))
 		{
+			//... we get the HoldTime value, the LoopingMode...
 			CollisionGroup collision_group;
 			auto& jsonCollider = jsonCollisions[anim.c_str()];
 
@@ -20,6 +22,7 @@ CollisionSystem::CollisionSystem(Actor& owner, const std::string& filePath, cons
 			const Animation::AnimationMode loop_mode = static_cast<Animation::AnimationMode>(jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[2].GetInt());
 			const std::string animation_path = jsonParser.GetValueOf("character").GetString() + anim + std::string("/");
 
+			//... and we setup the different colliders to the collision group
 			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Head", Collider::CollisionChannel::Stun, hold_time, loop_mode, animation_path);
 			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Body", Collider::CollisionChannel::Defense, hold_time, loop_mode, animation_path);
 			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Attack", Collider::CollisionChannel::Attack, hold_time, loop_mode, animation_path);
@@ -65,6 +68,7 @@ void CollisionSystem::SetCollisionGroup(const std::string& state)
 
 void CollisionSystem::AddCollisionsToGroup(CollisionGroup& collisionGroup, Actor& owner, rapidjson::GenericValue<rapidjson::UTF8<>>& jsonObject, const std::string& name, Collider::CollisionChannel collisionChannel, float holdTime, Animation::AnimationMode loopMode, const std::string& animation) const
 {
+	// We initialize the collider and we add it to the collision group
 	if (jsonObject.HasMember(name.c_str()))
 	{
 		auto& collider = jsonObject[name.c_str()];

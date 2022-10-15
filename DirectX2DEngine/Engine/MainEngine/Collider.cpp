@@ -43,6 +43,7 @@ void Collider::Update()
 	if (mode == CollisionMode::Invicibility)
 		UpdateInvincibility();
 
+	// We apply the different forces, such as gravity, forces from other sources (for example a hit from an actor), friction and reaction
 	if (bIsGravityEnabled) ApplyGravity();
 	ApplyForces();
 	ApplyFriction();
@@ -55,9 +56,9 @@ void Collider::Update()
 	pModel->SetRectangle(rect + origin);
 }
 
-void Collider::SetCollisionMode(CollisionMode cMode)
+void Collider::SetCollisionMode(CollisionMode collisionMode)
 {
-	mode = cMode;
+	mode = collisionMode;
 }
 
 void Collider::SetVisible(bool bValue)
@@ -65,9 +66,9 @@ void Collider::SetVisible(bool bValue)
 	pModel->SetVisibility(bValue);
 }
 
-void Collider::SetCollisionChannel(CollisionChannel cChannel)
+void Collider::SetCollisionChannel(CollisionChannel collisionChannel)
 {
-	channel = cChannel;
+	channel = collisionChannel;
 
 	switch (channel)
 	{
@@ -137,7 +138,7 @@ void Collider::AddInputMovement(const FVec2D& dir)
 void Collider::SetInvicibilityState()
 {
 	mode = CollisionMode::Invicibility;
-	nInvicibilityFrames = 8;
+	nInvincibilityFrames = 8;
 }
 
 void Collider::ApplyGravity()
@@ -171,7 +172,7 @@ void Collider::ApplyReaction(const FRect& testRect, FVec2D& direction)
 
 void Collider::UpdateInvincibility()
 {
-	if (--nInvicibilityFrames <= 0) mode = CollisionMode::Overlapping;
+	if (--nInvincibilityFrames <= 0) mode = CollisionMode::Overlapping;
 }
 
 void Collider::TryMovingInThisDirection(FVec2D& direction)
@@ -179,12 +180,15 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 	overlappingActors.clear();
 	const FRect test_rect = rect + origin + direction * DELTATIME;
 
+	// For all other actors in the level...
 	for (std::shared_ptr<Actor>& actor : owner.GetWorld().GetActors())
 	{
 		if (&owner != actor.get())
 		{
+			// ...we check for each one of their colliders...
 			for (const std::shared_ptr<Collider>& c : actor->GetColliders())
 			{
+				// ...if there is a collision between our collider and their collider
 				const FRect actor_collider = c->rect + c->origin;
 				if (test_rect.IsCollidingRect(actor_collider))
 				{

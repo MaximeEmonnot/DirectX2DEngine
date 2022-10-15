@@ -10,6 +10,8 @@ void JSONParser::Reader::ReadFile(const std::string& filePath)
 		throw JSON_EXCEPTION("An exception has been caught during JSON file opening.\nPlease check JSON file path.");
 	rapidjson::IStreamWrapper isw(file);
 	document.ParseStream(isw);
+
+	// Basic Exception Handling... 
 	if (document.HasParseError())
 	{
 		switch (document.GetParseError())
@@ -53,6 +55,7 @@ void JSONParser::Reader::ReadFile(const std::string& filePath)
 		default:;
 		}
 	}
+
 	file.close();
 }
 

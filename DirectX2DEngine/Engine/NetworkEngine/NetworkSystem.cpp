@@ -55,11 +55,13 @@ void NetworkSystem::Disconnect() const
 
 void NetworkSystem::SendData(std::vector<uint8_t> data) const
 {
+	// We add the package size at the beginning of it
 	int size = static_cast<int>(data.size());
 	uint8_t* size_array = reinterpret_cast<uint8_t*>(&size);
 	std::vector<uint8_t> size_vector(size_array, size_array + 4);
 	data.insert(data.begin(), size_vector.begin(), size_vector.end());
 
+	// Then we send it all at once
 	if (send(sock, reinterpret_cast<char*>(data.data()), data.size(), 0) == SOCKET_ERROR) 
 		LOG(std::string("Error while sending message!\nMore infos : ") + std::to_string(WSAGetLastError()), LOG_ERROR)
 }

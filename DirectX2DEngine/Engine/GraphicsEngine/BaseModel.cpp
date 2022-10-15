@@ -67,6 +67,7 @@ bool BaseModel::IsInverted() const
 
 void BaseModel::SettingIndices()
 {
+	// As we only use planes, the IndexBuffer is quite simple
 	pIndices = new unsigned long[nVertices];
 	for (int i = 0; i < nVertices; i++)
 		pIndices[i] = i;
@@ -76,6 +77,7 @@ HRESULT BaseModel::SettingVertexBuffers()
 {
 	HRESULT hr = S_OK;
 
+	// Vertex Buffer Creation
 	D3D11_BUFFER_DESC vb_desc;
 	ZeroMemory(&vb_desc, sizeof(D3D11_BUFFER_DESC));
 	vb_desc.Usage = D3D11_USAGE_DEFAULT;
@@ -88,6 +90,7 @@ HRESULT BaseModel::SettingVertexBuffers()
 
 	hr = GFX.GetDevice()->CreateBuffer(&vb_desc, &vb_data, &pVertexBuffer);
 
+	// Inverted Vertex Buffer Creation (used for flipped models)
 	D3D11_BUFFER_DESC ivb_desc;
 	ZeroMemory(&ivb_desc, sizeof(D3D11_BUFFER_DESC));
 	ivb_desc.Usage = D3D11_USAGE_DEFAULT;
