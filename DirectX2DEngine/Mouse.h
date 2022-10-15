@@ -33,6 +33,7 @@ public:
 
 	static Mouse& GetInstance();
 
+	// Reads the last frame's Mouse event.
 	Mouse::EventType Read() const;
 
 	FVec2D GetPosition() const;

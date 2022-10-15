@@ -2,7 +2,9 @@
 #include <memory>
 #include <chrono>
 
+// Updates the DELTATIME value.
 #define TICKCLOCK Timer::GetInstance().Update();
+
 #define DELTATIME Timer::GetInstance().DeltaTime()
 
 class Timer {

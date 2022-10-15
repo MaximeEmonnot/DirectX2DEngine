@@ -40,7 +40,7 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 	if (connect(sock, reinterpret_cast<sockaddr*>(&addr_in), sizeof(addr_in)) == SOCKET_ERROR)
 		throw NETWORK_EXCEPTION("An error has been caught during TCP Socket Connection.", WSAGetLastError());
 
-	// Receive place
+	// We receive our place in the server
 	std::vector<uint8_t> input = ReceiveData();
 	place = input.at(0);
 }
@@ -66,9 +66,11 @@ std::vector<uint8_t> NetworkSystem::ReceiveData() const
 {
 	std::vector<uint8_t> out;
 	int size = 0;
+	// First we receive the package's size
 	if (recv(sock, reinterpret_cast<char*>(&size), sizeof(int), 0) == SOCKET_ERROR)
 		LOG(std::string("Error while recieving size!\nMore infos : ") + std::to_string(WSAGetLastError()), LOG_ERROR)
 	else {
+		// Then we receive the package
 		char* buffer = new char[size + 1];
 		if (recv(sock, buffer, size, 0) == SOCKET_ERROR) {
 			LOG(std::string("Error while receiving message!\nMore infos : ") + std::to_string(WSAGetLastError()), LOG_ERROR)

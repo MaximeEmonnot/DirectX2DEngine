@@ -13,12 +13,6 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Fichiers d%27en-tête\WindowEngine">
-      <UniqueIdentifier>{7f0e1b0d-c772-46c1-a104-c4ae1d7b135e}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Fichiers sources\WindowEngine">
-      <UniqueIdentifier>{b1531915-367b-4364-8641-b91e2c5239e1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Fichiers d%27en-tête\DebugEngine">
       <UniqueIdentifier>{e2e8781d-f0f9-4395-957b-54fdd5316223}</UniqueIdentifier>
     </Filter>
@@ -64,22 +58,34 @@
     <Filter Include="Fichiers sources\NetworkEngine">
       <UniqueIdentifier>{c78e4c40-716d-4bf4-855f-7c65f221173f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers d%27en-tête\ParserEngine">
+      <UniqueIdentifier>{5ff4518f-75aa-4b76-8202-17720c40d8ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\ParserEngine">
+      <UniqueIdentifier>{a380cb4c-544f-4dd3-986d-60b7fceddcde}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\CoreEngine">
+      <UniqueIdentifier>{7f0e1b0d-c772-46c1-a104-c4ae1d7b135e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\CoreEngine">
+      <UniqueIdentifier>{b1531915-367b-4364-8641-b91e2c5239e1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp">
       <Filter>Fichiers sources</Filter>
     </ClCompile>
     <ClCompile Include="Keyboard.cpp">
-      <Filter>Fichiers sources\WindowEngine</Filter>
+      <Filter>Fichiers sources\CoreEngine</Filter>
     </ClCompile>
     <ClCompile Include="Mouse.cpp">
-      <Filter>Fichiers sources\WindowEngine</Filter>
+      <Filter>Fichiers sources\CoreEngine</Filter>
     </ClCompile>
     <ClCompile Include="Timer.cpp">
-      <Filter>Fichiers sources\WindowEngine</Filter>
+      <Filter>Fichiers sources\CoreEngine</Filter>
     </ClCompile>
     <ClCompile Include="Window.cpp">
-      <Filter>Fichiers sources\WindowEngine</Filter>
+      <Filter>Fichiers sources\CoreEngine</Filter>
     </ClCompile>
     <ClCompile Include="Graphics.cpp">
       <Filter>Fichiers sources\GraphicsEngine</Filter>
@@ -135,11 +141,8 @@
     <ClCompile Include="LoggerManager.cpp">
       <Filter>Fichiers sources\DebugEngine</Filter>
     </ClCompile>
-    <ClCompile Include="JSONParser.cpp">
-      <Filter>Fichiers sources\WindowEngine</Filter>
-    </ClCompile>
     <ClCompile Include="ThreadPool.cpp">
-      <Filter>Fichiers sources\WindowEngine</Filter>
+      <Filter>Fichiers sources\CoreEngine</Filter>
     </ClCompile>
     <ClCompile Include="Actor.cpp">
       <Filter>Fichiers sources\MainEngine</Filter>
@@ -267,19 +270,22 @@
     <ClCompile Include="NetworkEnemyController.cpp">
       <Filter>Fichiers sources\GameEngine</Filter>
     </ClCompile>
+    <ClCompile Include="JSONParser.cpp">
+      <Filter>Fichiers sources\ParserEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Keyboard.h">
-      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
     <ClInclude Include="Mouse.h">
-      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
-      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
     <ClInclude Include="Window.h">
-      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
     <ClInclude Include="EngineException.h">
       <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
@@ -341,11 +347,8 @@
     <ClInclude Include="LoggerManager.h">
       <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
     </ClInclude>
-    <ClInclude Include="JSONParser.h">
-      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
-    </ClInclude>
     <ClInclude Include="ThreadPool.h">
-      <Filter>Fichiers d%27en-tête\WindowEngine</Filter>
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
     <ClInclude Include="Actor.h">
       <Filter>Fichiers d%27en-tête\MainEngine</Filter>
@@ -484,6 +487,9 @@
     </ClInclude>
     <ClInclude Include="NetworkEnemyController.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="JSONParser.h">
+      <Filter>Fichiers d%27en-tête\ParserEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,7 +1,6 @@
 #pragma once
-#include "EngineException.h"
 #include <xaudio2.h>
-#include <wrl.h>
+#include <string>
 
 #ifdef _XBOX //Big-Endian
 #define fourccRIFF 'RIFF'
@@ -33,7 +32,7 @@ private:
 	};
 public:
 	Sound(const std::string& path, Type soundType);
-	~Sound();
+	~Sound() = default;
 
 private:
 	void SetVoice(IXAudio2* pAudio);

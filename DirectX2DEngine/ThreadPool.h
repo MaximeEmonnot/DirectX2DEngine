@@ -17,6 +17,7 @@ public:
 
 	static ThreadPool& GetInstance();
 
+	// Enqueues a task that will be executed by one of the threads in the pool.
 	void Enqueue(std::function<void()> task);
 
 	void KillPool();

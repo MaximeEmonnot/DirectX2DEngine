@@ -29,9 +29,16 @@ public:
 
 	static Keyboard& GetInstance();
 
+	// Returns the status (Pressed / Released) of the key associated with the keycode.
 	bool KeyIsPressed(unsigned char keycode) const;
+
+	// Reads the last frame key stroke.
 	Keyboard::Event ReadKey() const;
+
+	// Reads the last frame character typed.
 	char ReadChar() const;
+
+	// Returns the buffer's emptiness.
 	bool KeyIsEmpty() const;
 
 private:

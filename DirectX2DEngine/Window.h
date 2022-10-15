@@ -20,6 +20,7 @@ public:
 
 	static Window& GetInstance();
 
+	// Processes any Windows events. Returns always true until a closing event is caught.
 	bool ProcessMessages();
 
 	int GetWidth() const;

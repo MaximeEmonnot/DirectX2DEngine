@@ -51,13 +51,6 @@ Sound::Sound(const std::string& path, Type soundType)
 		buffer.LoopCount = XAUDIO2_LOOP_INFINITE;
 }
 
-Sound::~Sound()
-{
-	//pSourceVoice->DestroyVoice();
-	//delete pSourceVoice;
-	//pSourceVoice = nullptr;
-}
-
 void Sound::SetVoice(IXAudio2* pAudio)
 {
 	HRESULT hr = S_OK;

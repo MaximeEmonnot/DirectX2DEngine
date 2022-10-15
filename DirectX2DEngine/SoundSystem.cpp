@@ -45,6 +45,7 @@ void SoundSystem::Play(const std::string& path, int posX) const
 	if (!soundMap.contains(path))
 		throw SFX_EXCEPTION("This song has not been added!\nPlease, add the song first before playing it.", S_FALSE);
 
+	// Setup Left and Right Channel Volumes based on the X-position 
 	const float pVoiceChannelVolumes[2] = {
 		1.0f - (static_cast<float>(posX) / (static_cast<float>(WND.GetWidth()) / 2)),
 		1.0f + static_cast<float>(posX) / (static_cast<float>(WND.GetWidth()) / 2)
@@ -52,6 +53,7 @@ void SoundSystem::Play(const std::string& path, int posX) const
 	Sound toPlay = soundMap.at(path);
 	HRESULT hr = S_OK;
 
+	// Effects can be played multiple times simultaneously, Musics are played only once
 	switch (toPlay.soundType) {
 	case Sound::Type::EFFECT:
 		toPlay.SetVoice(pAudio.Get());
@@ -70,10 +72,9 @@ void SoundSystem::Pause(const std::string& path) const
 {
 	if (!soundMap.contains(path))
 		throw SFX_EXCEPTION("This song has not been added!\nPlease, add the song first before playing it.", S_FALSE);
-	Sound toPlay = soundMap.at(path);
+	const Sound toPlay = soundMap.at(path);
 	if (toPlay.soundType != Sound::Type::MUSIC)
 		throw SFX_EXCEPTION("The sound is not a music.", S_FALSE);
-
 	toPlay.Pause();
 }
 
@@ -82,7 +83,7 @@ void SoundSystem::SetVolume(const std::string& path, int posX) const
 	HRESULT hr;
 	if (!soundMap.contains(path))
 		throw SFX_EXCEPTION("This song has not been added!\nPlease, add the song first before playing it.", S_FALSE);
-	Sound toPlay = soundMap.at(path);
+	const Sound toPlay = soundMap.at(path);
 	if (toPlay.soundType != Sound::Type::MUSIC)
 		throw SFX_EXCEPTION("The sound is not a music.", S_FALSE);
 	const float pVoiceChannelVolumes[2] = {

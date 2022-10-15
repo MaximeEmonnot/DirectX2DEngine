@@ -15,6 +15,7 @@ public:
 
 	static LoggerManager& GetInstance();
 
+	// Logs a message on the specified Logging Level.
 	void Log(const std::string& message, Logger::Level level) const;
 
 private:
