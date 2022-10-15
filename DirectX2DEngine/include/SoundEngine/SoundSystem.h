@@ -1,10 +1,11 @@
 #pragma once
-#include "DebugEngine/EngineException.h"
-#include "CoreEngine/Window.h"
-#include "Sound.h"
-#include <xaudio2.h>
+
 #include <wrl.h>
 #include <map>
+
+#include "CoreEngine/Window.h"
+#include "DebugEngine/EngineException.h"
+#include "Sound.h"
 
 #define SFX SoundSystem::GetInstance()
 #define SFX_EXCEPTION(note, hr) SoundSystem::SoundEffectsException("DirectX 2D Engine - Sound Engine Exception", note, __FILE__, __LINE__, hr)

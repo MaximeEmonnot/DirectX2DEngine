@@ -1,13 +1,14 @@
 #include "GameEngine/Fighters/BaseFighter.h"
 
-#include "GraphicsEngine/AnimationTexture.h"
-#include "GameEngine/Commands.h"
-#include "MainEngine/Engine.h"
-#include "ParserEngine/JSONParser.h"
 #include "CoreEngine/Keyboard.h"
 #include "CoreEngine/Timer.h"
+#include "GraphicsEngine/AnimationTexture.h"
+#include "ParserEngine/JSONParser.h"
+#include "MainEngine/Engine.h"
+#include "GameEngine/Commands.h"
 
 //**** COMBO TREE ****//
+
 BaseFighter::ComboTree::ComboTree()
     :
     root(std::make_shared<ComboNode>(Action::None)),
@@ -112,7 +113,7 @@ IVec2D BaseFighter::ComboTree::GetCommandInput() const
     return out;
 }
 
-/// BASE FIGHTER ///
+//**** BASE FIGHTER ****//
 
 BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int priority)
     :

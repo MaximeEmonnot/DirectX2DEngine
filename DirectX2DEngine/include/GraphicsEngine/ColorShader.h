@@ -1,5 +1,7 @@
 #pragma once
+
 #include "BaseShader.h"
+
 class ColorShader :
     public BaseShader
 {

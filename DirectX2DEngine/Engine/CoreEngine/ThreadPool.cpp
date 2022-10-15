@@ -5,6 +5,8 @@
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<ThreadPool> ThreadPool::pInstance = nullptr;
 
+//******//
+
 ThreadPool::ThreadPool()
 {
 	for (size_t i = 0; i < numThreads; ++i) {

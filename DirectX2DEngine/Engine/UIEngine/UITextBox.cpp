@@ -3,7 +3,6 @@
 #include <codecvt>
 #include <locale>
 
-
 #include "CoreEngine/Keyboard.h"
 #include "CoreEngine/Mouse.h"
 #include "GraphicsEngine/TextRenderer.h"

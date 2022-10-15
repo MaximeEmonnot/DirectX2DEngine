@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Texture.h"
 #include "MathEngine/Vec2D.h"
 

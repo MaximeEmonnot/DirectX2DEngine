@@ -1,11 +1,12 @@
 #pragma once
+
 #include "DirectX.h"
 
 class BaseShader
 {
 public:
 	BaseShader() = default;
-	virtual ~BaseShader();
+	virtual ~BaseShader() = default;
 
 	virtual void Initialize();
 	virtual void RenderModel(class BaseModel& model) = 0;

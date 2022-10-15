@@ -1,4 +1,5 @@
 #include "GraphicsEngine/AnimationSystem.h"
+
 #include "ParserEngine/JSONParser.h"
 
 AnimationSystem::AnimationSystem(const std::string& filePath)

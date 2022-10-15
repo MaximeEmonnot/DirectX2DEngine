@@ -1,8 +1,8 @@
 #include "GameEngine/UI/UICanvas_Title.h"
 
-#include "GameEngine/Levels/ConnectionLevel.h"
-#include "MainEngine/Engine.h"
 #include "NetworkEngine/NetworkSystem.h"
+#include "MainEngine/Engine.h"
+#include "GameEngine/Levels/ConnectionLevel.h"
 #include "GameEngine/Levels/SinglePlayerSelectionLevel.h"
 
 

@@ -1,9 +1,10 @@
 #pragma once
+
 #include "MainEngine/Character.h"
 #include "MainEngine/Collider.h"
 #include "GameEngine/Fighters/BaseFighter.h"
-#include "GameEngine/Fighters/RoboKy.h"
 #include "GameEngine/Fighters/SolBadguy.h"
+#include "GameEngine/Fighters/RoboKy.h"
 
 enum class EFighterName
 {

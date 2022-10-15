@@ -1,4 +1,5 @@
 #pragma once
+
 #include "Vec2D.h"
 
 template <typename T>

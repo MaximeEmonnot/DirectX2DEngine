@@ -3,6 +3,8 @@
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<Keyboard> Keyboard::pInstance = nullptr;
 
+//******//
+
 Keyboard::~Keyboard()
 {
 	FlushBuffers();

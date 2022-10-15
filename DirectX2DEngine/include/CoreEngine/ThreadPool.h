@@ -1,10 +1,10 @@
 #pragma once
-#include <functional>
 #include <condition_variable>
-#include <memory>
 #include <thread>
 #include <mutex>
+#include <functional>
 #include <queue>
+#include <memory>
 
 #define THREAD ThreadPool::GetInstance()
 class ThreadPool

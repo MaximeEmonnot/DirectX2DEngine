@@ -3,6 +3,8 @@
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<SoundSystem> SoundSystem::pInstance = nullptr;
 
+//******//
+
 SoundSystem::SoundSystem()
 {
 	HRESULT hr = S_OK;

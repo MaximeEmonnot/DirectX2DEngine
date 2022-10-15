@@ -1,8 +1,9 @@
 #pragma once
-#include "MainEngine/Actor.h"
-#include "MainEngine/CollisionSystem.h"
+
 #include "GraphicsEngine/TextureModel.h"
 #include "GraphicsEngine/AnimationSystem.h"
+#include "MainEngine/Actor.h"
+#include "MainEngine/CollisionSystem.h"
 
 class BaseFighter
 {

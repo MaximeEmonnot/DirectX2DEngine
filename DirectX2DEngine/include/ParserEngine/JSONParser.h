@@ -1,5 +1,7 @@
 #pragma once
+
 #include "rapidjson/document.h"
+
 #include "DebugEngine/EngineException.h"
 
 #define JSON_EXCEPTION(note) JSONException("DirectX 2D Engine - JSON Engine Exception", note, __FILE__, __LINE__)

@@ -1,10 +1,10 @@
 #include "GameEngine/Fighters/SolBadguy.h"
-#include "GameEngine/Commands.h"
 
 #include <random>
 
-#include "MainEngine/Character.h"
 #include "CoreEngine/Keyboard.h"
+#include "MainEngine/Character.h"
+#include "GameEngine/Commands.h"
 
 SolBadguy::SolComboTree::SolComboTree()
 {

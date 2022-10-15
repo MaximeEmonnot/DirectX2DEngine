@@ -2,8 +2,8 @@
 
 #include <deque>
 
-#include "DebugEngine/LoggerManager.h"
 #include "CoreEngine/Timer.h"
+#include "DebugEngine/LoggerManager.h"
 
 std::unique_ptr<NetworkSystem> NetworkSystem::pInstance = nullptr;
 

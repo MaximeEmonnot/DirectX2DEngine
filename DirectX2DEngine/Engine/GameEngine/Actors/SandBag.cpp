@@ -1,7 +1,6 @@
 #include "GameEngine/Actors/SandBag.h"
 
 #include "MainEngine/Engine.h"
-#include "GraphicsEngine/Graphics.h"
 
 SandBag::SandBag(World& world, const FRect& pos, const std::string& name)
 	:

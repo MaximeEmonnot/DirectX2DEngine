@@ -1,12 +1,12 @@
 #include "GameEngine/Levels/SinglePlayerCombatLevel.h"
 
-#include "GameEngine/Actors/Background.h"
-#include "GameEngine/Controllers/DummyController.h"
-#include "MainEngine/Engine.h"
-#include "GameEngine/Actors/FighterCharacter.h"
-#include "GameEngine/Controllers/PlayerController.h"
-#include "SoundEngine/SoundSystem.h"
 #include "CoreEngine/Timer.h"
+#include "SoundEngine/SoundSystem.h"
+#include "MainEngine/Engine.h"
+#include "GameEngine/Actors/Background.h"
+#include "GameEngine/Actors/FighterCharacter.h"
+#include "GameEngine/Controllers/DummyController.h"
+#include "GameEngine/Controllers/PlayerController.h"
 #include "GameEngine/UI/UICanvas_SinglePlayerCombat.h"
 
 SinglePlayerCombatLevel::SinglePlayerCombatLevel()

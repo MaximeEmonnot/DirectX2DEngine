@@ -1,17 +1,17 @@
 #include "MainEngine/Game.h"
 
-#include "GameEngine/Levels/ConnectionLevel.h"
-#include "GameEngine/Levels/SinglePlayerCombatLevel.h"
-#include "MainEngine/Engine.h"
+#include "CoreEngine/Timer.h"
+#include "CoreEngine/ThreadPool.h"
 #include "GraphicsEngine/Graphics.h"
+#include "GraphicsEngine/TextRenderer.h"
+#include "SoundEngine/SoundSystem.h"
+#include "MainEngine/Engine.h"
+#include "GameEngine/Levels/TitleLevel.h"
+#include "GameEngine/Levels/SinglePlayerSelectionLevel.h"
+#include "GameEngine/Levels/SinglePlayerCombatLevel.h"
+#include "GameEngine/Levels/ConnectionLevel.h"
 #include "GameEngine/Levels/MultiPlayerCombatLevel.h"
 #include "GameEngine/Levels/MultiPlayerSelectionLevel.h"
-#include "GameEngine/Levels/SinglePlayerSelectionLevel.h"
-#include "SoundEngine/SoundSystem.h"
-#include "GraphicsEngine/TextRenderer.h"
-#include "CoreEngine/ThreadPool.h"
-#include "CoreEngine/Timer.h"
-#include "GameEngine/Levels/TitleLevel.h"
 
 Game::Game()
 {

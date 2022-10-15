@@ -1,7 +1,7 @@
 #include "GameEngine/UI/UICanvas_SinglePlayerSelection.h"
 
-#include "GameEngine/Levels/SinglePlayerCombatLevel.h"
 #include "MainEngine/Engine.h"
+#include "GameEngine/Levels/SinglePlayerCombatLevel.h"
 #include "GameEngine/Levels/SinglePlayerSelectionLevel.h"
 
 UICanvas_SinglePlayerSelection::UICanvas_SinglePlayerSelection()

@@ -1,5 +1,7 @@
 #pragma once
+
 #include "BaseFighter.h"
+
 class RoboKy : public BaseFighter
 {
 private:

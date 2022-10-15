@@ -1,9 +1,9 @@
 #include "GameEngine/Controllers/NetworkEnemyController.h"
 
-#include "NetworkEngine/NetworkSystem.h"
-#include "MainEngine/Pawn.h"
 #include "CoreEngine/ThreadPool.h"
 #include "CoreEngine/Window.h"
+#include "NetworkEngine/NetworkSystem.h"
+#include "MainEngine/Pawn.h"
 
 NetworkEnemyController::NetworkEnemyController(Pawn& owner)
 	:

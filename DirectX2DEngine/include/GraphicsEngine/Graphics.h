@@ -4,6 +4,7 @@
 #pragma comment(lib, "d3dcompiler.lib")
 
 #include "DirectX.h"
+
 #include "DebugEngine/EngineException.h"
 
 #define GFX Graphics::GetInstance()

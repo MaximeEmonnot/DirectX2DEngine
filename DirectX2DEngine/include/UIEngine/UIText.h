@@ -1,7 +1,9 @@
 #pragma once
-#include "GraphicsEngine/TextRenderer.h"
 
 #include "AUIElement.h"
+
+#include "GraphicsEngine/TextRenderer.h"
+
 class UIText :
     public AUIElement
 {

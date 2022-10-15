@@ -1,12 +1,11 @@
 #include "GameEngine/Levels/MultiPlayerCombatLevel.h"
 
+#include "SoundEngine/SoundSystem.h"
+#include "NetworkEngine/NetworkSystem.h"
 #include "GameEngine/Actors/Background.h"
-#include "GameEngine/Controllers/DummyController.h"
 #include "GameEngine/Actors/FighterCharacter.h"
 #include "GameEngine/Controllers/NetworkEnemyController.h"
-#include "NetworkEngine/NetworkSystem.h"
 #include "GameEngine/Controllers/PlayerController.h"
-#include "SoundEngine/SoundSystem.h"
 #include "GameEngine/UI/UICanvas_SinglePlayerCombat.h"
 
 MultiPlayerCombatLevel::MultiPlayerCombatLevel()

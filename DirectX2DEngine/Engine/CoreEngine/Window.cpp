@@ -1,8 +1,8 @@
 #include "CoreEngine/Window.h"
 
-#include "NetworkEngine/NetworkSystem.h"
 #include "CoreEngine/ThreadPool.h"
 #include "CoreEngine/Timer.h"
+#include "NetworkEngine/NetworkSystem.h"
 
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<Window> Window::pInstance = nullptr;
@@ -12,7 +12,8 @@ std::wstring Window::className;
 
 bool Window::bIsPlaying = true;
 
-// CLASS DEFINITION
+//******//
+
 Window::Window() noexcept
 {
 	// Initialization

@@ -1,5 +1,7 @@
 #pragma once
+
 #include "MovingCollider.h"
+
 class CollisionGroup
 {
 public:

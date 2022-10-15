@@ -1,7 +1,9 @@
 #pragma once
-#include "GraphicsEngine/ColorModel.h"
 
 #include "AUIElement.h"
+
+#include "GraphicsEngine/ColorModel.h"
+
 class UITextBox :
     public AUIElement
 {

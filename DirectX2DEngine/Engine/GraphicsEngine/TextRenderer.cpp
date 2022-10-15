@@ -1,7 +1,7 @@
 #include "GraphicsEngine/TextRenderer.h"
 
-#include "GraphicsEngine/Graphics.h"
 #include "CoreEngine/Window.h"
+#include "GraphicsEngine/Graphics.h"
 
 // STATIC VARIABLES INITILIZATION
 

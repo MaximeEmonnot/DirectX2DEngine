@@ -1,8 +1,9 @@
 #pragma once
+
 #include "MainEngine/Level.h"
 #include "GameEngine/Actors/FighterCharacter.h"
-#include "GameEngine/Controllers/NetworkEnemyController.h"
 #include "GameEngine/Controllers/PlayerController.h"
+#include "GameEngine/Controllers/NetworkEnemyController.h"
 
 class MultiPlayerCombatLevel :
     public Level

@@ -1,12 +1,10 @@
 #include "GameEngine/Controllers/PlayerController.h"
 
-#include "MainEngine/Collider.h"
-#include "GameEngine/Actors/FighterCharacter.h"
 #include "CoreEngine/Keyboard.h"
 #include "MainEngine/Pawn.h"
+#include "MainEngine/Collider.h"
 #include "GameEngine/Commands.h"
-
-//**** PLAYER CONTROLLER ****//
+#include "GameEngine/Actors/FighterCharacter.h"
 
 PlayerController::PlayerController(Pawn& owner)
 	:

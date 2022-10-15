@@ -1,8 +1,8 @@
 #include "GameEngine/UI/UICanvas_Connection.h"
 
+#include "NetworkEngine/NetworkSystem.h"
 #include "MainEngine/Engine.h"
 #include "GameEngine/Levels/MultiPlayerSelectionLevel.h"
-#include "NetworkEngine/NetworkSystem.h"
 
 UICanvas_Connection::UICanvas_Connection()
 	:

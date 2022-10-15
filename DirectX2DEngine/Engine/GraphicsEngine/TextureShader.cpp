@@ -10,9 +10,6 @@ namespace Shaders
 #include "Shaders/TexturePixelShader.shh"
 }
 
-TextureShader::~TextureShader()
-{
-}
 
 void TextureShader::Initialize()
 {

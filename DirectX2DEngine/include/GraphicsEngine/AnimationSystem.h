@@ -1,8 +1,9 @@
 #pragma once
-#include "Animation.h"
+
 #include <unordered_map>
 #include <string>
 
+#include "Animation.h"
 #include "MathEngine/Vec2D.h"
 
 class AnimationSystem

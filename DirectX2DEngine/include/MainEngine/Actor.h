@@ -1,7 +1,9 @@
 #pragma once
+
 #include <memory>
 #include <vector>
 #include <string>
+
 #include "MathEngine/Vec2D.h"
 #include "World.h"
 

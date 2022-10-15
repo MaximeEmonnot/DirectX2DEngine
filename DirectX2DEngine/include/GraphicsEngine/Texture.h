@@ -1,7 +1,8 @@
 #pragma once
-#include <string>
 
 #include "DirectX.h"
+
+#include <string>
 
 class Texture
 {

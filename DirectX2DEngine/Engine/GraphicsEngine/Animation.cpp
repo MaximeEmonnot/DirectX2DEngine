@@ -1,7 +1,7 @@
 #include "GraphicsEngine/Animation.h"
 
-#include "GraphicsEngine/TextureFactory.h"
 #include "CoreEngine/Timer.h"
+#include "GraphicsEngine/TextureFactory.h"
 
 Animation::Animation(std::vector<std::string> frames, float holdTime, AnimationMode animMode)
 	:

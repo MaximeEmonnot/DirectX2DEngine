@@ -1,10 +1,10 @@
 #include "GameEngine/UI/UICanvas_MultiPlayerSelection.h"
 
+#include "CoreEngine/Timer.h"
+#include "NetworkEngine/NetworkSystem.h"
 #include "MainEngine/Engine.h"
 #include "GameEngine/Levels/MultiPlayerCombatLevel.h"
 #include "GameEngine/Levels/MultiPlayerSelectionLevel.h"
-#include "NetworkEngine/NetworkSystem.h"
-#include "CoreEngine/Timer.h"
 
 UICanvas_MultiPlayerSelection::UICanvas_MultiPlayerSelection()
 	:

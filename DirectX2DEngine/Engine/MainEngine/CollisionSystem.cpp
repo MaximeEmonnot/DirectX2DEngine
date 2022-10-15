@@ -1,6 +1,7 @@
 #include "MainEngine/CollisionSystem.h"
-#include "ParserEngine/JSONParser.h"
+
 #include "GraphicsEngine/TextureFactory.h"
+#include "ParserEngine/JSONParser.h"
 
 CollisionSystem::CollisionSystem(Actor& owner, const std::string& file_path, const std::vector<std::string>& animations)
 {

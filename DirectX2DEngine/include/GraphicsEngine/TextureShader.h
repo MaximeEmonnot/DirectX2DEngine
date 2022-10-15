@@ -1,5 +1,7 @@
 #pragma once
+
 #include "BaseShader.h"
+
 class TextureShader :
     public BaseShader
 {
@@ -20,7 +22,6 @@ public:
 
 public:
     TextureShader() = default;
-    virtual ~TextureShader() override;
 
     virtual void Initialize() override;
 

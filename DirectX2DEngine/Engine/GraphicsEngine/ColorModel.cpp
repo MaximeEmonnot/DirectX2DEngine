@@ -1,6 +1,7 @@
 #include "GraphicsEngine/ColorModel.h"
-#include "GraphicsEngine/ColorShader.h"
+
 #include "CoreEngine/Window.h"
+#include "GraphicsEngine/ColorShader.h"
 
 ColorModel::ColorModel(int x, int y, int width, int height, DirectX::XMFLOAT4 color)
 	:

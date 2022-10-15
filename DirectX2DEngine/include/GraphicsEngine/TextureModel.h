@@ -1,8 +1,9 @@
 #pragma once
+
 #include "BaseModel.h"
-#include "MathEngine/Rect.h"
 #include "TextureShader.h"
 #include "Texture.h"
+#include "MathEngine/Rect.h"
 
 class TextureModel :
     public BaseModel

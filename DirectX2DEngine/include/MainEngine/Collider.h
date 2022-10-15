@@ -1,10 +1,13 @@
 #pragma once
+
 #include <vector>
 #include <unordered_set>
 #include <memory>
+
+#include "GraphicsEngine/ColorModel.h"
 #include "MathEngine/Rect.h"
 #include "Actor.h"
-#include "GraphicsEngine/ColorModel.h"
+
 class Collider
 {
 private:

@@ -1,8 +1,8 @@
 #include "GameEngine/Fighters/RoboKy.h"
 
+#include "CoreEngine/Keyboard.h"
 #include "MainEngine/Character.h"
 #include "GameEngine/Commands.h"
-#include "CoreEngine/Keyboard.h"
 
 RoboKy::RoboKyComboTree::RoboKyComboTree()
 {

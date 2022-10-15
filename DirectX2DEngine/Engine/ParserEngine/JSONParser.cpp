@@ -1,6 +1,7 @@
 #include "ParserEngine/JSONParser.h"
-#include "rapidjson/istreamwrapper.h"
+
 #include <fstream>
+#include "rapidjson/istreamwrapper.h"
 
 void JSONParser::Reader::ReadFile(const std::string& filePath)
 {

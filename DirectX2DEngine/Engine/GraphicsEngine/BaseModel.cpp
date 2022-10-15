@@ -2,13 +2,6 @@
 
 #include "GraphicsEngine/Graphics.h"
 
-BaseModel::~BaseModel()
-{
-	//pVertexBuffer->Release();
-	//pInvertedVertexBuffer->Release();
-	//pIndexBuffer->Release();
-}
-
 void BaseModel::Initialize()
 {
 	SettingShader();

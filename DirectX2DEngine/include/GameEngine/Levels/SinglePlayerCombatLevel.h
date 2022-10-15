@@ -1,9 +1,6 @@
 #pragma once
-#include "GameEngine/Controllers/DummyController.h"
-#include "GameEngine/Actors/FighterCharacter.h"
+
 #include "MainEngine/Level.h"
-#include "GameEngine/Controllers/PlayerController.h"
-#include "GameEngine/Fighters/SolBadguy.h"
 
 class SinglePlayerCombatLevel :
     public Level

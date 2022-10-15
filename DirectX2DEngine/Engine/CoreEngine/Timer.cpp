@@ -3,6 +3,8 @@
 // STATIC VARIABLES INITIALIZATION
 std::unique_ptr<Timer> Timer::pInstance = nullptr;
 
+//******//
+
 Timer::Timer()
 	:
 	last(std::chrono::steady_clock::now()),

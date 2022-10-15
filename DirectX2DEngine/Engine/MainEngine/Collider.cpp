@@ -1,9 +1,9 @@
 #include "MainEngine/Collider.h"
 
+#include "CoreEngine/Timer.h"
+#include "GraphicsEngine/Graphics.h"
 #include "MainEngine/Engine.h"
 #include "MainEngine/World.h"
-#include "GraphicsEngine/Graphics.h"
-#include "CoreEngine/Timer.h"
 
 Collider::Collider(Actor& owner)
 	:

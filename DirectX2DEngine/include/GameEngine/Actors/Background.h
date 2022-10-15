@@ -1,6 +1,7 @@
 #pragma once
-#include "MainEngine/Collider.h"
+
 #include "GraphicsEngine/TextureModel.h"
+#include "MainEngine/Collider.h"
 
 class Background : public Actor
 {

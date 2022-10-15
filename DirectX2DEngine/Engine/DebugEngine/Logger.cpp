@@ -1,4 +1,5 @@
 #include "DebugEngine/Logger.h"
+
 #include <filesystem>
 
 // STATIC VARIABLES INITIALIZATION

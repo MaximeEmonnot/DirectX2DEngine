@@ -1,6 +1,8 @@
 #pragma once
-#include "CollisionGroup.h"
+
 #include "rapidjson/document.h"
+
+#include "CollisionGroup.h"
 
 class CollisionSystem
 {

@@ -1,7 +1,6 @@
 #include "GameEngine/Actors/Background.h"
 
 #include "MainEngine/Engine.h"
-#include "GraphicsEngine/Graphics.h"
 
 Background::Background(World& world, const FVec2D& pos, const std::string& name)
 	:

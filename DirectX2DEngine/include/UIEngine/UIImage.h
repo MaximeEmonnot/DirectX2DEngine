@@ -1,7 +1,9 @@
 #pragma once
-#include <memory>
 
 #include "AUIElement.h"
+
+#include <memory>
+
 #include "GraphicsEngine/Texture.h"
 #include "GraphicsEngine/TextureModel.h"
 
