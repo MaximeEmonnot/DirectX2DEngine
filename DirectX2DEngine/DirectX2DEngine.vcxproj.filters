@@ -64,11 +64,41 @@
     <Filter Include="Fichiers sources\ParserEngine">
       <UniqueIdentifier>{a380cb4c-544f-4dd3-986d-60b7fceddcde}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Fichiers sources\CoreEngine">
+      <UniqueIdentifier>{b1531915-367b-4364-8641-b91e2c5239e1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Fichiers d%27en-tête\CoreEngine">
       <UniqueIdentifier>{7f0e1b0d-c772-46c1-a104-c4ae1d7b135e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Fichiers sources\CoreEngine">
-      <UniqueIdentifier>{b1531915-367b-4364-8641-b91e2c5239e1}</UniqueIdentifier>
+    <Filter Include="Fichiers d%27en-tête\GameEngine\Levels">
+      <UniqueIdentifier>{b424eef5-9cb0-46a7-8afb-621707ba49b9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameEngine\UI">
+      <UniqueIdentifier>{50aed559-10c7-4d22-8e0c-5c2a64c5bf0f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameEngine\Fighters">
+      <UniqueIdentifier>{5852d94c-c7ad-4e17-b134-e7ebcdbfd4ac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameEngine\Controllers">
+      <UniqueIdentifier>{9c3c73df-b901-4b42-a66d-922defaa3b61}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers d%27en-tête\GameEngine\Actors">
+      <UniqueIdentifier>{1add7cf2-8dd3-41d2-abfd-0ca6ace0c098}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameEngine\Actors">
+      <UniqueIdentifier>{156d866e-b8af-4683-98ce-4713d3ef1d7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameEngine\Controllers">
+      <UniqueIdentifier>{16cf29f9-1f04-438d-9e22-11ffd36c927e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameEngine\Fighters">
+      <UniqueIdentifier>{5518f93d-79a0-48ab-9714-959a4495e45d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameEngine\Levels">
+      <UniqueIdentifier>{68e08514-b1a0-4c34-b8e5-d4d49fe4cec9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Fichiers sources\GameEngine\UI">
+      <UniqueIdentifier>{be9b6a6d-3e49-44fb-9645-834789230c13}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -198,24 +228,6 @@
     <ClCompile Include="Engine\UIEngine\UIButton.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\UIEngine\UICanvas_Connection.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerCombat.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerSelection.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerCombat.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerSelection.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\UIEngine\UICanvas_Title.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\UIEngine\UIImage.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
@@ -228,50 +240,68 @@
     <ClCompile Include="Engine\UIEngine\UITextBox.cpp">
       <Filter>Fichiers sources\UIEngine</Filter>
     </ClCompile>
-    <ClCompile Include="Engine\GameEngine\Background.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\BaseFighter.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\ConnectionLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\DummyController.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\MultiPlayerCombatLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\MultiPlayerSelectionLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\NetworkEnemyController.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\PlayerController.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\RoboKy.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\SandBag.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\SinglePlayerCombatLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\SinglePlayerSelectionLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\SolBadguy.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine\GameEngine\TitleLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
     <ClCompile Include="Engine\Main.cpp">
       <Filter>Fichiers sources</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Actors\Background.cpp">
+      <Filter>Fichiers sources\GameEngine\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Actors\SandBag.cpp">
+      <Filter>Fichiers sources\GameEngine\Actors</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Controllers\DummyController.cpp">
+      <Filter>Fichiers sources\GameEngine\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Controllers\NetworkEnemyController.cpp">
+      <Filter>Fichiers sources\GameEngine\Controllers</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Fighters\BaseFighter.cpp">
+      <Filter>Fichiers sources\GameEngine\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Fighters\RoboKy.cpp">
+      <Filter>Fichiers sources\GameEngine\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Fighters\SolBadguy.cpp">
+      <Filter>Fichiers sources\GameEngine\Fighters</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\ConnectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\MultiPlayerCombatLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\MultiPlayerSelectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\SinglePlayerCombatLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\SinglePlayerSelectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\TitleLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_Connection.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_MultiPlayerCombat.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_MultiPlayerSelection.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_SinglePlayerCombat.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_SinglePlayerSelection.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_Title.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Controllers\PlayerController.cpp">
+      <Filter>Fichiers sources\GameEngine\Controllers</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -310,9 +340,6 @@
     </ClInclude>
     <ClInclude Include="include\DebugEngine\LoggerManager.h">
       <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\CoreEngine\Keyboard.h">
-      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
     <ClInclude Include="include\CoreEngine\Mouse.h">
       <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
@@ -413,24 +440,6 @@
     <ClInclude Include="include\UIEngine\UIButton.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\UIEngine\UICanvas_Connection.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerCombat.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerSelection.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerCombat.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerSelection.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\UIEngine\UICanvas_Title.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
     <ClInclude Include="include\UIEngine\UIImage.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
@@ -443,53 +452,74 @@
     <ClInclude Include="include\UIEngine\UITextBox.h">
       <Filter>Fichiers d%27en-tête\UIEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\Background.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="include\GameEngine\BaseFighter.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
     <ClInclude Include="include\GameEngine\Commands.h">
       <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\ConnectionLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\CoreEngine\Keyboard.h">
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\DummyController.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Levels\ConnectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\FighterCharacter.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Levels\MultiPlayerCombatLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\MultiPlayerCombatLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Levels\MultiPlayerSelectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\MultiPlayerSelectionLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Levels\SinglePlayerCombatLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\NetworkEnemyController.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Levels\SinglePlayerSelectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\PlayerController.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Levels\TitleLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\RoboKy.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Fighters\BaseFighter.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Fighters</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\SandBag.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Fighters\RoboKy.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Fighters</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\SinglePlayerCombatLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Fighters\SolBadguy.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Fighters</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\SinglePlayerSelectionLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Controllers\DummyController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Controllers</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\SolBadguy.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Controllers\NetworkEnemyController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Controllers</Filter>
     </ClInclude>
-    <ClInclude Include="include\GameEngine\TitleLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\GameEngine\Controllers\PlayerController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Controllers</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Actors\Background.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Actors\FighterCharacter.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Actors\SandBag.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Actors</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_Connection.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_MultiPlayerCombat.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_MultiPlayerSelection.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_SinglePlayerCombat.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_SinglePlayerSelection.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_Title.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -155,20 +155,26 @@
     <ClCompile Include="Engine\DebugEngine\ErrorLogger.cpp" />
     <ClCompile Include="Engine\DebugEngine\Logger.cpp" />
     <ClCompile Include="Engine\DebugEngine\LoggerManager.cpp" />
-    <ClCompile Include="Engine\GameEngine\Background.cpp" />
-    <ClCompile Include="Engine\GameEngine\BaseFighter.cpp" />
-    <ClCompile Include="Engine\GameEngine\ConnectionLevel.cpp" />
-    <ClCompile Include="Engine\GameEngine\DummyController.cpp" />
-    <ClCompile Include="Engine\GameEngine\MultiPlayerCombatLevel.cpp" />
-    <ClCompile Include="Engine\GameEngine\MultiPlayerSelectionLevel.cpp" />
-    <ClCompile Include="Engine\GameEngine\NetworkEnemyController.cpp" />
-    <ClCompile Include="Engine\GameEngine\PlayerController.cpp" />
-    <ClCompile Include="Engine\GameEngine\RoboKy.cpp" />
-    <ClCompile Include="Engine\GameEngine\SandBag.cpp" />
-    <ClCompile Include="Engine\GameEngine\SinglePlayerCombatLevel.cpp" />
-    <ClCompile Include="Engine\GameEngine\SinglePlayerSelectionLevel.cpp" />
-    <ClCompile Include="Engine\GameEngine\SolBadguy.cpp" />
-    <ClCompile Include="Engine\GameEngine\TitleLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\Actors\Background.cpp" />
+    <ClCompile Include="Engine\GameEngine\Actors\SandBag.cpp" />
+    <ClCompile Include="Engine\GameEngine\Controllers\DummyController.cpp" />
+    <ClCompile Include="Engine\GameEngine\Controllers\NetworkEnemyController.cpp" />
+    <ClCompile Include="Engine\GameEngine\Controllers\PlayerController.cpp" />
+    <ClCompile Include="Engine\GameEngine\Fighters\BaseFighter.cpp" />
+    <ClCompile Include="Engine\GameEngine\Fighters\RoboKy.cpp" />
+    <ClCompile Include="Engine\GameEngine\Fighters\SolBadguy.cpp" />
+    <ClCompile Include="Engine\GameEngine\Levels\ConnectionLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\Levels\MultiPlayerCombatLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\Levels\MultiPlayerSelectionLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\Levels\SinglePlayerCombatLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\Levels\SinglePlayerSelectionLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\Levels\TitleLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_Connection.cpp" />
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_MultiPlayerCombat.cpp" />
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_MultiPlayerSelection.cpp" />
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_SinglePlayerCombat.cpp" />
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_SinglePlayerSelection.cpp" />
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_Title.cpp" />
     <ClCompile Include="Engine\GraphicsEngine\Animation.cpp" />
     <ClCompile Include="Engine\GraphicsEngine\AnimationSystem.cpp" />
     <ClCompile Include="Engine\GraphicsEngine\AnimationTexture.cpp" />
@@ -202,12 +208,6 @@
     <ClCompile Include="Engine\UIEngine\AUICanvas.cpp" />
     <ClCompile Include="Engine\UIEngine\AUIElement.cpp" />
     <ClCompile Include="Engine\UIEngine\UIButton.cpp" />
-    <ClCompile Include="Engine\UIEngine\UICanvas_Connection.cpp" />
-    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerCombat.cpp" />
-    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerSelection.cpp" />
-    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerCombat.cpp" />
-    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerSelection.cpp" />
-    <ClCompile Include="Engine\UIEngine\UICanvas_Title.cpp" />
     <ClCompile Include="Engine\UIEngine\UIImage.cpp" />
     <ClCompile Include="Engine\UIEngine\UIProgressBar.cpp" />
     <ClCompile Include="Engine\UIEngine\UIText.cpp" />
@@ -225,22 +225,28 @@
     <ClInclude Include="include\DebugEngine\ErrorLogger.h" />
     <ClInclude Include="include\DebugEngine\Logger.h" />
     <ClInclude Include="include\DebugEngine\LoggerManager.h" />
-    <ClInclude Include="include\GameEngine\Background.h" />
-    <ClInclude Include="include\GameEngine\BaseFighter.h" />
+    <ClInclude Include="include\GameEngine\Actors\Background.h" />
+    <ClInclude Include="include\GameEngine\Actors\FighterCharacter.h" />
+    <ClInclude Include="include\GameEngine\Actors\SandBag.h" />
     <ClInclude Include="include\GameEngine\Commands.h" />
-    <ClInclude Include="include\GameEngine\ConnectionLevel.h" />
-    <ClInclude Include="include\GameEngine\DummyController.h" />
-    <ClInclude Include="include\GameEngine\FighterCharacter.h" />
-    <ClInclude Include="include\GameEngine\MultiPlayerCombatLevel.h" />
-    <ClInclude Include="include\GameEngine\MultiPlayerSelectionLevel.h" />
-    <ClInclude Include="include\GameEngine\NetworkEnemyController.h" />
-    <ClInclude Include="include\GameEngine\PlayerController.h" />
-    <ClInclude Include="include\GameEngine\RoboKy.h" />
-    <ClInclude Include="include\GameEngine\SandBag.h" />
-    <ClInclude Include="include\GameEngine\SinglePlayerCombatLevel.h" />
-    <ClInclude Include="include\GameEngine\SinglePlayerSelectionLevel.h" />
-    <ClInclude Include="include\GameEngine\SolBadguy.h" />
-    <ClInclude Include="include\GameEngine\TitleLevel.h" />
+    <ClInclude Include="include\GameEngine\Controllers\DummyController.h" />
+    <ClInclude Include="include\GameEngine\Controllers\NetworkEnemyController.h" />
+    <ClInclude Include="include\GameEngine\Controllers\PlayerController.h" />
+    <ClInclude Include="include\GameEngine\Fighters\BaseFighter.h" />
+    <ClInclude Include="include\GameEngine\Fighters\RoboKy.h" />
+    <ClInclude Include="include\GameEngine\Fighters\SolBadguy.h" />
+    <ClInclude Include="include\GameEngine\Levels\ConnectionLevel.h" />
+    <ClInclude Include="include\GameEngine\Levels\MultiPlayerCombatLevel.h" />
+    <ClInclude Include="include\GameEngine\Levels\MultiPlayerSelectionLevel.h" />
+    <ClInclude Include="include\GameEngine\Levels\SinglePlayerCombatLevel.h" />
+    <ClInclude Include="include\GameEngine\Levels\SinglePlayerSelectionLevel.h" />
+    <ClInclude Include="include\GameEngine\Levels\TitleLevel.h" />
+    <ClInclude Include="include\GameEngine\UI\UICanvas_Connection.h" />
+    <ClInclude Include="include\GameEngine\UI\UICanvas_MultiPlayerCombat.h" />
+    <ClInclude Include="include\GameEngine\UI\UICanvas_MultiPlayerSelection.h" />
+    <ClInclude Include="include\GameEngine\UI\UICanvas_SinglePlayerCombat.h" />
+    <ClInclude Include="include\GameEngine\UI\UICanvas_SinglePlayerSelection.h" />
+    <ClInclude Include="include\GameEngine\UI\UICanvas_Title.h" />
     <ClInclude Include="include\GraphicsEngine\Animation.h" />
     <ClInclude Include="include\GraphicsEngine\AnimationSystem.h" />
     <ClInclude Include="include\GraphicsEngine\AnimationTexture.h" />
@@ -276,12 +282,6 @@
     <ClInclude Include="include\UIEngine\AUICanvas.h" />
     <ClInclude Include="include\UIEngine\AUIElement.h" />
     <ClInclude Include="include\UIEngine\UIButton.h" />
-    <ClInclude Include="include\UIEngine\UICanvas_Connection.h" />
-    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerCombat.h" />
-    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerSelection.h" />
-    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerCombat.h" />
-    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerSelection.h" />
-    <ClInclude Include="include\UIEngine\UICanvas_Title.h" />
     <ClInclude Include="include\UIEngine\UIImage.h" />
     <ClInclude Include="include\UIEngine\UIProgressBar.h" />
     <ClInclude Include="include\UIEngine\UIText.h" />
@@ -289,8 +289,10 @@
   </ItemGroup>
   <ItemGroup>
     <FxCompile Include="Shaders\ColorPixelShader.hlsl">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</ExcludedFromBuild>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
+      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
     </FxCompile>
     <FxCompile Include="Shaders\ColorVertexShader.hlsl" />
     <FxCompile Include="Shaders\TexturePixelShader.hlsl">
