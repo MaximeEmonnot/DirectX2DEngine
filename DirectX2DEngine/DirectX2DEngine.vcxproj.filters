@@ -72,437 +72,437 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Main.cpp">
-      <Filter>Fichiers sources</Filter>
-    </ClCompile>
-    <ClCompile Include="Keyboard.cpp">
-      <Filter>Fichiers sources\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Mouse.cpp">
-      <Filter>Fichiers sources\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Fichiers sources\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Window.cpp">
-      <Filter>Fichiers sources\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Graphics.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseShader.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseModel.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Game.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ColorModel.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ColorShader.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureShader.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Texture.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureModel.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Animation.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="TextureFactory.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Sound.cpp">
-      <Filter>Fichiers sources\SoundEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SoundSystem.cpp">
-      <Filter>Fichiers sources\SoundEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ConsoleLogger.cpp">
-      <Filter>Fichiers sources\DebugEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="DebugLogger.cpp">
-      <Filter>Fichiers sources\DebugEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ErrorLogger.cpp">
-      <Filter>Fichiers sources\DebugEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Logger.cpp">
-      <Filter>Fichiers sources\DebugEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="LoggerManager.cpp">
-      <Filter>Fichiers sources\DebugEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ThreadPool.cpp">
-      <Filter>Fichiers sources\CoreEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Actor.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Level.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Engine.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="World.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Pawn.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Controller.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Collider.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Character.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionSystem.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="CollisionGroup.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MovingCollider.cpp">
-      <Filter>Fichiers sources\MainEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationTexture.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="AnimationSystem.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="Background.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="BaseFighter.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SinglePlayerCombatLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="PlayerController.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SandBag.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="SolBadguy.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="TextRenderer.cpp">
-      <Filter>Fichiers sources\GraphicsEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="AUICanvas.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="AUIElement.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UIButton.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UICanvas_SinglePlayerCombat.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UIImage.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UIProgressBar.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UIText.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="RoboKy.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="TitleLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UICanvas_Title.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="DummyController.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkSystem.cpp">
+    <ClCompile Include="Engine\NetworkEngine\NetworkSystem.cpp">
       <Filter>Fichiers sources\NetworkEngine</Filter>
     </ClCompile>
-    <ClCompile Include="UICanvas_SinglePlayerSelection.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
+    <ClCompile Include="Engine\SoundEngine\Sound.cpp">
+      <Filter>Fichiers sources\SoundEngine</Filter>
     </ClCompile>
-    <ClCompile Include="SinglePlayerSelectionLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
+    <ClCompile Include="Engine\SoundEngine\SoundSystem.cpp">
+      <Filter>Fichiers sources\SoundEngine</Filter>
     </ClCompile>
-    <ClCompile Include="UICanvas_Connection.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UITextBox.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="ConnectionLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MultiPlayerSelectionLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="MultiPlayerCombatLevel.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UICanvas_MultiPlayerCombat.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="UICanvas_MultiPlayerSelection.cpp">
-      <Filter>Fichiers sources\UIEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="NetworkEnemyController.cpp">
-      <Filter>Fichiers sources\GameEngine</Filter>
-    </ClCompile>
-    <ClCompile Include="JSONParser.cpp">
+    <ClCompile Include="Engine\ParserEngine\JSONParser.cpp">
       <Filter>Fichiers sources\ParserEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\DebugEngine\ConsoleLogger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DebugEngine\DebugLogger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DebugEngine\ErrorLogger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DebugEngine\Logger.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\DebugEngine\LoggerManager.cpp">
+      <Filter>Fichiers sources\DebugEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CoreEngine\Keyboard.cpp">
+      <Filter>Fichiers sources\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CoreEngine\Mouse.cpp">
+      <Filter>Fichiers sources\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CoreEngine\ThreadPool.cpp">
+      <Filter>Fichiers sources\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CoreEngine\Timer.cpp">
+      <Filter>Fichiers sources\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\CoreEngine\Window.cpp">
+      <Filter>Fichiers sources\CoreEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\Animation.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\AnimationSystem.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\AnimationTexture.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\BaseModel.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\BaseShader.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\ColorModel.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\ColorShader.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\Graphics.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\TextRenderer.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\Texture.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\TextureFactory.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\TextureModel.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GraphicsEngine\TextureShader.cpp">
+      <Filter>Fichiers sources\GraphicsEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Actor.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Character.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Collider.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\CollisionGroup.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\CollisionSystem.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Controller.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Engine.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Game.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Level.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\MovingCollider.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\Pawn.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\MainEngine\World.cpp">
+      <Filter>Fichiers sources\MainEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\AUICanvas.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\AUIElement.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UIButton.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UICanvas_Connection.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerCombat.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerSelection.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerCombat.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerSelection.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UICanvas_Title.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UIImage.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UIProgressBar.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UIText.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\UIEngine\UITextBox.cpp">
+      <Filter>Fichiers sources\UIEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Background.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\BaseFighter.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\ConnectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\DummyController.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\MultiPlayerCombatLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\MultiPlayerSelectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\NetworkEnemyController.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\PlayerController.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\RoboKy.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\SandBag.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\SinglePlayerCombatLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\SinglePlayerSelectionLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\SolBadguy.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\TitleLevel.cpp">
+      <Filter>Fichiers sources\GameEngine</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\Main.cpp">
+      <Filter>Fichiers sources</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Keyboard.h">
-      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Mouse.h">
-      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Timer.h">
-      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Window.h">
-      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="EngineException.h">
-      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Graphics.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseShader.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="DirectX.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseModel.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Game.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorShader.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ColorModel.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Texture.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureModel.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureShader.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Animation.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="TextureFactory.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SoundSystem.h">
-      <Filter>Fichiers d%27en-tête\SoundEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Sound.h">
-      <Filter>Fichiers d%27en-tête\SoundEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ConsoleLogger.h">
-      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="DebugLogger.h">
-      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ErrorLogger.h">
-      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Logger.h">
-      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="LoggerManager.h">
-      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="ThreadPool.h">
-      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Actor.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Engine.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Level.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="World.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Rect.h">
-      <Filter>Fichiers d%27en-tête\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Vec2D.h">
-      <Filter>Fichiers d%27en-tête\MathEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Character.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Collider.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Controller.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Pawn.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MovingCollider.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionGroup.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="CollisionSystem.h">
-      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationTexture.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="AnimationSystem.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Commands.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="Background.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="BaseFighter.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SinglePlayerCombatLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="FighterCharacter.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="PlayerController.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SandBag.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="SolBadguy.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="TextRenderer.h">
-      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="AUICanvas.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="AUIElement.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UIButton.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UICanvas_SinglePlayerCombat.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UIImage.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UIProgressBar.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UIText.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="RoboKy.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="TitleLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UICanvas_Title.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="DummyController.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkSystem.h">
+    <ClInclude Include="include\NetworkEngine\NetworkSystem.h">
       <Filter>Fichiers d%27en-tête\NetworkEngine</Filter>
     </ClInclude>
-    <ClInclude Include="SinglePlayerSelectionLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    <ClInclude Include="include\SoundEngine\Sound.h">
+      <Filter>Fichiers d%27en-tête\SoundEngine</Filter>
     </ClInclude>
-    <ClInclude Include="UICanvas_SinglePlayerSelection.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    <ClInclude Include="include\SoundEngine\SoundSystem.h">
+      <Filter>Fichiers d%27en-tête\SoundEngine</Filter>
     </ClInclude>
-    <ClInclude Include="UITextBox.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    <ClInclude Include="include\MathEngine\Rect.h">
+      <Filter>Fichiers d%27en-tête\MathEngine</Filter>
     </ClInclude>
-    <ClInclude Include="UICanvas_Connection.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    <ClInclude Include="include\MathEngine\Vec2D.h">
+      <Filter>Fichiers d%27en-tête\MathEngine</Filter>
     </ClInclude>
-    <ClInclude Include="ConnectionLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MultiPlayerSelectionLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="MultiPlayerCombatLevel.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UICanvas_MultiPlayerSelection.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="UICanvas_MultiPlayerCombat.h">
-      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="NetworkEnemyController.h">
-      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
-    </ClInclude>
-    <ClInclude Include="JSONParser.h">
+    <ClInclude Include="include\ParserEngine\JSONParser.h">
       <Filter>Fichiers d%27en-tête\ParserEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DebugEngine\ConsoleLogger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DebugEngine\DebugLogger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DebugEngine\EngineException.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DebugEngine\ErrorLogger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DebugEngine\Logger.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\DebugEngine\LoggerManager.h">
+      <Filter>Fichiers d%27en-tête\DebugEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoreEngine\Keyboard.h">
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoreEngine\Mouse.h">
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoreEngine\ThreadPool.h">
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoreEngine\Timer.h">
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\CoreEngine\Window.h">
+      <Filter>Fichiers d%27en-tête\CoreEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\Animation.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\AnimationSystem.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\AnimationTexture.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\BaseModel.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\BaseShader.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\ColorModel.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\ColorShader.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\DirectX.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\Graphics.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\TextRenderer.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\Texture.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\TextureFactory.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\TextureModel.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GraphicsEngine\TextureShader.h">
+      <Filter>Fichiers d%27en-tête\GraphicsEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Actor.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Character.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Collider.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\CollisionGroup.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\CollisionSystem.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Controller.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Engine.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Game.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Level.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\MovingCollider.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\Pawn.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\MainEngine\World.h">
+      <Filter>Fichiers d%27en-tête\MainEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\AUICanvas.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\AUIElement.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UIButton.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UICanvas_Connection.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerCombat.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerSelection.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerCombat.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerSelection.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UICanvas_Title.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UIImage.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UIProgressBar.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UIText.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\UIEngine\UITextBox.h">
+      <Filter>Fichiers d%27en-tête\UIEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Background.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\BaseFighter.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Commands.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\ConnectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\DummyController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\FighterCharacter.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\MultiPlayerCombatLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\MultiPlayerSelectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\NetworkEnemyController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\PlayerController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\RoboKy.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\SandBag.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\SinglePlayerCombatLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\SinglePlayerSelectionLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\SolBadguy.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\TitleLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="ColorVertexShader.hlsl">
+    <FxCompile Include="Shaders\ColorPixelShader.hlsl">
       <Filter>Fichiers de ressources</Filter>
     </FxCompile>
-    <FxCompile Include="ColorPixelShader.hlsl">
+    <FxCompile Include="Shaders\ColorVertexShader.hlsl">
       <Filter>Fichiers de ressources</Filter>
     </FxCompile>
-    <FxCompile Include="TextureVertexShader.hlsl">
+    <FxCompile Include="Shaders\TexturePixelShader.hlsl">
       <Filter>Fichiers de ressources</Filter>
     </FxCompile>
-    <FxCompile Include="TexturePixelShader.hlsl">
+    <FxCompile Include="Shaders\TextureVertexShader.hlsl">
       <Filter>Fichiers de ressources</Filter>
     </FxCompile>
   </ItemGroup>

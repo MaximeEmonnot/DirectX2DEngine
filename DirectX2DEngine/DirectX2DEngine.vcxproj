@@ -119,6 +119,7 @@
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./include/;./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -134,6 +135,7 @@
       <PreprocessorDefinitions>WIN32_LEAN_AND_MEAN;_CRT_SECURE_NO_WARNINGS;_WINSOCK_DEPRECATED_NO_WARNINGS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
+      <AdditionalIncludeDirectories>./include/;./;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -143,181 +145,159 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Actor.cpp" />
-    <ClCompile Include="Animation.cpp" />
-    <ClCompile Include="AnimationSystem.cpp" />
-    <ClCompile Include="AUICanvas.cpp" />
-    <ClCompile Include="AUIElement.cpp" />
-    <ClCompile Include="Background.cpp" />
-    <ClCompile Include="BaseFighter.cpp" />
-    <ClCompile Include="BaseModel.cpp" />
-    <ClCompile Include="BaseShader.cpp" />
-    <ClCompile Include="Character.cpp" />
-    <ClCompile Include="Collider.cpp" />
-    <ClCompile Include="CollisionGroup.cpp" />
-    <ClCompile Include="CollisionSystem.cpp" />
-    <ClCompile Include="ColorModel.cpp" />
-    <ClCompile Include="ColorShader.cpp" />
-    <ClCompile Include="ConnectionLevel.cpp" />
-    <ClCompile Include="MultiPlayerCombatLevel.cpp" />
-    <ClCompile Include="MultiPlayerSelectionLevel.cpp" />
-    <ClCompile Include="NetworkEnemyController.cpp" />
-    <ClCompile Include="SinglePlayerCombatLevel.cpp" />
-    <ClCompile Include="ConsoleLogger.cpp" />
-    <ClCompile Include="Controller.cpp" />
-    <ClCompile Include="DebugLogger.cpp" />
-    <ClCompile Include="DummyController.cpp" />
-    <ClCompile Include="Engine.cpp" />
-    <ClCompile Include="ErrorLogger.cpp" />
-    <ClCompile Include="Game.cpp" />
-    <ClCompile Include="Graphics.cpp" />
-    <ClCompile Include="JSONParser.cpp" />
-    <ClCompile Include="Keyboard.cpp" />
-    <ClCompile Include="Level.cpp" />
-    <ClCompile Include="Logger.cpp" />
-    <ClCompile Include="LoggerManager.cpp" />
-    <ClCompile Include="Main.cpp" />
-    <ClCompile Include="Mouse.cpp" />
-    <ClCompile Include="MovingCollider.cpp" />
-    <ClCompile Include="NetworkSystem.cpp" />
-    <ClCompile Include="Pawn.cpp" />
-    <ClCompile Include="PlayerController.cpp" />
-    <ClCompile Include="RoboKy.cpp" />
-    <ClCompile Include="SandBag.cpp" />
-    <ClCompile Include="SinglePlayerSelectionLevel.cpp" />
-    <ClCompile Include="SolBadguy.cpp" />
-    <ClCompile Include="Sound.cpp" />
-    <ClCompile Include="SoundSystem.cpp" />
-    <ClCompile Include="TitleLevel.cpp" />
-    <ClCompile Include="UIButton.cpp" />
-    <ClCompile Include="UICanvas_Connection.cpp" />
-    <ClCompile Include="UICanvas_MultiPlayerCombat.cpp" />
-    <ClCompile Include="UICanvas_MultiPlayerSelection.cpp" />
-    <ClCompile Include="UICanvas_SinglePlayerCombat.cpp" />
-    <ClCompile Include="UICanvas_SinglePlayerSelection.cpp" />
-    <ClCompile Include="UICanvas_Title.cpp" />
-    <ClCompile Include="UIImage.cpp" />
-    <ClCompile Include="UIProgressBar.cpp" />
-    <ClCompile Include="UIText.cpp" />
-    <ClCompile Include="TextRenderer.cpp" />
-    <ClCompile Include="Texture.cpp" />
-    <ClCompile Include="TextureFactory.cpp" />
-    <ClCompile Include="TextureModel.cpp" />
-    <ClCompile Include="TextureShader.cpp" />
-    <ClCompile Include="AnimationTexture.cpp" />
-    <ClCompile Include="ThreadPool.cpp" />
-    <ClCompile Include="Timer.cpp" />
-    <ClCompile Include="UITextBox.cpp" />
-    <ClCompile Include="Window.cpp" />
-    <ClCompile Include="World.cpp" />
+    <ClCompile Include="Engine\CoreEngine\Keyboard.cpp" />
+    <ClCompile Include="Engine\CoreEngine\Mouse.cpp" />
+    <ClCompile Include="Engine\CoreEngine\ThreadPool.cpp" />
+    <ClCompile Include="Engine\CoreEngine\Timer.cpp" />
+    <ClCompile Include="Engine\CoreEngine\Window.cpp" />
+    <ClCompile Include="Engine\DebugEngine\ConsoleLogger.cpp" />
+    <ClCompile Include="Engine\DebugEngine\DebugLogger.cpp" />
+    <ClCompile Include="Engine\DebugEngine\ErrorLogger.cpp" />
+    <ClCompile Include="Engine\DebugEngine\Logger.cpp" />
+    <ClCompile Include="Engine\DebugEngine\LoggerManager.cpp" />
+    <ClCompile Include="Engine\GameEngine\Background.cpp" />
+    <ClCompile Include="Engine\GameEngine\BaseFighter.cpp" />
+    <ClCompile Include="Engine\GameEngine\ConnectionLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\DummyController.cpp" />
+    <ClCompile Include="Engine\GameEngine\MultiPlayerCombatLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\MultiPlayerSelectionLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\NetworkEnemyController.cpp" />
+    <ClCompile Include="Engine\GameEngine\PlayerController.cpp" />
+    <ClCompile Include="Engine\GameEngine\RoboKy.cpp" />
+    <ClCompile Include="Engine\GameEngine\SandBag.cpp" />
+    <ClCompile Include="Engine\GameEngine\SinglePlayerCombatLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\SinglePlayerSelectionLevel.cpp" />
+    <ClCompile Include="Engine\GameEngine\SolBadguy.cpp" />
+    <ClCompile Include="Engine\GameEngine\TitleLevel.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\Animation.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\AnimationSystem.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\AnimationTexture.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\BaseModel.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\BaseShader.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\ColorModel.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\ColorShader.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\Graphics.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\TextRenderer.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\Texture.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\TextureFactory.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\TextureModel.cpp" />
+    <ClCompile Include="Engine\GraphicsEngine\TextureShader.cpp" />
+    <ClCompile Include="Engine\Main.cpp" />
+    <ClCompile Include="Engine\MainEngine\Actor.cpp" />
+    <ClCompile Include="Engine\MainEngine\Character.cpp" />
+    <ClCompile Include="Engine\MainEngine\Collider.cpp" />
+    <ClCompile Include="Engine\MainEngine\CollisionGroup.cpp" />
+    <ClCompile Include="Engine\MainEngine\CollisionSystem.cpp" />
+    <ClCompile Include="Engine\MainEngine\Controller.cpp" />
+    <ClCompile Include="Engine\MainEngine\Engine.cpp" />
+    <ClCompile Include="Engine\MainEngine\Game.cpp" />
+    <ClCompile Include="Engine\MainEngine\Level.cpp" />
+    <ClCompile Include="Engine\MainEngine\MovingCollider.cpp" />
+    <ClCompile Include="Engine\MainEngine\Pawn.cpp" />
+    <ClCompile Include="Engine\MainEngine\World.cpp" />
+    <ClCompile Include="Engine\NetworkEngine\NetworkSystem.cpp" />
+    <ClCompile Include="Engine\ParserEngine\JSONParser.cpp" />
+    <ClCompile Include="Engine\SoundEngine\Sound.cpp" />
+    <ClCompile Include="Engine\SoundEngine\SoundSystem.cpp" />
+    <ClCompile Include="Engine\UIEngine\AUICanvas.cpp" />
+    <ClCompile Include="Engine\UIEngine\AUIElement.cpp" />
+    <ClCompile Include="Engine\UIEngine\UIButton.cpp" />
+    <ClCompile Include="Engine\UIEngine\UICanvas_Connection.cpp" />
+    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerCombat.cpp" />
+    <ClCompile Include="Engine\UIEngine\UICanvas_MultiPlayerSelection.cpp" />
+    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerCombat.cpp" />
+    <ClCompile Include="Engine\UIEngine\UICanvas_SinglePlayerSelection.cpp" />
+    <ClCompile Include="Engine\UIEngine\UICanvas_Title.cpp" />
+    <ClCompile Include="Engine\UIEngine\UIImage.cpp" />
+    <ClCompile Include="Engine\UIEngine\UIProgressBar.cpp" />
+    <ClCompile Include="Engine\UIEngine\UIText.cpp" />
+    <ClCompile Include="Engine\UIEngine\UITextBox.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Actor.h" />
-    <ClInclude Include="Animation.h" />
-    <ClInclude Include="AnimationSystem.h" />
-    <ClInclude Include="AUICanvas.h" />
-    <ClInclude Include="AUIElement.h" />
-    <ClInclude Include="Background.h" />
-    <ClInclude Include="BaseFighter.h" />
-    <ClInclude Include="BaseModel.h" />
-    <ClInclude Include="BaseShader.h" />
-    <ClInclude Include="Character.h" />
-    <ClInclude Include="Collider.h" />
-    <ClInclude Include="CollisionGroup.h" />
-    <ClInclude Include="CollisionSystem.h" />
-    <ClInclude Include="ColorModel.h" />
-    <ClInclude Include="ColorShader.h" />
-    <ClInclude Include="ConnectionLevel.h" />
-    <ClInclude Include="MultiPlayerCombatLevel.h" />
-    <ClInclude Include="MultiPlayerSelectionLevel.h" />
-    <ClInclude Include="NetworkEnemyController.h" />
-    <ClInclude Include="SinglePlayerCombatLevel.h" />
-    <ClInclude Include="Commands.h" />
-    <ClInclude Include="ConsoleLogger.h" />
-    <ClInclude Include="Controller.h" />
-    <ClInclude Include="DebugLogger.h" />
-    <ClInclude Include="DirectX.h" />
-    <ClInclude Include="DummyController.h" />
-    <ClInclude Include="Engine.h" />
-    <ClInclude Include="EngineException.h" />
-    <ClInclude Include="ErrorLogger.h" />
-    <ClInclude Include="Game.h" />
-    <ClInclude Include="Graphics.h" />
-    <ClInclude Include="JSONParser.h" />
-    <ClInclude Include="Keyboard.h" />
-    <ClInclude Include="Level.h" />
-    <ClInclude Include="Logger.h" />
-    <ClInclude Include="LoggerManager.h" />
-    <ClInclude Include="Mouse.h" />
-    <ClInclude Include="MovingCollider.h" />
-    <ClInclude Include="NetworkSystem.h" />
-    <ClInclude Include="Pawn.h" />
-    <ClInclude Include="FighterCharacter.h" />
-    <ClInclude Include="PlayerController.h" />
-    <ClInclude Include="Rect.h" />
-    <ClInclude Include="RoboKy.h" />
-    <ClInclude Include="SandBag.h" />
-    <ClInclude Include="SinglePlayerSelectionLevel.h" />
-    <ClInclude Include="SolBadguy.h" />
-    <ClInclude Include="Sound.h" />
-    <ClInclude Include="SoundSystem.h" />
-    <ClInclude Include="TitleLevel.h" />
-    <ClInclude Include="UIButton.h" />
-    <ClInclude Include="UICanvas_Connection.h" />
-    <ClInclude Include="UICanvas_MultiPlayerCombat.h" />
-    <ClInclude Include="UICanvas_MultiPlayerSelection.h" />
-    <ClInclude Include="UICanvas_SinglePlayerCombat.h" />
-    <ClInclude Include="UICanvas_SinglePlayerSelection.h" />
-    <ClInclude Include="UICanvas_Title.h" />
-    <ClInclude Include="UIImage.h" />
-    <ClInclude Include="UIProgressBar.h" />
-    <ClInclude Include="UIText.h" />
-    <ClInclude Include="TextRenderer.h" />
-    <ClInclude Include="Texture.h" />
-    <ClInclude Include="TextureFactory.h" />
-    <ClInclude Include="TextureModel.h" />
-    <ClInclude Include="TextureShader.h" />
-    <ClInclude Include="AnimationTexture.h" />
-    <ClInclude Include="ThreadPool.h" />
-    <ClInclude Include="Timer.h" />
-    <ClInclude Include="UITextBox.h" />
-    <ClInclude Include="Vec2D.h" />
-    <ClInclude Include="Window.h" />
-    <ClInclude Include="World.h" />
+    <ClInclude Include="include\CoreEngine\Keyboard.h" />
+    <ClInclude Include="include\CoreEngine\Mouse.h" />
+    <ClInclude Include="include\CoreEngine\ThreadPool.h" />
+    <ClInclude Include="include\CoreEngine\Timer.h" />
+    <ClInclude Include="include\CoreEngine\Window.h" />
+    <ClInclude Include="include\DebugEngine\ConsoleLogger.h" />
+    <ClInclude Include="include\DebugEngine\DebugLogger.h" />
+    <ClInclude Include="include\DebugEngine\EngineException.h" />
+    <ClInclude Include="include\DebugEngine\ErrorLogger.h" />
+    <ClInclude Include="include\DebugEngine\Logger.h" />
+    <ClInclude Include="include\DebugEngine\LoggerManager.h" />
+    <ClInclude Include="include\GameEngine\Background.h" />
+    <ClInclude Include="include\GameEngine\BaseFighter.h" />
+    <ClInclude Include="include\GameEngine\Commands.h" />
+    <ClInclude Include="include\GameEngine\ConnectionLevel.h" />
+    <ClInclude Include="include\GameEngine\DummyController.h" />
+    <ClInclude Include="include\GameEngine\FighterCharacter.h" />
+    <ClInclude Include="include\GameEngine\MultiPlayerCombatLevel.h" />
+    <ClInclude Include="include\GameEngine\MultiPlayerSelectionLevel.h" />
+    <ClInclude Include="include\GameEngine\NetworkEnemyController.h" />
+    <ClInclude Include="include\GameEngine\PlayerController.h" />
+    <ClInclude Include="include\GameEngine\RoboKy.h" />
+    <ClInclude Include="include\GameEngine\SandBag.h" />
+    <ClInclude Include="include\GameEngine\SinglePlayerCombatLevel.h" />
+    <ClInclude Include="include\GameEngine\SinglePlayerSelectionLevel.h" />
+    <ClInclude Include="include\GameEngine\SolBadguy.h" />
+    <ClInclude Include="include\GameEngine\TitleLevel.h" />
+    <ClInclude Include="include\GraphicsEngine\Animation.h" />
+    <ClInclude Include="include\GraphicsEngine\AnimationSystem.h" />
+    <ClInclude Include="include\GraphicsEngine\AnimationTexture.h" />
+    <ClInclude Include="include\GraphicsEngine\BaseModel.h" />
+    <ClInclude Include="include\GraphicsEngine\BaseShader.h" />
+    <ClInclude Include="include\GraphicsEngine\ColorModel.h" />
+    <ClInclude Include="include\GraphicsEngine\ColorShader.h" />
+    <ClInclude Include="include\GraphicsEngine\DirectX.h" />
+    <ClInclude Include="include\GraphicsEngine\Graphics.h" />
+    <ClInclude Include="include\GraphicsEngine\TextRenderer.h" />
+    <ClInclude Include="include\GraphicsEngine\Texture.h" />
+    <ClInclude Include="include\GraphicsEngine\TextureFactory.h" />
+    <ClInclude Include="include\GraphicsEngine\TextureModel.h" />
+    <ClInclude Include="include\GraphicsEngine\TextureShader.h" />
+    <ClInclude Include="include\MainEngine\Actor.h" />
+    <ClInclude Include="include\MainEngine\Character.h" />
+    <ClInclude Include="include\MainEngine\Collider.h" />
+    <ClInclude Include="include\MainEngine\CollisionGroup.h" />
+    <ClInclude Include="include\MainEngine\CollisionSystem.h" />
+    <ClInclude Include="include\MainEngine\Controller.h" />
+    <ClInclude Include="include\MainEngine\Engine.h" />
+    <ClInclude Include="include\MainEngine\Game.h" />
+    <ClInclude Include="include\MainEngine\Level.h" />
+    <ClInclude Include="include\MainEngine\MovingCollider.h" />
+    <ClInclude Include="include\MainEngine\Pawn.h" />
+    <ClInclude Include="include\MainEngine\World.h" />
+    <ClInclude Include="include\MathEngine\Rect.h" />
+    <ClInclude Include="include\MathEngine\Vec2D.h" />
+    <ClInclude Include="include\NetworkEngine\NetworkSystem.h" />
+    <ClInclude Include="include\ParserEngine\JSONParser.h" />
+    <ClInclude Include="include\SoundEngine\Sound.h" />
+    <ClInclude Include="include\SoundEngine\SoundSystem.h" />
+    <ClInclude Include="include\UIEngine\AUICanvas.h" />
+    <ClInclude Include="include\UIEngine\AUIElement.h" />
+    <ClInclude Include="include\UIEngine\UIButton.h" />
+    <ClInclude Include="include\UIEngine\UICanvas_Connection.h" />
+    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerCombat.h" />
+    <ClInclude Include="include\UIEngine\UICanvas_MultiPlayerSelection.h" />
+    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerCombat.h" />
+    <ClInclude Include="include\UIEngine\UICanvas_SinglePlayerSelection.h" />
+    <ClInclude Include="include\UIEngine\UICanvas_Title.h" />
+    <ClInclude Include="include\UIEngine\UIImage.h" />
+    <ClInclude Include="include\UIEngine\UIProgressBar.h" />
+    <ClInclude Include="include\UIEngine\UIText.h" />
+    <ClInclude Include="include\UIEngine\UITextBox.h" />
   </ItemGroup>
   <ItemGroup>
-    <FxCompile Include="ColorPixelShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
+    <FxCompile Include="Shaders\ColorPixelShader.hlsl">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
+    </FxCompile>
+    <FxCompile Include="Shaders\ColorVertexShader.hlsl" />
+    <FxCompile Include="Shaders\TexturePixelShader.hlsl">
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
       <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)Bytecode</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)%(Filename).shh</HeaderFileOutput>
     </FxCompile>
-    <FxCompile Include="ColorVertexShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)Bytecode</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)%(Filename).shh</HeaderFileOutput>
-    </FxCompile>
-    <FxCompile Include="TexturePixelShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Pixel</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Pixel</ShaderType>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)Bytecode</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)%(Filename).shh</HeaderFileOutput>
-    </FxCompile>
-    <FxCompile Include="TextureVertexShader.hlsl">
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Vertex</ShaderType>
-      <ShaderType Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Vertex</ShaderType>
-      <VariableName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(Filename)Bytecode</VariableName>
-      <HeaderFileOutput Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)%(Filename).shh</HeaderFileOutput>
-    </FxCompile>
+    <FxCompile Include="Shaders\TextureVertexShader.hlsl" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
