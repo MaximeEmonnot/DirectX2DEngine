@@ -29,7 +29,7 @@ Sound::Sound(const std::string& path, Type soundType)
 	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, 0, nullptr, FILE_BEGIN))
 		throw SFX_EXCEPTION("An exception has been caught during Sound Initialization : Invalid Set File Pointer.", HRESULT_FROM_WIN32(GetLastError()));
 
-	// We locate the RIFF chunk and check the audio file type
+	// We locate the RIFF chunk and check the audio file type (WAVE format)
 
 	DWORD dwChunkSize;
 	DWORD dwChunkPosition;
@@ -40,11 +40,13 @@ Sound::Sound(const std::string& path, Type soundType)
 		throw SFX_EXCEPTION("An exception has been caught during Sound Initialization : Wrong file type.", S_FALSE);
 
 	// We locate the FMT chunk and store its contents into a WAVEFORMATEXTENSIBLE structure
+	// Basically the FMT chunk contains the format header for the audio file
 
 	FindChunk(hFile, fourccFMT, dwChunkSize, dwChunkPosition);
 	ReadChunkData(hFile, &wfx, dwChunkSize, dwChunkPosition);
 
 	// We locate the DATA chunk and store its contents into a buffer
+	// The DATA chunk contains the audio data that will be played when passed to a source voice 
 
 	FindChunk(hFile, fourccDATA, dwChunkSize, dwChunkPosition);
 	BYTE* pDataBuffer = new BYTE[dwChunkSize];
