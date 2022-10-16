@@ -12,6 +12,8 @@ Sound::Sound(const std::string& path, Type soundType)
 	const std::string strFileName = path;
 #endif
 
+	// We open the audio file
+
 	HANDLE hFile = CreateFileA(
 		strFileName.c_str(),
 		GENERIC_READ,
@@ -27,21 +29,28 @@ Sound::Sound(const std::string& path, Type soundType)
 	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, 0, nullptr, FILE_BEGIN))
 		throw SFX_EXCEPTION("An exception has been caught during Sound Initialization : Invalid Set File Pointer.", HRESULT_FROM_WIN32(GetLastError()));
 
+	// We locate the RIFF chunk and check the audio file type
+
 	DWORD dwChunkSize;
 	DWORD dwChunkPosition;
-
 	FindChunk(hFile, fourccRIFF, dwChunkSize, dwChunkPosition);
 	DWORD fileType;
 	ReadChunkData(hFile, &fileType, sizeof(DWORD), dwChunkPosition);
 	if (fileType != fourccWAVE)
 		throw SFX_EXCEPTION("An exception has been caught during Sound Initialization : Wrong file type.", S_FALSE);
 
+	// We locate the FMT chunk and store its contents into a WAVEFORMATEXTENSIBLE structure
+
 	FindChunk(hFile, fourccFMT, dwChunkSize, dwChunkPosition);
 	ReadChunkData(hFile, &wfx, dwChunkSize, dwChunkPosition);
+
+	// We locate the DATA chunk and store its contents into a buffer
 
 	FindChunk(hFile, fourccDATA, dwChunkSize, dwChunkPosition);
 	BYTE* pDataBuffer = new BYTE[dwChunkSize];
 	ReadChunkData(hFile, pDataBuffer, dwChunkSize, dwChunkPosition);
+
+	// Finally, we populated a XAUDIO2_BUFFER structure, and define whether we loop the song or not
 
 	buffer.AudioBytes = dwChunkSize;
 	buffer.pAudioData = pDataBuffer;
@@ -67,6 +76,7 @@ void Sound::Pause() const
 HRESULT Sound::FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& dwChunkDataPosition)
 {
 	HRESULT hr = S_OK;
+	// We initialize the file pointer at the beginning of the file
 	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, 0, NULL, FILE_BEGIN))
 		return HRESULT_FROM_WIN32(GetLastError());
 
@@ -77,13 +87,17 @@ HRESULT Sound::FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& 
 	DWORD bytesRead = 0;
 	DWORD dwOffset = 0;
 
+	// Until we reach the desired chunk...
+
 	while (hr == S_OK) {
+		// ... we read the current chunk type and size
 		DWORD dwRead;
 		if (0 == ReadFile(hFile, &dwChunkType, sizeof(DWORD), &dwRead, NULL))
 			hr = HRESULT_FROM_WIN32(GetLastError());
 		if (0 == ReadFile(hFile, &dwChunkDataSize, sizeof(DWORD), &dwRead, NULL))
 			hr = HRESULT_FROM_WIN32(GetLastError());
 
+		// If we are in the RIFF chunk, we check if the data is readable, else we check if we can move the file pointer
 		switch (dwChunkType) {
 		case fourccRIFF:
 			dwRIFFDataSize = dwChunkDataPosition;
@@ -98,6 +112,7 @@ HRESULT Sound::FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& 
 
 		dwOffset += sizeof(DWORD) * 2;
 
+		// When the desired chunk is reached, we return the chunk's size and position
 		if (dwChunkType == fourcc) {
 			dwChunkSize = dwChunkDataSize;
 			dwChunkDataPosition = dwOffset;
@@ -106,6 +121,7 @@ HRESULT Sound::FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& 
 
 		dwOffset += dwChunkDataSize;
 
+		// If the RIFF data size is negative, we return false
 		if (bytesRead >= dwRIFFDataSize) return S_FALSE;
 	}
 
@@ -115,8 +131,10 @@ HRESULT Sound::FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& 
 HRESULT Sound::ReadChunkData(HANDLE hFile, void* buffer, DWORD bufferSize, DWORD bufferOffset)
 {
 	HRESULT hr = S_OK;
+	// We adjust the file pointer to the beginning of the chunk section ...
 	if (INVALID_SET_FILE_POINTER == SetFilePointer(hFile, bufferOffset, NULL, FILE_BEGIN))
 		return HRESULT_FROM_WIN32(GetLastError());
+	// ... then we read all the data in the chunk section and store it in a buffer
 	DWORD dwRead;
 	if (0 == ReadFile(hFile, buffer, bufferSize, &dwRead, NULL))
 		hr = HRESULT_FROM_WIN32(GetLastError());

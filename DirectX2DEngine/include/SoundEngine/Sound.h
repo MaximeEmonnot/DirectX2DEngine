@@ -3,6 +3,8 @@
 #include <xaudio2.h>
 #include <string>
 
+// RIFF file chunks
+// More information on : https://learn.microsoft.com/en-us/windows/win32/xaudio2/how-to--load-audio-data-files-in-xaudio2
 #ifdef _XBOX //Big-Endian
 #define fourccRIFF 'RIFF'
 #define fourccDATA 'data'
@@ -39,7 +41,9 @@ private:
 	void		SetVoice(IXAudio2* pAudio);
 	void		Pause() const;
 
+	// Finds the chunk in the Audio File using the Resource Interchange File Format (RIFF)
 	HRESULT		FindChunk(HANDLE hFile, DWORD fourcc, DWORD& dwChunkSize, DWORD& dwChunkDataPosition);
+	// Reads the previously found chunk
 	HRESULT		ReadChunkData(HANDLE hFile, void* buffer, DWORD bufferSize, DWORD bufferOffset);
 
 protected:
