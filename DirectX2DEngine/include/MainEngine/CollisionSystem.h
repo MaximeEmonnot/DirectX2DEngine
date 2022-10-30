@@ -15,6 +15,8 @@ public:
 
 	bool									AnimationIsFinished() const;
 
+	void									SetDirection(int newDirection) const;
+
 	std::vector<std::shared_ptr<Collider>>	GetColliders() const;
 
 private:

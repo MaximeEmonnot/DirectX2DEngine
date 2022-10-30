@@ -53,7 +53,7 @@ void Collider::Update()
 
 	forces.clear();
 
-	pModel->SetRectangle(rect + origin);
+	pModel->SetRectangle(FRect(invert * rect.pos.x, rect.pos.y, rect.width, rect.height) + origin);
 }
 
 void Collider::SetCollisionMode(CollisionMode collisionMode)
@@ -223,4 +223,9 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 void Collider::SetRectPos(const FRect& pos)
 {
 	rect = pos;
+}
+
+void Collider::SetDirection(int newInvert)
+{
+	invert = newInvert;
 }

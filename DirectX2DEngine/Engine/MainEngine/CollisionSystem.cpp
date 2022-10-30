@@ -50,6 +50,11 @@ bool CollisionSystem::AnimationIsFinished() const
 	return collisionGroups.at(animState).IsFinished();
 }
 
+void CollisionSystem::SetDirection(int newDirection) const
+{
+	for (const auto& pCollider : collisionGroups.at(animState).GetColliders()) pCollider->SetDirection(newDirection);
+}
+
 std::vector<std::shared_ptr<Collider>> CollisionSystem::GetColliders() const
 {
 	std::vector<std::shared_ptr<Collider>> out;
@@ -61,8 +66,10 @@ std::vector<std::shared_ptr<Collider>> CollisionSystem::GetColliders() const
 void CollisionSystem::SetCollisionGroup(const std::string& state)
 {
 	if (animState != state) {
+		collisionGroups.at(animState).SetVisible(false);
 		animState = state;
 		collisionGroups.at(animState).Reset();
+		collisionGroups.at(animState).SetVisible(true);
 	}
 }
 

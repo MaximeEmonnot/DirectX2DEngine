@@ -135,8 +135,11 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
 void BaseFighter::Update()
 {
     // The fighter faces his enemy based on his position 
-    if (const std::shared_ptr<BaseFighter> shared_enemy = pEnemy.lock()) 
-        pModel->SetInverted(owner.GetPosition().x < shared_enemy->owner.GetPosition().x);
+    if (const std::shared_ptr<BaseFighter> shared_enemy = pEnemy.lock()) {
+        const bool bIsInverted = owner.GetPosition().x < shared_enemy->owner.GetPosition().x;
+        pModel->SetInverted(bIsInverted);
+        collisionSys.SetDirection(bIsInverted ? -1 : 1);
+    }
 
     pComboTree->UpdateTree();
 
@@ -176,4 +179,10 @@ std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const
     std::vector<std::shared_ptr<Collider>> out;
     for (std::shared_ptr<Collider>& pCollider : collisionSys.GetColliders()) out.emplace_back(pCollider);
     return out;
+}
+
+void BaseFighter::AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition)
+{
+    animSys.AddTransition(from, to, condition);
+    collisionSys.AddTransition(from, to, condition);
 }

@@ -14,5 +14,13 @@ private:
 
 public:
 	SolBadguy(Actor& owner, int priority);
+
+	virtual void Update() override;
+
+private:
+	void IdleToRandomIdleConditionUpdate();
+
+private:
+	bool bIdleToRandomIdle = false;
 };
 

@@ -17,6 +17,9 @@ public:
 
 	std::vector<std::shared_ptr<Collider>>	GetColliders() const;
 
+	void									SetDirection(int direction) const;
+	void									SetVisible(bool bValue) const;
+
 private:
 	std::vector<MovingCollider>				colliders;
 };

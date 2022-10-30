@@ -37,9 +37,14 @@ void MovingCollider::SetCollisionChannel(Collider::CollisionChannel collisionCha
 	pCollider->SetCollisionChannel(collisionChannel);
 }
 
-void MovingCollider::SetVisible(bool bValue)
+void MovingCollider::SetVisible(bool bValue) const
 {
 	pCollider->SetVisible(bValue);
+}
+
+void MovingCollider::SetDirection(int newDirection) const
+{
+	pCollider->SetDirection(newDirection);
 }
 
 void MovingCollider::AddPosition(const FRect& pos)

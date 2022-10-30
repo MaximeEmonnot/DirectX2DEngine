@@ -42,6 +42,7 @@ public:
 	void														SetCollisionChannel(CollisionChannel collisionChannel);
 	void														SetGravity(bool bValue);
 	void														SetRectPos(const FRect& pos);
+	void														SetDirection(int newDirection);
 
 	bool														IsOverlapping() const;
 	bool														IsBlocking() const;
@@ -79,6 +80,7 @@ private:
 	Actor&														owner;
 	FVec2D&														origin;
 	FRect														rect;
+	int															invert = 1;
 
 	FVec2D														velocity;
 

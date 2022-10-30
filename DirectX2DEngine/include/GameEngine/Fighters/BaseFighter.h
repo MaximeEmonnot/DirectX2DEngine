@@ -75,6 +75,9 @@ public:
     std::vector<std::shared_ptr<Collider>>  GetColliders() const;
 
 protected:
+    void AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition);
+
+protected:
     Actor&                          owner;
     AnimationSystem                 animSys;
     CollisionSystem                 collisionSys;

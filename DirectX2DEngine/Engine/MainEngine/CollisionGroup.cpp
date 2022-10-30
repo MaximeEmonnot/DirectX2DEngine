@@ -28,3 +28,13 @@ std::vector<std::shared_ptr<Collider>> CollisionGroup::GetColliders() const
 	for (auto& movingCollider : colliders) out.emplace_back(movingCollider.GetCollider());
 	return out;
 }
+
+void CollisionGroup::SetDirection(int newDirection) const
+{
+	for (auto& movingCollider : colliders) movingCollider.SetDirection(newDirection);
+}
+
+void CollisionGroup::SetVisible(bool bValue) const
+{
+	for (auto& movingCollider : colliders) movingCollider.SetVisible(bValue);
+}

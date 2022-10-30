@@ -22,8 +22,8 @@ void SinglePlayerCombatLevel::Update()
 void SinglePlayerCombatLevel::BeginLevel()
 {
 	// Spawn Actors
-	std::shared_ptr<FighterCharacter<PlayerController>> pPlayer = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(-250, -125), "Player", static_cast<EFighterName>(selection.first - 1), 15);
-	std::shared_ptr<FighterCharacter<DummyController>> pEnemy = GetWorld().SpawnActor<FighterCharacter<DummyController>>(FVec2D(250, -125), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
+	std::shared_ptr<FighterCharacter<PlayerController>> pPlayer = GetWorld().SpawnActor<FighterCharacter<PlayerController>>(FVec2D(-250, -25), "Player", static_cast<EFighterName>(selection.first - 1), 15);
+	std::shared_ptr<FighterCharacter<DummyController>> pEnemy = GetWorld().SpawnActor<FighterCharacter<DummyController>>(FVec2D(250, -25), "Enemy", static_cast<EFighterName>(selection.second - 1), 12);
 
 	// Linking Player and Enemy so they face each other
 	pPlayer->GetFighter()->SetEnemy(pEnemy->GetFighter());

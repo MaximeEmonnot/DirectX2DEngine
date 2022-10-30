@@ -23,7 +23,8 @@ public:
 
 	static TextRenderer&	GetInstance();
 
-	void					Render(const std::wstring& text, const std::wstring& fontFamily, float fontSize, FRect position, D2D1_COLOR_F fontColor = D2D1::ColorF(D2D1::ColorF::White));
+	void					Render(const std::wstring& text, const std::wstring& fontFamily, float fontSize, 
+								   FRect position, D2D1_COLOR_F fontColor = D2D1::ColorF(D2D1::ColorF::White));
 
 public:
 	static std::unique_ptr<TextRenderer>													pInstance;

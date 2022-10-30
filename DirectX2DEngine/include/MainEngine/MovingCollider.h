@@ -14,7 +14,8 @@ public:
 	void						SetHoldTime(float _holdTime);
 	void						SetCollisionMode(Collider::CollisionMode collisionMode);
 	void						SetCollisionChannel(Collider::CollisionChannel collisionChannel);
-	void						SetVisible(bool bValue);
+	void						SetVisible(bool bValue) const;
+	void						SetDirection(int newDirection) const;
 	void						AddPosition(const FRect& pos);
 
 	void						Reset();

@@ -25,6 +25,13 @@ public:
 		return Rect<T2>(static_cast<Vec2D<T2>>(pos), static_cast<T2>(width), static_cast<T2>(height));
 	}
 
+	Rect operator-() const
+	{
+		Rect out = *this;
+		out.pos = -out.pos;
+		return out;
+	}
+
 	Rect operator+(const Vec2D<T>& rhs) const {
 		Rect out = *this;
 		out.pos += rhs;
