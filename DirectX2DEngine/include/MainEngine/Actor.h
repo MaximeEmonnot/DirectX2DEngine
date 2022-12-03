@@ -38,6 +38,8 @@ public:
 
 	virtual void Update();
 
+	virtual void ApplyDamage(const Actor& damageCauser, int damage);
+
 	FVec2D													GetPosition() const;
 	void													SetPosition(const FVec2D& newPosition);
 	std::string												GetName() const;

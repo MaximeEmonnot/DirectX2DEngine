@@ -21,5 +21,8 @@ private:
     std::shared_ptr<UIProgressBar>  pEnemyHealthBar;
     std::shared_ptr<UIImage>        pEnemyIcon;
     std::shared_ptr<UIText>         pEnemyName;
+
+    std::weak_ptr<BaseFighter>      pPlayer;
+    std::weak_ptr<BaseFighter>      pEnemy;
 };
 

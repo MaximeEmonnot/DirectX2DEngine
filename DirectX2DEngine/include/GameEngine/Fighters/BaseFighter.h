@@ -60,7 +60,7 @@ protected:
     };
 
 protected:
-    BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int priority);
+    BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int maxHealth, int priority);
 
 public:
     virtual ~BaseFighter() = default;
@@ -68,11 +68,14 @@ public:
     virtual void                            Update();
 
     void                                    SetEnemy(std::weak_ptr<BaseFighter> _pEnemy);
+    void                                    ApplyDamage(int damage);
 
     std::string                             GetIcon() const;
     std::wstring                            GetName() const;
 
     std::vector<std::shared_ptr<Collider>>  GetColliders() const;
+
+    float                                   GetHealth() const;
 
 protected:
     void AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition);
@@ -87,5 +90,8 @@ protected:
     std::wstring                    name;
 
     std::weak_ptr<BaseFighter>      pEnemy;
+
+    int                             maxHealth;
+    int                             currentHealth;
 };
 

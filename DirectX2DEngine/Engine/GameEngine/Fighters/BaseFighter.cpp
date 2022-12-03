@@ -119,13 +119,15 @@ IVec2D BaseFighter::ComboTree::GetCommandInput() const
 
 //**** BASE FIGHTER ****//
 
-BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int priority)
+BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_ptr<ComboTree> pComboTree, int maxHealth, int priority)
     :
     owner(owner),
     pComboTree(pComboTree),
     animSys(jsonPath),
 	pModel(owner.GetWorld().CreateModel<TextureModel>(priority)),
-    collisionSys(owner, jsonPath, animSys.GetAnimationList())
+    collisionSys(owner, jsonPath, animSys.GetAnimationList()),
+	maxHealth(maxHealth),
+	currentHealth(maxHealth)
 {
     JSONParser::Reader jsonParser;
     jsonParser.ReadFile(jsonPath);
@@ -164,6 +166,11 @@ void BaseFighter::SetEnemy(std::weak_ptr<BaseFighter> _pEnemy)
     pEnemy = _pEnemy;
 }
 
+void BaseFighter::ApplyDamage(int damage)
+{
+    currentHealth = (currentHealth - damage >= 0) ? currentHealth - damage : 0;
+}
+
 std::string BaseFighter::GetIcon() const
 {
     return icon;
@@ -179,6 +186,11 @@ std::vector<std::shared_ptr<Collider>> BaseFighter::GetColliders() const
     std::vector<std::shared_ptr<Collider>> out;
     for (std::shared_ptr<Collider>& pCollider : collisionSys.GetColliders()) out.emplace_back(pCollider);
     return out;
+}
+
+float BaseFighter::GetHealth() const
+{
+    return static_cast<float>(currentHealth) / static_cast<float>(maxHealth);
 }
 
 void BaseFighter::AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition)

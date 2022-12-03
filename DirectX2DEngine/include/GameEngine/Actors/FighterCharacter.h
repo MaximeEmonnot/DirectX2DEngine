@@ -45,6 +45,11 @@ public:
         pFighter->Update();
     }
 
+    virtual void ApplyDamage(const Actor& damageCauser, int damage) override
+    {
+        pFighter->ApplyDamage(damage);
+    }
+
     virtual std::vector<std::shared_ptr<Collider>> GetColliders() const override
     {
         std::vector<std::shared_ptr<Collider>> out;

@@ -21,6 +21,10 @@ void Actor::Update()
 {
 }
 
+void Actor::ApplyDamage(const Actor& damageCauser, int damage)
+{
+}
+
 FVec2D Actor::GetPosition() const
 {
 	return pos;

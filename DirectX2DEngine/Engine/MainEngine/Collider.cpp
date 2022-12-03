@@ -1,6 +1,7 @@
 #include "MainEngine/Collider.h"
 
 #include "CoreEngine/Timer.h"
+#include "DebugEngine/LoggerManager.h"
 #include "GraphicsEngine/Graphics.h"
 #include "MainEngine/Engine.h"
 #include "MainEngine/World.h"
@@ -138,7 +139,7 @@ void Collider::AddInputMovement(const FVec2D& dir)
 void Collider::SetInvicibilityState()
 {
 	mode = CollisionMode::Invicibility;
-	nInvincibilityFrames = 8;
+	nInvincibilityFrames = static_cast<int>(0.5f / DELTATIME);
 }
 
 void Collider::ApplyGravity()
@@ -178,7 +179,7 @@ void Collider::UpdateInvincibility()
 void Collider::TryMovingInThisDirection(FVec2D& direction)
 {
 	overlappingActors.clear();
-	const FRect test_rect = rect + origin + direction * DELTATIME;
+	const FRect test_rect = FRect(invert * rect.pos.x, rect.pos.y, rect.width, rect.height) + origin + direction * DELTATIME;
 
 	// For all other actors in the level...
 	for (std::shared_ptr<Actor>& actor : owner.GetWorld().GetActors())
@@ -189,21 +190,26 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 			for (const std::shared_ptr<Collider>& c : actor->GetColliders())
 			{
 				// ...if there is a collision between our collider and their collider
-				const FRect actor_collider = c->rect + c->origin;
+				const FRect actor_collider = FRect(c->invert * c->rect.pos.x, c->rect.pos.y, c->rect.width, c->rect.height) + c->origin;
 				if (test_rect.IsCollidingRect(actor_collider))
 				{
 					overlappingActors.insert(std::make_shared<Actor>(c->owner));
 					if (mode == c->mode) {
 						switch (mode)
 						{
-						case CollisionMode::Overlapping:
-							if (channel == CollisionChannel::Attack && c->channel == CollisionChannel::Defense)
+						case CollisionMode::Overlapping: 
+						{
+							const bool attackerCondition = channel == CollisionChannel::Attack;
+							const bool defenderCondition = (c->channel == CollisionChannel::Defense || c->channel == CollisionChannel::Stun);
+							if (attackerCondition && defenderCondition)
 							{
 								constexpr FVec2D impulse = FVec2D(15, 200);
 								c->AddImpulse(impulse);
 								c->SetInvicibilityState();
+								actor->ApplyDamage(owner, 10);
 							}
 							bIsOverlapping = true;
+						}
 							break;
 						case CollisionMode::Blocking:
 							bIsBlocking = true;
