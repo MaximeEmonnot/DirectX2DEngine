@@ -303,6 +303,12 @@
     <ClCompile Include="Engine\GameEngine\Controllers\PlayerController.cpp">
       <Filter>Fichiers sources\GameEngine\Controllers</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Levels\VictoryLevel.cpp">
+      <Filter>Fichiers sources\GameEngine\Levels</Filter>
+    </ClCompile>
+    <ClCompile Include="Engine\GameEngine\UI\UICanvas_Victory.cpp">
+      <Filter>Fichiers sources\GameEngine\UI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\NetworkEngine\NetworkSystem.h">
@@ -519,6 +525,12 @@
       <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
     </ClInclude>
     <ClInclude Include="include\GameEngine\UI\UICanvas_Title.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Levels\VictoryLevel.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Levels</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\UI\UICanvas_Victory.h">
       <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
     </ClInclude>
   </ItemGroup>

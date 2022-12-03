@@ -76,6 +76,7 @@ public:
     std::vector<std::shared_ptr<Collider>>  GetColliders() const;
 
     float                                   GetHealth() const;
+    bool                                    IsAlive() const;
 
 protected:
     void AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition);

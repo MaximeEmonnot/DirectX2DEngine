@@ -203,8 +203,8 @@ void Collider::TryMovingInThisDirection(FVec2D& direction)
 							const bool defenderCondition = (c->channel == CollisionChannel::Defense || c->channel == CollisionChannel::Stun);
 							if (attackerCondition && defenderCondition)
 							{
-								constexpr FVec2D impulse = FVec2D(15, 200);
-								c->AddImpulse(impulse);
+								//constexpr FVec2D impulse = FVec2D(15, 200);
+								//c->AddImpulse(impulse);
 								c->SetInvicibilityState();
 								actor->ApplyDamage(owner, 10);
 							}

@@ -18,11 +18,13 @@ UICanvas_Title::UICanvas_Title()
 	pSinglePlayerButton->SetTask([&]
 		{
 			ENGINE.SetLevel<SinglePlayerSelectionLevel>();
+			ENGINE.GetCurrentLevel()->BeginLevel();
 		});
 
 	pMultiPlayerButton->SetTask([&]
 		{
 			ENGINE.SetLevel<ConnectionLevel>();
+			ENGINE.GetCurrentLevel()->BeginLevel();
 		});
 }
 

@@ -12,6 +12,7 @@
 #include "GameEngine/Levels/ConnectionLevel.h"
 #include "GameEngine/Levels/MultiPlayerCombatLevel.h"
 #include "GameEngine/Levels/MultiPlayerSelectionLevel.h"
+#include "GameEngine/Levels/VictoryLevel.h"
 
 Game::Game()
 {
@@ -28,6 +29,7 @@ Game::Game()
 	ENGINE.AddLevel<ConnectionLevel>();
 	ENGINE.AddLevel<MultiPlayerSelectionLevel>();
 	ENGINE.AddLevel<MultiPlayerCombatLevel>();
+	ENGINE.AddLevel<VictoryLevel>();
 }
 
 void Game::Go()

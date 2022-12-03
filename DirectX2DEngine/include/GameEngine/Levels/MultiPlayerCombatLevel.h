@@ -9,7 +9,7 @@ class MultiPlayerCombatLevel :
     public Level
 {
 public:
-    MultiPlayerCombatLevel();
+    MultiPlayerCombatLevel() = default;
 
     virtual void    Update() override;
     virtual void    BeginLevel() override;

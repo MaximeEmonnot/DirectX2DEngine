@@ -8,10 +8,6 @@
 #include "GameEngine/Controllers/PlayerController.h"
 #include "GameEngine/UI/UICanvas_SinglePlayerCombat.h"
 
-MultiPlayerCombatLevel::MultiPlayerCombatLevel()
-{
-	GetWorld().SpawnActor<Background>(FVec2D(0, 180), "Background");
-}
 
 void MultiPlayerCombatLevel::Update()
 {
@@ -23,6 +19,11 @@ void MultiPlayerCombatLevel::Update()
 
 void MultiPlayerCombatLevel::BeginLevel()
 {
+	// Clear level from previous access
+	Clear();
+
+	// Spawn Actors
+	GetWorld().SpawnActor<Background>(FVec2D(0, 180), "Background");
 	switch(NETWORK.GetPlace())
 	{
 	case 1:

@@ -65,7 +65,7 @@ void UICanvas_MultiPlayerSelection::SelectFighter(int fighter_value) const
 		}
 		TICKCLOCK // We reset the DeltaTime value as we used a blocking call on the main thread
 
-			ENGINE.SetLevel<MultiPlayerCombatLevel>();
+		ENGINE.SetLevel<MultiPlayerCombatLevel>();
 		if (std::shared_ptr<MultiPlayerCombatLevel> new_level = std::dynamic_pointer_cast<MultiPlayerCombatLevel>(ENGINE.GetCurrentLevel()))
 		{
 			new_level->SetSelection(std::pair(fighter_value, static_cast<int>(input.at(0))));

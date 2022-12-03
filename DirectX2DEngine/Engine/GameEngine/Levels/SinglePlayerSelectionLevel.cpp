@@ -14,6 +14,7 @@ void SinglePlayerSelectionLevel::Update()
 
 void SinglePlayerSelectionLevel::BeginLevel()
 {
+	selection = std::pair(0, 0);
 }
 
 void SinglePlayerSelectionLevel::SetSelectionValue(bool bIsLeft, int value)

@@ -193,6 +193,11 @@ float BaseFighter::GetHealth() const
     return static_cast<float>(currentHealth) / static_cast<float>(maxHealth);
 }
 
+bool BaseFighter::IsAlive() const
+{
+    return currentHealth != 0;
+}
+
 void BaseFighter::AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition)
 {
     animSys.AddTransition(from, to, condition);
