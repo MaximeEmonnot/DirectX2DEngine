@@ -204,6 +204,7 @@
     <ClCompile Include="Engine\MainEngine\Pawn.cpp" />
     <ClCompile Include="Engine\MainEngine\World.cpp" />
     <ClCompile Include="Engine\NetworkEngine\NetworkSystem.cpp" />
+    <ClCompile Include="Engine\ParserEngine\JSONManager.cpp" />
     <ClCompile Include="Engine\ParserEngine\JSONParser.cpp" />
     <ClCompile Include="Engine\SoundEngine\Sound.cpp" />
     <ClCompile Include="Engine\SoundEngine\SoundSystem.cpp" />
@@ -280,6 +281,7 @@
     <ClInclude Include="include\MathEngine\Rect.h" />
     <ClInclude Include="include\MathEngine\Vec2D.h" />
     <ClInclude Include="include\NetworkEngine\NetworkSystem.h" />
+    <ClInclude Include="include\ParserEngine\JSONManager.h" />
     <ClInclude Include="include\ParserEngine\JSONParser.h" />
     <ClInclude Include="include\SoundEngine\Sound.h" />
     <ClInclude Include="include\SoundEngine\SoundSystem.h" />

@@ -3,6 +3,18 @@
 #include <fstream>
 #include "rapidjson/istreamwrapper.h"
 
+JSONParser::Reader::Reader(const Reader& copy)
+{
+	*this = copy;
+}
+
+JSONParser::Reader& JSONParser::Reader::operator=(const Reader& copy)
+{
+	document.CopyFrom(copy.document, document.GetAllocator());
+
+	return *this;
+}
+
 void JSONParser::Reader::ReadFile(const std::string& filePath)
 {
 	std::ifstream file(filePath);

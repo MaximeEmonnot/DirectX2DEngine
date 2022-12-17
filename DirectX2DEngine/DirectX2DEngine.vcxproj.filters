@@ -309,6 +309,9 @@
     <ClCompile Include="Engine\GameEngine\UI\UICanvas_Victory.cpp">
       <Filter>Fichiers sources\GameEngine\UI</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\ParserEngine\JSONManager.cpp">
+      <Filter>Fichiers sources\ParserEngine</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\NetworkEngine\NetworkSystem.h">
@@ -532,6 +535,9 @@
     </ClInclude>
     <ClInclude Include="include\GameEngine\UI\UICanvas_Victory.h">
       <Filter>Fichiers d%27en-tête\GameEngine\UI</Filter>
+    </ClInclude>
+    <ClInclude Include="include\ParserEngine\JSONManager.h">
+      <Filter>Fichiers d%27en-tête\ParserEngine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

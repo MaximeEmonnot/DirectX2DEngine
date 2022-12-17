@@ -6,7 +6,9 @@
 #include "GameEngine/Actors/FighterCharacter.h"
 #include "GameEngine/Controllers/NetworkEnemyController.h"
 #include "GameEngine/Controllers/PlayerController.h"
+#include "GameEngine/Levels/VictoryLevel.h"
 #include "GameEngine/UI/UICanvas_SinglePlayerCombat.h"
+#include "MainEngine/Engine.h"
 
 
 void MultiPlayerCombatLevel::Update()
@@ -15,6 +17,19 @@ void MultiPlayerCombatLevel::Update()
 
 	// Send Data
 	SendPositionData(pPlayer->GetPosition());
+
+	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))
+	{
+		SFX.Pause("Sounds\\BeJustOrBeDead.wav");
+		NETWORK.Disconnect();
+		ENGINE.SetLevel<VictoryLevel>();
+		if (std::shared_ptr<VictoryLevel> new_level = std::dynamic_pointer_cast<VictoryLevel>(ENGINE.GetCurrentLevel()))
+		{
+			new_level->SetWinner(*(pPlayer->GetFighter()->IsAlive() ? pPlayer->GetFighter() : pEnemy->GetFighter()),
+				(pPlayer->GetFighter()->IsAlive() && NETWORK.GetPlace() == 1) ? 1 : 2);
+			new_level->BeginLevel();
+		}
+	}
 }
 
 void MultiPlayerCombatLevel::BeginLevel()
@@ -47,7 +62,7 @@ void MultiPlayerCombatLevel::BeginLevel()
 	pEnemy->GetFighter()->SetEnemy(pPlayer->GetFighter());
 
 	// Play background sounds
-	SFX.Play("Sounds/BeJustOrBeDead.wav");
+	SFX.Play("Sounds\\BeJustOrBeDead.wav");
 }
 
 void MultiPlayerCombatLevel::SetSelection(std::pair<int, int> _selection)

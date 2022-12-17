@@ -50,12 +50,10 @@ void TCPSocket::Close() const
 
 void TCPSocket::SendData(std::vector<uint8_t> data) const
 {
-	int size = static_cast<int>(data.size());
-	uint8_t* size_array = reinterpret_cast<uint8_t*>(&size);
-	std::vector<uint8_t> size_vector(size_array, size_array + 4);
-	data.insert(data.begin(), size_vector.begin(), size_vector.end());
-
-	if (send(mSocketDescriptor, data.data(), data.size(), 0) == -1)
+	const int size = static_cast<int> (data.size());
+	if (send(mSocketDescriptor, &size, sizeof(int), 0) == -1)
+		std::cout << "Error sending size" << std::endl;
+	else if (send(mSocketDescriptor, data.data(), size, 0) == -1)
 		std::cout << "Error sending msg" << std::endl;
 }
 

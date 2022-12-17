@@ -22,6 +22,8 @@ namespace JSONParser
 	{
 	public:
 		Reader() = default;
+		Reader(const Reader& copy);
+		Reader& operator= (const Reader& copy);
 
 		// Initializes the JSON Document.
 		void				ReadFile(const std::string& filePath);

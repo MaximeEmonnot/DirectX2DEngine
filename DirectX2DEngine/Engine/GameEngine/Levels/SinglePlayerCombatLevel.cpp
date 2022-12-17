@@ -13,7 +13,7 @@ void SinglePlayerCombatLevel::Update()
 
 	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))
 	{
-		SFX.Pause("Sounds/BeJustOrBeDead.wav");
+		SFX.Pause("Sounds\\BeJustOrBeDead.wav");
 		ENGINE.SetLevel<VictoryLevel>();
 		if (std::shared_ptr<VictoryLevel> new_level = std::dynamic_pointer_cast<VictoryLevel>(ENGINE.GetCurrentLevel()))
 		{
@@ -42,7 +42,7 @@ void SinglePlayerCombatLevel::BeginLevel()
 	CreateCanvas<UICanvas_SinglePlayerCombat>(pPlayer->GetFighter(), pEnemy->GetFighter());
 
 	// Play background sounds
-	SFX.Play("Sounds/BeJustOrBeDead.wav");
+	SFX.Play("Sounds\\BeJustOrBeDead.wav");
 }
 
 void SinglePlayerCombatLevel::SetSelection(std::pair<int, int> _selection)
