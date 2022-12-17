@@ -143,7 +143,7 @@ void BaseFighter::Update()
         const bool bIsInverted = owner.GetPosition().x < shared_enemy->owner.GetPosition().x;
         pModel->SetInverted(bIsInverted);
         collisionSys.SetDirection(bIsInverted ? -1 : 1);
-        std::dynamic_pointer_cast<FightingController>(dynamic_cast<Pawn*>(&owner)->GetController())->SetLookAtDirection(bIsInverted);
+        std::dynamic_pointer_cast<FightingController>(dynamic_cast<Pawn*>(&owner)->GetController())->SetLookAtDirection(!bIsInverted);
     }
 
     pComboTree->UpdateTree();

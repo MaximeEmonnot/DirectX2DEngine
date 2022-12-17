@@ -26,7 +26,7 @@ Game::Game()
 
 	// Textures Initialization
 	for (const auto& entry : std::filesystem::recursive_directory_iterator("Textures")) {
-		std::regex regex = std::regex("(.+/)*[0-9]\.tga");
+		std::regex regex = std::regex("(.+/)*[1-9]?[0-9]\.tga");
 		if (std::regex_search(entry.path().string(), regex)) ANIMATION_TEXTURE(entry.path().string());
 		else if (entry.path().string().ends_with(".tga")) TEXTURE(entry.path().string());
 	}
