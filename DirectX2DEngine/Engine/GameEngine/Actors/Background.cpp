@@ -6,7 +6,7 @@ Background::Background(World& world, const FVec2D& pos, const std::string& name)
 	:
 	Actor(world, pos, name),
 	pCollider(std::make_shared<Collider>(*this)),
-	pModel(GetWorld().CreateModel<TextureModel>(1, "Textures/Backgrounds/London.tga"))
+	pModel(GetWorld().CreateModel<TextureModel>(1, "Textures\\Backgrounds\\London.tga"))
 {
 	pCollider->SetVisible(true);
 	pCollider->SetGravity(false);

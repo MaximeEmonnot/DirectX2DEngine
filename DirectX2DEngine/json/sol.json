@@ -1,5 +1,5 @@
 {
-    "character": "Textures/SolBadguy/",
+    "character": "Textures\\SolBadguy\\",
     "animations": {
         "Idle": [5, 0.125, 2],
         "RandomIdle": [6, 0.075, 2],

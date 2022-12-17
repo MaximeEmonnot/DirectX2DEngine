@@ -50,7 +50,7 @@ SolBadguy::SolComboTree::SolComboTree()
 
 SolBadguy::SolBadguy(Actor& owner, int priority)
 	:
-	BaseFighter(owner, "json/sol.json", std::make_shared<SolComboTree>(), 140, priority)
+	BaseFighter(owner, "json\\sol.json", std::make_shared<SolComboTree>(), 140, priority)
 {
 	// Name initialization
 	name = L"Sol Badguy";

@@ -10,7 +10,7 @@ RoboKy::RoboKyComboTree::RoboKyComboTree()
 
 RoboKy::RoboKy(Actor& owner, int priority)
 	:
-	BaseFighter(owner, "json/roboky.json", std::make_shared<RoboKyComboTree>(), 120, priority)
+	BaseFighter(owner, "json\\roboky.json", std::make_shared<RoboKyComboTree>(), 120, priority)
 {
 	// Name Initialization
 	name = L"Robo Ky";

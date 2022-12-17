@@ -5,8 +5,9 @@
 
 AnimationSystem::AnimationSystem(const std::string& filePath)
 {
-	const std::string character = JSON(filePath).GetValueOf("character").GetString();
-	auto& v = JSON(filePath).GetValueOf("animations");
+	JSONParser::Reader jsonReader = JSON(filePath);
+	const std::string character = jsonReader.GetValueOf("character").GetString();
+	auto& v = jsonReader.GetValueOf("animations");
 	for (auto itr = v.MemberBegin(); itr != v.MemberEnd(); ++itr)
 	{
 		const std::string anim_name = itr->name.GetString();
@@ -15,7 +16,7 @@ AnimationSystem::AnimationSystem(const std::string& filePath)
 		const float holdTime = itr->value.GetArray()[1].GetFloat();
 		const Animation::AnimationMode animation_mode = static_cast<Animation::AnimationMode>(itr->value.GetArray()[2].GetInt());
 
-		for (int i = 0; i < count; i++) sprites.push_back(character + anim_name + std::string("/") + std::to_string(i) + std::string(".tga"));
+		for (int i = 0; i < count; i++) sprites.push_back(character + anim_name + std::string("\\") + std::to_string(i) + std::string(".tga"));
 
 		animations.insert(std::pair(anim_name, Animation(sprites, holdTime, animation_mode)));
 

@@ -1,5 +1,5 @@
 {
-    "character": "Textures/RoboKy/",
+    "character": "Textures\\RoboKy\\",
     "animations": {
         "Idle": [9, 0.125, 1],
         "WalkingForward": [6, 0.08, 2],
