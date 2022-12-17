@@ -1,10 +1,11 @@
 #pragma once
 
+#include "FightingController.h"
+
 #include "MathEngine/Vec2D.h"
-#include "MainEngine/Controller.h"
 
 class NetworkEnemyController :
-    public Controller
+    public FightingController
 {
 public:
 	NetworkEnemyController(Pawn& owner);

@@ -158,6 +158,7 @@
     <ClCompile Include="Engine\GameEngine\Actors\Background.cpp" />
     <ClCompile Include="Engine\GameEngine\Actors\SandBag.cpp" />
     <ClCompile Include="Engine\GameEngine\Controllers\DummyController.cpp" />
+    <ClCompile Include="Engine\GameEngine\Controllers\FightingController.cpp" />
     <ClCompile Include="Engine\GameEngine\Controllers\NetworkEnemyController.cpp" />
     <ClCompile Include="Engine\GameEngine\Controllers\PlayerController.cpp" />
     <ClCompile Include="Engine\GameEngine\Fighters\BaseFighter.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="include\GameEngine\Actors\SandBag.h" />
     <ClInclude Include="include\GameEngine\Commands.h" />
     <ClInclude Include="include\GameEngine\Controllers\DummyController.h" />
+    <ClInclude Include="include\GameEngine\Controllers\FightingController.h" />
     <ClInclude Include="include\GameEngine\Controllers\NetworkEnemyController.h" />
     <ClInclude Include="include\GameEngine\Controllers\PlayerController.h" />
     <ClInclude Include="include\GameEngine\Fighters\BaseFighter.h" />

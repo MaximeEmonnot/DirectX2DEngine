@@ -7,7 +7,7 @@
 
 NetworkEnemyController::NetworkEnemyController(Pawn& owner)
 	:
-	Controller(owner),
+	FightingController(owner),
 	lastPosition(owner.GetPosition())
 {
 	THREAD.Enqueue([&]

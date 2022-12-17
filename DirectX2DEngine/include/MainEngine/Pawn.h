@@ -16,6 +16,8 @@ public:
 
     virtual void    Update() override;
 
+    std::shared_ptr<Controller> GetController() const;
+
 protected:
     std::shared_ptr<Controller>     pController;
 };

@@ -312,6 +312,9 @@
     <ClCompile Include="Engine\ParserEngine\JSONManager.cpp">
       <Filter>Fichiers sources\ParserEngine</Filter>
     </ClCompile>
+    <ClCompile Include="Engine\GameEngine\Controllers\FightingController.cpp">
+      <Filter>Fichiers sources\GameEngine\Controllers</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\NetworkEngine\NetworkSystem.h">
@@ -538,6 +541,9 @@
     </ClInclude>
     <ClInclude Include="include\ParserEngine\JSONManager.h">
       <Filter>Fichiers d%27en-tête\ParserEngine</Filter>
+    </ClInclude>
+    <ClInclude Include="include\GameEngine\Controllers\FightingController.h">
+      <Filter>Fichiers d%27en-tête\GameEngine\Controllers</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

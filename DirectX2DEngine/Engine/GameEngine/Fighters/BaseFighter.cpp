@@ -7,6 +7,8 @@
 #include "ParserEngine/JSONManager.h"
 #include "MainEngine/Engine.h"
 #include "GameEngine/Commands.h"
+#include "GameEngine/Actors/FighterCharacter.h"
+#include "GameEngine/Controllers/FightingController.h"
 
 //**** COMBO TREE ****//
 
@@ -128,7 +130,8 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
 	pModel(owner.GetWorld().CreateModel<TextureModel>(priority)),
     collisionSys(owner, jsonPath, animSys.GetAnimationList()),
 	maxHealth(maxHealth),
-	currentHealth(maxHealth)
+	currentHealth(maxHealth),
+	pController(std::dynamic_pointer_cast<FightingController>(dynamic_cast<Pawn*>(&owner)->GetController()))
 {
     icon = JSON(jsonPath).GetValueOf("character").GetString() + std::string("icon.tga");
 }
@@ -140,6 +143,7 @@ void BaseFighter::Update()
         const bool bIsInverted = owner.GetPosition().x < shared_enemy->owner.GetPosition().x;
         pModel->SetInverted(bIsInverted);
         collisionSys.SetDirection(bIsInverted ? -1 : 1);
+        std::dynamic_pointer_cast<FightingController>(dynamic_cast<Pawn*>(&owner)->GetController())->SetLookAtDirection(bIsInverted);
     }
 
     pComboTree->UpdateTree();

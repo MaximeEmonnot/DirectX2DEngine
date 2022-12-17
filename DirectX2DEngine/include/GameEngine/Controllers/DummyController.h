@@ -1,9 +1,9 @@
 #pragma once
 
-#include "MainEngine/Controller.h"
+#include "FightingController.h"
 
 class DummyController :
-    public Controller
+    public FightingController
 {
 public:
     DummyController(Pawn& owner);

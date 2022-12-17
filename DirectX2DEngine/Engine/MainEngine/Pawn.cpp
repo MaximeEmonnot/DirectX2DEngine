@@ -21,3 +21,8 @@ void Pawn::Update()
 
 	pController->Update();
 }
+
+std::shared_ptr<Controller> Pawn::GetController() const
+{
+	return pController;
+}

@@ -2,10 +2,8 @@
 
 DummyController::DummyController(Pawn& owner)
 	:
-	Controller(owner)
-{
-}
+	FightingController(owner)
+{}
 
 void DummyController::Update()
-{
-}
+{}

@@ -1,5 +1,6 @@
 #pragma once
 
+#include "GameEngine/Controllers/FightingController.h"
 #include "GraphicsEngine/TextureModel.h"
 #include "GraphicsEngine/AnimationSystem.h"
 #include "MainEngine/Actor.h"
@@ -82,17 +83,18 @@ protected:
     void AddAnimationTransition(const std::string& from, const std::string& to, const std::function<bool()>& condition);
 
 protected:
-    Actor&                          owner;
-    AnimationSystem                 animSys;
-    CollisionSystem                 collisionSys;
-    std::shared_ptr<TextureModel>   pModel;
-    std::shared_ptr<ComboTree>      pComboTree;
-    std::string                     icon;
-    std::wstring                    name;
+    Actor&                                  owner;
+    AnimationSystem                         animSys;
+    CollisionSystem                         collisionSys;
+    std::shared_ptr<TextureModel>           pModel;
+    std::shared_ptr<ComboTree>              pComboTree;
+    std::string                             icon;
+    std::wstring                            name;
 
-    std::weak_ptr<BaseFighter>      pEnemy;
+    std::weak_ptr<BaseFighter>              pEnemy;
+    std::shared_ptr<FightingController>     pController;
 
-    int                             maxHealth;
-    int                             currentHealth;
+    int                                     maxHealth;
+    int                                     currentHealth;
 };
 

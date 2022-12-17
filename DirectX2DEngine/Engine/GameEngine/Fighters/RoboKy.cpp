@@ -17,47 +17,47 @@ RoboKy::RoboKy(Actor& owner, int priority)
 
 	// ANIMATIONS TRANSITIONS
 	// WalkingForward
-	AddAnimationTransition("Idle", "WalkingForward", [&] { return KBD.KeyIsPressed(Commands::LEFT); });
-	AddAnimationTransition("RandomIdle", "WalkingForward", [&] { return KBD.KeyIsPressed(Commands::LEFT); });
-	AddAnimationTransition("WalkingForward", "Idle", [&] { return !KBD.KeyIsPressed(Commands::LEFT); });
+	AddAnimationTransition("Idle", "WalkingForward", [&] { return pController->IsDoingAction(FightingController::EAction::Front); });
+	AddAnimationTransition("RandomIdle", "WalkingForward", [&] { return pController->IsDoingAction(FightingController::EAction::Front); });
+	AddAnimationTransition("WalkingForward", "Idle", [&] { return !pController->IsDoingAction(FightingController::EAction::Front); });
 
 	// WalkingBack
-	AddAnimationTransition("Idle", "WalkingBackward", [&] { return KBD.KeyIsPressed(Commands::RIGHT); });
-	AddAnimationTransition("RandomIdle", "WalkingBackward", [&] { return KBD.KeyIsPressed(Commands::RIGHT); });
-	AddAnimationTransition("WalkingBackward", "Idle", [&] { return !KBD.KeyIsPressed(Commands::RIGHT); });
+	AddAnimationTransition("Idle", "WalkingBackward", [&] { return pController->IsDoingAction(FightingController::EAction::Back); });
+	AddAnimationTransition("RandomIdle", "WalkingBackward", [&] { return pController->IsDoingAction(FightingController::EAction::Back); });
+	AddAnimationTransition("WalkingBackward", "Idle", [&] { return !pController->IsDoingAction(FightingController::EAction::Back); });
 
 	// Crouch
-	AddAnimationTransition("Idle", "CrouchTransition", [&] { return KBD.KeyIsPressed(Commands::DOWN); });
-	AddAnimationTransition("RandomIdle", "CrouchTransition", [&] { return KBD.KeyIsPressed(Commands::DOWN); });
-	AddAnimationTransition("CrouchTransition", "CrouchIdle", [&] { return KBD.KeyIsPressed(Commands::DOWN) && (animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished()); });
-	AddAnimationTransition("CrouchIdle", "CrouchTransition", [&] { return !KBD.KeyIsPressed(Commands::DOWN); });
-	AddAnimationTransition("CrouchTransition", "Idle", [&] {return !KBD.KeyIsPressed(Commands::DOWN) && (animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished()); });
+	AddAnimationTransition("Idle", "CrouchTransition", [&] { return pController->IsDoingAction(FightingController::EAction::Down); });
+	AddAnimationTransition("RandomIdle", "CrouchTransition", [&] { return pController->IsDoingAction(FightingController::EAction::Down); });
+	AddAnimationTransition("CrouchTransition", "CrouchIdle", [&] { return pController->IsDoingAction(FightingController::EAction::Down) && (animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished()); });
+	AddAnimationTransition("CrouchIdle", "CrouchTransition", [&] { return !pController->IsDoingAction(FightingController::EAction::Down); });
+	AddAnimationTransition("CrouchTransition", "Idle", [&] {return !pController->IsDoingAction(FightingController::EAction::Down) && (animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished()); });
 
 	// Punch
-	AddAnimationTransition("Idle", "Punch", [&] { return KBD.KeyIsPressed(Commands::PUNCH); });
-	AddAnimationTransition("RandomIdle", "Punch", [&] { return KBD.KeyIsPressed(Commands::PUNCH); });
+	AddAnimationTransition("Idle", "Punch", [&] { return pController->IsDoingAction(FightingController::EAction::Punch); });
+	AddAnimationTransition("RandomIdle", "Punch", [&] { return pController->IsDoingAction(FightingController::EAction::Punch); });
 	AddAnimationTransition("Punch", "Idle", [&] { return animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished(); });
 
 	// Kick
-	AddAnimationTransition("Idle", "Kick", [&] { return KBD.KeyIsPressed(Commands::KICK); });
-	AddAnimationTransition("RandomIdle", "Kick", [&] { return KBD.KeyIsPressed(Commands::KICK); });
+	AddAnimationTransition("Idle", "Kick", [&] { return pController->IsDoingAction(FightingController::EAction::Kick); });
+	AddAnimationTransition("RandomIdle", "Kick", [&] { return pController->IsDoingAction(FightingController::EAction::Kick); });
 	AddAnimationTransition("Kick", "Idle", [&] { return animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished(); });
 
 	// Slash
-	AddAnimationTransition("Idle", "Slash", [&] { return KBD.KeyIsPressed(Commands::SLASH); });
-	AddAnimationTransition("RandomIdle", "Slash", [&] { return KBD.KeyIsPressed(Commands::SLASH); });
+	AddAnimationTransition("Idle", "Slash", [&] { return pController->IsDoingAction(FightingController::EAction::Slash); });
+	AddAnimationTransition("RandomIdle", "Slash", [&] { return pController->IsDoingAction(FightingController::EAction::Slash); });
 	AddAnimationTransition("Slash", "Idle", [&] { return animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished(); });
 
 	// HardSlash
-	AddAnimationTransition("Idle", "HardSlash", [&] { return KBD.KeyIsPressed(Commands::HARDSLASH); });
-	AddAnimationTransition("RandomIdle", "HardSlash", [&] { return KBD.KeyIsPressed(Commands::HARDSLASH); });
+	AddAnimationTransition("Idle", "HardSlash", [&] { return pController->IsDoingAction(FightingController::EAction::HardSlash); });
+	AddAnimationTransition("RandomIdle", "HardSlash", [&] { return pController->IsDoingAction(FightingController::EAction::HardSlash); });
 	AddAnimationTransition("HardSlash", "Idle", [&] { return animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished(); });
 
 	// Jump
-	AddAnimationTransition("Idle", "Jump", [&] { return KBD.KeyIsPressed(Commands::JUMP); });
-	AddAnimationTransition("RandomIdle", "Jump", [&] { return KBD.KeyIsPressed(Commands::JUMP); });
-	AddAnimationTransition("WalkingForward", "Jump", [&] { return KBD.KeyIsPressed(Commands::JUMP); });
-	AddAnimationTransition("WalkingBackward", "Jump", [&] { return KBD.KeyIsPressed(Commands::JUMP); });
+	AddAnimationTransition("Idle", "Jump", [&] { return pController->IsDoingAction(FightingController::EAction::Jump); });
+	AddAnimationTransition("RandomIdle", "Jump", [&] { return pController->IsDoingAction(FightingController::EAction::Jump); });
+	AddAnimationTransition("WalkingForward", "Jump", [&] { return pController->IsDoingAction(FightingController::EAction::Jump); });
+	AddAnimationTransition("WalkingBackward", "Jump", [&] { return pController->IsDoingAction(FightingController::EAction::Jump); });
 	AddAnimationTransition("Jump", "MaxJump", [&] {return animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished(); });
 	AddAnimationTransition("MaxJump", "Fall", [&] { return animSys.AnimationIsFinished() || collisionSys.AnimationIsFinished(); });
 
