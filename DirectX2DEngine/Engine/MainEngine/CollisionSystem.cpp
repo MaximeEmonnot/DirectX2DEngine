@@ -1,15 +1,13 @@
 #include "MainEngine/CollisionSystem.h"
 
 #include "GraphicsEngine/TextureFactory.h"
+#include "ParserEngine/JSONManager.h"
 #include "ParserEngine/JSONParser.h"
 
 CollisionSystem::CollisionSystem(Actor& owner, const std::string& filePath, const std::vector<std::string>& animations)
 {
-	JSONParser::Reader jsonParser;
-	jsonParser.ReadFile(filePath);
-
 	// From the JSON File, for each animation...
-	auto& jsonCollisions = jsonParser.GetValueOf("collisions");
+	auto& jsonCollisions = JSON(filePath).GetValueOf("collisions");
 	for (auto& anim : animations)
 	{
 		if (jsonCollisions.HasMember(anim.c_str()))
@@ -18,9 +16,9 @@ CollisionSystem::CollisionSystem(Actor& owner, const std::string& filePath, cons
 			CollisionGroup collision_group;
 			auto& jsonCollider = jsonCollisions[anim.c_str()];
 
-			const float hold_time = jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[1].GetFloat();
-			const Animation::AnimationMode loop_mode = static_cast<Animation::AnimationMode>(jsonParser.GetValueOf("animations")[anim.c_str()].GetArray()[2].GetInt());
-			const std::string animation_path = jsonParser.GetValueOf("character").GetString() + anim + std::string("/");
+			const float hold_time = JSON(filePath).GetValueOf("animations")[anim.c_str()].GetArray()[1].GetFloat();
+			const Animation::AnimationMode loop_mode = static_cast<Animation::AnimationMode>(JSON(filePath).GetValueOf("animations")[anim.c_str()].GetArray()[2].GetInt());
+			const std::string animation_path = JSON(filePath).GetValueOf("character").GetString() + anim + std::string("/");
 
 			//... and we setup the different colliders to the collision group
 			AddCollisionsToGroup(collision_group, owner, jsonCollider, "Head", Collider::CollisionChannel::Stun, hold_time, loop_mode, animation_path);

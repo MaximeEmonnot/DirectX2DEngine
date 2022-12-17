@@ -1,14 +1,12 @@
 #include "GraphicsEngine/AnimationSystem.h"
 
+#include "ParserEngine/JSONManager.h"
 #include "ParserEngine/JSONParser.h"
 
 AnimationSystem::AnimationSystem(const std::string& filePath)
 {
-	JSONParser::Reader jsonParser;
-	jsonParser.ReadFile(filePath);
-
-	const std::string character = jsonParser.GetValueOf("character").GetString();
-	auto& v = jsonParser.GetValueOf("animations");
+	const std::string character = JSON(filePath).GetValueOf("character").GetString();
+	auto& v = JSON(filePath).GetValueOf("animations");
 	for (auto itr = v.MemberBegin(); itr != v.MemberEnd(); ++itr)
 	{
 		const std::string anim_name = itr->name.GetString();

@@ -4,6 +4,7 @@
 #include "CoreEngine/Timer.h"
 #include "GraphicsEngine/AnimationTexture.h"
 #include "ParserEngine/JSONParser.h"
+#include "ParserEngine/JSONManager.h"
 #include "MainEngine/Engine.h"
 #include "GameEngine/Commands.h"
 
@@ -129,9 +130,7 @@ BaseFighter::BaseFighter(Actor& owner, const std::string jsonPath, std::shared_p
 	maxHealth(maxHealth),
 	currentHealth(maxHealth)
 {
-    JSONParser::Reader jsonParser;
-    jsonParser.ReadFile(jsonPath);
-    icon = jsonParser.GetValueOf("character").GetString() + std::string("icon.tga");
+    icon = JSON(jsonPath).GetValueOf("character").GetString() + std::string("icon.tga");
 }
 
 void BaseFighter::Update()
