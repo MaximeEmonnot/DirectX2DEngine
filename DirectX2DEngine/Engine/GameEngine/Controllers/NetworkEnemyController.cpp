@@ -12,7 +12,7 @@ NetworkEnemyController::NetworkEnemyController(Pawn& owner)
 {
 	THREAD.Enqueue([&]
 		{
-			while(WND.IsPlaying())
+			while(WND.IsPlaying() && NETWORK.IsOnline())
 			{
 				const std::vector<uint8_t> input = NETWORK.ReceiveData();
 				// Reading X-Y position from vector, we will reinterpret them as floating point values
@@ -21,6 +21,7 @@ NetworkEnemyController::NetworkEnemyController(Pawn& owner)
 					uint8_t position_y[4] = { input.at(4), input.at(5), input.at(6), input.at(7) };
 
 					lastPosition = FVec2D(*reinterpret_cast<float*>(&position_x), *reinterpret_cast<float*>(&position_y));
+					action = static_cast<EAction>(input.at(8));
 				}
 			}
 		});

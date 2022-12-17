@@ -16,7 +16,7 @@ void MultiPlayerCombatLevel::Update()
 	Level::Update();
 
 	// Send Data
-	SendPositionData(pPlayer->GetPosition());
+	SendPositionAndActionData(pPlayer->GetPosition(), std::dynamic_pointer_cast<FightingController>(pPlayer->GetController())->GetAction());
 
 	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))
 	{
@@ -26,7 +26,7 @@ void MultiPlayerCombatLevel::Update()
 		if (std::shared_ptr<VictoryLevel> new_level = std::dynamic_pointer_cast<VictoryLevel>(ENGINE.GetCurrentLevel()))
 		{
 			new_level->SetWinner(*(pPlayer->GetFighter()->IsAlive() ? pPlayer->GetFighter() : pEnemy->GetFighter()),
-				(pPlayer->GetFighter()->IsAlive() && NETWORK.GetPlace() == 1) ? 1 : 2);
+				(pPlayer->GetFighter()->IsAlive() && NETWORK.GetPlace() == 1) ? 1 : (pEnemy->GetFighter()->IsAlive() && NETWORK.GetPlace() == 2) ? 1 : 2);
 			new_level->BeginLevel();
 		}
 	}
@@ -70,7 +70,7 @@ void MultiPlayerCombatLevel::SetSelection(std::pair<int, int> _selection)
 	selection = _selection;
 }
 
-void MultiPlayerCombatLevel::SendPositionData(FVec2D position)
+void MultiPlayerCombatLevel::SendPositionAndActionData(FVec2D position, FightingController::EAction action)
 {
 	// We reinterpret the floating point values as uint8_t arrays of size 4
 	std::vector<uint8_t> output;
@@ -80,5 +80,6 @@ void MultiPlayerCombatLevel::SendPositionData(FVec2D position)
 		output.emplace_back(position_x[i]);
 	for (int i = 0; i < 4; i++)
 		output.emplace_back(position_y[i]);
+	output.emplace_back(static_cast<uint8_t>(action));
 	NETWORK.SendData(output);
 }

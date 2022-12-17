@@ -22,6 +22,7 @@ public:
 	void SetLookAtDirection(bool bValue);
 
 	bool IsDoingAction(const EAction& actionTest) const;
+	EAction GetAction() const;
 
 protected:
 	EAction action = EAction::None;

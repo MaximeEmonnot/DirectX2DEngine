@@ -45,10 +45,12 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 	// We receive our place in the server
 	std::vector<uint8_t> input = ReceiveData();
 	place = input.at(0);
+	bIsOnline = true;
 }
 
-void NetworkSystem::Disconnect() const
+void NetworkSystem::Disconnect()
 {
+	bIsOnline = false;
 	shutdown(sock, SD_BOTH);
 	closesocket(sock);
 }
@@ -92,4 +94,9 @@ std::vector<uint8_t> NetworkSystem::ReceiveData() const
 int NetworkSystem::GetPlace() const
 {
 	return place;
+}
+
+bool NetworkSystem::IsOnline() const
+{
+	return bIsOnline;
 }

@@ -35,17 +35,19 @@ public:
 	// Connects the Client to a distance Server.
 	void					ConnectTo(const std::string& ipAddress, int port);
 	// Disconnects the client's socket.
-	void					Disconnect() const;
+	void					Disconnect();
 
 	void					SendData(std::vector<uint8_t> data) const;
 	std::vector<uint8_t>	ReceiveData() const;
 
 	int						GetPlace() const;
+	bool					IsOnline() const;
 
 private:
 	static std::unique_ptr<NetworkSystem>	pInstance;
 
 	SOCKET									sock;
+	bool									bIsOnline = false;
 	int										place = 0;
 };
 
