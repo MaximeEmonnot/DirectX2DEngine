@@ -46,18 +46,18 @@ void UICanvas_MultiPlayerSelection::SelectFighter(int fighter_value) const
 		{
 		case 1: // If the client is the first one connected, we should wait for another client to send data
 		{
-			input = NETWORK.ReceiveData();
+			input = NETWORK.ReceiveDataTCP();
 			std::vector<uint8_t> output;
 			output.emplace_back(fighter_value);
-			NETWORK.SendData(output);
+			NETWORK.SendDataTCP(output);
 		}
 		break;
 		case 2: // If the client is the second one connected, we should send the data first
 		{
 			std::vector<uint8_t> output;
 			output.emplace_back(fighter_value);
-			NETWORK.SendData(output);
-			input = NETWORK.ReceiveData();
+			NETWORK.SendDataTCP(output);
+			input = NETWORK.ReceiveDataTCP();
 		}
 		break;
 		default:

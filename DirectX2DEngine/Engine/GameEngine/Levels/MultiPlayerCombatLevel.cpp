@@ -16,7 +16,7 @@ void MultiPlayerCombatLevel::Update()
 	Level::Update();
 
 	// Send Data
-	SendPositionAndActionData(pPlayer->GetPosition(), std::dynamic_pointer_cast<FightingController>(pPlayer->GetController())->GetAction());
+	SendData();
 
 	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))
 	{
@@ -70,16 +70,29 @@ void MultiPlayerCombatLevel::SetSelection(std::pair<int, int> _selection)
 	selection = _selection;
 }
 
-void MultiPlayerCombatLevel::SendPositionAndActionData(FVec2D position, FightingController::EAction action)
+void MultiPlayerCombatLevel::SendData()
 {
+	FVec2D playerPosition = pPlayer->GetPosition();
+	FVec2D enemyPosition = pEnemy->GetPosition();
+	FightingController::EAction playerAction = std::dynamic_pointer_cast<FightingController>(pPlayer->GetController())->GetAction();
+	FightingController::EAction enemyAction = std::dynamic_pointer_cast<FightingController>(pEnemy->GetController())->GetAction();
+
 	// We reinterpret the floating point values as uint8_t arrays of size 4
 	std::vector<uint8_t> output;
-	uint8_t* position_x = reinterpret_cast<uint8_t*>(&position.x);
-	uint8_t* position_y = reinterpret_cast<uint8_t*>(&position.y);
-	for (int i = 0; i < 4; i++)
-		output.emplace_back(position_x[i]);
-	for (int i = 0; i < 4; i++)
-		output.emplace_back(position_y[i]);
-	output.emplace_back(static_cast<uint8_t>(action));
-	NETWORK.SendData(output);
+	output.push_back(static_cast<uint8_t>(20)); // Size of package
+	output.push_back(static_cast<uint8_t>(NETWORK.GetPlace()));
+	// Player data
+	uint8_t* player_position_x = reinterpret_cast<uint8_t*>(&playerPosition.x);
+	uint8_t* player_position_y = reinterpret_cast<uint8_t*>(&playerPosition.y);
+	for (int i = 0; i < 4; i++) output.emplace_back(player_position_x[i]);
+	for (int i = 0; i < 4; i++) output.emplace_back(player_position_y[i]);
+	output.emplace_back(static_cast<uint8_t>(playerAction));
+	// Enemy data
+	uint8_t* enemy_position_x = reinterpret_cast<uint8_t*>(&enemyPosition.x);
+	uint8_t* enemy_position_y = reinterpret_cast<uint8_t*>(&enemyPosition.y);
+	for (int i = 0; i < 4; i++) output.emplace_back(enemy_position_x[i]);
+	for (int i = 0; i < 4; i++) output.emplace_back(enemy_position_y[i]);
+	output.emplace_back(static_cast<uint8_t>(enemyAction));
+
+	NETWORK.SendDataUDP(output);
 }

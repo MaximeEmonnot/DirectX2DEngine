@@ -1,6 +1,7 @@
 #pragma once
 
 #include <WinSock2.h>
+#include <WS2tcpip.h>
 #include <memory>
 #include <vector>
 
@@ -37,17 +38,26 @@ public:
 	// Disconnects the client's socket.
 	void					Disconnect();
 
-	void					SendData(std::vector<uint8_t> data) const;
-	std::vector<uint8_t>	ReceiveData() const;
+
+	void					SendDataUDP(std::vector<uint8_t> data);
+	std::vector<uint8_t>	ReceiveDataUDP();
+
+	void					SendDataTCP(std::vector<uint8_t> data) const;
+	std::vector<uint8_t>	ReceiveDataTCP() const;
 
 	int						GetPlace() const;
 	bool					IsOnline() const;
 
 private:
+	int ResolveAddress(const std::string& hostname, int family, const std::string& service, sockaddr_storage* pAddr);
+
+private:
 	static std::unique_ptr<NetworkSystem>	pInstance;
 
-	SOCKET									sock;
+	SOCKET									socketTCP;
+	SOCKET									socketUDP;
 	bool									bIsOnline = false;
 	int										place = 0;
+	sockaddr_storage						addrUDP = {};
 };
 

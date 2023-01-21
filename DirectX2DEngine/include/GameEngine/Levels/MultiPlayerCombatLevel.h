@@ -17,7 +17,7 @@ public:
     void            SetSelection(std::pair<int, int> _selection);
 
 private:
-    void            SendPositionAndActionData(FVec2D position, FightingController::EAction action);
+    void            SendData();
     
 private:
     std::shared_ptr<FighterCharacter<PlayerController>>         pPlayer;

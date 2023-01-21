@@ -1,7 +1,7 @@
 ﻿#include <iostream>
-#include "Server.h"
+#include "TCPServer.h"
 
-#include <signal.h>
+#include <csignal>
 
 void handler(int sig)
 {
@@ -13,7 +13,7 @@ int main()
     signal(SIGPIPE, handler);
 
     try {
-        Server server;
+        TCPServer server;
         while (true) server.Update();
     }
     catch(std::exception& e)

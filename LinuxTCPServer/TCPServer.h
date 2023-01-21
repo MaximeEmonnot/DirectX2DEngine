@@ -3,16 +3,22 @@
 #include <map>
 
 #include "TCPSocket.h"
+#include "UDPServer.h"
 
-class Server
+class TCPServer
 {
 public:
-	Server();
-	~Server();
+	TCPServer();
+	~TCPServer();
 
 	void Update();
 private:
 	TCPSocket server;
+
+	int port = 0;
+
+	std::map<UDPServer, int, UDPServer::ComparisonServer> sessions;
+
 	std::vector<TCPSocket> clients;
 	fd_set sockets;
 	unsigned long mMaxClients;

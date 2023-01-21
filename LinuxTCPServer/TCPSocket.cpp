@@ -33,7 +33,7 @@ void TCPSocket::InitServer(int port)
 	sockaddr_in server_address = {};
 	server_address.sin_family = AF_INET;
 	server_address.sin_addr.s_addr = INADDR_ANY;
-	server_address.sin_port = htons(port);
+	server_address.sin_port = htons(static_cast<uint16_t>(port));
 	bind(mSocketDescriptor, reinterpret_cast<sockaddr*>(&server_address), sizeof(server_address));
 	listen(mSocketDescriptor, SOMAXCONN);
 }
