@@ -7,6 +7,8 @@
 
 #pragma comment(lib, "Ws2_32.lib")
 
+#include <mutex>
+
 #include "DebugEngine/EngineException.h"
 
 #define NETWORK NetworkSystem::GetInstance()
@@ -49,15 +51,12 @@ public:
 	bool					IsOnline() const;
 
 private:
-	int ResolveAddress(const std::string& hostname, int family, const std::string& service, sockaddr_storage* pAddr);
-
-private:
 	static std::unique_ptr<NetworkSystem>	pInstance;
 
 	SOCKET									socketTCP;
 	SOCKET									socketUDP;
 	bool									bIsOnline = false;
 	int										place = 0;
-	sockaddr_storage						addrUDP = {};
+	sockaddr_in								addrUDP = {};
 };
 

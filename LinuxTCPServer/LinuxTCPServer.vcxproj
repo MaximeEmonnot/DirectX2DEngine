@@ -88,23 +88,25 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="TCPServer.cpp" />
     <ClCompile Include="TCPSocket.cpp" />
+    <ClCompile Include="ThreadPool.cpp" />
     <ClCompile Include="UDPServer.cpp" />
     <ClCompile Include="UDPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="TCPServer.h" />
     <ClInclude Include="TCPSocket.h" />
+    <ClInclude Include="ThreadPool.h" />
     <ClInclude Include="UDPServer.h" />
     <ClInclude Include="UDPSocket.h" />
   </ItemGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <CppLanguageStandard>c++17</CppLanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <CppLanguageStandard>c++11</CppLanguageStandard>
+      <CppLanguageStandard>c++17</CppLanguageStandard>
     </ClCompile>
   </ItemDefinitionGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

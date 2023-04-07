@@ -19,6 +19,9 @@ void UDPServer::Update()
 {
 	sockaddr_in client = {};
 	std::vector<uint8_t> data = server.ReceiveDataFrom(client);
+
+	if (!data.empty()) std::cout << data.size() << std::endl;
+
 	if (!data.empty() && data.at(0) == 20)
 		clientsData.insert(std::pair<sockaddr_in, std::vector<uint8_t>>(client, data));
 

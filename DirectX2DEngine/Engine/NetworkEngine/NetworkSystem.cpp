@@ -50,9 +50,13 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 	std::vector<uint8_t> input = ReceiveDataTCP();
 	place = input.at(0);
 	bIsOnline = true;
-	const int portUDP = input.at(1);
-	if (ResolveAddress(ip_address, AF_INET, std::to_string(port), &addrUDP) != 0)
-		throw NETWORK_EXCEPTION("An exception has been caught during UDP Server Address Resolution", -1);
+
+	uint8_t portUDP_array[4] = { input.at(1), input.at(2), input.at(3), input.at(4) };
+
+	const int portUDP = *reinterpret_cast<int*>(portUDP_array);
+	addrUDP.sin_family = AF_INET;
+	addrUDP.sin_port = htons(portUDP);
+	addrUDP.sin_addr.S_un.S_addr = inet_addr(ip_address.c_str());
 }
 
 void NetworkSystem::Disconnect()
@@ -66,18 +70,20 @@ void NetworkSystem::Disconnect()
 
 void NetworkSystem::SendDataUDP(std::vector<uint8_t> data)
 {
-	sendto(socketUDP, reinterpret_cast<const char*>(data.data()), static_cast<int>(data.size()), 0, reinterpret_cast<sockaddr*>(&addrUDP), sizeof(addrUDP));
+	if (sendto(socketUDP, reinterpret_cast<const char*>(data.data()), static_cast<int>(data.size()), 0, reinterpret_cast<sockaddr*>(&addrUDP), sizeof(addrUDP)) == SOCKET_ERROR)
+		throw NETWORK_EXCEPTION("An exception has been caught during UDP Data send.", WSAGetLastError());
 }
 
 std::vector<uint8_t> NetworkSystem::ReceiveDataUDP()
 {
 	std::vector<uint8_t> out;
 
-	uint8_t* buffer = new uint8_t[1024];
+	char* buffer = new char[1024];
 	int addr_size = sizeof(addrUDP);
-	recvfrom(socketUDP, reinterpret_cast<char*>(buffer), 1024, 0, reinterpret_cast<sockaddr*>(&addrUDP), &addr_size);
+	if (recvfrom(socketUDP, buffer, 1024, 0, reinterpret_cast<sockaddr*>(&addrUDP), &addr_size) == SOCKET_ERROR)
+		throw NETWORK_EXCEPTION("An exception has been caught during UDP Data receive.", WSAGetLastError());
 
-	for (int i = 0; i < buffer[0]; i++) out.push_back(buffer[i]);
+	for (int i = 0; i < buffer[0]; i++) out.push_back(static_cast<uint8_t>(buffer[i]));
 
 	return out;
 }
@@ -126,22 +132,4 @@ int NetworkSystem::GetPlace() const
 bool NetworkSystem::IsOnline() const
 {
 	return bIsOnline;
-}
-
-int NetworkSystem::ResolveAddress(const std::string& hostname, int family, const std::string& service,
-	sockaddr_storage* pAddr)
-{
-	int result;
-	addrinfo* result_list = nullptr;
-	addrinfo hints = { };
-	hints.ai_family = family;
-	hints.ai_socktype = SOCK_DGRAM;
-	result = getaddrinfo(hostname.c_str(), service.c_str(), &hints, &result_list);
-	if (result == 0)
-	{
-		memcpy(pAddr, result_list->ai_addr, result_list->ai_addrlen);
-		freeaddrinfo(result_list);
-	}
-
-	return result;
 }
