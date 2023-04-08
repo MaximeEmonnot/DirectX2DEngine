@@ -17,6 +17,8 @@ UDPServer::~UDPServer()
 
 void UDPServer::Update()
 {
+	std::cout << "UDP Update" << std::endl;
+
 	sockaddr_in client = {};
 	std::vector<uint8_t> data = server.ReceiveDataFrom(client);
 
@@ -30,7 +32,7 @@ void UDPServer::Update()
 	{
 		std::vector<uint8_t> clientData;
 		clientData.push_back(static_cast<uint8_t>(11));
-		for (int i = 1; i < 10; i++) clientData.push_back(entry.second.at(i));
+		for (int i = 1; i <= 10; i++) clientData.push_back(entry.second.at(i));
 
 		dataToSend.insert(clientData);
 	}

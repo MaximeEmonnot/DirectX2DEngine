@@ -2,6 +2,7 @@
 
 #include "MainEngine/Level.h"
 #include "GameEngine/Actors/FighterCharacter.h"
+#include "GameEngine/Controllers/DummyController.h"
 #include "GameEngine/Controllers/PlayerController.h"
 #include "GameEngine/Controllers/NetworkEnemyController.h"
 

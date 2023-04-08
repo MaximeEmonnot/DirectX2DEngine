@@ -4,6 +4,7 @@
 #include "NetworkEngine/NetworkSystem.h"
 #include "GameEngine/Actors/Background.h"
 #include "GameEngine/Actors/FighterCharacter.h"
+#include "GameEngine/Controllers/DummyController.h"
 #include "GameEngine/Controllers/NetworkEnemyController.h"
 #include "GameEngine/Controllers/PlayerController.h"
 #include "GameEngine/Levels/VictoryLevel.h"
@@ -13,10 +14,10 @@
 
 void MultiPlayerCombatLevel::Update()
 {
-	Level::Update();
-
 	// Send Data
 	SendData();
+
+	Level::Update();
 
 	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))
 	{
