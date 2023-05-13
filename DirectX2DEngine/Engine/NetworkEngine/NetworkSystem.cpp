@@ -57,6 +57,12 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 	addrUDP.sin_family = AF_INET;
 	addrUDP.sin_port = htons(portUDP);
 	addrUDP.sin_addr.S_un.S_addr = inet_addr(ip_address.c_str());
+
+	//if (place == 2) {
+		const int timeOut = 500;
+		if (setsockopt(socketUDP, SOL_SOCKET, SO_RCVTIMEO, reinterpret_cast<const char*>(&timeOut), sizeof(timeOut)) < 0)
+			throw NETWORK_EXCEPTION("An exception has been caught during UDP Timeout definition.", WSAGetLastError());
+	//}
 }
 
 void NetworkSystem::Disconnect()
@@ -70,8 +76,11 @@ void NetworkSystem::Disconnect()
 
 void NetworkSystem::SendDataUDP(std::vector<uint8_t> data)
 {
+	if (place == 1) LOG("Send UDP ! ", LOG_CONSOLE)
+	else LOG("Send UDP !", LOG_ERROR)
+
 	if (sendto(socketUDP, reinterpret_cast<const char*>(data.data()), static_cast<int>(data.size()), 0, reinterpret_cast<sockaddr*>(&addrUDP), sizeof(addrUDP)) == SOCKET_ERROR)
-		throw NETWORK_EXCEPTION("An exception has been caught during UDP Data send.", WSAGetLastError());
+		LOG(std::string("An exception has been caught during UDP Data send.") + std::to_string(WSAGetLastError()), LOG_ERROR)
 }
 
 std::vector<uint8_t> NetworkSystem::ReceiveDataUDP()
@@ -81,8 +90,7 @@ std::vector<uint8_t> NetworkSystem::ReceiveDataUDP()
 	char* buffer = new char[1024];
 	int addr_size = sizeof(addrUDP);
 	if (recvfrom(socketUDP, buffer, 1024, 0, reinterpret_cast<sockaddr*>(&addrUDP), &addr_size) == SOCKET_ERROR)
-		throw NETWORK_EXCEPTION("An exception has been caught during UDP Data receive.", WSAGetLastError());
-
+		LOG(std::string("An exception has been caught during UDP Data receive.") + std::to_string(WSAGetLastError()), LOG_ERROR)
 	for (int i = 0; i < buffer[0]; i++) out.push_back(static_cast<uint8_t>(buffer[i]));
 
 	return out;

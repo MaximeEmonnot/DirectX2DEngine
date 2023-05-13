@@ -8,6 +8,7 @@
 #include <wrl.h>
 #include <string>
 #include <map>
+#include <memory>
 
 #include "MathEngine/Rect.h"
 

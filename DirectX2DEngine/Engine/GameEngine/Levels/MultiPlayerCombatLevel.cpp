@@ -1,5 +1,6 @@
 #include "GameEngine/Levels/MultiPlayerCombatLevel.h"
 
+#include "DebugEngine/LoggerManager.h"
 #include "SoundEngine/SoundSystem.h"
 #include "NetworkEngine/NetworkSystem.h"
 #include "GameEngine/Actors/Background.h"
@@ -18,6 +19,15 @@ void MultiPlayerCombatLevel::Update()
 	SendData();
 
 	Level::Update();
+	if (NETWORK.GetPlace() == 1) {
+		LOG(std::string("Player position : ") + pPlayer->GetPosition().ToString() + std::string("\n"), LOG_DEBUG)
+		LOG(std::string("Enemy position : ") + pEnemy->GetPosition().ToString() + std::string("\n"), LOG_DEBUG)
+	}
+	else if (NETWORK.GetPlace() == 2)
+	{
+		LOG(std::string("Player position : ") + pPlayer->GetPosition().ToString() + std::string("\n"), LOG_CONSOLE)
+		LOG(std::string("Enemy position : ") + pEnemy->GetPosition().ToString() + std::string("\n"), LOG_CONSOLE)
+	}
 
 	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))
 	{

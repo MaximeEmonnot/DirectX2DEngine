@@ -140,7 +140,7 @@ void SolBadguy::IdleToRandomIdleConditionUpdate()
 {
 	if (animSys.AnimationIsFinished()) {
 		std::mt19937 rng(std::random_device{}());
-		const std::uniform_int_distribution<int> dist(0, 500);
+		std::uniform_int_distribution<int> dist(0, 500);
 		bIdleToRandomIdle = dist(rng) == 400;
 	}
 	else bIdleToRandomIdle = false;
