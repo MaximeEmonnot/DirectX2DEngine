@@ -17,30 +17,14 @@ UDPServer::~UDPServer()
 
 void UDPServer::Update()
 {
-	std::cout << "UDP Update" << std::endl;
-
 	sockaddr_in client = {};
-	std::vector<uint8_t> data = server.ReceiveDataFrom(client);
+	char* data = server.ReceiveDataFrom(client);
 
-	if (!data.empty()) std::cout << data.size() << std::endl;
-
-	if (!data.empty() && data.at(0) == 20)
-		clientsData.insert(std::pair<sockaddr_in, std::vector<uint8_t>>(client, data));
-
-	std::set<std::vector<uint8_t>> dataToSend;
-	for (auto& entry : clientsData)
-	{
-		std::vector<uint8_t> clientData;
-		clientData.push_back(static_cast<uint8_t>(11));
-		for (int i = 1; i <= 10; i++) clientData.push_back(entry.second.at(i));
-
-		dataToSend.insert(clientData);
-		std::cout << "Data recieved from : " << clientData.at(1) << std::endl;
+	if (data && data[0] == 20) {
+		clients.emplace(static_cast<int>(data[1]), client);
+		for (auto& entry : clients)
+			server.SendDataTo(data, entry.second);
 	}
-
-	for (std::pair<sockaddr_in, std::vector<uint8_t>> entry : clientsData)
-		for (auto& data : dataToSend)
-			server.SendDataTo(data, entry.first);
 }
 
 int UDPServer::GetPort() const

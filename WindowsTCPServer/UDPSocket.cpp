@@ -52,23 +52,19 @@ int UDPSocket::GetPort() const
 	return port;
 }
 
-void UDPSocket::SendDataTo(std::vector<uint8_t> data, sockaddr_in& dest) const
+void UDPSocket::SendDataTo(char* data, sockaddr_in& dest) const
 {
-	if (sendto(mSocketDescriptor, reinterpret_cast<const char*>(data.data()), static_cast<int>(data.size()), 0, reinterpret_cast<sockaddr*>(&dest), sizeof(dest)) == SOCKET_ERROR)
+	if (sendto(mSocketDescriptor, data, 20, 0, reinterpret_cast<sockaddr*>(&dest), sizeof(dest)) == SOCKET_ERROR)
 		std::cout << "An exception has been caught during UDP Data send : " << WSAGetLastError() << std::endl;
 
 }
 
-std::vector<uint8_t> UDPSocket::ReceiveDataFrom(sockaddr_in& source) const
+char* UDPSocket::ReceiveDataFrom(sockaddr_in& source) const
 {
-	std::vector<uint8_t> out;
-
-	char* buffer = new char[1024];
+	char* buffer = new char[32];
 	int addr_size = sizeof(source);
-	if (recvfrom(mSocketDescriptor, buffer, 1024, 0, reinterpret_cast<sockaddr*>(&source), &addr_size) == SOCKET_ERROR)
+	if (recvfrom(mSocketDescriptor, buffer, 32, 0, reinterpret_cast<sockaddr*>(&source), &addr_size) == SOCKET_ERROR)
 		std::cout << "An exception has been caught during UDP Data receive : " << WSAGetLastError() << std::endl;
 
-	for (int i = 0; i < buffer[0]; i++) out.push_back(static_cast<uint8_t>(buffer[i]));
-
-	return out;
+	return buffer;
 }

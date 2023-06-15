@@ -18,8 +18,8 @@ public:
 
 	int GetPort() const;
 
-	void SendDataTo(std::vector<uint8_t> data, sockaddr_in& dest) const;
-	std::vector<uint8_t> ReceiveDataFrom(sockaddr_in& source) const;
+	void SendDataTo(char* data, sockaddr_in& dest) const;
+	char* ReceiveDataFrom(sockaddr_in& source) const;
 
 private:
 	int mSocketDescriptor = -1;

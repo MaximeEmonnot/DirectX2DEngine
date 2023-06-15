@@ -16,17 +16,15 @@
 void MultiPlayerCombatLevel::Update()
 {
 	// Send Data
-	SendData();
-
-	Level::Update();
-	if (NETWORK.GetPlace() == 1) {
-		LOG(std::string("Player position : ") + pPlayer->GetPosition().ToString() + std::string("\n"), LOG_DEBUG)
-		LOG(std::string("Enemy position : ") + pEnemy->GetPosition().ToString() + std::string("\n"), LOG_DEBUG)
-	}
-	else if (NETWORK.GetPlace() == 2)
+	if (NETWORK.GetPlace() == 1)
 	{
-		LOG(std::string("Player position : ") + pPlayer->GetPosition().ToString() + std::string("\n"), LOG_CONSOLE)
-		LOG(std::string("Enemy position : ") + pEnemy->GetPosition().ToString() + std::string("\n"), LOG_CONSOLE)
+		Level::Update();
+		SendData();
+	}
+	else
+	{
+		SendData();
+		Level::Update();
 	}
 
 	if (!(pPlayer->GetFighter()->IsAlive() && pEnemy->GetFighter()->IsAlive()))

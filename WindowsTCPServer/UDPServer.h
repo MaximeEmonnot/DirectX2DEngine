@@ -1,5 +1,6 @@
 #pragma once
 #include <map>
+#include <set>
 
 #include "UDPSocket.h"
 
@@ -37,6 +38,6 @@ public:
 private:
 	UDPSocket server;
 
-	std::map<sockaddr_in, std::vector<uint8_t>, ComparisonClient> clientsData;
+	std::map<uint8_t, sockaddr_in> clients;
 };
 
