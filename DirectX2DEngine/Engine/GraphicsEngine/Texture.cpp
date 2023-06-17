@@ -37,8 +37,8 @@ Texture::Texture(const std::string& filepath)
 
 	srv_desc.Format = tex_desc.Format;
 	srv_desc.ViewDimension = D3D11_SRV_DIMENSION_TEXTURE2D;
-	srv_desc.Texture2D.MostDetailedMip = 0;
-	srv_desc.Texture2D.MipLevels = -1;
+	srv_desc.Texture2D.MostDetailedMip = static_cast<UINT>(0);
+	srv_desc.Texture2D.MipLevels = static_cast<UINT>(-1);
 
 	if (FAILED(hr = GFX.GetDevice()->CreateShaderResourceView(pTexture.Get(), &srv_desc, pTextureView.GetAddressOf())))
 		throw GFX_EXCEPTION("An exception has been caught during Texture Object Shader Resource View Creation.", hr);
@@ -80,7 +80,7 @@ unsigned char* Texture::LoadTGA(const std::string& filepath)
 	fopen_s(&pFile, filepath.c_str(), "rb");
 
 	// First we read the TGA header...
-	unsigned int count = static_cast<unsigned int>(fread(&tgaFileHeader, sizeof(TGAHeader), 1, pFile));
+	static_cast<unsigned int>(fread(&tgaFileHeader, sizeof(TGAHeader), 1, pFile));
 
 	width = static_cast<int>(tgaFileHeader.width);
 	height = static_cast<int>(tgaFileHeader.height);

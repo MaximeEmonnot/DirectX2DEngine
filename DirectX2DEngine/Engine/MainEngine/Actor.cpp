@@ -18,12 +18,10 @@ Actor& Actor::operator=(const Actor& toCopy)
 }
 
 void Actor::Update()
-{
-}
+{}
 
-void Actor::ApplyDamage(const Actor& damageCauser, int damage)
-{
-}
+void Actor::ApplyDamage(const Actor&, int)
+{}
 
 FVec2D Actor::GetPosition() const
 {

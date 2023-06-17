@@ -1,8 +1,8 @@
-#include <iostream>
-
-#include "TCPServer.h"
-
 #pragma comment(lib, "Ws2_32.lib")
+
+import <iostream>;
+
+import TCPServer;
 
 int main()
 {

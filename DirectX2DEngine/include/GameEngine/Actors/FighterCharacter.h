@@ -45,7 +45,7 @@ public:
         pFighter->Update();
     }
 
-    virtual void ApplyDamage(const Actor& damageCauser, int damage) override
+    virtual void ApplyDamage(const Actor&, int damage) override
     {
         pFighter->ApplyDamage(damage);
     }

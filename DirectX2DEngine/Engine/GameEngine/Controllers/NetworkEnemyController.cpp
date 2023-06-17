@@ -1,6 +1,7 @@
 #include "GameEngine/Controllers/NetworkEnemyController.h"
 
 #include "CoreEngine/ThreadPool.h"
+#include "CoreEngine/Timer.h"
 #include "CoreEngine/Window.h"
 #include "NetworkEngine/NetworkSystem.h"
 #include "MainEngine/Pawn.h"
@@ -16,7 +17,8 @@ void NetworkEnemyController::Update()
 {
 	if (WND.IsPlaying() && NETWORK.IsOnline())
 	{
-		const std::vector<uint8_t> input = NETWORK.ReceiveDataUDP();
+		std::vector<uint8_t> input;
+		TIMER.MeasureExecution([&] { input = NETWORK.ReceiveDataUDP(); });
 		// Reading X-Y position from vector, we will reinterpret them as floating point values
 		if (!input.empty() && input.at(1) != NETWORK.GetPlace()) {
 			uint8_t position_x[4] = { input.at(2), input.at(3), input.at(4), input.at(5) };

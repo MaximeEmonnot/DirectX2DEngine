@@ -49,7 +49,7 @@ private:
 protected:
 	IXAudio2SourceVoice*	pSourceVoice;
 	WAVEFORMATEXTENSIBLE	wfx = { 0 };
-	XAUDIO2_BUFFER			buffer = { 0 };
+	XAUDIO2_BUFFER			audioBuffer = { 0 };
 	Type					soundType = Type::NONE;
 };
 

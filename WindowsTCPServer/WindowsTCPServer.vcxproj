@@ -112,12 +112,13 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <WarningLevel>Level3</WarningLevel>
+      <WarningLevel>Level4</WarningLevel>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <LanguageStandard>stdcpp20</LanguageStandard>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -128,18 +129,12 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Main.cpp" />
-    <ClCompile Include="TCPServer.cpp" />
-    <ClCompile Include="TCPSocket.cpp" />
-    <ClCompile Include="ThreadPool.cpp" />
-    <ClCompile Include="UDPServer.cpp" />
-    <ClCompile Include="UDPSocket.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClInclude Include="TCPServer.h" />
-    <ClInclude Include="TCPSocket.h" />
-    <ClInclude Include="ThreadPool.h" />
-    <ClInclude Include="UDPServer.h" />
-    <ClInclude Include="UDPSocket.h" />
+    <ClCompile Include="TCPServer.ixx" />
+    <ClCompile Include="TCPSocket.ixx" />
+    <ClCompile Include="ThreadPool.ixx" />
+    <ClCompile Include="Timer.ixx" />
+    <ClCompile Include="UDPServer.ixx" />
+    <ClCompile Include="UDPSocket.ixx" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

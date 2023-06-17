@@ -10,7 +10,7 @@
 UITextBox::UITextBox(const FRect& position, const DirectX::XMFLOAT4& outlineColor, const std::wstring& font, const std::wstring& defaultText)
 	:
 	AUIElement(position),
-	pOutlineModel(std::make_shared<ColorModel>(FRect(position.pos, position.width + 5, position.height + 5), DirectX::XMFLOAT4(1.f, 1.f, 1.f, 1.f))),
+	pOutlineModel(std::make_shared<ColorModel>(FRect(position.pos, position.width + 5, position.height + 5), outlineColor)),
 	pBoxModel(std::make_shared<ColorModel>(position, DirectX::XMFLOAT4(0.f, 0.f, 0.f, 1.f))),
 	font(font),
 	defaultText(defaultText),

@@ -40,7 +40,7 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 	// Connection to the distant server
 	SOCKADDR_IN addr_in;
 	addr_in.sin_addr.S_un.S_addr = inet_addr(ip_address.c_str());
-	addr_in.sin_port = htons(port);
+	addr_in.sin_port = htons(static_cast<u_short>(port));
 	addr_in.sin_family = AF_INET;
 
 	if (connect(socketTCP, reinterpret_cast<sockaddr*>(&addr_in), sizeof(addr_in)) == SOCKET_ERROR)
@@ -55,7 +55,7 @@ void NetworkSystem::ConnectTo(const std::string& ip_address, int port)
 
 	const int portUDP = *reinterpret_cast<int*>(portUDP_array);
 	addrUDP.sin_family = AF_INET;
-	addrUDP.sin_port = htons(portUDP);
+	addrUDP.sin_port = htons(static_cast<u_short>(portUDP));
 	addrUDP.sin_addr.S_un.S_addr = inet_addr(ip_address.c_str());
 
 	//if (place == 2) {
@@ -76,9 +76,6 @@ void NetworkSystem::Disconnect()
 
 void NetworkSystem::SendDataUDP(std::vector<uint8_t> data)
 {
-	if (place == 1) LOG("Send UDP ! ", LOG_CONSOLE)
-	else LOG("Send UDP !", LOG_ERROR)
-
 	if (sendto(socketUDP, reinterpret_cast<const char*>(data.data()), static_cast<int>(data.size()), 0, reinterpret_cast<sockaddr*>(&addrUDP), sizeof(addrUDP)) == SOCKET_ERROR)
 		LOG(std::string("An exception has been caught during UDP Data send.") + std::to_string(WSAGetLastError()), LOG_ERROR)
 }
@@ -86,7 +83,6 @@ void NetworkSystem::SendDataUDP(std::vector<uint8_t> data)
 std::vector<uint8_t> NetworkSystem::ReceiveDataUDP()
 {
 	std::vector<uint8_t> out;
-
 	char* buffer = new char[1024];
 	int addr_size = sizeof(addrUDP);
 	if (recvfrom(socketUDP, buffer, 1024, 0, reinterpret_cast<sockaddr*>(&addrUDP), &addr_size) == SOCKET_ERROR)
@@ -105,7 +101,7 @@ void NetworkSystem::SendDataTCP(std::vector<uint8_t> data) const
 	data.insert(data.begin(), size_vector.begin(), size_vector.end());
 
 	// Then we send it all at once
-	if (send(socketTCP, reinterpret_cast<char*>(data.data()), data.size(), 0) == SOCKET_ERROR) 
+	if (send(socketTCP, reinterpret_cast<char*>(data.data()), static_cast<int>(data.size()), 0) == SOCKET_ERROR) 
 		LOG(std::string("Error while sending message!\nMore infos : ") + std::to_string(WSAGetLastError()), LOG_ERROR)
 }
 

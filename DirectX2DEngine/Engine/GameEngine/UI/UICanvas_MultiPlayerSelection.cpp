@@ -48,14 +48,14 @@ void UICanvas_MultiPlayerSelection::SelectFighter(int fighter_value) const
 		{
 			input = NETWORK.ReceiveDataTCP();
 			std::vector<uint8_t> output;
-			output.emplace_back(fighter_value);
+			output.emplace_back(static_cast<uint8_t>(fighter_value));
 			NETWORK.SendDataTCP(output);
 		}
 		break;
 		case 2: // If the client is the second one connected, we should send the data first
 		{
 			std::vector<uint8_t> output;
-			output.emplace_back(fighter_value);
+			output.emplace_back(static_cast<uint8_t>(fighter_value));
 			NETWORK.SendDataTCP(output);
 			input = NETWORK.ReceiveDataTCP();
 		}

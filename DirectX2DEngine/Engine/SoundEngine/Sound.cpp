@@ -54,11 +54,11 @@ Sound::Sound(const std::string& path, Type soundType)
 
 	// Finally, we populated a XAUDIO2_BUFFER structure, and define whether we loop the song or not
 
-	buffer.AudioBytes = dwChunkSize;
-	buffer.pAudioData = pDataBuffer;
-	buffer.Flags = XAUDIO2_END_OF_STREAM;
+	audioBuffer.AudioBytes = dwChunkSize;
+	audioBuffer.pAudioData = pDataBuffer;
+	audioBuffer.Flags = XAUDIO2_END_OF_STREAM;
 	if (soundType == Sound::Type::MUSIC)
-		buffer.LoopCount = XAUDIO2_LOOP_INFINITE;
+		audioBuffer.LoopCount = XAUDIO2_LOOP_INFINITE;
 }
 
 void Sound::SetVoice(IXAudio2* pAudio)
@@ -66,7 +66,7 @@ void Sound::SetVoice(IXAudio2* pAudio)
 	HRESULT hr = S_OK;
 	if (FAILED(hr = pAudio->CreateSourceVoice(&pSourceVoice, reinterpret_cast<WAVEFORMATEX*>(&wfx))))
 		throw SFX_EXCEPTION("An exception has been caught during Source Voice Creation.", hr);
-	if (FAILED(hr = pSourceVoice->SubmitSourceBuffer(&buffer)))
+	if (FAILED(hr = pSourceVoice->SubmitSourceBuffer(&audioBuffer)))
 		throw SFX_EXCEPTION("An error exception has been caught during Source Buffer Submission.", hr);
 }
 
